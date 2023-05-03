@@ -1,0 +1,62 @@
+<%= form_with(model: produit) do |form| %>
+  <% if produit.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(produit.errors.count, "error") %> prohibited this produit from being saved:</h2>
+
+      <ul>
+        <% produit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nom, style: "display: block" %>
+    <%= form.text_field :nom %>
+  </div>
+
+  <div>
+    <%= form.label :type, style: "display: block" %>
+    <%= form.text_field :type_produit %>
+  </div>
+
+  <div>
+    <%= form.label :longueur, style: "display: block" %>
+    <%= form.text_field :longueur %>
+  </div>
+
+  <div>
+    <%= form.label :largeur, style: "display: block" %>
+    <%= form.text_field :largeur %>
+  </div>
+
+  <div>
+    <%= form.label :marque, style: "display: block" %>
+    <%= form.text_field :marque %>
+  </div>
+
+  <div>
+    <%= form.label :model, style: "display: block" %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div>
+    <%= form.label :prixjour, style: "display: block" %>
+    <%= form.number_field :prixjour %>
+  </div>
+
+  <div>
+    <%= form.label :prixsemaine, style: "display: block" %>
+    <%= form.number_field :prixsemaine %>
+  </div>
+
+  <div>
+    <%= form.label :bailleur_id, style: "display: block" %>
+    <%= form.text_field :bailleur_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

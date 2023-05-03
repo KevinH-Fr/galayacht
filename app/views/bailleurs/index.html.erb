@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Bailleurs</h1>
+
+<div id="bailleurs">
+  <% @bailleurs.each do |bailleur| %>
+    <%= render bailleur %>
+    <p>
+      <%= link_to "Show this bailleur", bailleur %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bailleur", new_bailleur_path %>

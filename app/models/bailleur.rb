@@ -1,0 +1,2 @@
+class Bailleur < ApplicationRecord
+end

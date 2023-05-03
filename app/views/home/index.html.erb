@@ -1,2 +1,17 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%# landing page avant log ou choix preneur bailleur %>
+
+<div class="container">
+    
+    <%= link_to espace_preneur_index_path, class: "no-underline" do%>
+        <div class="bloc">
+            je loue un bateau
+        </div>
+    <% end %>
+    
+    <%= link_to espace_bailleur_index_path, class: "no-underline" do %>
+        <div class="bloc">
+            je propose mon bateau
+        </div>
+    <% end %>    
+
+</div>

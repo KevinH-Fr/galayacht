@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Preneurs</h1>
+
+<div id="preneurs">
+  <% @preneurs.each do |preneur| %>
+    <%= render preneur %>
+    <p>
+      <%= link_to "Show this preneur", preneur %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New preneur", new_preneur_path %>

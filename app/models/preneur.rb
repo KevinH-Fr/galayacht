@@ -1,0 +1,2 @@
+class Preneur < ApplicationRecord
+end
