@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :destinations
   get 'espace_bailleur/index'
   get 'espace_preneur/index'
   resources :produits

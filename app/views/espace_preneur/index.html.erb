@@ -1,15 +1,22 @@
 
-<h1> Je loue un bateau</h1>
+<h1 class="text-center"> Je loue un bateau</h1>
 
-<div class="container">
-<h2> Bateaux disponibles </h2>
+<h2 class="m-4"> Bateaux </h2>
 
+<div class="container-bateau">
     <% @produits.each do |produit| %>
-
-        <div class="bloc">
+        <div class="bloc-bateau">
             <%= produit.nom %>
         </div>
-
     <% end %>
-    
+</div>
+
+<h2 class="m-4"> Destinations </h2>
+
+<div class="container-bateau">
+    <% @destinations.each do |destination| %>
+        <div class="bloc-bateau">
+            <%= destination.nom %>
+        </div>
+    <% end %>
 </div>

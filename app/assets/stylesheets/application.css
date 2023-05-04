@@ -18,6 +18,13 @@
     background-color: #05124d;   
  }
 
+ .footer{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+ }
+
  .brand{
     font-size: x-large;
  }
@@ -31,7 +38,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 90vh; 
+    height: 84vh; 
   }
   
   .bloc {
@@ -45,14 +52,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-radius: 50px;
     background: #e0e0e0;
     box-shadow:  20px 20px 60px #bebebe,
                 -20px -20px 60px #b1abc5;
   }
 
+.container-bateau{
+   overflow: auto;
+   white-space: nowrap;
+}
 
+.bloc-bateau{
+   display: inline-block;
+   color: white;
+   text-align: center;
+   padding: 6px;
+   text-decoration: none;
+   width: 280px;
+   height: 200px;
+   color: #05124d;
+   font-size: 2rem;
+   font-weight: bold;
+   text-align: center;
+   margin: 10px;
+   border-radius: 50px;
+   background: #e0e0e0;
 
-  
+}
+
+.bloc-bateau:hover{
+   background-color: #777;
+ }
   
