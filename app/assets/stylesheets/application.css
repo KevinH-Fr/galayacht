@@ -18,12 +18,14 @@
     background-color: #05124d;   
  }
 
- .footer{
+ .footer {
    display: flex;
-   justify-content: center;
-   flex-direction: column;
+   justify-content: space-between;
    align-items: center;
+   margin: 5px;
+   padding: 5px;
  }
+ 
 
  .brand{
     font-size: x-large;
@@ -42,20 +44,20 @@
   }
   
   .bloc {
-    width: 300px;
-    height: 260px;
+    width: 90%;
+    height: 300px;
     color: #05124d;
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    margin: 40px;
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
     background: #e0e0e0;
-    box-shadow:  20px 20px 60px #bebebe,
-                -20px -20px 60px #b1abc5;
+    box-shadow:  10px 10px 30px #bebebe,
+                -10px -10px 30px #b1abc5;
   }
 
 .container-bateau{
@@ -70,18 +72,86 @@
    padding: 6px;
    text-decoration: none;
    width: 280px;
-   height: 200px;
+   height: 320px;
    color: #05124d;
    font-size: 2rem;
    font-weight: bold;
    text-align: center;
    margin: 10px;
-   border-radius: 50px;
-   background: #e0e0e0;
 
 }
 
-.bloc-bateau:hover{
-   background-color: #777;
- }
   
+ .text-bg-effect{
+   background-image: url(theoule.jpg);
+   background-repeat: repeat;
+   background-clip: content-box;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   font-size: 40px;
+   text-align: center;
+   font-weight: bold;
+   line-height: 1;
+   text-transform: uppercase;
+   font-family: 'Steelfish Rg', 'helvetica neue',
+               helvetica, arial, sans-serif;
+   font-weight: 900;
+   -webkit-font-smoothing: antialiased;
+   border-top: 20px solid transparent; /* Set the border style for the top only, and make it transparent */
+   border-image: url(theoule.jpg) 20 repeat; /* Set the border image, its width and its repeat mode */
+
+}
+
+.image-container {
+   position: relative;
+   display: inline-block;
+   overflow: hidden;
+   border-radius: 50px;
+   background-color: transparent; /* or white */
+   margin-bottom: 40px;
+ }
+
+ .img-main{
+   max-width: 100%;
+   height: auto;
+ }
+ 
+ .text-overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #fff;
+   background-color: rgba(0, 0, 0, 0.5);
+   padding: 20px;
+   
+ }
+ 
+ .text-overlay h2 {
+   font-size: 40px;
+   text-align: center;
+   font-weight: bold;
+   line-height: 1.2;
+   text-transform: uppercase;
+   font-family: 'Steelfish Rg', 'helvetica neue',
+               helvetica, arial, sans-serif;
+   font-weight: 900;
+ }
+ 
+ .text-overlay p {
+   font-size: 18px;
+   margin-bottom: 0;
+   text-align: center;
+   font-weight: bold;
+   line-height: 1.2;
+   font-family: 'Steelfish Rg', 'helvetica neue',
+               helvetica, arial, sans-serif;
+   font-weight: 400;
+ }
+ 
+ 

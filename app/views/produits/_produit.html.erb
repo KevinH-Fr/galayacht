@@ -44,4 +44,7 @@
     <%= produit.bailleur_id %>
   </p>
 
+  <p>
+    <%= image_tag(produit.image1, class:"img-fluid rounded-start") if produit.image1.present? %> 
+  </p>
 </div>

@@ -1,6 +1,11 @@
 
 <div class="footer text-light">
-    content1
-    content2
-    content3
+    <% if current_user.present? %>
+        <%= link_to '', root_path, class: "fa-regular fa-user btn btn-light" %>
+        <%= current_user.email %>
+        <%= button_to "", destroy_user_session_path, method: :delete, class: "fa-solid fa-right-from-bracket btn btn-danger"  %>
+    <% else %>
+        <%= link_to 'Log in', new_user_session_path %>
+        <%= link_to 'Create account', new_user_registration_path %>
+    <% end %>
 </div>

@@ -2,15 +2,24 @@
 
 <div class="container">
     
-    <%= link_to espace_preneur_index_path, class: "no-underline" do%>
-        <div class="bloc">
-            je loue un bateau
+    <%= link_to espace_preneur_index_path, class: "no-underline" do %>
+        <div class="image-container">
+            <%= image_tag "motor boat.jpg", class: "img-main" %> 
+            <div class="text-overlay">
+                <h2>Louer un bateau</h2>
+                <p>  Découvrez notre sélection de bateaux et de destinations...  </p>
+            </div>
         </div>
+
     <% end %>
     
     <%= link_to espace_bailleur_index_path, class: "no-underline" do %>
-        <div class="bloc">
-            je propose mon bateau
+        <div class="image-container">
+            <%= image_tag "sail boat.jpg", class: "img-main" %> 
+            <div class="text-overlay">
+                <h2>Proposer un bateau</h2>
+                <p>  Retrouvez nos outils pour proposer votre bateau à la location...  </p>
+            </div>
         </div>
     <% end %>    
 

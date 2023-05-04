@@ -51,9 +51,14 @@
     <%= form.number_field :prixsemaine %>
   </div>
 
+  <div class="input-group mb-1">
+    <%= form.label :image, class:"input-group-text label-with-format" %>
+    <%= form.file_field :image1, class:"form-control m-1 p-1" %>
+  </div>
+
   <div>
-    <%= form.label :bailleur_id, style: "display: block" %>
-    <%= form.text_field :bailleur_id %>
+    <%#= form.label :bailleur_id, style: "display: block" %>
+    <%= form.hidden_field :bailleur_id, value: current_user.id %>
   </div>
 
   <div>
