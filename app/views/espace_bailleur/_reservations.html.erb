@@ -1,0 +1,29 @@
+
+
+<div class="container-parent">
+    <div class="bloc-enfant">
+        <div class="card" style="width: 18rem;">
+        <%#= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
+            <div class="card-body">
+                <p class="card-text fs-2 m-1">  nb locations: <%= reservations_count %> </p>
+                <p class="card-text fs-4 m-1"> locations clôturées: <%= reservations_count  %> </p>
+                <p class="card-text fs-4 m-1"> locations à venir: <%= reservations_count  %> </p>
+            </div>
+        </div>
+    </div>
+
+    <% reservations_bailleur_courant.each do |reservation| %>
+        <%= link_to reservation_path(reservation) do %>
+            <div class="bloc-enfant">
+                <div class="card" style="width: 18rem;">
+                    <%#= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
+                    <div class="card-body">
+                        <p class="card-text fs-3 m-1"> <%= preneur_full_name(reservation.preneur_id) %></p>
+                        <p class="card-text fs-6 m-1"> <%= reservation.debutlocation %> - <%= reservation.finlocation %></p>
+                        <p class="card-text fs-4 m-1"> Prix: <%= reservation.prix %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>

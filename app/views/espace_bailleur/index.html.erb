@@ -7,10 +7,10 @@
         <%= link_to "Nouveau", new_produit_path, class: "btn btn-primary fw-bold" %>
     </h2>
 
-    <div class="container-bateau">
+    <div class="container-parent">
         <% @produits.each do |produit| %>
             <%= link_to produit_path(produit) do %>
-                <div class="bloc-bateau">
+                <div class="bloc-enfant">
                     <div class="card" style="width: 18rem;">
                         <%= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
                         <div class="card-body">
@@ -22,9 +22,17 @@
             <% end %>
         <% end %>
     </div>
-    
+
+    <hr>  
+
+    <h2 class="m-4"> Mes locations </h2>
+    <%= render "reservations" %>
+    <hr>
+
     <h2 class="m-4"> Mes statistiques </h2>
     <%= render "statistiques" %>
+    <hr>
+
 <% else %>
 
     <div class="">

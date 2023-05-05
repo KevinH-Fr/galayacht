@@ -11,45 +11,44 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nom, style: "display: block" %>
+  <div class="input-group">
+    <%= form.label :nom, class: "input-group-text label-with-format" %>
     <%= form.text_field :nom %>
   </div>
 
-  <div>
-    <%= form.label :type, style: "display: block" %>
+  <div class="input-group">
+    <%= form.label :type, class: "input-group-text label-with-format" %>
     <%= form.text_field :type_produit %>
   </div>
 
-  <div>
-    <%= form.label :longueur, style: "display: block" %>
+  <div class="input-group">
+    <%= form.label :longueur, class: "input-group-text label-with-format" %>
     <%= form.text_field :longueur %>
   </div>
 
-  <div>
-    <%= form.label :largeur, style: "display: block" %>
+  <div class="input-group">
+    <%= form.label :largeur, class: "input-group-text label-with-format" %>
     <%= form.text_field :largeur %>
   </div>
 
-  <div>
-    <%= form.label :marque, style: "display: block" %>
+  <div class="input-group">
+    <%= form.label :marque, class: "input-group-text label-with-format" %>
     <%= form.text_field :marque %>
   </div>
 
-  <div>
-    <%= form.label :model, style: "display: block" %>
+  <div class="input-group">
+    <%= form.label :model, class: "input-group-text label-with-format" %>
     <%= form.text_field :model %>
   </div>
 
-  <div>
-    <%= form.label :prixjour, style: "display: block" %>
-    <%= form.number_field :prixjour %>
+  <div class="input-group">
+    <%= form.label :prixjour, class: "input-group-text label-with-format" %>
+    <%= form.number_field :prixjour, class: "form-control field-with-format" %>
   </div>
 
-  <div>
-    <%= form.label :prixsemaine, style: "display: block" %>
-    <%= form.number_field :prixsemaine %>
-  </div>
+  <div class="input-group">
+    <%= form.label :prixsemaine, class: "input-group-text label-with-format" %>
+    <%= form.number_field :prixsemaine, class: "form-control field-with-format" %>
 
   <div class="input-group mb-1">
     <%= form.label :image, class:"input-group-text label-with-format" %>
@@ -57,7 +56,7 @@
   </div>
 
   <div>
-    <%#= form.label :bailleur_id, style: "display: block" %>
+    <%#= form.label :bailleur_id, class: "input-group-text label-with-format" %>
     <%= form.hidden_field :bailleur_id, value: current_user.id %>
   </div>
 

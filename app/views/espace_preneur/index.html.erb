@@ -3,9 +3,9 @@
 
 <h2 class="m-1"> Bateaux </h2>
 
-<div class="container-bateau">
+<div class="container-parent">
     <% @produits.each do |produit| %>
-        <div class="bloc-bateau">
+        <div class="bloc-enfant">
             <div class="card" style="width: 18rem;">
                 <%= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
                 <div class="card-body">
@@ -17,11 +17,13 @@
     <% end %>
 </div>
 
+<hr>
+
 <h2 class="m-1"> Destinations </h2>
 
-<div class="container-bateau">
+<div class="container-parent">
     <% @destinations.each do |destination| %>
-        <div class="bloc-bateau">
+        <div class="bloc-enfant">
             <div class="card" style="width: 18rem;">
                 <%= image_tag(destination.image1, class:"card-img-top") if destination.image1.present? %> 
                 <div class="card-body">

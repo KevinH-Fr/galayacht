@@ -1,2 +1,3 @@
 class Preneur < ApplicationRecord
+
 end

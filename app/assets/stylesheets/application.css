@@ -1,15 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
@@ -60,19 +49,19 @@
                 -10px -10px 30px #b1abc5;
   }
 
-.container-bateau{
+.container-parent{
    overflow: auto;
    white-space: nowrap;
 }
 
-.bloc-bateau{
+.bloc-enfant{
    display: inline-block;
    color: white;
    text-align: center;
    padding: 6px;
    text-decoration: none;
    width: 280px;
-   height: 320px;
+  /* height: 320px;*/
    color: #05124d;
    font-size: 2rem;
    font-weight: bold;
@@ -153,5 +142,22 @@
                helvetica, arial, sans-serif;
    font-weight: 400;
  }
+
+ .input-group{
+  margin: 5px;
+ }
  
- 
+ .label-with-format{
+  font-size: medium;
+  font-weight: bold;
+  padding-left: .4em;
+  
+}
+
+.field-with-format{
+  padding: .1em;
+  padding-right: 1em;
+  padding-left: 1em;
+  font-size: medium;
+
+}
