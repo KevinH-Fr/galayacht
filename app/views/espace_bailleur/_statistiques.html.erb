@@ -1,9 +1,25 @@
 
-    <div class="card" style="width: 18rem;">
-        <%#= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
-        <div class="card-body">
-            <p class="card-text fs-1 m-1">  nb bateaux: <%= produits_count %> </p>
-            <p class="card-text fs-4 m-1"> nb réservations: <%= reservations_count  %> </p>
-            <p class="card-text fs-4 m-1"> val réservations: <%= reservations_val  %> </p>
+<div class="container-parent">
+    <div class="bloc-enfant">
+        <div class="card" style="width: 18rem;">
+            <%#= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
+            <div class="card-body">
+                <p class="card-text fs-1 m-1"> nb bateaux: <%= produits_count %> </p>
+                <p class="card-text fs-4 m-1"> nb réservations: <%= reservations_count  %> </p>
+                <p class="card-text fs-4 m-1"> val réservations: <%= reservations_val  %> </p>
+            </div>
         </div>
     </div>
+
+    <div class="bloc-enfant">
+        <%= render "charts/chartLineResaBailleur" %>
+    </div>
+
+    <div class="bloc-enfant">
+        <%= render "charts/chartPieResaBailleur" %>
+    </div>
+
+    <div class="bloc-enfant">
+        <%= render "charts/chartBarResaBailleur" %>
+    </div>
+</div>

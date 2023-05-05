@@ -19,4 +19,17 @@ module BailleursHelper
     def reservations_val 
         reservations_bailleur_courant.sum(:prix)
     end
+
+    def reservations_cloturees
+        reservations_bailleur_courant.count
+    end
+
+    def reservations_avenir
+        reservations_bailleur_courant.count
+    end
+
+    def groupByDateTotal
+        reservations_bailleur_courant.group('DATE(debutlocation)').sum('prix')
+    end
+
 end

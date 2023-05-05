@@ -52,6 +52,8 @@
 .container-parent{
    overflow: auto;
    white-space: nowrap;
+   display: flex;
+   align-items: center;
 }
 
 .bloc-enfant{
@@ -160,4 +162,14 @@
   padding-left: 1em;
   font-size: medium;
 
+}
+
+.chartBox {
+  max-width: 230px;
+  max-height: 230px;
+  padding: .2em;
+  margin: .2em;
+  border-radius: 20px;
+  border: solid 2px rgba(50, 50, 50, 1);
+  background: white;
 }
