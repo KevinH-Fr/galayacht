@@ -65,6 +65,6 @@ class BailleursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bailleur_params
-      params.require(:bailleur).permit(:prenom, :nom, :telephone, :mail)
+      params.require(:bailleur).permit(:prenom, :nom, :telephone, :mail, :user_id)
     end
 end

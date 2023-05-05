@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_04_232016) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_123640) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_232016) do
     t.string "mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_bailleurs_on_user_id"
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -82,6 +84,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_232016) do
     t.index ["bailleur_id"], name: "index_produits_on_bailleur_id"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.integer "produit_id", null: false
+    t.integer "preneur_id", null: false
+    t.date "debutlocation"
+    t.date "finlocation"
+    t.integer "prix"
+    t.string "statut"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["preneur_id"], name: "index_reservations_on_preneur_id"
+    t.index ["produit_id"], name: "index_reservations_on_produit_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,5 +111,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_232016) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bailleurs", "users"
   add_foreign_key "produits", "bailleurs"
+  add_foreign_key "reservations", "preneurs"
+  add_foreign_key "reservations", "produits"
 end

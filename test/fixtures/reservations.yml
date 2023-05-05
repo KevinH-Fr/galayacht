@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  produit: one
+  preneur: one
+  debutlocation: 2023-05-05
+  finlocation: 2023-05-05
+  prix: 1
+  statut: MyString
+
+two:
+  produit: two
+  preneur: two
+  debutlocation: 2023-05-05
+  finlocation: 2023-05-05
+  prix: 1
+  statut: MyString

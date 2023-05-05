@@ -1,5 +1,6 @@
 class EspaceBailleurController < ApplicationController
   def index
-    @produits = Produit.all # ajouter filtre sur current user bailleur lié
+    bailleur = Bailleur.where(user_id: current_user).first
+    @produits = bailleur.produits
   end
 end
