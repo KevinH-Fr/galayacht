@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+
+<html>
+
+    <h1>Reservation #<%= num_resa(@reservation) %> </h1>
+
+    <%= image_tag(produit_img(@reservation.produit_id), class:"") %> 
+    <%= produit_full_name(@reservation.produit_id) %>
+
+
+    Locataire: 
+    <%= preneur_full_name(@reservation.preneur_id) %> <br>
+
+    Bailleur:
+    <%= bailleur_full_name(bailleur_produit_courant(@reservation.produit_id)) %> <br>
+
+    Prix:
+    <%= @reservation.prix %>
+
+    Période:
+    <%= @reservation.debutlocation %>
+    <%= @reservation.finlocation %>
+
+    Port:
+    <%#= @reservation.debutlocation %>
+
+
+</html>

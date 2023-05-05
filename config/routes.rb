@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :reservations
+
   devise_for :users
   resources :destinations
   get 'espace_bailleur/index'
@@ -12,4 +12,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
    root "home#index"
+
+
+   resources :reservations do
+    member do
+      get :edition
+    end
+   end
+
 end

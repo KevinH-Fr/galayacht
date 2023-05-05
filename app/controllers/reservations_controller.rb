@@ -57,6 +57,37 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def edition 
+    @reservation = Reservation.find(params[:id])
+    
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string(
+        template: "editions/reservation", 
+        formats: [:html],
+        disposition: :inline,              
+        layout: 'pdf'
+      ),
+       header: {
+         content: render_to_string(
+           'editions/doc_entete',
+           layout: 'pdf'
+         )
+       },
+       footer: {
+         content: render_to_string(
+           'editions/doc_footer',
+           layout: 'pdf'
+         )
+       }
+      )
+
+    send_data pdf,
+    filename: "reservation.pdf",
+    type: 'application/pdf',
+    disposition: 'inline'
+  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation

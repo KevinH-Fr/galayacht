@@ -1,4 +1,9 @@
 module BailleursHelper
+
+    def bailleur_full_name(bailleur)
+        "#{Bailleur.find(bailleur).prenom} #{Bailleur.find(bailleur).nom}"
+    end
+
     def produits_bailleur_courant
        bailleur = Bailleur.where(user_id: current_user).first
        bailleur.produits
