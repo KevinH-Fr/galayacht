@@ -65,6 +65,6 @@ class PreneursController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def preneur_params
-      params.require(:preneur).permit(:prenom, :nom, :telephone, :mail)
+      params.require(:preneur).permit(:prenom, :nom, :telephone, :mail, :user_id)
     end
 end

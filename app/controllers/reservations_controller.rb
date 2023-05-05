@@ -1,11 +1,12 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
+  before_action :require_preneur, only: [:new]
 
   # GET /reservations or /reservations.json
   def index
     @reservations = Reservation.all
   end
-
+  before_action :require_preneur, only: [:new]
   # GET /reservations/1 or /reservations/1.json
   def show
   end
@@ -89,6 +90,13 @@ class ReservationsController < ApplicationController
   end
 
   private
+
+  def require_preneur
+    unless Preneur.where(user_id: current_user.id).present?
+      redirect_to new_preneur_path, alert: "Please log in or sign up to continue."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])

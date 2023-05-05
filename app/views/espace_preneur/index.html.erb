@@ -1,19 +1,21 @@
 
-<h1 class="text-center"> Je loue un bateau</h1>
+<h1 class="text-center"> Louer un bateau</h1>
 
 <h2 class="m-1"> Bateaux </h2>
 
 <div class="container-parent">
     <% @produits.each do |produit| %>
-        <div class="bloc-enfant">
-            <div class="card" style="width: 18rem;">
-                <%= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
-                <div class="card-body">
-                    <p class="card-text fs-1 m-1"> <%= produit.nom %></p>
-                    <p class="card-text fs-4 m-1"> Prix: <%= produit.prixjour %></p>
+        <%= link_to new_reservation_path(produitId: produit) do %>
+            <div class="bloc-enfant">
+                <div class="card" style="width: 18rem;">
+                    <%= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
+                    <div class="card-body">
+                        <p class="card-text fs-1 m-1"> <%= produit.nom %></p>
+                        <p class="card-text fs-4 m-1"> Prix: <%= produit.prixjour %></p>
+                    </div>
                 </div>
             </div>
-        </div>
+        <% end %>
     <% end %>
 </div>
 

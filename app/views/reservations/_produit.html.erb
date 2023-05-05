@@ -1,0 +1,17 @@
+<div class="container" id="<%= dom_id produit %>">
+
+    <div class="card" style="width: 36rem;">
+    <%= image_tag(produit.image1, class:"img-fluid rounded-start") if produit.image1.present? %> 
+        <div class="card-body">
+            <p class="card-text">
+                <%= produit.nom %>
+            </p>
+            <p class="card-text">
+                <%= produit.type_produit %>
+                <%= produit.marque %>
+                <%= produit.model %>
+            </p>
+        </div>
+    </div>
+
+</div>

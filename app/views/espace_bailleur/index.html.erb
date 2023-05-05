@@ -1,5 +1,5 @@
 
-<h1 class="text-center"> Je propose mon bateau</h1>
+<h1 class="text-center"> Proposer son bateau</h1>
 
 <% if current_user.present? %>
     <h2 class="m-4"> 
@@ -35,17 +35,16 @@
 
 <% else %>
 
-    <div class="">
-        fonctionnement mise en location de son bateau
-        
-        etape 1: renseignez les informations sur votre bateau
-        etape 2: mettez en ligne votre annonce
-        etape 3: trouvez un locataire et recevez votre argent 
-    </div>
+    <%= render "etapes" %>
 
-    <div>
-        <%= link_to 'Log in', new_user_session_path %>
-        <%= link_to 'Create account', new_user_registration_path %>
-    </div>
+    <hr>
+    
+    <div class="container">
+        <div class= "text-center" style= "width: 36rem;">
+            <%= link_to 'Log in', new_user_session_path, class: "btn btn-lg btn-primary fw-bold m-2" %>
+            <%= link_to 'Create account', new_user_registration_path, class: "btn btn-lg btn-warning fw-bold m-2" %>
+        </div>
+    </div>        
+    <hr>
 
 <% end %>

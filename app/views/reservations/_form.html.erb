@@ -11,16 +11,19 @@
     </div>
   <% end %>
 
-
-
   <div class="input-group">
-    <%= form.label :produit_id, class: "input-group-text label-with-format" %>
-    <%= form.text_field :produit_id, class: "form-control field-with-format" %>
+    <%#= form.label :produit_id, class: "input-group-text label-with-format" %>
+    <%= form.hidden_field :produit_id, value: produit_courant.id, class: "form-control field-with-format" %>
   </div>
 
+  <div>
+    <%= render partial: 'produit', locals: { produit: produit_courant } %>
+  </div>
+
+
   <div class="input-group">
-    <%= form.label :preneur_id, class: "input-group-text label-with-format" %>
-    <%= form.text_field :preneur_id, class: "form-control field-with-format" %>
+    <%#= form.label :preneur_id, class: "input-group-text label-with-format" %>
+    <%= form.hidden_field :preneur_id, value: user_preneur.id, class: "form-control field-with-format" %>
   </div>
 
   <div class="input-group">
@@ -35,7 +38,7 @@
 
   <div class="input-group">
     <%= form.label :prix, class: "input-group-text label-with-format" %>
-    <%= form.number_field :prix, class: "form-control field-with-format" %>
+    <%= form.number_field :prix, value: produit_courant.prixjour, class: "form-control field-with-format" %>
   </div>
 
   <div class="input-group">
