@@ -17,3 +17,10 @@
   <%= button_to "", @reservation, method: :delete, class: "btn btn-danger fa-solid fa-trash-can" %> 
   <hr>
   <%= link_to "", edition_reservation_path, class: "btn btn-outline-danger fa-regular fa-file-pdf" %>
+
+  <%= link_to '', send_reservation_email_preneur_reservation_path(@reservation.id),
+    class: "btn btn-outline-primary fa-solid fa-envelope", method: :post, target: '_blank' %>
+
+  <%= link_to '', send_reservation_email_bailleur_reservation_path(@reservation.id),
+    class: "btn btn-outline-primary fa-solid fa-envelope", method: :post, target: '_blank' %>
+

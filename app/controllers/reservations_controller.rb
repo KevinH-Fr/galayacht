@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
   before_action :require_preneur, only: [:new]
 
+
   # GET /reservations or /reservations.json
   def index
     @reservations = Reservation.all
@@ -26,8 +27,12 @@ class ReservationsController < ApplicationController
 
     respond_to do |format|
       if @reservation.save
+        send_reservation_email_preneur(@reservation.id)
+        send_reservation_email_bailleur(@reservation.id)
+
         format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
+
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
@@ -87,6 +92,19 @@ class ReservationsController < ApplicationController
     type: 'application/pdf',
     disposition: 'inline'
   
+  end
+
+  def send_reservation_email_preneur(reservation)
+    @reservation = Reservation.find(reservation)
+    ReservationMailer.reservation_created_bailleur(@reservation.id).deliver_now
+ #   redirect_to @reservation
+  end
+ 
+  
+  def send_reservation_email_bailleur(reservation)
+    @reservation = Reservation.find(reservation)
+    ReservationMailer.reservation_created_preneur(@reservation.id).deliver_now
+ #   redirect_to @reservation
   end
 
   private

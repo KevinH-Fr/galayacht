@@ -68,7 +68,6 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
-    aos (0.1.0)
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -110,6 +109,10 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -237,13 +240,13 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  aos
   bootsnap
   capybara
   debug
   devise
   importmap-rails
   jbuilder
+  letter_opener
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   sassc-rails
