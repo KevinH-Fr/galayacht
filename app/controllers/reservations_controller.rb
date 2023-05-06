@@ -92,9 +92,16 @@ class ReservationsController < ApplicationController
   private
 
   def require_preneur
-    unless Preneur.where(user_id: current_user.id).present?
-      redirect_to new_preneur_path, alert: "Please log in or sign up to continue."
+    if current_user.present?
+      if Preneur.where(user_id: current_user.id).present?
+      else
+      redirect_to new_user_session_path, alert: "Please log in or sign up to continue."
+      end
+    else
+      redirect_to new_user_session_path, alert: "Please log in or sign up to continue."
+
     end
+
   end
 
     # Use callbacks to share common setup or constraints between actions.

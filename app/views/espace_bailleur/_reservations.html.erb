@@ -1,7 +1,7 @@
 
 
-<div class="container-parent">
-    <div class="bloc-enfant">
+<div data-aos="fade-up" data-aos-delay="100" class="container-parent">
+    <div  data-aos="zoom-in-up" class="bloc-enfant">
         <div class="card" style="width: 18rem;">
         <%#= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
             <div class="card-body">
@@ -14,7 +14,7 @@
 
     <% reservations_bailleur_courant.each do |reservation| %>
         <%= link_to reservation_path(reservation) do %>
-            <div class="bloc-enfant">
+            <div  data-aos="zoom-in-up" class="bloc-enfant">
                 <div class="card" style="width: 18rem;">
                     <%#= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
                     <div class="card-body">

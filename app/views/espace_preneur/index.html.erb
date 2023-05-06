@@ -1,9 +1,9 @@
 
-<h1 class="text-center"> Louer un bateau</h1>
+<h1 class="text-center mb-4"> Louer un bateau</h1>
 
-<h2 class="m-1"> Bateaux </h2>
+<h2 class="title m-1"> BATEAUX </h2>
 
-<div class="container-parent">
+<div data-aos="zoom-in-up" class="container-parent">
     <% @produits.each do |produit| %>
         <%= link_to new_reservation_path(produitId: produit) do %>
             <div class="bloc-enfant">
@@ -21,9 +21,9 @@
 
 <hr>
 
-<h2 class="m-1"> Destinations </h2>
+<h2 class="title m-1"> DESTINATIONS </h2>
 
-<div class="container-parent">
+<div data-aos="zoom-in-up" class="container-parent">
     <% @destinations.each do |destination| %>
         <div class="bloc-enfant">
             <div class="card" style="width: 18rem;">
@@ -36,3 +36,7 @@
         </div>
     <% end %>
 </div>
+
+<hr>
+
+

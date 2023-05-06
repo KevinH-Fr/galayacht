@@ -1,8 +1,11 @@
 /*
  *= require_tree .
  *= require_self
+
+
  */
 
+ 
  .navbar{
     background-color: #05124d;   
  }
@@ -29,8 +32,8 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  /*  height: 84vh; */
   }
+
   
   .bloc {
     width: 90%;
@@ -118,11 +121,12 @@
    overflow: hidden;
    border-radius: 50px;
    background-color: transparent; /* or white */
+
  }
 
  .img-main{
    max-width: 100%;
-   height: auto;
+   height: 20em;
  }
  
  .text-overlay {
@@ -190,4 +194,14 @@
   border-radius: 20px;
   border: solid 2px rgba(50, 50, 50, 1);
   background: white;
+}
+
+.title{
+  background-color: #05124d;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  text-transform: capitalize;
+  font-weight: 700;
+  padding: 5px;
 }
