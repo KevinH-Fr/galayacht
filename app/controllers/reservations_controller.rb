@@ -10,6 +10,8 @@ class ReservationsController < ApplicationController
   before_action :require_preneur, only: [:new]
   # GET /reservations/1 or /reservations/1.json
   def show
+    @reservation = Reservation.find(params[:id])
+
   end
 
   # GET /reservations/new
@@ -93,6 +95,17 @@ class ReservationsController < ApplicationController
     disposition: 'inline'
   
   end
+
+  def edition_test
+    @reservation = Reservation.find(params[:id])
+    
+    render html: render_to_string(
+      template: "editions/reservation",
+      formats: [:html],
+      layout: 'pdf'
+    )
+  end
+  
 
   def send_reservation_email_preneur(reservation)
     @reservation = Reservation.find(reservation)

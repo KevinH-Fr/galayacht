@@ -1,0 +1,73 @@
+.middled{
+    vertical-align: middle;
+  }
+
+  .centered{
+    text-align: center;
+  }
+  
+  .shadowed{
+    border-radius: .2em;
+    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+  }
+  
+  .page-break {
+    display: block;
+    clear: both;
+    page-break-after: always;
+  }
+  
+  .bolded{
+    font-weight: bold;
+  }
+  
+  .section-solidaire{
+    page-break-inside: avoid;
+  }
+
+  .brand-colored {
+    color: rgb(8, 11, 89);
+  }
+
+  .bloc-doc{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    background-color: rgb(246, 245, 255);
+    color: rgb(0, 0, 0);
+    border-style:  groove;
+    border-color: rgb(12, 12, 98);
+    padding: 10px;
+    margin: 20px;
+    border-radius: 20px;
+  }
+
+  .bloc-produit{
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+    position: absolute; 
+    top: 300px;
+    left: 50px;
+    width: 800px;
+
+  }
+
+  .bloc-bailleur{   
+    width: 350px;
+    position: absolute; 
+    top: 140px;
+    left: 50px;
+  }
+
+  .bloc-preneur{
+    width: 350px;
+    position: absolute; 
+    top: 140px;
+    left: 500px;
+  }
+
+  .img-produit{
+    width: 400px;
+    text-align: left;
+  }
+

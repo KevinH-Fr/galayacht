@@ -17,6 +17,8 @@ Rails.application.routes.draw do
    resources :reservations do
     member do
       get :edition
+      get :edition_test
+
       get :send_reservation_email_preneur, 
           to: 'reservations#send_reservation_email_preneur', 
           as: :send_reservation_email_preneur

@@ -3,27 +3,30 @@
 
 <html>
 
-    <h1>Reservation #<%= num_resa(@reservation) %> </h1>
+    <h1 class="centered">Reservation #<%= num_resa(@reservation) %> </h1>
 
-    <%= image_tag(produit_img(@reservation.produit_id), class:"") %> <br>
-    <%= produit_full_name(@reservation.produit_id) %>
+    <hr>
 
+    <div class="bloc-doc bloc-bailleur">
+       <strong> Bailleur: </strong> <hr>
+        <%= bailleur_full_name(bailleur_produit_courant(@reservation.produit_id)) %>  <br>
+        coordoonées
+    </div>
 
-    Locataire: 
-    <%= preneur_full_name(@reservation.preneur_id) %> <br>
+    <div class="bloc-doc bloc-preneur">
+       <strong> Locataire: </strong> <hr>
+        <%= preneur_full_name(@reservation.preneur_id) %> <br>
+        coordoonées
+    </div>
 
-    Bailleur:
-    <%= bailleur_full_name(bailleur_produit_courant(@reservation.produit_id)) %> <br>
+    <div class="bloc-doc bloc-produit">
+        <%= image_tag(produit_img(@reservation.produit_id), class: "img-produit") %> <hr>
+        <%= produit_full_name(@reservation.produit_id) %> <br>
+        Synthèse de la location: <br>
+        Période:  Du <%= @reservation.debutlocation %> au  <%= @reservation.finlocation %>
+        Prix:  <%= @reservation.prix %>
+        Port: <%#= @reservation.debutlocation %>
 
-    Prix:
-    <%= @reservation.prix %>
-
-    Période:
-    <%= @reservation.debutlocation %>
-    <%= @reservation.finlocation %>
-
-    Port:
-    <%#= @reservation.debutlocation %>
-
-
+    </div>
+    
 </html>
