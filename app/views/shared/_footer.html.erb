@@ -1,7 +1,7 @@
 
 <div class="footer text-light">
     <% if current_user.present? %>
-        <%= link_to '', root_path, class: "fa-regular fa-user btn btn-light" %>
+        <%= link_to '', user_path(current_user.id), class: "fa-regular fa-user btn btn-light" %>
         <%= current_user.email %>
         <%= button_to "", destroy_user_session_path, method: :delete, class: "fa-solid fa-right-from-bracket btn btn-danger"  %>
     <% else %>

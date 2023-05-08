@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'users/show'
 
   devise_for :users
+
+  get 'users/:id' => 'users#show', as: 'user'
+
+  
   resources :destinations
   get 'espace_bailleur/index'
   get 'espace_preneur/index'

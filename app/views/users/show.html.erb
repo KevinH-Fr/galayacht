@@ -1,0 +1,28 @@
+<h1>Compte User</h1>
+
+
+<% if user_signed_in? %>
+  
+  <p style="color: green"><%= notice %></p>
+  <%= render @user %>
+
+  <hr>
+
+  Compte Preneur: <%= user_preneur.present? %> 
+  <%= link_to "", preneur_path(user_preneur), class: 'btn btn-primary fa-solid fa-eye m-2' %>
+  <br>
+
+  Compte Bailleur: <%= user_bailleur.present? %>
+  <%= link_to "", bailleur_path(user_bailleur), class: 'btn btn-primary fa-solid fa-eye m-2' %>
+
+  <br>
+<hr>
+
+
+<div>
+  <%= link_to "Retour Accueil", root_path, class:"btn btn-sm btn-secondary", style:"margin: 2px" %>
+  <%#= button_to "Supprimer le compte", @user, method: :delete, :onclick => "return confirm('Sûr ?')", class:"btn btn-sm btn-danger", style:"margin: 2px"%>
+</div>     
+
+
+<% end %>
