@@ -30,12 +30,33 @@
     text-decoration: none;
   }
 
+  .container-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1500px;
+    padding: 20px;
+
+  }
+
+  .container-second{
+    max-width: 1500px;
+    padding: 20px;
+
+  }
+
  .container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+ 
+  }
+
+  .max-widthed{
     max-width: 1500px;
+
   }
 
   
@@ -58,9 +79,12 @@
 
 .container-parent{
    overflow: auto;
-   white-space: nowrap;
+   white-space: nowrap; 
    display: flex;
-   align-items: center;
+   max-width: 90vw;
+   /*justify-content: center;*/
+   /*flex-direction: row;
+  /*  width: 100vw;*/
 }
 
 .bloc-enfant{

@@ -60,7 +60,6 @@
     <%= form.hidden_field :bailleur_id, value: user_bailleur.id %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= render "shared/form_submit" %>
+
 <% end %>
