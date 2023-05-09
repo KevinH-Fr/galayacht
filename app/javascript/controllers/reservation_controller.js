@@ -14,6 +14,7 @@ export default class extends Controller {
     const finValue = this.finTarget.value;
 
     const prixJourInitial = this.prixjourInitialTarget.value;
+    const prixSemaineInitial = this.prixsemaineInitialTarget.value;
 
     // count nb jours
     const timeDelta = Date.parse(finValue) - Date.parse(debutValue);
@@ -26,29 +27,22 @@ export default class extends Controller {
     nbJoursDiv.textContent = joursDelta;
 
     // prix jour ou semaine 
+    let prixFinal;
+    let nbSemaines;
+    let joursRestants;
 
-    /* 
-      verifier si infieureur ou egale à 6
-        si vrai nbJours x prix jour
+    if (joursDelta <= 6) {
+        prixFinal = joursDelta * prixJourInitial;
+    } else {
 
-        si faux compter le nb de semaines pleines
-          y ajouter le nb de jours restants
-          
+      nbSemaines = Math.floor(joursDelta / 7);
+      joursRestants = joursDelta % 7
+      prixFinal = ( nbSemaines * prixSemaineInitial ) + ( joursRestants * prixJourInitial ) 
+      
+    }
 
-    */
-
-    // maj prix 
-    this.prixTarget.value = prixJourInitial * joursDelta ;
-
-
+   // console.log("nb semaine: " + nbSemaines + " - nb jours: " + joursRestants)
+    this.prixTarget.value = prixFinal ;
   }
   
 }
-
-// besoin de la val date debut loc
-// besoin de la val date fin loc
-// besoin du nb de jour
-// besoin du prix jour
-// besoin du prix semaine
-
-// selection auto du prix adequate si plus ou moins 7 jours
