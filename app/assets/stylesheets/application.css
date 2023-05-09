@@ -9,6 +9,16 @@
 
  }
  
+ h1{
+  text-align: center;
+  width: 80vw;
+  background-color: #05124d;
+  color: white;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 5px;
+ }
+
  .navbar{
     background-color: #05124d;   
  }
@@ -22,43 +32,48 @@
  }
  
 
- .brand{
-    font-size: x-large;
- }
+.brand{
+  font-size: x-large;
+}
 
- .no-underline {
-    text-decoration: none;
-  }
+.no-underline {
+  text-decoration: none;
+}
 
-  .container-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    max-width: 1500px;
-    padding: 20px;
+.container-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1500px;
+  padding: 20px;
+}
 
-  }
+.container-second{
+  max-width: 1500px;
+  padding: 20px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow:  10px 10px 30px #bebebe,
+                -10px -10px 30px #b1abc5;
+}
 
-  .container-second{
-    max-width: 1500px;
-    padding: 20px;
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
-  }
+.max-widthed{
+  max-width: 1500px;
+}
 
- .container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
- 
-  }
-
-  .max-widthed{
-    max-width: 1500px;
-
-  }
-
+.card-title{
+  color: #05124d;
+  text-align: center;
+  font-weight: 900;
+}
   
 .bloc {
   width: 90%;
@@ -78,10 +93,10 @@
 }
 
 .container-parent{
-   overflow: auto;
-   white-space: nowrap; 
-   display: flex;
-   max-width: 90vw;
+  overflow: auto;
+  white-space: nowrap; 
+  display: flex;
+  max-width: 90vw;
    /*justify-content: center;*/
    /*flex-direction: row;
   /*  width: 100vw;*/
@@ -235,3 +250,14 @@
   padding: 5px;
   width: 80%;
 }
+
+
+.label-with-format{
+  width: 100px;
+}
+
+.field-with-format{
+  text-align: center;
+ 
+}
+

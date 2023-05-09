@@ -3,9 +3,9 @@
     <div class="card" style="width: 100%;">
     <%= image_tag(produit.image1, class:"img-fluid rounded-start") if produit.image1.present? %> 
         <div class="card-body">
-            <p class="card-text">
+            <h2 class="card-title">
                 <%= produit.nom %>
-            </p>
+            </h2>
             <p class="card-text">
                 <%= produit.type_produit %>
                 <%= produit.marque %>

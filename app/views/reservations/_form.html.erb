@@ -11,40 +11,89 @@
     </div>
   <% end %>
 
-  <div class="input-group">
-    <%#= form.label :produit_id, class: "input-group-text label-with-format" %>
-    <%= form.hidden_field :produit_id, value: produit_courant.id, class: "form-control field-with-format" %>
+  <div data-controller="reservation">
+    <div class="input-group">
+      <%#= form.label :produit_id, class: "input-group-text label-with-format" %>
+      <%= form.hidden_field :produit_id, value: produit_courant.id, class: "form-control field-with-format" %>
+    </div>
+
+    <div>
+      <%= render partial: 'produit', locals: { produit: produit_courant } %>
+    </div>
+
+
+    <div class="input-group">
+      <%#= form.label :preneur_id, class: "input-group-text label-with-format" %>
+      <%= form.hidden_field :preneur_id, value: user_preneur.id, class: "form-control field-with-format" %>
+    </div>
+
+    <div class="input-group">
+      <%= form.label :debut, class: "input-group-text label-with-format" %>
+      <%= form.date_field :debutlocation, data: {
+            action: "change->reservation#calculatePrix", 
+            target: "reservation.debut", 
+            reservation_target: "debut" }, 
+            class:"form-select field-with-format" %>  
+    </div>
+
+    <div class="input-group">
+      <%= form.label :fin, class: "input-group-text label-with-format" %>
+      <%= form.date_field :finlocation, 
+          data: {
+            action: "change->reservation#calculatePrix", 
+            target: "reservation.fin", 
+            reservation_target: "fin" }, 
+          class:"form-select field-with-format" %>  
+    </div>
+
+    <div class="input-group bg-primary">
+      <%= form.label :prix_jour_initial, class: "input-group-text label-with-format" %>
+      <%= form.number_field :prixjour, 
+            value: produit_courant.prixjour, 
+            data: { 
+              reservation_target: "prixjourInitial" } %>
+    </div>
+
+    <div class="input-group bg-primary">
+      <%= form.label :prix_semaine_initial, class: "input-group-text label-with-format" %>
+      <%= form.number_field :prixsemaine, 
+            value: produit_courant.prixsemaine, 
+            data: { 
+              reservation_target: "prixsemaineInitial" } %>
+    </div>
+
+    <div class="bg-primary">  
+      <span>  nombre de jours :  </span>
+      <span id="nbJours">
+        0
+      </span>
+    </div>
+
+    <div class="input-group">
+      <%= form.label :prix, class: "input-group-text label-with-format" %>
+      <%= form.number_field :prix, 
+        data: { 
+          reservation_target: "prix" } %>
+      
+    </div>
+
+
+
+    <div class="input-group">
+      <%= form.label :statut, class: "input-group-text label-with-format" %>
+      <%= form.text_field :statut, class: "form-control field-with-format" %>
+    </div>
+    
+    <hr>
+
+    <div class="row"> 
+      <div class="col text-start"> 
+        <%= link_to "", espace_preneur_index_path, class: "btn btn-secondary fa-solid fa-arrow-rotate-left" %>
+      </div>
+      <div class="col text-end">
+        <%= render "shared/form_submit" %> 
+      </div>
+    </div>
+    
   </div>
-
-  <div>
-    <%= render partial: 'produit', locals: { produit: produit_courant } %>
-  </div>
-
-
-  <div class="input-group">
-    <%#= form.label :preneur_id, class: "input-group-text label-with-format" %>
-    <%= form.hidden_field :preneur_id, value: user_preneur.id, class: "form-control field-with-format" %>
-  </div>
-
-  <div class="input-group">
-    <%= form.label :debutlocation, class: "input-group-text label-with-format" %>
-    <%= form.date_field :debutlocation, class: "form-control field-with-format" %>
-  </div>
-
-  <div class="input-group">
-    <%= form.label :finlocation, class: "input-group-text label-with-format" %>
-    <%= form.date_field :finlocation, class: "form-control field-with-format" %>
-  </div>
-
-  <div class="input-group">
-    <%= form.label :prix, class: "input-group-text label-with-format" %>
-    <%= form.number_field :prix, value: produit_courant.prixjour, class: "form-control field-with-format" %>
-  </div>
-
-  <div class="input-group">
-    <%= form.label :statut, class: "input-group-text label-with-format" %>
-    <%= form.text_field :statut, class: "form-control field-with-format" %>
-  </div>
-
-  <%= render "shared/form_submit" %>
 <% end %>
