@@ -1,8 +1,12 @@
 module ProduitsHelper
 
     def produit_courant
-        produitId = params[:produitId]
-        Produit.find(produitId)
+        if params[:produitId].present?
+            produitId = params[:produitId]
+        else 
+            produitId = Reservation.find(params[:id]).produit_id
+        end
+        Produit.find(produitId) if produitId.present?
     end
 
     def bailleur_produit_courant(produit)

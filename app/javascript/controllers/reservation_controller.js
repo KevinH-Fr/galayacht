@@ -43,6 +43,11 @@ export default class extends Controller {
 
    // console.log("nb semaine: " + nbSemaines + " - nb jours: " + joursRestants)
     this.prixTarget.value = prixFinal ;
+
+    // maj de la div prixtotal pour info
+    const prixTotalDiv = document.getElementById("prixTotal");
+    prixTotalDiv.textContent = prixFinal;
+
   }
   
 }

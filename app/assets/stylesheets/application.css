@@ -11,7 +11,7 @@
  
  h1{
   text-align: center;
-  width: 80vw;
+  width: 100%;
   background-color: #05124d;
   color: white;
   border-radius: 20px;
@@ -50,12 +50,17 @@
 }
 
 .container-second{
-  max-width: 1500px;
+  max-width: 1200px;
   padding: 20px;
   border-radius: 50px;
   background: #e0e0e0;
   box-shadow:  10px 10px 30px #bebebe,
                 -10px -10px 30px #b1abc5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .container {
@@ -96,7 +101,7 @@
   overflow: auto;
   white-space: nowrap; 
   display: flex;
-  max-width: 90vw;
+  max-width: 1200px;
    /*justify-content: center;*/
    /*flex-direction: row;
   /*  width: 100vw;*/
@@ -249,6 +254,7 @@
   font-weight: 700;
   padding: 5px;
   width: 80%;
+
 }
 
 

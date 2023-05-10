@@ -4,6 +4,7 @@ module ReservationsHelper
     end
 
     def produit_img(reservation)
-        Produit.find(reservation).image1
+        produit = Reservation.find(reservation).produit_id
+        Produit.find(produit).image1
     end
 end

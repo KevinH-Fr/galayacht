@@ -1,32 +1,45 @@
-<div class="container-second" id="<%= dom_id reservation %>">
-  <p>
-    <strong>Produit:</strong>
-    <%= reservation.produit_id %>
-  </p>
+<div id="<%= dom_id reservation %>">
 
-  <p>
-    <strong>Preneur:</strong>
-    <%= reservation.preneur_id %>
-  </p>
+<h1> Réservation #<%= num_resa(reservation)  %> </h1>
 
-  <p>
-    <strong>Debutlocation:</strong>
-    <%= reservation.debutlocation %>
-  </p>
+  <div class="card" style="width: 54rem;">
+    <%= image_tag(produit_img(reservation.id), class:"img-fluid rounded") if produit_img(reservation.id).present? %> 
+    <div class="card-body">
+      <h5 class="card-title"> <%= produit_full_name(reservation.produit_id) %></h5>
+      <p class="card-text">
+        <p>
+          <strong>Preneur:</strong>
+          <%= reservation.preneur_id %>
+        </p>
 
-  <p>
-    <strong>Finlocation:</strong>
-    <%= reservation.finlocation %>
-  </p>
+        <p>
+          <strong>Debutlocation:</strong>
+          <%= reservation.debutlocation %>
+        </p>
 
-  <p>
-    <strong>Prix:</strong>
-    <%= reservation.prix %>
-  </p>
+        <p>
+          <strong>Finlocation:</strong>
+          <%= reservation.finlocation %>
+        </p>
 
-  <p>
-    <strong>Statut:</strong>
-    <%= reservation.statut %>
-  </p>
+        <p>
+          <strong>Prix:</strong>
+          <%= reservation.prix %>
+        </p>
+          <%#= reservation.statut %>
+
+      </p>
+      <hr>
+      
+      <div class="card-body">
+        <%= link_to "", edit_reservation_path(reservation), class: "btn btn-primary fa-solid fa-pen-to-square" %>
+        <%= link_to "", reservations_path, class: "btn btn-secondary fa-solid fa-rotate-left" %>
+        <%= link_to "", edition_reservation_path, class: "btn btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
+        <%= link_to "test html", edition_test_reservation_path, class: "btn btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
+        <%= button_to "", @reservation, method: :delete, class: "btn btn-danger fa-solid fa-trash-can" %> 
+      </div>
+
+    </div>
+  </div>
 
 </div>

@@ -14,7 +14,10 @@
   <div data-controller="reservation">
     <div class="input-group">
       <%#= form.label :produit_id, class: "input-group-text label-with-format" %>
-      <%= form.hidden_field :produit_id, value: produit_courant.id, class: "form-control field-with-format" %>
+
+        <%= form.hidden_field :produit_id, value: produit_courant.id %>
+
+
     </div>
 
     <div>
@@ -46,40 +49,39 @@
           class:"form-select field-with-format" %>  
     </div>
 
-    <div class="input-group bg-primary">
-      <%= form.label :prix_jour_initial, class: "input-group-text label-with-format" %>
-      <%= form.number_field :prixjour, 
-            value: produit_courant.prixjour, 
-            data: { 
-              reservation_target: "prixjourInitial" } %>
-    </div>
-
-    <div class="input-group bg-primary">
-      <%= form.label :prix_semaine_initial, class: "input-group-text label-with-format" %>
-      <%= form.number_field :prixsemaine, 
-            value: produit_courant.prixsemaine, 
-            data: { 
-              reservation_target: "prixsemaineInitial" } %>
-    </div>
-
-    <div class="bg-primary">  
+    <div class="">  
       <span>  nombre de jours :  </span>
       <span id="nbJours">
         0
       </span>
     </div>
 
-    <div class="input-group">
-      <%= form.label :prix, class: "input-group-text label-with-format" %>
-      <%= form.number_field :prix, 
+
+      <%= form.hidden_field :prixjour, 
+            value: produit_courant.prixjour, 
+            data: { 
+              reservation_target: "prixjourInitial" } %>
+
+      <%= form.hidden_field :prixsemaine, 
+            value: produit_courant.prixsemaine, 
+            data: { 
+              reservation_target: "prixsemaineInitial" } %>
+
+      <%= form.hidden_field :prix, 
         data: { 
           reservation_target: "prix" } %>
-      
+  
+    <div class="">  
+      <span>  prix total:  </span>
+      <span id="prixTotal">
+        0
+      </span>
     </div>
 
+
     <div class="input-group">
-      <%= form.label :statut, class: "input-group-text label-with-format" %>
-      <%= form.text_field :statut, class: "form-control field-with-format" %>
+      <%#= form.label :statut, class: "input-group-text label-with-format" %>
+      <%#= form.text_field :statut, class: "form-control field-with-format" %>
     </div>
     
     <hr>
