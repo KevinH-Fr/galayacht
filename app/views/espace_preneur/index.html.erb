@@ -1,5 +1,4 @@
 
-
 <h1 class="text-center mb-4"> Louer un bateau</h1>
 
 <h2 class="title m-1"> BATEAUX </h2>
@@ -8,7 +7,7 @@
     <% @produits.each do |produit| %>
         <%= link_to new_reservation_path(produitId: produit) do %>
             <div class="bloc-enfant">
-                <div class="card" style="width: 18rem;">
+                <div class="card main-card">
                     <%= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
                     <div class="card-body">
                         <p class="card-text fs-1 m-1"> <%= produit.nom %></p>
