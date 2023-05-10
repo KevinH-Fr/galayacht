@@ -1,4 +1,4 @@
-<%= form_with(model: produit) do |form| %>
+<%= form_with(model: produit, data: {controller: "form-reset"}) do |form| %>
   <% if produit.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(produit.errors.count, "error") %> prohibited this produit from being saved:</h2>
@@ -67,23 +67,27 @@
     <%# city states %>
 
     <%= turbo_frame_tag :cs_select do %>
-      <%= Time.zone.now %>
       <div data-controller="form-element">
         <%= form.button "Validate", formaction: new_produit_path, formmethod: :get, data: { form_element_target: "remoteBtn", turbo_frame: :cs_select } %>
-        <div>
-          <%= form.label :country, style: "display: block" %>
-          <%= form.select :country, produit.countries.invert, {include_blank: true}, { data: {action: "change->form-element#autosubmit"}} %>
+        <div class="input-group">
+          <%= form.label :country, class:"input-group-text label-with-format" %>
+          <%= form.select :country, produit.countries.invert, {include_blank: true}, 
+              { data: {action: "change->form-element#autosubmit"},
+               class:"form-select field-with-format" } %>
         </div>
 
-        <div>
-          <%= form.label :state, style: "display: block" %>
-          <%= form.select :state, produit.states.invert, {include_blank: true}, { data: {action: "change->form-element#autosubmit"}} %>
+        <div class="input-group">
+          <%= form.label :state, class:"input-group-text label-with-format" %>
+          <%= form.select :state, produit.states.invert, {include_blank: true}, 
+              { data: {action: "change->form-element#autosubmit"},
+                class:"form-select field-with-format" } %>
         </div>
       </div>
 
-      <div>
-        <%= form.label :city, style: "display: block" %>
-        <%= form.select :city, produit.cities, {include_blank: true}, {} %>
+      <div class="input-group">
+        <%= form.label :city, class:"input-group-text label-with-format" %>
+        <%= form.select :city, produit.cities, {include_blank: true}, 
+            { class:"form-select field-with-format" } %>
       </div>
     <% end %>
 
@@ -91,6 +95,7 @@
       <%#= form.label :bailleur_id, class: "input-group-text label-with-format" %>
       <%= form.hidden_field :bailleur_id, value: user_bailleur.id %>
     </div>
+    <hr>
 
     <%= render "shared/form_submit" %>
 
