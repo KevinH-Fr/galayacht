@@ -50,6 +50,7 @@
 }
 
 .container-second{
+  width: 90vw;
   max-width: 1200px;
   padding: 20px;
   border-radius: 50px;
@@ -169,6 +170,7 @@
    overflow: hidden;
    border-radius: 50px;
    background-color: transparent; 
+   width: 90vw;
  }
 
  .img-main{
@@ -177,6 +179,11 @@
    width: 80vw;
    max-width: 800px;
  }
+
+ .main-card{
+  width: 80vw;
+ }
+
  
  .text-overlay {
    position: absolute;

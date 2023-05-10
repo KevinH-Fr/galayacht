@@ -2,8 +2,8 @@
 
 <h1> <%= produit.nom %> </h1>
 
-  <div class="card" style="width: 54rem;">
-    <%= image_tag(produit.image1, class:"img-fluid rounded-start") if produit.image1.present? %> 
+  <div class="card main-card" >
+    <%= image_tag(produit.image1, class:"img rounded") if produit.image1.present? %> 
     <div class="card-body">
       <h5 class="card-title"> <%= produit.nom %></h5>
       <p class="card-text">
@@ -19,7 +19,18 @@
 
       </p>
       <div class="container-fluid text-end">
-        <%= link_to "", edit_produit_path(produit), class: "btn btn-primary fa-solid fa-pen-to-square" %>
+        <div class="row">
+          <div class="col-3 text-start">
+            <%= button_to "", @produit, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+          </div>  
+          <div class="col-9 text-end">
+            <%= link_to "", edit_produit_path(produit), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
+            <%= link_to "", produit_path(produit), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+            <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-sm btn-success fa-solid fa-cart-shopping" %>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>

@@ -26,15 +26,17 @@
 
 <div data-aos="zoom-in-up" class="container-parent">
     <% @destinations.each do |destination| %>
-        <div class="bloc-enfant">
-            <div class="card" style="width: 18rem;">
-                <%= image_tag(destination.image1, class:"card-img-top") if destination.image1.present? %> 
-                <div class="card-body">
-                    <p class="card-text fs-1 m-1"> <%= destination.nom %></p>
-                    <p class="card-text fs-4 m-1"> Port: <%= destination.port %></p>
+        <%= link_to produits_path(city: destination.ville ) do %>
+            <div class="bloc-enfant">
+                <div class="card" style="width: 18rem;">
+                    <%= image_tag(destination.image1, class:"card-img-top") if destination.image1.present? %> 
+                    <div class="card-body">
+                        <p class="card-text fs-1 m-1"> <%= destination.nom %></p>
+                        <p class="card-text fs-4 m-1"> Port: <%= destination.port %></p>
+                    </div>
                 </div>
             </div>
-        </div>
+        <% end %>
     <% end %>
 </div>
 

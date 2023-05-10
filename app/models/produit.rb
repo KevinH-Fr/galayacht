@@ -32,4 +32,8 @@ class Produit < ApplicationRecord
     states[state]
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["bailleur_id", "city", "country", "created_at", "id", "largeur", "longueur", "marque", "model", "nom", "prixjour", "prixsemaine", "state", "type_produit", "updated_at"]
+  end
+
 end 

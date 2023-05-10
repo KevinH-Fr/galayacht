@@ -2,7 +2,7 @@
 
 <h1> Réservation #<%= num_resa(reservation)  %> </h1>
 
-  <div class="card" style="width: 54rem;">
+  <div class="card main-card">
     <%= image_tag(produit_img(reservation.id), class:"img-fluid rounded") if produit_img(reservation.id).present? %> 
     <div class="card-body">
       <h5 class="card-title"> <%= produit_full_name(reservation.produit_id) %></h5>

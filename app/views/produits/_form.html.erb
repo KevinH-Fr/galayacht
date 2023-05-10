@@ -18,78 +18,80 @@
       <h5 class="card-title"> <%= produit.nom %></h5>
       <p class="card-text">
 
-    <div class="input-group">
-      <%= form.label :nom, class: "input-group-text label-with-format" %>
-      <%= form.text_field :nom, class: "form-control field-with-format" %>
-    </div>
-
-    <div class="input-group">
-      <%= form.label :type, class: "input-group-text label-with-format" %>
-      <%= form.text_field :type_produit, class: "form-control field-with-format" %>
-    </div>
-
-    <div class="input-group">
-      <%= form.label :longueur, class: "input-group-text label-with-format" %>
-      <%= form.text_field :longueur, class: "form-control field-with-format" %>
-    </div>
-
-    <div class="input-group">
-      <%= form.label :largeur, class: "input-group-text label-with-format" %>
-      <%= form.text_field :largeur, class: "form-control field-with-format" %>
-    </div>
-
-    <div class="input-group">
-      <%= form.label :marque, class: "input-group-text label-with-format" %>
-      <%= form.text_field :marque, class: "form-control field-with-format" %>
-    </div>
-
-    <div class="input-group">
-      <%= form.label :model, class: "input-group-text label-with-format" %>
-      <%= form.text_field :model, class: "form-control field-with-format" %>
-    </div>
-
-    <div class="input-group">
-      <%= form.label :prixjour, class: "input-group-text label-with-format" %>
-      <%= form.number_field :prixjour, class: "form-control field-with-format" %>
-    </div>
-
-    <div class="input-group">
-      <%= form.label :prixsemaine, class: "input-group-text label-with-format" %>
-      <%= form.number_field :prixsemaine, class: "form-control field-with-format" %>
-    </div>
-
-    <div class="input-group mb-1">
-      <%= form.label :image, class:"input-group-text label-with-format" %>
-      <%= form.file_field :image1, class:"form-control field-with-format" %>
-    </div>
-
-
-    <%# city states %>
-
-    <%= turbo_frame_tag :cs_select do %>
-      <div data-controller="form-element">
-        <%= form.button "Validate", formaction: new_produit_path, formmethod: :get, data: { form_element_target: "remoteBtn", turbo_frame: :cs_select } %>
-        <div class="input-group">
-          <%= form.label :country, class:"input-group-text label-with-format" %>
-          <%= form.select :country, produit.countries.invert, {include_blank: true}, 
-              { data: {action: "change->form-element#autosubmit"},
-               class:"form-select field-with-format" } %>
-        </div>
-
-        <div class="input-group">
-          <%= form.label :state, class:"input-group-text label-with-format" %>
-          <%= form.select :state, produit.states.invert, {include_blank: true}, 
-              { data: {action: "change->form-element#autosubmit"},
-                class:"form-select field-with-format" } %>
-        </div>
+      <div class="input-group">
+        <%= form.label :nom, class: "input-group-text label-with-format" %>
+        <%= form.text_field :nom, class: "form-control field-with-format" %>
       </div>
 
       <div class="input-group">
-        <%= form.label :city, class:"input-group-text label-with-format" %>
-        <%= form.select :city, produit.cities, {include_blank: true}, 
-            { class:"form-select field-with-format" } %>
+        <%= form.label :type, class: "input-group-text label-with-format" %>
+        <%= form.text_field :type_produit, class: "form-control field-with-format" %>
       </div>
-    <% end %>
+
+      <div class="input-group">
+        <%= form.label :longueur, class: "input-group-text label-with-format" %>
+        <%= form.text_field :longueur, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :largeur, class: "input-group-text label-with-format" %>
+        <%= form.text_field :largeur, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :marque, class: "input-group-text label-with-format" %>
+        <%= form.text_field :marque, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :model, class: "input-group-text label-with-format" %>
+        <%= form.text_field :model, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :prixjour, class: "input-group-text label-with-format" %>
+        <%= form.number_field :prixjour, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :prixsemaine, class: "input-group-text label-with-format" %>
+        <%= form.number_field :prixsemaine, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group mb-1">
+        <%= form.label :image, class:"input-group-text label-with-format" %>
+        <%= form.file_field :image1, class:"form-control field-with-format" %>
+      </div>
+
+
+      <%# city states %>
+      <%= turbo_frame_tag :cs_select do %>
+        <div data-controller="form-element">
+          <%= form.button "Validate", formaction: new_produit_path, formmethod: :get, data: { form_element_target: "remoteBtn", turbo_frame: :cs_select } %>
+          <div class="input-group">
+            <%= form.label :country, class:"input-group-text label-with-format" %>
+            <%= form.select :country, produit.countries.invert, {include_blank: true}, 
+                { data: {action: "change->form-element#autosubmit"},
+                class:"form-select field-with-format" } %>
+          </div>
+
+          <div class="input-group">
+            <%= form.label :state, class:"input-group-text label-with-format" %>
+            <%= form.select :state, produit.states.invert, {include_blank: true}, 
+                { data: {action: "change->form-element#autosubmit"},
+                  class:"form-select field-with-format" } %>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <%= form.label :city, class:"input-group-text label-with-format" %>
+          <%= form.select :city, produit.cities, {include_blank: true}, 
+              { class:"form-select field-with-format" } %>
+        </div>
+      <% end %>
+
+      </div>
+    </div>
 
     <div>
       <%#= form.label :bailleur_id, class: "input-group-text label-with-format" %>
@@ -97,7 +99,15 @@
     </div>
     <hr>
 
-    <%= render "shared/form_submit" %>
+    <div class="row"> 
+      <div class="col text-start"> 
+        <%= link_to "", espace_bailleur_index_path, class: "btn btn-secondary fa-solid fa-arrow-rotate-left" %>
+
+      </div>
+      <div class="col text-end">
+        <%= render "shared/form_submit" %> 
+      </div>
+    </div>
 
   </div>
 

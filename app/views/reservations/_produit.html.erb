@@ -4,7 +4,8 @@
     <%= image_tag(produit.image1, class:"img-fluid rounded-start") if produit.image1.present? %> 
         <div class="card-body">
             <h2 class="card-title">
-                <%= produit.nom %>
+                <%= produit.nom %> <hr>
+                <%= produit.country_label %> | <%= produit.city %>
             </h2>
             <p class="card-text">
                 <%= produit.type_produit %>

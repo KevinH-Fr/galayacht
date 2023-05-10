@@ -2,13 +2,22 @@
 
 <h1>Produits</h1>
 
-<div id="produits">
-  <% @produits.each do |produit| %>
-    <%= render produit %>
-    <p>
-      <%= link_to "Show this produit", produit %>
-    </p>
+<div class="container-fluid m-0 p-0 mb-4">  
+  <%= search_form_for @q, url: produits_path, method: :get do |f| %>
+    <div class="row m-0 p-0"> 
+      <div class="col-9">
+        <%= f.search_field :nom_cont, placeholder: "Search products", class: "form-control" %>
+      </div>
+      <div class="col-3">
+        <%= f.submit "Search", class: "btn btn-primary" %>
+      </div>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New produit", new_produit_path %>
+<div id="produits">
+  <% @produits.each do |produit| %>
+    <%= render produit %> <hr>
+  <% end %>
+</div>
+
