@@ -12,7 +12,7 @@ class ProduitsController < ApplicationController
 
   # GET /produits/new
   def new
-    @produit = Produit.new
+    @produit = Produit.new produit_params
   end
 
   # GET /produits/1/edit
@@ -65,6 +65,7 @@ class ProduitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def produit_params
-      params.require(:produit).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :image1, :bailleur_id)
+      params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :image1, :bailleur_id,
+                                      :country, :state, :city)
     end
 end

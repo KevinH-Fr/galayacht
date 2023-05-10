@@ -13,7 +13,10 @@
         Marque:  <%= produit.marque %>
         Model:   <%= produit.model %> <hr>
         Prixjour: <%= produit.prixjour %>
-        Prixsemaine: <%= produit.prixsemaine %>
+        Prixsemaine: <%= produit.prixsemaine %> <hr>
+
+        Localisation: <%= produit.country_label %> | <%= produit.state_label %> | <%= produit.city %>
+
       </p>
       <div class="container-fluid text-end">
         <%= link_to "", edit_produit_path(produit), class: "btn btn-primary fa-solid fa-pen-to-square" %>
