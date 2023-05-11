@@ -5,15 +5,14 @@ class ProduitsController < ApplicationController
 
     if params[:city].present?
       city = params[:city].titleize
-      @produits = Produit.where(city: city )
+      @produits = Produit.where(city: city)
     else
-      search_params = params.permit(:format, :page, :commit, 
-        q:[:nom_cont])
-        @q = Produit.ransack(search_params[:q])
-        @produits = @q.result(distinct: true).order(created_at: :desc)
-
+      search_params = params.permit(:format, :page, :commit, q:[:nom_or_marque_cont])
+      @q = Produit.ransack(params[:q])
+      @produits = @q.result(distinct: true).order(created_at: :desc)
     end
   end
+  
 
 
   def show

@@ -36,4 +36,8 @@ class Produit < ApplicationRecord
     ["bailleur_id", "city", "country", "created_at", "id", "largeur", "longueur", "marque", "model", "nom", "prixjour", "prixsemaine", "state", "type_produit", "updated_at"]
   end
 
+  def self.ransackable_associations(*)
+    []
+  end
+
 end 
