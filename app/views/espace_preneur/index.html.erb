@@ -1,7 +1,9 @@
 
 <h1 class="text-center mb-4"> Louer un bateau</h1>
 
-<h2 class="title m-1"> BATEAUX </h2>
+<%= link_to produits_path, class:"no-underline" do %>
+    <h2 class="title m-1">  BATEAUX </h2>
+<% end %>
 
 <div data-aos="zoom-in-up" class="container-parent">
     <% @produits.each do |produit| %>

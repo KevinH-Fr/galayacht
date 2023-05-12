@@ -3,7 +3,7 @@
 <h1> <%= produit.nom %> </h1>
 
   <div class="card main-card" >
-    <%= image_tag(produit.image1, class:"img rounded") if produit.image1.present? %> 
+    <%= image_tag(produit.image1, class:"img-produit rounded") if produit.image1.present? %> 
     <div class="card-body">
       <h5 class="card-title"> <%= produit.nom %></h5>
       <p class="card-text">

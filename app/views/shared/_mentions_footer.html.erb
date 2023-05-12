@@ -1,0 +1,36 @@
+
+<div class="row my-4">
+
+    <div class="col">
+        <h5>Rubriques</h5>
+        <p> <%= link_to "Aide", root_path, class: "link-mention" %> </p>  
+        <p> <%= link_to "Nous connaitre", root_path, class: "link-mention" %> </p>    
+        <p> <%= link_to "Nous contacter", root_path, class: "link-mention" %> </p>        
+        <p> <%= link_to "Nos services", root_path, class: "link-mention" %> </p>  
+        <p> <%= link_to "Assurance", root_path, class: "link-mention" %> </p>  
+        <p> <%= link_to "Politique de confidentialité", root_path, class: "link-mention" %> </p>  
+        <p> <%= link_to "CGU", root_path, class: "link-mention" %> </p>  
+        <p> <%= link_to "Mentions légales", root_path, class: "link-mention" %> </p>  
+    </div>
+
+    <div class="col">
+        <h5>Bateaux</h5>
+        <p> <%= link_to "Moteur", root_path, class: "link-mention" %> </p>  
+        <p> <%= link_to "Voilier", root_path, class: "link-mention" %> </p>  
+        <p> <%= link_to "Catamaran", root_path, class: "link-mention" %> </p>  
+        <p> <%= link_to "Yacht", root_path, class: "link-mention" %> </p>  
+    </div>
+
+    <div class="col">
+        <h5>Destinations</h5>
+        <p> <%= link_to "Cannes", root_path, class: "link-mention" %> </p> 
+        <p> <%= link_to "Théoule", root_path, class: "link-mention" %> </p> 
+        <p> <%= link_to "Antibes", root_path, class: "link-mention" %> </p>
+        <p> <%= link_to "Deauville", root_path, class: "link-mention" %> </p> 
+    </div>
+
+    <div class="col">
+        <h5> Nous suivre</h5>
+        <%= render "shared/reseaux" %>
+    </div>
+</div>

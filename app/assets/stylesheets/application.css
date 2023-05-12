@@ -7,11 +7,9 @@
 
 :root {
   --primary-color: #100775;
+  --max-width: 600px;
 }
 
- main{
-
- }
  
  h1{
   text-align: center;
@@ -43,6 +41,12 @@
 .no-underline {
   text-decoration: none;
 }
+
+.link-mention{
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
 
 .container-main{
   display: flex;
@@ -106,7 +110,7 @@
   overflow: auto;
   white-space: nowrap; 
   display: flex;
-  max-width: 80vw;
+  max-width: 70vw;
    /*justify-content: center;*/
    /*flex-direction: row;
   /*  width: 100vw;*/
@@ -185,13 +189,17 @@
   /* max-width: 800px;*/
  }
 
+ .img-produit{
+  width: 100%;
+ }
+
  .main-card{
-  width: 80vw;
+  max-width: 650px;
  }
 
  .search-card{
-    max-width: 350px;
-    margin: 20px;
+    max-width: var(--max-width);
+    margin-bottom: 20px;
     padding: 20px;
     border-radius: 40px;
  }
@@ -242,20 +250,6 @@
   margin: 5px;
  }
  
- .label-with-format{
-  font-size: medium;
-  font-weight: bold;
-  padding-left: .4em;
-  
-}
-
-.field-with-format{
-  padding: .1em;
-  padding-right: 1em;
-  padding-left: 1em;
-  font-size: medium;
-
-}
 
 .chartBox {
   max-width: 230px;
@@ -275,7 +269,7 @@
   text-transform: capitalize;
   font-weight: 700;
   padding: 5px;
-  width: 80%;
+  width: 70vw;
 
 }
 
@@ -293,4 +287,18 @@
   display: flex; 
   align-items: center;
   justify-content: center;
+}
+
+
+.btn-reseaux {
+  text-decoration: none;
+  color: rgb(57, 57, 60);
+/*  background-color: rgb(204, 46, 102);*/
+  padding: .4em;
+  border-radius: .4em;
+  text-align: center;
+  margin: .2em;
+  display:inline-block;
+  font-weight: bold;
+  font-size: xx-large; 
 }
