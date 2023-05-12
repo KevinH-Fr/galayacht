@@ -7,7 +7,7 @@
     <% @produits.each do |produit| %>
         <%= link_to new_reservation_path(produitId: produit) do %>
             <div class="bloc-enfant">
-                <div class="card main-card">
+                <div class="card second-card">
                     <%= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
                     <div class="card-body">
                         <p class="card-text fs-1 m-1"> <%= produit.nom %></p>
@@ -27,7 +27,7 @@
     <% @destinations.each do |destination| %>
         <%= link_to produits_path(city: destination.ville ) do %>
             <div class="bloc-enfant">
-                <div class="card" style="width: 18rem;">
+                <div class="card second-card">
                     <%= image_tag(destination.image1, class:"card-img-top") if destination.image1.present? %> 
                     <div class="card-body">
                         <p class="card-text fs-1 m-1"> <%= destination.nom %></p>

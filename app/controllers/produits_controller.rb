@@ -2,19 +2,21 @@ class ProduitsController < ApplicationController
   before_action :set_produit, only: %i[ show edit update destroy ]
 
   def index
+    @q = Produit.ransack(params[:q])
 
     if params[:city].present?
       city = params[:city].titleize
       @produits = Produit.where(city: city)
     else
-      search_params = params.permit(:format, :page, :commit, q:[:nom_or_marque_cont])
-      @q = Produit.ransack(params[:q])
-      @produits = @q.result(distinct: true).order(created_at: :desc)
+    #  search_params = params.permit(:format, :page, :commit, q:[:nom_or_marque_or_city_cont])
+    #  @produits = @q.result(distinct: true).order(created_at: :desc)
+    
+    @q = Produit.ransack(params[:q])
+    @produits = @q.result(distinct: true).order(created_at: :desc)
+ 
     end
   end
   
-
-
   def show
   end
 
