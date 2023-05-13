@@ -1,22 +1,39 @@
-<div id="<%= dom_id preneur %>">
-  <p>
-    <strong>Prenom:</strong>
-    <%= preneur.prenom %>
-  </p>
 
-  <p>
-    <strong>Nom:</strong>
-    <%= preneur.nom %>
-  </p>
+  <div id="<%= dom_id preneur %>">
 
-  <p>
-    <strong>Telephone:</strong>
-    <%= preneur.telephone %>
-  </p>
-
-  <p>
-    <strong>Mail:</strong>
-    <%= preneur.mail %>
-  </p>
+    <div class="card mb-3" class="main-card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <%= image_tag(preneur.profilepic, class:"rounded") if preneur.profilepic.present? %> 
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"> <%= preneur.prenom %>  <%= preneur.nom %> </h5>
+            <p class="card-text">
+              <i class="fa fa-phone"></i>
+              <%= preneur.telephone %>   
+              <hr>
+              <i class="fa fa-envelope"></i>
+              <%= preneur.mail %>           
+            </p>
+            <p class="card-text"><small class="text-muted">Since <%= preneur.created_at %></small></p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container-fluid text-end p-2">
+        <div class="row">
+          <div class="col-3 text-start">
+            <%= button_to "", preneur, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+          </div>  
+          <div class="col-9 text-end">
+            <%= link_to "", edit_preneur_path(preneur), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
+            <%= link_to "", preneur_path(preneur), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+          </div>
+        </div>
+      </div>
+    </div>
 
 </div>
+
+

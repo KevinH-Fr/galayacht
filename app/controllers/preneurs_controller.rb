@@ -56,6 +56,6 @@ class PreneursController < ApplicationController
     end
 
     def preneur_params
-      params.require(:preneur).permit(:prenom, :nom, :telephone, :mail, :user_id)
+      params.require(:preneur).permit(:prenom, :nom, :telephone, :mail, :user_id, :profilepic)
     end
 end

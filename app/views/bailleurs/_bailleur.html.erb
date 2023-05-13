@@ -1,22 +1,39 @@
-<div id="<%= dom_id bailleur %>">
-  <p>
-    <strong>Prenom:</strong>
-    <%= bailleur.prenom %>
-  </p>
 
-  <p>
-    <strong>Nom:</strong>
-    <%= bailleur.nom %>
-  </p>
+  <div id="<%= dom_id bailleur %>">
 
-  <p>
-    <strong>Telephone:</strong>
-    <%= bailleur.telephone %>
-  </p>
-
-  <p>
-    <strong>Mail:</strong>
-    <%= bailleur.mail %>
-  </p>
+    <div class="card mb-3" class="main-card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <%= image_tag(bailleur.profilepic, class:"rounded") if bailleur.profilepic.present? %> 
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"> <%= bailleur.prenom %>  <%= bailleur.nom %> </h5>
+            <p class="card-text">
+              <i class="fa fa-phone"></i>
+              <%= bailleur.telephone %>   
+              <hr>
+              <i class="fa fa-envelope"></i>
+              <%= bailleur.mail %>           
+            </p>
+            <p class="card-text"><small class="text-muted">Since <%= bailleur.created_at %></small></p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container-fluid text-end p-2">
+        <div class="row">
+          <div class="col-3 text-start">
+            <%= button_to "", bailleur, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+          </div>  
+          <div class="col-9 text-end">
+            <%= link_to "", edit_bailleur_path(bailleur), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
+            <%= link_to "", bailleur_path(bailleur), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+          </div>
+        </div>
+      </div>
+    </div>
 
 </div>
+
+
