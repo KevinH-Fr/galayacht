@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_10_124641) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_14_151247) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -86,6 +86,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_10_124641) do
     t.string "country"
     t.string "state"
     t.string "city"
+    t.integer "capacite"
+    t.boolean "capitaine"
     t.index ["bailleur_id"], name: "index_produits_on_bailleur_id"
   end
 

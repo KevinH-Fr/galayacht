@@ -3,3 +3,5 @@
 
 import "controllers"
 import "@hotwired/turbo-rails"
+
+//= require range-slider

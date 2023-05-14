@@ -56,9 +56,7 @@ gem "wkhtmltopdf-heroku", group: :production
 gem "letter_opener", group: :development
 
 gem 'city-state'
-
 gem 'ransack'
-
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do

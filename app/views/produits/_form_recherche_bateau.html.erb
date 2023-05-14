@@ -22,9 +22,31 @@
 
 
             <div class="form-group my-4">
-                <%= f.label :type_produit_cont, "Type de bateau", class: "fw-bold" %>
-                <%= f.search_field :type_produit_cont, class: "form-control", placeholder: "Moteur, voilier, catamaran, ..." %>
+                <%#= f.label :type_produit_cont, "Type de bateau", class: "fw-bold" %>
+                <%#= f.search_field :type_produit_cont, class: "form-control", placeholder: "Moteur, voilier, catamaran, ..." %>
             </div>
+
+            <div class="form-group my-4">
+                <%= f.label :type_produit_eq, "Type de bateau", class: "fw-bold" %>
+                <%= f.select :type_produit_eq, options_for_select(Produit.distinct.pluck(:type_produit)), {}, class: "form-select",
+                    placeholder: "Moteur, voilier, catamaran, ..." %>
+            </div>
+
+             <div class="form-group my-4">
+
+             <div class="row">  
+                <div class="col">
+                    <%= f.label :prixjour_gteq, "Prix minimum", class: "fw-bold" %>
+                    <%= f.number_field :prixjour_gteq, class: "form-control", placeholder: "Prix minimum" %>
+                </div>
+                <div class="col">
+                    <%= f.label :prixjour_lteq, "Prix maximum", class: "fw-bold" %>
+                    <%= f.number_field :prixjour_lteq, class: "form-control", placeholder: "Prix maximum" %>
+                </div>
+             </div>
+             
+            </div> 
+
             <div class="text-end">
                 <%= f.submit "Chercher", class: "btn btn-primary my-2" %>
             </div>
@@ -34,4 +56,5 @@
     </div>
 
 </div>
+
 

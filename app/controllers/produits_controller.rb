@@ -70,6 +70,6 @@ class ProduitsController < ApplicationController
 
     def produit_params
       params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :image1, :bailleur_id,
-                                      :country, :state, :city)
+                                      :country, :state, :city, :capacite, :capitaine)
     end
 end
