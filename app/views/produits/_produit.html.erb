@@ -9,18 +9,25 @@
  
 <%
 =end%>
-    <%= image_tag(produit.image1, class:"img-produit rounded") if produit.image1.present? %> 
+    <%= link_to image_tag(produit.image1, class:"img-produit rounded"), produit_path(produit) if produit.image1.present? %> 
     <div class="card-body">
       <h5 class="card-title"> <%= produit.nom %></h5>
       <p class="card-text">
-        Type: <%= produit.type_produit %>
-        Longueur: <%= produit.longueur %>
-        Largeur: <%= produit.largeur %>
-        Marque:  <%= produit.marque %>
-        Model:   <%= produit.model %> <hr>
-        Prixjour: <%= produit.prixjour %>
-        Prixsemaine: <%= produit.prixsemaine %> <hr>
+         <i class="fa fa-circle-info"></i>
+         <%= produit.type_produit %>
+         <%= produit.marque %>
+         <%= produit.model %>
+         <%= produit.capitaine %>  <hr>
 
+         <i class="fa fa-ruler"></i>
+         <%= produit.longueur %>
+         <%= produit.capacite %> <hr>
+       
+        <i class="fa fa-money-bill"></i>
+        Jour: <%= produit.prixjour %>
+        Semaine: <%= produit.prixsemaine %> <hr>
+
+        <i class="fa fa-location-dot"></i>
         Localisation: <%= produit.country_label %> | <%= produit.state_label %> | <%= produit.city %>
 
       </p>

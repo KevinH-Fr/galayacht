@@ -213,8 +213,12 @@
  }
 
  .produit-card{
-  max-width: 250px;
+  max-width: 80vw;
   overflow: hidden;
+ }
+
+ .width-limited{
+  max-width: 90vw;
  }
 
  .search-card{
