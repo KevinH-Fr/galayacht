@@ -1,11 +1,21 @@
 
-<h1>Produits</h1>
-
+<%
+=begin%>
+ <h1>Produits</h1>
+ 
+<%
+=end%>
 <%= render "produits/form_recherche_bateau" %>
 
-<div id="produits">
-  <% @produits.each do |produit| %>
-    <%= render produit %> <hr>
-  <% end %>
-</div>
 
+
+<div id="produits" class="container-fluid">
+  <div class="row justify-content-center">
+    <% @produits.each do |produit| %>
+      <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+        <!-- Content for each element -->
+         <%= render produit %> 
+      </div>
+    <% end %>
+  </div>
+</div>

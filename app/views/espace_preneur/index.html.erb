@@ -1,5 +1,9 @@
 
-<h1 class="text-center mb-4"> Louer un bateau</h1>
+<%
+=begin%>
+ <h1 class="text-center mb-2"> Louer un bateau</h1> 
+<%
+=end%>
 
 <%= link_to produits_path, class:"no-underline" do %>
     <h2 class="title m-1">  BATEAUX </h2>
@@ -31,6 +35,15 @@
                 </div>
             </div>
         <% end %>
+    <% end %>
+</div>
+
+<div class="container-parent m-2">
+    <%= link_to(produits_path, class:"btn btn-primary") do %>
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class=""> 
+        Recherche avancée 
+    </span>
     <% end %>
 </div>
 

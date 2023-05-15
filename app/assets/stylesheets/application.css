@@ -72,6 +72,21 @@
   flex-direction: column;
 }
 
+.container-produit{
+  width: 90vw;
+  max-width: 1200px;
+  padding: 20px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow:  10px 10px 30px #bebebe,
+                -10px -10px 30px #b1abc5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -195,6 +210,11 @@
 
  .main-card{
   max-width: 650px;
+ }
+
+ .produit-card{
+  max-width: 250px;
+  overflow: hidden;
  }
 
  .search-card{

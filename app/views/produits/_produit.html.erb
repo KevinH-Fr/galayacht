@@ -1,8 +1,14 @@
-<div class="container-second" id="<%= dom_id produit %>">
 
-<h1> <%= produit.nom %> </h1>
+<div class="" id="<%= dom_id produit %>">
 
-  <div class="card main-card" >
+
+  <div class="card produit-card" >
+<%
+=begin%>
+    <h1> <%= produit.nom %> </h1>
+ 
+<%
+=end%>
     <%= image_tag(produit.image1, class:"img-produit rounded") if produit.image1.present? %> 
     <div class="card-body">
       <h5 class="card-title"> <%= produit.nom %></h5>
@@ -31,8 +37,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <%#= produit.bailleur_id %>
+  </div> 
 
 </div>
