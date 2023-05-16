@@ -40,8 +40,10 @@
     <%= form.label :image, class:"input-group-text label-with-format" %>
     <%= form.file_field :profilepic, class:"form-control field-with-format" %>
   </div>
-
-  <div>
-    <%= form.submit %>
+  
+  <hr>
+  <div class="col text-end">
+    <%= render "shared/form_submit" %> 
   </div>
+
 <% end %>

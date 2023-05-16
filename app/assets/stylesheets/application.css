@@ -25,13 +25,13 @@
     background-color: var(--primary-color);   
  }
 
- .footer {
-   display: flex;
+.footer {
+    display: flex;
    justify-content: space-between;
-   align-items: center;
+   align-items: center; 
    margin: 5px;
    padding: 5px;
- }
+ } 
  
 
 .brand{

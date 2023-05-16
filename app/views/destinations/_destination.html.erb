@@ -1,27 +1,27 @@
 <div id="<%= dom_id destination %>">
-  <p>
-    <strong>Nom:</strong>
-    <%= destination.nom %>
-  </p>
 
-  <p>
-    <strong>Pays:</strong>
-    <%= destination.pays %>
-  </p>
+  <div class="card produit-card" >
 
-  <p>
-    <strong>Ville:</strong>
-    <%= destination.ville %>
-  </p>
-
-  <p>
-    <strong>Cp:</strong>
-    <%= destination.cp %>
-  </p>
-
-  <p>
-    <strong>Port:</strong>
-    <%= destination.port %>
-  </p>
+    <%= link_to image_tag(destination.image1, class:"img-produit rounded"), destination_path(destination) if destination.image1.present? %> 
+    <div class="card-body">
+      <h5 class="card-title"> <%= destination.nom %></h5>
+      <p class="card-text">
+        <i class="fa fa-location-dot"></i>
+         <%= destination.pays %> | <%= destination.ville %> | <%= destination.port %>
+      </p>
+      <div class="container-fluid text-end">
+        <div class="row">
+          <div class="col-3 text-start">
+            <%= button_to "", @produit, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+          </div>  
+          <div class="col-9 text-end">
+            <%= link_to "", edit_destination_path(destination), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
+            <%= link_to "", destination_path(destination), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+            <%= link_to "", new_reservation_path(destinationId: destination), class: "btn btn-sm btn-success fa-solid fa-cart-shopping" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
 
 </div>
