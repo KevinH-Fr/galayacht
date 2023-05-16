@@ -1,29 +1,27 @@
 class ReservationsController < ApplicationController
+
+  include UserHelper
+  
   before_action :set_reservation, only: %i[ show edit update destroy ]
   before_action :require_preneur, only: [:new]
 
 
-  # GET /reservations or /reservations.json
   def index
     @reservations = Reservation.all
   end
-  before_action :require_preneur, only: [:new]
-  # GET /reservations/1 or /reservations/1.json
+
   def show
     @reservation = Reservation.find(params[:id])
 
   end
 
-  # GET /reservations/new
   def new
     @reservation = Reservation.new
   end
 
-  # GET /reservations/1/edit
   def edit
   end
 
-  # POST /reservations or /reservations.json
   def create
     @reservation = Reservation.new(reservation_params)
 
@@ -42,7 +40,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reservations/1 or /reservations/1.json
   def update
     respond_to do |format|
       if @reservation.update(reservation_params)
@@ -55,7 +52,6 @@ class ReservationsController < ApplicationController
     end
   end
 
-  # DELETE /reservations/1 or /reservations/1.json
   def destroy
     @reservation.destroy
 
@@ -124,23 +120,21 @@ class ReservationsController < ApplicationController
 
   def require_preneur
     if current_user.present?
-      if Preneur.where(user_id: current_user.id).present?
+      if user_preneur.present?
+        # ok resa possible
       else
-      redirect_to new_user_session_path, alert: "Please log in or sign up to continue."
+        redirect_to new_preneur_path, alert: "Please create a locataire profile to continue."
       end
     else
-      redirect_to new_user_session_path, alert: "Please log in or sign up to continue."
-
+      redirect_to new_user_session_path, alert: "Please create a user profile to continue."
     end
 
   end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_reservation
       @reservation = Reservation.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def reservation_params
       params.require(:reservation).permit(:produit_id, :preneur_id, :debutlocation, :finlocation, :prix, :statut)
     end

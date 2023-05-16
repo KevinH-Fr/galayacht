@@ -1,10 +1,13 @@
 
-<h1 class="text-center mb-4"> Proposer son bateau </h1>
+<%
+=begin%>
+ <h1 class="text-center mb-4"> Proposer son bateau </h1>
+ 
+<%
+=end%>
+<% if user_bailleur.present? %>
 
-<% if current_user.present? %>
-    <h2 class="title m-1"> MES BATEAUX
-        <%= link_to "Nouveau", new_produit_path, class: "btn btn-sm btn-primary fw-bold" %>
-    </h2>
+    <h2 class="title m-1"> MES BATEAUX</h2>
 
     <div data-aos="zoom-in-up" class="container-parent">
         <% @produits.each do |produit| %>
@@ -20,6 +23,10 @@
                 </div>
             <% end %>
         <% end %>
+    </div>
+
+    <div class="container-fluid width-limited text-start">    
+        <%= link_to "Nouveau", new_produit_path, class: "btn btn-sm btn-primary fw-bold" %>
     </div>
 
     <hr>  

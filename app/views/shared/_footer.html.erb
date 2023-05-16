@@ -3,6 +3,23 @@
     <% if current_user.present? %>
         <%= link_to '', user_path(current_user.id), class: "fa-regular fa-user btn btn-light" %>
         <%= current_user.email %>
+
+         <% if user_preneur.present? %>
+            <%= link_to preneur_path(user_preneur), class: "no-underline" do %>
+                Compte Preneur
+            <% end %>
+         <% else %>
+             <%= link_to "Créer profile locataire", new_preneur_path %>
+         <% end %>
+         
+         <% if user_bailleur.present? %>
+            <%= link_to bailleur_path(user_bailleur), class: "no-underline" do %>
+                Compte Bailleur
+            <% end %>
+         <% else %>
+            <%= link_to "Créer profile bailleur", new_bailleur_path %>
+         <% end %>
+
         <%= button_to "", destroy_user_session_path, method: :delete, class: "fa-solid fa-right-from-bracket btn btn-danger"  %>
     <% else %>
         <%= link_to '', new_user_session_path, class: "fa-solid fa-user-lock btn btn-warning" %>
