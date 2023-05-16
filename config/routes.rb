@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   get 'users/show'
 
-  devise_for :users
+ devise_for :users
+
+ # devise_for :users, controllers: {
+ #   sessions: 'users/sessions'
+ # }
 
   get 'users/:id' => 'users#show', as: 'user'
 
@@ -9,6 +13,7 @@ Rails.application.routes.draw do
   resources :destinations
   get 'espace_bailleur/index'
   get 'espace_preneur/index'
+  get 'espace_admin/index'
   resources :produits
   resources :bailleurs
   resources :preneurs

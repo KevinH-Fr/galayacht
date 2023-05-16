@@ -20,44 +20,34 @@
 
               <div class="input-group">
                 <%= f.label :password, class: "input-group-text" %>
+<%
+=begin%>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br /> 
+<%
+=end%>
                 <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
               </div>
               <div class="input-group">
                 <%= f.label :confirmation, class: "input-group-text" %>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
               </div>
+
               <hr>
-              
-              <div id="optionRole" data-controller="option-role"> 
-
-                <button type="button" id="proprietaire" 
-                  data-controller="proprietaire" 
-                  data-action="click->option-role#toggleBailleur">
-                  Propriétaire
-                </button>
-
-                <div data-option-role-target="bailleur">
-                  <!-- Contents of the div to be shown/hidden -->
-                  This is the div content.
+              <div class="row actions text-end">
+                <div class="col text-start fs-6">
+                  <%= render "devise/shared/links" %>
                 </div>
-
-
-
-                <hr>
-                
-                <div class="row actions text-end">
-                  <div class="col text-start fs-6">
-                    <%= render "devise/shared/links" %>
-                  </div>
-                  <div class="col text-end">
-                    <%= f.submit "Sign up", class:"btn fw-bold btn-primary" %>
-                  </div>
+                <div class="col text-end">
+                  <%= f.submit "Sign up", class:"btn fw-bold btn-primary" %>
                 </div>
-      
               </div>
-
+              
             <% end %>
 
+
+            
           </p>
     
       </div>
@@ -65,4 +55,6 @@
   </div>
 </div>
 
+
 <hr>
+

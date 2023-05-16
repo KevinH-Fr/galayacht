@@ -3,4 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_one :bailleur
+  has_one :preneur
+
+  accepts_nested_attributes_for :bailleur, :preneur
+  
 end
