@@ -27,21 +27,14 @@
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
               </div>
               <hr>
+
+
               
-              <div id="optionRole" data-controller="option-role"> 
-
-                <button type="button" id="proprietaire" 
-                  data-controller="proprietaire" 
-                  data-action="click->option-role#toggleBailleur">
-                  Propriétaire
-                </button>
-
-                <div data-option-role-target="bailleur">
-                  <!-- Contents of the div to be shown/hidden -->
-                  This is the div content.
-                </div>
-
-
+              <!-- Profile model -->
+                <%= f.fields_for :bailleur do |g| %>
+                 nom bailleur <%= g.text_field :nom %>
+                <% end %>
+                
 
                 <hr>
                 
@@ -54,8 +47,7 @@
                   </div>
                 </div>
       
-              </div>
-
+         
             <% end %>
 
           </p>
@@ -66,3 +58,5 @@
 </div>
 
 <hr>
+
+

@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   get 'users/show'
 
- devise_for :users
+ #devise_for :users
 
- # devise_for :users, controllers: {
- #   sessions: 'users/sessions'
- # }
+ devise_for :users, controllers: { registrations: 'users/registrations' }
 
   get 'users/:id' => 'users#show', as: 'user'
 

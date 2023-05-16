@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_one :bailleur
   has_one :preneur
 
-  accepts_nested_attributes_for :bailleur, :preneur
+  accepts_nested_attributes_for :bailleur
   
 end
