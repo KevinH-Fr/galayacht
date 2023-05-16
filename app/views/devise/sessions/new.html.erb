@@ -1,30 +1,46 @@
 
-<div class="bloc-etape">  
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="input-group">
-      <%= f.label :email, class: "input-group-text" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+<div class="card mb-3">
+  <div class="row g-0 align-items-center">
+    <div class="col-md-4">
+        <%= image_tag("sail boat", class:"img-fluid rounded-start") %> 
     </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Se connecter</h5>
+          <p class="card-text">
 
-    <div class="input-group">
-      <%= f.label :password, class: "input-group-text" %>
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-    </div>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="input-group">
+                <%= f.label :email, class: "input-group-text" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+              </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field fs-5 text-start ">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+              <div class="input-group">
+                <%= f.label :password, class: "input-group-text" %>
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+                <div class="field fs-5 text-start ">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <% end %>
+
+              <div class="row actions text-end">
+                <div class="col text-start fs-6">
+                  <%= render "devise/shared/links" %>
+                </div>
+                <div class="col text-end">   
+                  <%= f.submit "Log in", class:"btn fw-bold btn-primary" %>
+                </div>
+              </div>
+
+            <% end %>
+
+          </p>
+    
       </div>
-    <% end %>
-
-    <div class="actions text-end">
-      <%= f.submit "Log in", class:"btn fw-bold btn-primary" %>
     </div>
-  <% end %>
-
-  <div class="text-start fs-6">
-    <%= render "devise/shared/links" %>
   </div>
 </div>
