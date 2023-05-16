@@ -146,6 +146,7 @@ GEM
     nokogiri (1.14.3-x64-mingw-ucrt)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.5.3-x64-mingw-ucrt)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -204,7 +205,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    slide-selector (0.1.6)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -262,12 +262,12 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   letter_opener
+  pg (~> 1.4, >= 1.4.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   ransack
   sassc-rails
   selenium-webdriver
-  slide-selector
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
