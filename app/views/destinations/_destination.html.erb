@@ -7,29 +7,22 @@
       <h5 class="card-title"> <%= destination.nom %></h5>
       <p class="card-text">
         <i class="fa fa-location-dot"></i>
-         <%= destination.pays %> | <%= destination.ville %> | <%= destination.port %>
+        <%= destination.pays %> | <%= destination.ville %> | <%= destination.port %>
       </p>
       <div class="container-fluid text-end">
-        <div class="row">
-          <div class="col-3 text-start">
-            <% if current_user.present? && current_user.admin? %>
-              <%= button_to "", @produit, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
-            <% end %>
-          </div>  
-          <div class="col-9 text-end">
-          
-            <% if current_user.present? && current_user.admin? %>
-              <%= link_to "", edit_destination_path(destination), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
-              <%= link_to "", destination_path(destination), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
-            <% end %>
+        <div class="button-container">
+          <% if current_user.present? && current_user.admin? %>
+            <%= link_to "", edit_destination_path(destination), class: "btn btn-action btn-secondary fa-solid fa-pen-to-square" %>
+            <%= button_to "", @produit, method: :delete, class: "btn btn-action btn-danger fa-solid fa-trash" %>
+          <% end %>
 
-            <%= link_to new_reservation_path(destinationId: destination), class: "btn btn-sm btn-success" do %>
-              <span class="fw-bold mx-1"> Voir les bateaux </span>
-            <% end %>
-
-          </div>
+          <%= link_to new_reservation_path(destinationId: destination), class: "btn btn-sm btn-success" do %>
+            <span class="fw-bold mx-1"> Voir les bateaux </span>
+          <% end %>
         </div>
+
       </div>
+        
     </div>
   </div> 
 

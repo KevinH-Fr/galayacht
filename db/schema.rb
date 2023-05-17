@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_160131) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_203520) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -88,7 +88,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_160131) do
     t.string "city"
     t.integer "capacite"
     t.boolean "capitaine"
+    t.integer "destination_id"
     t.index ["bailleur_id"], name: "index_produits_on_bailleur_id"
+    t.index ["destination_id"], name: "index_produits_on_destination_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -122,6 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_160131) do
   add_foreign_key "bailleurs", "users"
   add_foreign_key "preneurs", "users"
   add_foreign_key "produits", "bailleurs"
+  add_foreign_key "produits", "destinations"
   add_foreign_key "reservations", "preneurs"
   add_foreign_key "reservations", "produits"
 end

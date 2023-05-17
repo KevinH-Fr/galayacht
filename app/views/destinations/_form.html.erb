@@ -41,7 +41,9 @@
     <%= form.file_field :image1, class:"form-control m-1 p-1" %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <hr>
+
+    <div class="col text-end">
+      <%= render "shared/form_submit" %> 
+    </div>
 <% end %>

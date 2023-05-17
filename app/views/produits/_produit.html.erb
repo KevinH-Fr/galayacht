@@ -23,7 +23,7 @@
         Semaine: <%= produit.prixsemaine %> <hr>
 
         <i class="fa fa-location-dot"></i>
-        Localisation: <%= produit.country_label %> | <%= produit.state_label %> | <%= produit.city %>
+        Localisation: <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
 
       </p>
       <div class="container-fluid text-end">

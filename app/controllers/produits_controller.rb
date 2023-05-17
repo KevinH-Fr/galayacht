@@ -2,11 +2,13 @@ class ProduitsController < ApplicationController
   before_action :set_produit, only: %i[ show edit update destroy ]
 
   def index
+    @destinations = Destination.all
+
     @q = Produit.ransack(params[:q])
 
     if params[:city].present?
-      city = params[:city].titleize
-      @produits = Produit.where(city: city)
+      destination = params[:city].titleize
+      @produits = Produit.where(destination_id: destination)
     else
     #  search_params = params.permit(:format, :page, :commit, q:[:nom_or_marque_or_city_cont])
     #  @produits = @q.result(distinct: true).order(created_at: :desc)
@@ -25,6 +27,7 @@ class ProduitsController < ApplicationController
   end
 
   def edit
+    @destinations = Destination.all
   end
 
   def create
@@ -70,6 +73,6 @@ class ProduitsController < ApplicationController
 
     def produit_params
       params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :image1, :bailleur_id,
-                                      :country, :state, :city, :capacite, :capitaine)
+                                      :country, :state, :city, :capacite, :capitaine, :destination_id)
     end
 end

@@ -1,10 +1,20 @@
-<h1>Editing destination</h1>
+<h4>Editer destination</h4>
 
 <%= render "form", destination: @destination %>
 
-<br>
+<hr>
 
-<div>
-  <%= link_to "Show this destination", @destination %> |
-  <%= link_to "Back to destinations", destinations_path %>
+<div class="button-container">
+
+
+  <%= link_to destinations_path, class: "btn btn-action btn-dark" do %>
+    <i class= "fa-solid fa-arrow-rotate-left"></i> 
+    <span> | Retour </span>
+  <% end %>
+
+  <%= link_to edit_destination_path(@destination), class: "btn btn-action btn-secondary" do %>
+    <i class= "fa-solid fa-pen-to-square"></i> 
+    <span> | Editer </span>
+  <% end %>
+
 </div>

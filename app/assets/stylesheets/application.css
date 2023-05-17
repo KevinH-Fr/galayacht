@@ -337,5 +337,10 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 10px;
-  margin-bottom: 20px;
+}
+
+.btn-action{
+  margin: 5px;
+  padding: 5px;
+  size: medium;
 }

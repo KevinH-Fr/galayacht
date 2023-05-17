@@ -3,7 +3,7 @@
     <% end %>
 
     <iframe style="border: 0; width: 100%;" src="https://www.google.com/maps/embed/v1/search?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>
-    &q=<%= @produit.city %>
+    &q=<%= localisation_port(@produit.destination_id) %>
     &zoom=14&maptype=satellite" frameborder="0" allowfullscreen="allowfullscreen">
     </iframe>
 

@@ -1,5 +1,7 @@
 class Produit < ApplicationRecord
   belongs_to :bailleur
+  belongs_to :destination
+  
   has_one_attached :image1
 
   validates :country, presence: true

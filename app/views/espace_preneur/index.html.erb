@@ -53,7 +53,7 @@
 
 <div data-aos="zoom-in-up" class="container-parent">
     <% @destinations.each do |destination| %>
-        <%= link_to produits_path(city: destination.ville ) do %>
+        <%= link_to produits_path(city: destination ) do %>
             <div class="bloc-enfant">
                 <div class="card second-card">
                     <%= image_tag(destination.image1, class:"card-img-top") if destination.image1.present? %> 
