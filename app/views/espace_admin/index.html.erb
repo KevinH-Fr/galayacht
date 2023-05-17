@@ -1,28 +1,5 @@
 <h3>Espace Admin</h3>
 
-<section>
-    <h4 class="container-fluid text-start"> Users</h4>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            <th>#</th>
-            <th>Email</th>
-            <th>Création</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @users.each do |user| %>
-            <tr>
-                <td><%= user.id %></td>
-                <td><%= user.email %></td>
-                <td><%= user.created_at %></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-</section>
-
-<hr>    
 
 <section>
     <h4 class="container-fluid text-start"> Propriétaires</h4>

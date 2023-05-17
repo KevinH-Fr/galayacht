@@ -43,27 +43,6 @@
   </div>
 
   <hr>
-
-    <!-- User fields -->
-  <%= form.fields_for :user, @bailleur.user do |user_fields| %>
-
-          <div class="input-group">
-            <%= user_fields.label :email, class: "input-group-text" %>
-            <%= user_fields.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-          </div>
-
-          <div class="input-group">
-            <%= user_fields.label :password, class: "input-group-text" %>
-            <%= user_fields.password_field :password, autocomplete: "new-password", class: "form-control" %>
-          </div>
-          <div class="input-group">
-            <%= user_fields.label :confirmation, class: "input-group-text" %>
-            <%= user_fields.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-          </div>
-
-  <% end %>
-
-  <hr>
   
   <div class="col text-end">
     <%= render "shared/form_submit" %> 

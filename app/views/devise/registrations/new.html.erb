@@ -29,13 +29,20 @@
               <hr>
 
 
+              <%= link_to "locataire", url_for(role: "locataire") %> <br>
+              <%= link_to "proprietaire", url_for(role: "propietaire") %> <br>
+
               
-              <!-- Profile model -->
+              <!-- bailleur model -->
                 <%= f.fields_for :bailleur do |g| %>
                  nom bailleur <%= g.text_field :nom %>
                 <% end %>
-                
 
+                <!-- preneur model -->
+                <%= f.fields_for :preneur do |g| %>
+                 nom preneur <%= g.text_field :nom %>
+                <% end %>
+                          
                 <hr>
                 
                 <div class="row actions text-end">
@@ -46,7 +53,6 @@
                     <%= f.submit "Sign up", class:"btn fw-bold btn-primary" %>
                   </div>
                 </div>
-      
          
             <% end %>
 
@@ -58,5 +64,3 @@
 </div>
 
 <hr>
-
-

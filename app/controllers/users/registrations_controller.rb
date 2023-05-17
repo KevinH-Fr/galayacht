@@ -7,7 +7,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     super do |resource|
-      resource.build_bailleur
+      if params[:role] == "proprietaire"
+        resource.build_bailleur
+      else
+        resource.build_preneur 
+      end 
     end
   end
 

@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
     protected
   
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [ bailleur_attributes: [:nom]])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [ 
+        bailleur_attributes: [:nom],
+        preneur_attributes: [:nom]])
     end
 end

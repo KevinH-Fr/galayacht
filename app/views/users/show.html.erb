@@ -1,5 +1,3 @@
-<h1>Compte utlisateur</h1>
-
 
 <% if user_signed_in? %>
   
@@ -9,19 +7,13 @@
   <hr>
 
   <% if user_preneur.present?%>
-    <%= link_to preneur_path(user_preneur), class: "no-underline" do %>
-       Compte Preneur
-      <i class= "btn btn-primary fa-solid fa-eye m-2" ></i>
-    <% end %>
-<% end %>
+    <%= render partial: 'preneurs/preneur', locals: { preneur: user_preneur } %>
+  <% end %>
 
   <% if user_bailleur.present?%>
-    <%= link_to bailleur_path(user_bailleur), class: "no-underline" do %>
-       Compte Bailleur
-      <i class= "btn btn-primary fa-solid fa-eye m-2" ></i>
-    <% end %>
-<% end %>
-  <br>
+    <%= render partial: 'bailleurs/bailleur', locals: { bailleur: user_bailleur } %>
+  <% end %>
+  
 <hr>
     
 
