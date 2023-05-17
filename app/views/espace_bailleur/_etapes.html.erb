@@ -1,14 +1,16 @@
 <div class="container">
-    <div data-aos="zoom-in-up" class="bloc-etape">    
-        <p class="card-text fs-1 m-1"> Etape 1</p>
-        <p class="card-text fs-4 m-1"> Renseignez quelques informations sur votre bateau </p>
-    </div>
-    <div  data-aos="zoom-in-up" class="bloc-etape">    
-        <p class="card-text fs-1 m-1"> Etape 2</p>
-        <p class="card-text fs-4 m-1"> Mettez en ligne votre annonce </p>
-    </div>
-    <div  data-aos="zoom-in-up" class="bloc-etape">    
-        <p class="card-text fs-1 m-1"> Etape 3</p>
-        <p class="card-text fs-4 m-1"> Trouvez un locataire et recevez votre argent de façon sécurisée </p>
-    </div>
+    <%= link_to new_user_registration_path(role: "proprietaire"), class: "no-underline" do %>
+        <div data-aos="zoom-in-up" class="bloc-etape">    
+            <p class="card-text fs-1 m-1"> Etape 1</p>
+            <p class="card-text fs-4 m-1"> Renseignez quelques informations sur votre bateau </p>
+        </div>
+        <div  data-aos="zoom-in-up" class="bloc-etape">    
+            <p class="card-text fs-1 m-1"> Etape 2</p>
+            <p class="card-text fs-4 m-1"> Mettez en ligne votre annonce </p>
+        </div>
+        <div  data-aos="zoom-in-up" class="bloc-etape">    
+            <p class="card-text fs-1 m-1"> Etape 3</p>
+            <p class="card-text fs-4 m-1"> Trouvez un locataire et recevez votre argent de façon sécurisée </p>
+        </div>
+    <% end %>
 </div>

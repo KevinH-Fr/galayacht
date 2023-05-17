@@ -4,19 +4,20 @@
     <% if current_user.present? %>
         <%= link_to '', user_path(current_user.id), class: "fa-regular fa-user btn btn-light" %>
         <% if user_preneur.present? %>
-            <%= link_to preneur_path(user_preneur), class: "no-underline fs-6" do %>
+            <%= link_to user_path(current_user.id), class: "no-underline fs-6" do %>
                 Locataire
             <% end %>
-        <% elsif user_bailleur.nil? %>
-            <%= link_to "Créer profile locataire", new_preneur_path, class: "text-center no-underline text-warning" %>
+        <%# elsif user_bailleur.nil? %>
+            <%#= link_to "Créer profile locataire", new_preneur_path, class: "text-center no-underline text-warning" %>
+        <%# end %>
         <% end %>
-        
+
         <% if user_bailleur.present? %>
-            <%= link_to bailleur_path(user_bailleur), class: "no-underline" do %>
+            <%= link_to user_path(current_user.id), class: "no-underline" do %>
                 Bailleur
             <% end %>
-         <% elsif user_preneur.nil? %>
-            <%= link_to "Créer profile bailleur", new_bailleur_path, class: "text-center no-underline text-primary" %>
+         <%# elsif user_preneur.nil? %>
+            <%#= link_to "Créer profile bailleur", new_bailleur_path, class: "text-center no-underline text-primary" %>
         <% end %>
         <%= button_to "", destroy_user_session_path, method: :delete, class: "fa-solid fa-right-from-bracket btn btn-danger"  %>
     <% else %>

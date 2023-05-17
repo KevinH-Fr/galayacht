@@ -1,0 +1,21 @@
+
+    <h4 class="container-fluid text-start"> Propriétaires</h4>
+
+    <table class="table table-striped full-width-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Création</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @bailleurs.each do |baileur| %>
+            <tr>
+                <td><%= baileur.id %></td>
+                <td><%= bailleur_full_name(baileur.id) %></td>
+                <td><%= baileur.created_at %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>

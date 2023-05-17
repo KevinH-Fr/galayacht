@@ -1,0 +1,21 @@
+
+    <h4 class="container-fluid text-start"> Admins</h4>
+    <table class="table table-striped full-width-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Création</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @admins.each do |admin| %>
+            <tr>
+                <td><%= admin.id %></td>
+                <td><%= admin.email %></td>
+                <td><%= admin.created_at %></td>
+            </tr>
+            <% end %>
+        </tbody>
+     </table>
+

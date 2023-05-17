@@ -1,52 +1,13 @@
 <h3>Espace Admin</h3>
 
+<div class="container">
 
-<section>
-    <h4 class="container-fluid text-start"> Propriétaires</h4>
+    <%= render "liste_admins" %>
+    <hr>
 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                <th>#</th>
-                <th>Email</th>
-                <th>Création</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @bailleurs.each do |baileur| %>
-                <tr>
-                    <td><%= baileur.id %></td>
-                    <td><%= bailleur_full_name(baileur.id) %></td>
-                    <td><%= baileur.created_at %></td>
-                </tr>
-                <% end %>
-            </tbody>
-     </table>
-</section>
+    <%= render "liste_bailleurs" %>
+    <hr>
 
-<hr>
+    <%= render "liste_preneurs" %>
 
-
-<section>
-    <h4 class="container-fluid text-start"> Locataires</h4>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-            <th>#</th>
-            <th>Email</th>
-            <th>Création</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @preneurs.each do |preneur| %>
-            <tr>
-                <td><%= preneur.id %></td>
-                <td><%= preneur_full_name(preneur.id) %></td>
-                <td><%= preneur.created_at %></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-
-</section>
+</div>

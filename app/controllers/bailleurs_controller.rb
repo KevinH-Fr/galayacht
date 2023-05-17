@@ -1,25 +1,20 @@
 class BailleursController < ApplicationController
   before_action :set_bailleur, only: %i[ show edit update destroy ]
 
-  # GET /bailleurs or /bailleurs.json
   def index
     @bailleurs = Bailleur.all
   end
 
-  # GET /bailleurs/1 or /bailleurs/1.json
   def show
   end
 
-  # GET /bailleurs/new
   def new
     @bailleur = Bailleur.new
   end
 
-  # GET /bailleurs/1/edit
   def edit
   end
 
-  # POST /bailleurs or /bailleurs.json
   def create
     @bailleur = Bailleur.new(bailleur_params)
 
@@ -34,7 +29,6 @@ class BailleursController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bailleurs/1 or /bailleurs/1.json
   def update
     respond_to do |format|
       if @bailleur.update(bailleur_params)
@@ -47,7 +41,6 @@ class BailleursController < ApplicationController
     end
   end
 
-  # DELETE /bailleurs/1 or /bailleurs/1.json
   def destroy
     @bailleur.destroy
 
@@ -58,12 +51,10 @@ class BailleursController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_bailleur
       @bailleur = Bailleur.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def bailleur_params
       params.require(:bailleur).permit(:prenom, :nom, :telephone, :mail, :user_id, :profilepic)
     end

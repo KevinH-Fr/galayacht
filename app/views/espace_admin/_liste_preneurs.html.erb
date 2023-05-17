@@ -1,0 +1,23 @@
+<section>
+    <h4 class="container-fluid text-start"> Locataires</h4>
+
+    <table class="table table-striped full-width-table">
+        <thead>
+            <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Création</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @preneurs.each do |preneur| %>
+            <tr>
+                <td><%= preneur.id %></td>
+                <td><%= preneur_full_name(preneur.id) %></td>
+                <td><%= preneur.created_at %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+</section>

@@ -1,5 +1,11 @@
 <%# landing page avant log ou choix preneur bailleur %>
 
+
+<% if current_user.present? %>
+    <%= link_to "espace admin", espace_admin_index_path, class: "btn btn-dark m-1" if current_user.admin? %>
+    <%= link_to "espace propriétaire", espace_bailleur_index_path, class: "btn btn-primary m-1" if user_preneur.present? %>
+    <%= link_to "espace locataire", espace_preneur_index_path, class: "btn btn-warning m-1" if user_bailleur.present? %>
+<% end %>
     <%= render "produits/form_recherche_bateau" %>
  
     <%= link_to espace_preneur_index_path, class: "no-underline" do %>
@@ -24,5 +30,3 @@
         </div>
     <% end %>  
 
-
-    <%= render "shared/links_profiles" %>
