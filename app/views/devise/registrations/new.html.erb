@@ -1,61 +1,113 @@
 
 <div class="card mb-3">
   <div class="row g-0 align-items-center">
-    <div class="col-md-4">
-        <%= image_tag("sail boat.jpg", class:"img-fluid rounded-start") %> 
-        
-    </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Créer un compte</h5>
+        <h5 class="card-title">
+          Créer un compte
+          <%= params[:role] %>
+        
+        </h5>
           <p class="card-text">
 
-            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= render "devise/shared/error_messages", resource: resource %>
 
-              <div class="input-group">
-                <%= f.label :email, class: "input-group-text" %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            <% if params[:role].nil? %>
+              <div class="container-fluid text-center">
+                <%= link_to "locataire", url_for(role: "locataire"), class: "btn btn-outline-success" %>
+                <%= link_to "proprietaire", url_for(role: "proprietaire"), class: "btn btn-outline-primary" %>
               </div>
-
-              <div class="input-group">
-                <%= f.label :password, class: "input-group-text" %>
-                <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-              </div>
-              <div class="input-group">
-                <%= f.label :confirmation, class: "input-group-text" %>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-              </div>
-              <hr>
-
-
-              <%= link_to "locataire", url_for(role: "locataire") %> <br>
-              <%= link_to "proprietaire", url_for(role: "propietaire") %> <br>
-
-              
-              <!-- bailleur model -->
-                <%= f.fields_for :bailleur do |g| %>
-                 nom bailleur <%= g.text_field :nom %>
-                <% end %>
-
-                <!-- preneur model -->
-                <%= f.fields_for :preneur do |g| %>
-                 nom preneur <%= g.text_field :nom %>
-                <% end %>
-                          
-                <hr>
-                
-                <div class="row actions text-end">
-                  <div class="col text-start fs-6">
-                    <%= render "devise/shared/links" %>
-                  </div>
-                  <div class="col text-end">
-                    <%= f.submit "Sign up", class:"btn fw-bold btn-primary" %>
-                  </div>
-                </div>
-         
             <% end %>
 
+            <% if params[:role] == "proprietaire" || params[:role] == "locataire" %>
+
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+
+                <div class="input-group">
+                  <%= f.label :email, class: "input-group-text" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                </div>
+
+                <div class="input-group">
+                  <%= f.label :password, class: "input-group-text" %>
+                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                </div>
+                <div class="input-group">
+                  <%= f.label :confirmation, class: "input-group-text" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+                </div>
+                <hr>
+      
+                <% if params[:role] == "proprietaire" %>
+                  <!-- bailleur model -->
+                  <%= f.fields_for :bailleur do |g| %>
+                    <div class="input-group mb-1">
+                      <%= g.label :prenom, class:"input-group-text label-with-format" %>
+                      <%= g.text_field :prenom, class:"form-control " %>
+                    </div>
+
+                    <div class="input-group mb-1">
+                      <%= g.label :nom, class:"input-group-text label-with-format" %>
+                      <%= g.text_field :nom, class:"form-control " %>
+                    </div>
+
+                    <div class="input-group mb-1">
+                      <%= g.label :telephone, class:"input-group-text label-with-format" %>
+                      <%= g.text_field :telephone, class:"form-control " %>
+                    </div>
+
+                    <div class="input-group mb-1">
+                      <%= g.label :image, class:"input-group-text label-with-format" %>
+                      <%= g.file_field :profilepic, class:"form-control " %>
+                    </div>
+                  <% end %>
+                <% end %>
+
+                <% if params[:role] == "locataire" %>
+                  <!-- preneur model -->
+                  <%= f.fields_for :preneur do |g| %>
+
+                    <div class="input-group mb-1">
+                      <%= g.label :prenom, class:"input-group-text label-with-format" %>
+                      <%= g.text_field :prenom, class:"form-control " %>
+                    </div>
+
+                    <div class="input-group mb-1">
+                      <%= g.label :nom, class:"input-group-text label-with-format" %>
+                      <%= g.text_field :nom, class:"form-control " %>
+                    </div>
+
+                    <div class="input-group mb-1">
+                      <%= g.label :telephone, class:"input-group-text label-with-format" %>
+                      <%= g.text_field :telephone, class:"form-control " %>
+                    </div>
+
+                    <div class="input-group mb-1">
+                      <%= g.label :image, class:"input-group-text label-with-format" %>
+                      <%= g.file_field :profilepic, class:"form-control " %>
+                    </div>
+                          
+                  <% end %>
+                <% end %>
+
+    
+                <% if params[:role] == "proprietaire" || params[:role] == "locataire" %>
+
+                  <div class="row actions text-end">
+                    <div class="col text-start fs-6">
+                      <%= render "devise/shared/links" %>
+                    </div>
+                    <div class="col text-end">
+                      <%= f.submit "Sign up", class:"btn fw-bold btn-primary" %>
+                    </div>
+                  </div>
+                <% end %>
+          
+              <% end %>
+
+            <% end %>
+
+    
           </p>
     
       </div>

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [ 
-        bailleur_attributes: [:nom],
-        preneur_attributes: [:nom]])
+        bailleur_attributes: [:prenom, :nom, :telephone, :profilepic],
+        preneur_attributes: [:prenom, :nom, :telephone, :profilepic]])
     end
 end
