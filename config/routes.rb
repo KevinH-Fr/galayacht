@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'espace_permis/index'
   get 'users/show'
 
  #devise_for :users

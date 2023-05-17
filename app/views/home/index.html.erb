@@ -2,10 +2,13 @@
 
 
 <% if current_user.present? %>
+  <div class="button-container">
     <%= link_to "espace admin", espace_admin_index_path, class: "btn btn-dark m-1" if current_user.admin? %>
     <%= link_to "espace propriétaire", espace_bailleur_index_path, class: "btn btn-primary m-1" if user_preneur.present? %>
     <%= link_to "espace locataire", espace_preneur_index_path, class: "btn btn-warning m-1" if user_bailleur.present? %>
+  </div>
 <% end %>
+
     <%= render "produits/form_recherche_bateau" %>
  
     <%= link_to espace_preneur_index_path, class: "no-underline" do %>
@@ -13,7 +16,9 @@
             <%= image_tag "motor boat.jpg", class: "img-main" %> 
             <div class="text-overlay">
                 <h2>Louer un bateau</h2>
-                <p class="mt-2">  Découvrez notre sélection de bateaux et de destinations...  </p>
+                <p class="mt-2">  
+                    Découvrez notre sélection de bateaux et de destinations...  
+                </p>
             </div>
         </div>
     <% end %>
@@ -25,7 +30,23 @@
             <%= image_tag "sail boat.jpg", class: "img-main" %> 
             <div class="text-overlay">
                 <h2>Proposer un bateau</h2>
-                <p class="mt-2">  Retrouvez nos outils pour proposer votre bateau à la location...  </p>
+                <p class="mt-2">  
+                    Retrouvez nos outils pour proposer votre bateau à la location...  
+                </p>
+            </div>
+        </div>
+    <% end %>  
+
+    <hr class="my-4">
+    
+    <%= link_to espace_permis_index_path, class: "no-underline" do %>
+        <div data-aos="zoom-in-up" class="image-container">
+            <%= image_tag "boatlicence.jpg", class: "img-main" %> 
+            <div class="text-overlay">
+                <h2>Passer le permis bateau</h2>
+                <p class="mt-2">  
+                    Trouvez les meilleures options pour naviguer librement...  
+                </p>
             </div>
         </div>
     <% end %>  

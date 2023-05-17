@@ -10,4 +10,6 @@
   </div>
 </div>
 
-<%= link_to "New destination", new_destination_path %>
+<% if current_user.present? && current_user.admin? %>
+  <%= link_to "Nouvelle destination", new_destination_path, class: "btn btn-primary" %>
+<% end %>

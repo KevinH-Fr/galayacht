@@ -1,25 +1,21 @@
 class DestinationsController < ApplicationController
+  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
   before_action :set_destination, only: %i[ show edit update destroy ]
 
-  # GET /destinations or /destinations.json
   def index
     @destinations = Destination.all
   end
-
-  # GET /destinations/1 or /destinations/1.json
+ 
   def show
   end
 
-  # GET /destinations/new
   def new
     @destination = Destination.new
   end
 
-  # GET /destinations/1/edit
   def edit
   end
 
-  # POST /destinations or /destinations.json
   def create
     @destination = Destination.new(destination_params)
 
@@ -34,7 +30,6 @@ class DestinationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /destinations/1 or /destinations/1.json
   def update
     respond_to do |format|
       if @destination.update(destination_params)
@@ -47,7 +42,6 @@ class DestinationsController < ApplicationController
     end
   end
 
-  # DELETE /destinations/1 or /destinations/1.json
   def destroy
     @destination.destroy
 
@@ -58,12 +52,17 @@ class DestinationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    def authenticate_admin!
+      unless current_user && current_user.admin?
+        redirect_to root_path, alert: "Vous n'avez pas accès à cette page."
+      end
+    end
+
     def set_destination
       @destination = Destination.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def destination_params
       params.require(:destination).permit(:nom, :pays, :ville, :cp, :port, :image1)
     end

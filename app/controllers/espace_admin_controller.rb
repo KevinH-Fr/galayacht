@@ -9,7 +9,6 @@ class EspaceAdminController < ApplicationController
   end
 
   private
-
   
   def authenticate_admin!
     unless current_user && current_user.admin?
