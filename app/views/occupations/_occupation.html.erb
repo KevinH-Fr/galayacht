@@ -1,17 +1,25 @@
 <div id="<%= dom_id occupation %>">
-  <p>
-    <strong>Debut:</strong>
-    <%= occupation.debut %>
-  </p>
 
-  <p>
-    <strong>Fin:</strong>
-    <%= occupation.fin %>
-  </p>
+  <div class="card produit-card" >
+    <div class="card-body">
+      <h5 class="card-title"> <%= occupation.nom %></h5>
+      <p class="card-text">
+        <strong>Debut:</strong>
+        <%= occupation.debut %>
+      </p>
+      <p class="card-text">
+        <strong>Fin:</strong>
+        <%= occupation.fin %>
+      </p>
+      <hr>
+      
+      <div class="button-container">
+        <%= button_to "", @occupation, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+        <%= link_to "", edit_occupation_path(occupation), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
+        <%= link_to "", occupation_path(occupation), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+      </div>
 
-  <p>
-    <strong>Produit:</strong>
-    <%= occupation.produit_id %>
-  </p>
+    </div>
+  </div>
 
 </div>

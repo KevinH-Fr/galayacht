@@ -34,6 +34,8 @@ class ProduitsController < ApplicationController
 
   def edit
     @destinations = Destination.all
+    @occupations = @produit.occupations
+
   end
 
   def create

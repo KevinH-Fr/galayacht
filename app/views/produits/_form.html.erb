@@ -92,23 +92,45 @@
       </div>
 
 
-      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button">
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseCalendrier" role="button">
         Calendrier
       </a>
 
-      <div class="collapse" id="collapseExample">
+
+      <div class="collapse" id="collapseCalendrier">
         <div class="card card-body mt-2">
+          
+            <%= render @occupations %>
+ 
 
-          <!-- occupation_produit fields -->
-          <%= form.fields_for :occupations, @produit.occupations.build do |occupation_fields| %>
-            <%= occupation_fields.label :debut %>
-            <%= occupation_fields.date_field :debut %>
-
-            <%= occupation_fields.label :fin %>
-            <%= occupation_fields.date_field :fin %>
-          <% end %>
         </div>
+
+
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseNewCalendrier" role="button">
+          Bloquer une période
+        </a>
+
+        <div class="collapse" id="collapseNewCalendrier">
+          <div class="card card-body mt-2">
+
+            <!-- occupation_produit fields -->
+            <%= form.fields_for :occupations, @produit.occupations.build do |occupation_fields| %>
+              <%= occupation_fields.label :debut %>
+              <%= occupation_fields.date_field :debut %>
+
+              <%= occupation_fields.label :fin %>
+              <%= occupation_fields.date_field :fin %>
+
+               <%= render "shared/form_submit" %> 
+               
+            <% end %>
+          </div>
+        </div>
+
       </div>
+
+      
+
 
     <div>
       <%#= form.label :bailleur_id, class: "input-group-text label-with-format" %>

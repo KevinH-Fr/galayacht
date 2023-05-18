@@ -12,6 +12,11 @@
   <% end %>
 
   <div>
+    <%= form.label :nom, style: "display: block" %>
+    <%= form.text_field :nom %>
+  </div>
+
+  <div>
     <%= form.label :debut, style: "display: block" %>
     <%= form.date_field :debut %>
   </div>
@@ -23,7 +28,7 @@
 
   <div>
     <%= form.label :produit_id, style: "display: block" %>
-    <%= form.text_field :produit_id %>
+    <%= form.text_field :produit_id, value: produit_courant.id %>
   </div>
 
   <div>

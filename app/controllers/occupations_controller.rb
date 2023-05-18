@@ -65,6 +65,6 @@ class OccupationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def occupation_params
-      params.require(:occupation).permit(:debut, :fin, :produit_id)
+      params.require(:occupation).permit(:debut, :fin, :produit_id, :nom)
     end
 end
