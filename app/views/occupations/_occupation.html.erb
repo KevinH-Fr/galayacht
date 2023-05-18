@@ -14,8 +14,8 @@
       <hr>
       
       <div class="button-container">
-        <%= button_to "", @occupation, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
-        <%= link_to "", edit_occupation_path(occupation), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
+        <%= button_to "", occupation_path(occupation), method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+        <%= button_to "", edit_occupation_path(occupation), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
         <%= link_to "", occupation_path(occupation), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
       </div>
 

@@ -4,22 +4,27 @@ Rails.application.routes.draw do
   get 'home/testimage'
   root "home#index"
   get 'espace_permis/index'
-  get 'users/show'
-  get 'users/:id' => 'users#show', as: 'user'
+
   get 'espace_bailleur/index'
   get 'espace_preneur/index'
   get 'espace_admin/index'
  
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  
+  get 'users/show'
+  get 'users/:id' => 'users#show', as: 'user'
+
   resources :destinations
   resources :bailleurs
   resources :preneurs
-  resources :occupations
-  resources :occupation_produits
   resources :admin_parameters
 
   resources :produits do
+    member do
+      post :edit
+    end
+  end
+
+  resources :occupations do
     member do
       post :edit
     end

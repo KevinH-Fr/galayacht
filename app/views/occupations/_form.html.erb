@@ -27,8 +27,11 @@
   </div>
 
   <div>
-    <%= form.label :produit_id, style: "display: block" %>
-    <%= form.text_field :produit_id, value: produit_courant.id %>
+    <% if occupation.produit_id.present? %>
+      <%= form.text_field :produit_id %>
+    <% else %>
+      <%= form.text_field :produit_id, value: @produit.id %> 
+    <% end %>
   </div>
 
   <div>

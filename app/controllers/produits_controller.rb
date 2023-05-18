@@ -21,14 +21,15 @@ class ProduitsController < ApplicationController
   
   def show
     @occupations = @produit.occupations
+
+    session[:produit] = @produit.id
   end
 
   def new
-    @produit = Produit.new produit_params
+    @produit = Produit.new  
     @destinations = Destination.all
 
     @occupation = @produit.occupations.build 
-
 
   end
 
