@@ -1,4 +1,4 @@
-<%= form_with(model: produit, data: {controller: "form-reset"}) do |form| %>
+<%= form_for produit do |form| %>
   <% if produit.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(produit.errors.count, "error") %> prohibited this produit from being saved:</h2>
@@ -91,7 +91,24 @@
             {include_blank: :true}, class: "form-select text-center" %>
       </div>
 
-    </div>
+
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button">
+        Calendrier
+      </a>
+
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body mt-2">
+
+          <!-- occupation_produit fields -->
+          <%= form.fields_for :occupations, @produit.occupations.build do |occupation_fields| %>
+            <%= occupation_fields.label :debut %>
+            <%= occupation_fields.date_field :debut %>
+
+            <%= occupation_fields.label :fin %>
+            <%= occupation_fields.date_field :fin %>
+          <% end %>
+        </div>
+      </div>
 
     <div>
       <%#= form.label :bailleur_id, class: "input-group-text label-with-format" %>

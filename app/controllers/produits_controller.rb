@@ -20,11 +20,15 @@ class ProduitsController < ApplicationController
   end
   
   def show
+    @occupations = @produit.occupations
   end
 
   def new
     @produit = Produit.new produit_params
     @destinations = Destination.all
+
+    @occupation = @produit.occupations.build 
+
 
   end
 
@@ -34,6 +38,8 @@ class ProduitsController < ApplicationController
 
   def create
     @produit = Produit.new(produit_params)
+    @destinations = Destination.all
+
 
     respond_to do |format|
       if @produit.save
@@ -77,6 +83,7 @@ class ProduitsController < ApplicationController
 
     def produit_params
       params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :image1, :bailleur_id,
-                                      :country, :state, :city, :capacite, :capitaine, :destination_id)
+                                      :country, :state, :city, :capacite, :capitaine, :destination_id,
+                                       occupations_attributes: [:debut, :fin])
     end
 end

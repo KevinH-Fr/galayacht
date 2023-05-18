@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :occupations
+  resources :occupation_produits
   resources :admin_parameters
   get 'espace_permis/index'
   get 'users/show'

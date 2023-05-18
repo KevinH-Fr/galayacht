@@ -1,0 +1,32 @@
+<%= form_with(model: occupation) do |form| %>
+  <% if occupation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(occupation.errors.count, "error") %> prohibited this occupation from being saved:</h2>
+
+      <ul>
+        <% occupation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :debut, style: "display: block" %>
+    <%= form.date_field :debut %>
+  </div>
+
+  <div>
+    <%= form.label :fin, style: "display: block" %>
+    <%= form.date_field :fin %>
+  </div>
+
+  <div>
+    <%= form.label :produit_id, style: "display: block" %>
+    <%= form.text_field :produit_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

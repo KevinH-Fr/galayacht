@@ -4,6 +4,11 @@ class Produit < ApplicationRecord
   
   has_one_attached :image1
 
+  has_many :occupations
+  accepts_nested_attributes_for :occupations
+
+ # validates :destination_id, presence: true
+
   #validates :country, presence: true
 
   #validates :state, inclusion: { in: -> (record) { record.states.keys }, allow_blank: true }

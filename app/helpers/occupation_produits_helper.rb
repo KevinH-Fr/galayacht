@@ -1,0 +1,2 @@
+module OccupationProduitsHelper
+end

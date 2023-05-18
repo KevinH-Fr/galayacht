@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @occupation_produit %>
+
+<div>
+  <%= link_to "Edit this occupation produit", edit_occupation_produit_path(@occupation_produit) %> |
+  <%= link_to "Back to occupation produits", occupation_produits_path %>
+
+  <%= button_to "Destroy this occupation produit", @occupation_produit, method: :delete %>
+</div>

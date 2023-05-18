@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  debut: 2023-05-18
+  fin: 2023-05-18
+  produit: one
+
+two:
+  debut: 2023-05-18
+  fin: 2023-05-18
+  produit: two
