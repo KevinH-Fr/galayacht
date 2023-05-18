@@ -25,14 +25,16 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
  
-   # if AdminParameter.first.present?
-      # affecter une valeur au champ remu 
-     # tauxRemuneration = AdminParameter.first.remuneration
-     # @reservation.remuneration = @reservation.prix * (tauxRemuneration / 100)
-   # end 
-
     respond_to do |format|
       if @reservation.save
+
+        # Create automatiquemente Occupation record
+      Occupation.create(
+        produit_id: @reservation.produit_id,
+        nom: "Autogénéré - réservation via appli",
+        debut: @reservation.debutlocation,
+        fin: @reservation.finlocation)
+
         send_reservation_email_preneur(@reservation.id)
         send_reservation_email_bailleur(@reservation.id)
 
