@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :admin_parameters
   get 'espace_permis/index'
   get 'users/show'
 

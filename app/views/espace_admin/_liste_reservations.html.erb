@@ -1,0 +1,25 @@
+
+    <h4 class="container-fluid text-start"> Reservations</h4>
+    <table class="table table-striped full-width-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Remuneration</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @reservations.each do |reservation| %>
+            <tr>
+                <td><%= reservation.id %></td>
+                <td><%= reservation.produit_id %></td>
+                <td><%= reservation.prix %></td>
+                <td><%= reservation.remuneration %></td>
+                <td><%= reservation.debutlocation %></td>
+            </tr>
+            <% end %>
+        </tbody>
+     </table>
+

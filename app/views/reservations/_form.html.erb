@@ -82,15 +82,38 @@
             data: { 
               reservation_target: "prixsemaineHautesaisonInitial" } %>
 
+
+      <%= form.hidden_field :date_hautesaison, 
+            value: AdminParameter.first.hautesaison, 
+            data: { 
+              reservation_target: "hautesaisonInitial" } %>
+
+
+
+      <%= form.hidden_field :remuneration_initial, 
+            value: AdminParameter.first.remuneration, 
+            data: { 
+              reservation_target: "remunerationInitial" } %>
+
       <%= form.hidden_field :prix, 
         data: { 
           reservation_target: "prix" } %>
+
+      <%= form.hidden_field :remuneration, 
+        data: { 
+          reservation_target: "remuneration" } %>
   
     <div class="">  
-      <span>  prix total:  </span>
+      <span>  prix net:  </span>
       <span id="prixTotal">
         0
+      </span> <br>
+
+      <span>  prix brut:  </span>
+      <span id="prixTotalBrut">
+        0
       </span>
+
     </div>
 
 

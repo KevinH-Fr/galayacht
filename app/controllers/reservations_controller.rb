@@ -24,11 +24,20 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
+ 
+   # if AdminParameter.first.present?
+      # affecter une valeur au champ remu 
+     # tauxRemuneration = AdminParameter.first.remuneration
+     # @reservation.remuneration = @reservation.prix * (tauxRemuneration / 100)
+   # end 
 
     respond_to do |format|
       if @reservation.save
         send_reservation_email_preneur(@reservation.id)
         send_reservation_email_bailleur(@reservation.id)
+
+      
+
 
         format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }
@@ -136,6 +145,6 @@ class ReservationsController < ApplicationController
     end
 
     def reservation_params
-      params.require(:reservation).permit(:produit_id, :preneur_id, :debutlocation, :finlocation, :prix, :statut)
+      params.require(:reservation).permit(:produit_id, :preneur_id, :debutlocation, :finlocation, :prix, :remuneration, :statut)
     end
 end

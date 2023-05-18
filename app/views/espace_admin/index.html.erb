@@ -1,6 +1,10 @@
 <h3>Espace Admin</h3>
 
+<%= link_to "Paramètres", admin_parameters_path %>
+
 <div class="container">
+
+    <%= render "liste_reservations" %>
 
     <%= render "liste_admins" %>
     <hr>

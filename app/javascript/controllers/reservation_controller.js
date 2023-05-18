@@ -7,7 +7,9 @@ export default class extends Controller {
     "debut", "fin",
     "prixjourInitial", "prixsemaineInitial",
     "prixjourHautesaisonInitial", "prixsemaineHautesaisonInitial",
-    "prix",
+    "remunerationInitial",
+    "hautesaisonInitial",
+    "prix", "remuneration"
   ];
 
   connect() {
@@ -24,9 +26,12 @@ export default class extends Controller {
     const prixJourHautesaisonInitial = this.prixjourHautesaisonInitialTarget.value;
     const prixSemaineHauteaisonInitial = this.prixsemaineHautesaisonInitialTarget.value;
 
+    const remunerationInitial = this.remunerationInitialTarget.value;
+
     // saison haute 01 juin
-    const debutHauteSaison = new Date(`06/01/${new Date().getFullYear()}`);
-    
+    const debutHauteSaison = new Date(this.hautesaisonInitialTarget.value);
+    console.log("haute saison depuis db: " + debutHauteSaison);
+
     // maj de la div saison pour info
     const saisonDiv = document.getElementById("saison");
 
@@ -57,6 +62,7 @@ export default class extends Controller {
 
     // prix jour ou semaine 
     let prixFinal;
+    let remunerationVal;
     let nbSemaines;
     let joursRestants;
 
@@ -67,15 +73,21 @@ export default class extends Controller {
       nbSemaines = Math.floor(joursDelta / 7);
       joursRestants = joursDelta % 7
       prixFinal = ( nbSemaines * tarifSemaineRetenu ) + ( joursRestants * tarifJourRetenu ) 
-      
     }
 
+    // determination du prix avec honoraires
+    remunerationVal = prixFinal * ( remunerationInitial / 100 );
+
    // maj field prix avec valeur calculée
-    this.prixTarget.value = prixFinal ;
+    this.prixTarget.value = prixFinal + remunerationVal ;
+    this.remunerationTarget.value =  remunerationVal ;
 
     // maj de la div prixtotal pour info
     const prixTotalDiv = document.getElementById("prixTotal");
     prixTotalDiv.textContent = prixFinal;
+
+    const prixTotalBrutDiv = document.getElementById("prixTotalBrut");
+    prixTotalBrutDiv.textContent = prixFinal + remunerationVal;
 
   }
   

@@ -6,6 +6,8 @@ class EspaceAdminController < ApplicationController
     @users = User.all
     @bailleurs = Bailleur.all
     @preneurs = Preneur.all
+    @reservations = Reservation.all
+
   end
 
   private
