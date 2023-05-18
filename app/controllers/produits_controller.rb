@@ -36,6 +36,14 @@ class ProduitsController < ApplicationController
     @destinations = Destination.all
     @occupations = @produit.occupations
 
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@produit, partial: "produits/form", 
+          locals: {produit: @produit})
+      end
+    end
+
   end
 
   def create
@@ -45,11 +53,23 @@ class ProduitsController < ApplicationController
 
     respond_to do |format|
       if @produit.save
-        format.html { redirect_to produit_url(@produit), notice: "Produit was successfully created." }
-        format.json { render :show, status: :created, location: @produit }
+        format.turbo_stream do
+          flash.now[:notice] = "le produit #{@produit.nom} a bien été ajouté"
+          render turbo_stream: [
+            turbo_stream.update('new_produit', partial: "produits/form", locals: {produit: Produit.new}),
+            turbo_stream.prepend("produits", partial: "produits/produit",
+              locals: {produit: @produit }), 
+              turbo_stream.update("flash", partial: "layouts/flash"),     
+            ]
+        end
+
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @produit.errors, status: :unprocessable_entity }
+        flash.now[:notice] = "erreur - le produit n'a pas été ajouté"
+        format.turbo_stream do
+          render turbo_stream: [
+             turbo_stream.update("flash", partial: "layouts/flashError"),
+           ]
+         end
       end
     end
   end

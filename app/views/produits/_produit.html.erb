@@ -26,17 +26,13 @@
         Localisation: <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
 
       </p>
-      <div class="container-fluid text-end">
-        <div class="row">
-          <div class="col-3 text-start">
-            <%= button_to "", @produit, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
-          </div>  
-          <div class="col-9 text-end">
-            <%= link_to "", edit_produit_path(produit), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
-            <%= link_to "", produit_path(produit), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
-            <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-sm btn-success fa-solid fa-cart-shopping" %>
-          </div>
-        </div>
+      <div class="button-container">
+        <%= button_to "", @produit, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+        <%= button_to "", edit_produit_path(produit), 
+              class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square", 
+              method: :post %>
+        <%= link_to "", produit_path(produit), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+        <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-sm btn-success fa-solid fa-cart-shopping" %>
       </div>
     </div>
   </div> 

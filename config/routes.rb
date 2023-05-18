@@ -1,34 +1,31 @@
 Rails.application.routes.draw do
-  resources :occupations
-  resources :occupation_produits
-  resources :admin_parameters
+
+  get 'home/index'
+  get 'home/testimage'
+  root "home#index"
   get 'espace_permis/index'
   get 'users/show'
-
- #devise_for :users
-
- devise_for :users, controllers: { registrations: 'users/registrations' }
-
   get 'users/:id' => 'users#show', as: 'user'
-
-  
-  resources :destinations
   get 'espace_bailleur/index'
   get 'espace_preneur/index'
   get 'espace_admin/index'
-  resources :produits
+ 
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  
+  resources :destinations
   resources :bailleurs
   resources :preneurs
-  get 'home/index'
+  resources :occupations
+  resources :occupation_produits
+  resources :admin_parameters
 
-  get 'home/testimage'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :produits do
+    member do
+      post :edit
+    end
+  end
 
-  # Defines the root path route ("/")
-   root "home#index"
-
-
-   resources :reservations do
+  resources :reservations do
     member do
       get :edition
       get :edition_test
@@ -40,8 +37,7 @@ Rails.application.routes.draw do
       get :send_reservation_email_bailleur, 
           to: 'reservations#send_reservation_email_bailleur', 
           as: :send_reservation_email_bailleur
-
     end
-   end
+  end
 
 end
