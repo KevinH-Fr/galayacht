@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_17_203520) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_18_095308) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -89,6 +89,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_17_203520) do
     t.integer "capacite"
     t.boolean "capitaine"
     t.integer "destination_id"
+    t.integer "prixjour_hautesaison"
+    t.integer "prixsemaine_hautesaison"
     t.index ["bailleur_id"], name: "index_produits_on_bailleur_id"
     t.index ["destination_id"], name: "index_produits_on_destination_id"
   end

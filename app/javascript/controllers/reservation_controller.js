@@ -3,7 +3,12 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   // champs dans le form resultat
-  static targets = ["debut", "fin", "prixjourInitial", "prixsemaineInitial", "prix"]
+  static targets = [   
+    "debut", "fin",
+    "prixjourInitial", "prixsemaineInitial",
+    "prixjourHautesaisonInitial", "prixsemaineHautesaisonInitial",
+    "prix",
+  ];
 
   connect() {
    console.log("Hello from reservation ")       
@@ -15,6 +20,30 @@ export default class extends Controller {
 
     const prixJourInitial = this.prixjourInitialTarget.value;
     const prixSemaineInitial = this.prixsemaineInitialTarget.value;
+    
+    const prixJourHautesaisonInitial = this.prixjourHautesaisonInitialTarget.value;
+    const prixSemaineHauteaisonInitial = this.prixsemaineHautesaisonInitialTarget.value;
+
+    // saison haute 01 juin
+    const debutHauteSaison = new Date(`06/01/${new Date().getFullYear()}`);
+    
+    // maj de la div saison pour info
+    const saisonDiv = document.getElementById("saison");
+
+    let tarifJourRetenu;
+    let tarifSemaineRetenu;
+
+    // Vérification si finValue est inférieure à debutHauteSaison et select tarif lié
+    if (Date.parse(finValue) <  Date.parse(debutHauteSaison)) {
+      saisonDiv.textContent = 'hors haute saison';
+      tarifJourRetenu = prixJourInitial;
+      tarifSemaineRetenu = prixSemaineInitial;
+
+    } else {
+      saisonDiv.textContent = 'haute saison';
+      tarifJourRetenu = prixJourHautesaisonInitial;
+      tarifSemaineRetenu = prixSemaineHauteaisonInitial;
+    }
 
     // count nb jours
     const timeDelta = Date.parse(finValue) - Date.parse(debutValue);
@@ -32,16 +61,16 @@ export default class extends Controller {
     let joursRestants;
 
     if (joursDelta <= 6) {
-        prixFinal = joursDelta * prixJourInitial;
+        prixFinal = joursDelta * tarifJourRetenu;
     } else {
 
       nbSemaines = Math.floor(joursDelta / 7);
       joursRestants = joursDelta % 7
-      prixFinal = ( nbSemaines * prixSemaineInitial ) + ( joursRestants * prixJourInitial ) 
+      prixFinal = ( nbSemaines * tarifSemaineRetenu ) + ( joursRestants * tarifJourRetenu ) 
       
     }
 
-   // console.log("nb semaine: " + nbSemaines + " - nb jours: " + joursRestants)
+   // maj field prix avec valeur calculée
     this.prixTarget.value = prixFinal ;
 
     // maj de la div prixtotal pour info

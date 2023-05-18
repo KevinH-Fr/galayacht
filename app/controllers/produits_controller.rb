@@ -24,6 +24,8 @@ class ProduitsController < ApplicationController
 
   def new
     @produit = Produit.new produit_params
+    @destinations = Destination.all
+
   end
 
   def edit
@@ -74,7 +76,7 @@ class ProduitsController < ApplicationController
     end
 
     def produit_params
-      params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :image1, :bailleur_id,
+      params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :image1, :bailleur_id,
                                       :country, :state, :city, :capacite, :capitaine, :destination_id)
     end
 end

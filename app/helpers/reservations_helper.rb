@@ -7,4 +7,9 @@ module ReservationsHelper
         produit = Reservation.find(reservation).produit_id
         Produit.find(produit).image1
     end
+
+    def produit_destination(produit)
+        destination = Produit.find(produit).destination_id
+        Destination.find(destination).full_name
+    end
 end

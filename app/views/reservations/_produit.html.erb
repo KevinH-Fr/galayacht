@@ -5,7 +5,7 @@
         <div class="card-body">
             <h2 class="card-title">
                 <%= produit.nom %> <hr>
-                <%= produit.country_label %> | <%= produit.city %>
+                <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
             </h2>
             <p class="card-text">
                 <%= produit.type_produit %>

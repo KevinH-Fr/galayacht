@@ -20,17 +20,22 @@
                         <hr>
                        
                         <p class="card-text fs-5 m-1"> 
-                             <i class="fa fa-euro-sign"></i> 
-                             à partir de <%= produit.prixjour %>
+                            <i class="fa fa-money-bill"></i> 
+                            à partir de <%= produit.prixjour %>
                         </p>
                         <p class="card-text fs-5 m-1"> 
-                             <i class="fa fa-people-group"></i> 
-                             <%= produit.capacite %> pers.
+                            <i class="fa fa-people-group"></i> 
+                            <%= produit.capacite %> pers.
                         </p>
                         <p class="card-text fs-5 m-1"> 
-                             <i class="fa fa-user-shield"></i> 
-                             <%= produit.capitaine %> 
+                            <i class="fa fa-user-shield"></i> 
+                            <%= produit.capitaine %> 
                         </p>
+                        <p class="card-text fs-5 m-1"> 
+                            <i class="fa fa-location-dot"></i> 
+                            <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
+                        </p>
+
                     </div>
                 </div>
             </div>

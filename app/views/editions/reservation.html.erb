@@ -23,9 +23,9 @@
         <%= image_tag(produit_img(@reservation.produit_id), class: "img-produit") %> <hr>
         <%= produit_full_name(@reservation.produit_id) %> <br>
         Synthèse de la location: <br>
-        Période:  Du <%= @reservation.debutlocation %> au  <%= @reservation.finlocation %>
-        Prix:  <%= @reservation.prix %>
-        Port: <%#= @reservation.debutlocation %>
+        Période:  Du <%= @reservation.debutlocation %> au  <%= @reservation.finlocation %> <br>
+        Prix:  <%= @reservation.prix %> <br>
+        Port: <%= produit_destination(@reservation.produit_id) %>
 
     </div>
     

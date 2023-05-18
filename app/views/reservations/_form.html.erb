@@ -47,11 +47,19 @@
     </div>
 
     <div class="">  
+      <span>  saison :  </span>
+      <span id="saison">
+        
+      </span>
+    </div>
+
+    <div class="">  
       <span>  nombre de jours :  </span>
       <span id="nbJours">
         0
       </span>
     </div>
+
 
 
       <%= form.hidden_field :prixjour, 
@@ -63,6 +71,16 @@
             value: produit_courant.prixsemaine, 
             data: { 
               reservation_target: "prixsemaineInitial" } %>
+
+      <%= form.hidden_field :prixjour_hautesaison, 
+            value: produit_courant.prixjour_hautesaison, 
+            data: { 
+              reservation_target: "prixjourHautesaisonInitial" } %>
+
+      <%= form.hidden_field :prixsemaine_hautesaison, 
+            value: produit_courant.prixsemaine_hautesaison, 
+            data: { 
+              reservation_target: "prixsemaineHautesaisonInitial" } %>
 
       <%= form.hidden_field :prix, 
         data: { 
