@@ -16,7 +16,7 @@
             <%= button_to "", @produit, method: :delete, class: "btn btn-action btn-danger fa-solid fa-trash" %>
           <% end %>
 
-          <%= link_to new_reservation_path(destinationId: destination), class: "btn btn-sm btn-success" do %>
+          <%= link_to produits_path(city: destination), class: "btn btn-sm btn-success" do %>
             <span class="fw-bold mx-1"> Voir les bateaux </span>
           <% end %>
         </div>
