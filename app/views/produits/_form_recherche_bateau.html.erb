@@ -12,19 +12,20 @@
 
             <div class="form-group my-4">
             <%= f.label :city_cont, "Ville de départ", class: "fw-bold" %>
-            <div class="input-group">
-                <span class="input-group-text">
-                <i class="fa fa-search"></i>
-                </span>
-                <%= f.search_field :city_cont, class: "form-control", placeholder: "Cannes, Antibes, Théoule, ..." %>
-            </div>
+                <div class="input-group">
+                    <span class="input-group-text">
+                    <i class="fa fa-search"></i>
+                    </span>
+                    <%#= f.search_field :city_cont, class: "form-control", placeholder: "Cannes, Antibes, Théoule, ..." %>
+                    <%#= f.select :destination_id_cont, options_for_select(Produit.distinct.pluck(:destination_id)), {}, class: "form-select",
+                        placeholder: "" %>
+
+                    <%= f.select :destination_id_eq, @destinations.collect { |c| [c.full_name, c.id] }, 
+                            {include_blank: :true}, class: "form-select", placeholder: "Cannes, Théoule, Monaco, ..." %>
+
+                </div>
             </div>
 
-
-            <div class="form-group my-4">
-                <%#= f.label :type_produit_cont, "Type de bateau", class: "fw-bold" %>
-                <%#= f.search_field :type_produit_cont, class: "form-control", placeholder: "Moteur, voilier, catamaran, ..." %>
-            </div>
 
             <div class="form-group my-4">
                 <%= f.label :type_produit_eq, "Type de bateau", class: "fw-bold" %>

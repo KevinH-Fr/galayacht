@@ -45,6 +45,8 @@ class ProduitsController < ApplicationController
   end
 
   def update
+    @destinations = Destination.all
+
     respond_to do |format|
       if @produit.update(produit_params)
         format.html { redirect_to produit_url(@produit), notice: "Produit was successfully updated." }
