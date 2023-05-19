@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :schedules
 
   get 'home/index'
   get 'home/testimage'

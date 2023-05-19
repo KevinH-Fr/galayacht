@@ -94,6 +94,11 @@
   align-items: center;
 }
 
+.container-calendar{
+  width: 80vw;
+  height: 400px;
+}
+
 .max-widthed{
   max-width: 1500px;
 }

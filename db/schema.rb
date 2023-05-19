@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_18_173057) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_19_215732) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -77,8 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_173057) do
   end
 
   create_table "occupations", force: :cascade do |t|
-    t.date "debut"
-    t.date "fin"
+    t.datetime "debut", precision: nil
+    t.datetime "fin", precision: nil
     t.integer "produit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -133,6 +133,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_173057) do
     t.integer "remuneration"
     t.index ["preneur_id"], name: "index_reservations_on_preneur_id"
     t.index ["produit_id"], name: "index_reservations_on_produit_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "title"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
