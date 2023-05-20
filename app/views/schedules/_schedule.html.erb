@@ -1,23 +1,27 @@
 <div id="<%= dom_id schedule %>">
-  <p>
-    <strong>Title:</strong>
-    <%= schedule.title %>
-  </p>
 
-  <p>
-    <strong>Start:</strong>
-    <%= schedule.start %>
-  </p>
+  <div class="card produit-card p-4">
 
-  <p>
-    <strong>End:</strong>
-    <%= schedule.end %>
-  </p>
+    <p>
+      <strong>Title:</strong>
+      <%= schedule.title %>
+    </p>
 
-  <div class="button-container">
-    <%= button_to "", schedule_path(schedule), method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
-    <%= button_to "", edit_schedule_path(schedule), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
-    <%= link_to "", schedule_path(schedule), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+    <p>
+      <strong>Start:</strong>
+      <%= schedule.start %>
+    </p>
+
+    <p>
+      <strong>End:</strong>
+      <%= schedule.end %>
+    </p>
+
+    <div class="button-container">
+      <%= button_to "", schedule_path(schedule), method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+      <%= button_to "", edit_schedule_path(schedule), class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square" %>
+      <%= link_to "", schedule_path(schedule), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+    </div>
+
   </div>
-
 </div>
