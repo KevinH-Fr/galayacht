@@ -12,14 +12,19 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/new
   def new
-    @schedule = Schedule.new
+    @schedule = Schedule.new schedule_params
   end
 
-  # GET /schedules/1/edit
   def edit
+    respond_to do |format|
+      format.html
+      format.turbo_stream do  
+        render turbo_stream: turbo_stream.update(@schedule, partial: "schedules/form", 
+          locals: {schedule: @schedule})
+      end
+    end
   end
 
-  # POST /schedules or /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
 
@@ -34,12 +39,20 @@ class SchedulesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /schedules/1 or /schedules/1.json
   def update
     respond_to do |format|
       if @schedule.update(schedule_params)
-        format.html { redirect_to schedule_url(@schedule), notice: "Schedule was successfully updated." }
+        format.turbo_stream do  
+          flash.now[:notice] = "le schedule #{@schedule.title} a bien été modifié"
+          render turbo_stream: [
+            turbo_stream.update(@schedule, partial: "schedules/schedule", 
+              locals: {schedule: @schedule}),
+              turbo_stream.update("flash", partial: "layouts/flash")
+           ]
+        end
+        format.html  { redirect_to schedule_url(@schedule), notice: "schedule was successfully updated." }
         format.json { render :show, status: :ok, location: @schedule }
+
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
@@ -65,6 +78,6 @@ class SchedulesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def schedule_params
-      params.require(:schedule).permit(:title, :start, :end)
+      params.fetch(:schedule, {}).permit(:title, :start, :end)
     end
 end

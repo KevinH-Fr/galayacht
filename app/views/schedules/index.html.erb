@@ -2,18 +2,6 @@
 
 <h1>Schedules</h1>
 
-<div id="schedules">
-  <% @schedules.each do |schedule| %>
-    <%= render schedule %>
-    <p>
-      <%= link_to "Show this schedule", schedule %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New schedule", new_schedule_path %>
-
-
 <hr>  
 
 <!-- with CDN and browser environment namespace -->
@@ -36,4 +24,37 @@
       id: "calendar", 
       class: "container-calendar text-center" %>
 </div>
+
+
+
+
+<div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
+  <div id="schedules" class="container-fluid">
+    <div class="row justify-content-center">
+      <% @schedules.each do |schedule| %>
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center mb-3">
+          <%= render schedule %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+  <div role="button" data-action="click->newrecord#openDropdown" 
+    data-newrecord-target="openButton" 
+    class="fa-solid fa-add btn btn-warning btn-action">
+  </div>
+  <div role="button" data-action="click->newrecord#closeDropdown" 
+    data-newrecord-target="closeButton" 
+    class="fa-solid fa-close btn btn-danger btn-action">
+  </div>
+
+  <div data-newrecord-target="newrecordContent">
+    <div id="new_schedule">
+      <%= render partial: "schedules/form", locals: {schedule: Schedule.new} %>
+    </div>
+  </div>
+</div>
+
+
+<hr>  
 

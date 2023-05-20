@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :schedules
 
   get 'home/index'
   get 'home/testimage'
@@ -26,6 +25,12 @@ Rails.application.routes.draw do
   end
 
   resources :occupations do
+    member do
+      post :edit
+    end
+  end
+
+  resources :schedules do
     member do
       post :edit
     end
