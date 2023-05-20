@@ -17,6 +17,14 @@
   </div>
 
   <div>
+    <% if schedule.produit_id.present? %>
+      <%= form.hidden_field :produit_id %>
+    <% else %>
+      <%= form.hidden_field :produit_id, value: @produit.id if @produit.present? %> 
+    <% end %>
+  </div>
+
+  <div>
     <%= form.label :start, style: "display: block" %>
     <%= form.datetime_field :start %>
   </div>

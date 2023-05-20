@@ -27,6 +27,7 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = Schedule.new(schedule_params)
+  #  @produit = Produit.find(session[:produit])
 
     respond_to do |format|
       if @schedule.save
@@ -78,6 +79,6 @@ class SchedulesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def schedule_params
-      params.fetch(:schedule, {}).permit(:title, :start, :end)
+      params.fetch(:schedule, {}).permit(:title, :start, :end, :produit_id)
     end
 end

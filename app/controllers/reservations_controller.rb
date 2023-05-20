@@ -5,14 +5,12 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[ show edit update destroy ]
   before_action :require_preneur, only: [:new]
 
-
   def index
     @reservations = Reservation.all
   end
 
   def show
     @reservation = Reservation.find(params[:id])
-
   end
 
   def new
@@ -28,12 +26,11 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       if @reservation.save
 
-        # Create automatiquemente Occupation record
-      Occupation.create(
+      Schedule.create(
         produit_id: @reservation.produit_id,
-        nom: "Autogénéré - réservation via appli",
-        debut: @reservation.debutlocation,
-        fin: @reservation.finlocation)
+        title: "Autogénéré - réservation via appli",
+        start: @reservation.debutlocation,
+        end: @reservation.finlocation)
 
         send_reservation_email_preneur(@reservation.id)
         send_reservation_email_bailleur(@reservation.id)

@@ -20,7 +20,7 @@ class ProduitsController < ApplicationController
   end
   
   def show
-    @occupations = @produit.occupations
+    @schedules = @produit.schedules
 
     session[:produit] = @produit.id
   end
@@ -29,13 +29,13 @@ class ProduitsController < ApplicationController
     @produit = Produit.new  
     @destinations = Destination.all
 
-    @occupation = @produit.occupations.build 
+   # @occupation = @produit.occupations.build 
 
   end
 
   def edit
     @destinations = Destination.all
-    @occupations = @produit.occupations
+  #  @occupations = @produit.occupations
 
     respond_to do |format|
       format.html

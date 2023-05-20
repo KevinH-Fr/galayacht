@@ -1,0 +1,62 @@
+partial schedule 
+
+
+<h4> Calendrier </h4>
+
+ <%#= link_to "Ajouter une période non-disponible", new_occupation_path(produitId: @produit.id),
+      class: "btn btn-primary" %>
+
+<div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
+  <div id="schedules" class="container-fluid">
+    <div class="row justify-content-center">
+      <% @schedules.each do |schedule| %>
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center mb-3">
+          <%= render schedule %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+  <div role="button" data-action="click->newrecord#openDropdown" 
+    data-newrecord-target="openButton" 
+    class="fa-solid fa-add btn btn-warning btn-action">
+  </div>
+  <div role="button" data-action="click->newrecord#closeDropdown" 
+    data-newrecord-target="closeButton" 
+    class="fa-solid fa-close btn btn-danger btn-action">
+  </div>
+
+  <div data-newrecord-target="newrecordContent">
+    <div id="new_schedule">
+      <%= render partial: "schedules/form", locals: {schedule: Schedule.new} %>
+    </div>
+  </div>
+</div>
+
+
+<hr>  
+
+
+
+<hr>  
+
+<!-- with CDN and browser environment namespace -->
+
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+<script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.js"></script>
+
+<link rel="stylesheet" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+<script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.js"></script>
+
+<link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+<script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+
+<script>
+  const Calendar = tui.Calendar;
+</script>
+
+<div data-controller="calendar">
+  <%= tag.div nil, data: {schedules: @schedules .to_json}, 
+      id: "calendar", 
+      class: "container-calendar text-center" %>
+</div>

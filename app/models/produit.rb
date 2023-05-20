@@ -4,8 +4,10 @@ class Produit < ApplicationRecord
   
   has_one_attached :image1
 
-  has_many :occupations
-  accepts_nested_attributes_for :occupations
+  #has_many :occupations
+
+  has_many :schedules
+  #accepts_nested_attributes_for :occupations
 
  # validates :destination_id, presence: true
 
