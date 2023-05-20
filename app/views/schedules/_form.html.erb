@@ -1,40 +1,45 @@
-<%= form_with(model: schedule) do |form| %>
-  <% if schedule.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+<div class="card text-center">
 
-      <ul>
-        <% schedule.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: schedule) do |form| %>
+    <% if schedule.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+        <ul>
+          <% schedule.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input-group">
+      <%= form.label :title, class: "input-group-text label-with-format" %>
+      <%= form.text_field :title, class:"form-control field-with-format" %>  
     </div>
+
+    <div class="input-group">
+      <% if schedule.produit_id.present? %>
+        <%= form.hidden_field :produit_id %>
+      <% else %>
+        <%= form.hidden_field :produit_id, value: @produit.id if @produit.present? %> 
+      <% end %>
+    </div>
+
+    <div class="input-group">
+      <%= form.label :start, class: "input-group-text label-with-format" %>
+      <%= form.datetime_field :start, class:"form-control field-with-format" %>  
+    </div>
+
+    <div class="input-group">
+      <%= form.label :end, class: "input-group-text label-with-format" %>
+      <%= form.datetime_field :end, class:"form-control field-with-format" %>  
+    </div>
+
+  <hr>
+  <div class="col text-end">
+    <%= render "shared/form_submit" %> 
+  </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <% if schedule.produit_id.present? %>
-      <%= form.hidden_field :produit_id %>
-    <% else %>
-      <%= form.hidden_field :produit_id, value: @produit.id if @produit.present? %> 
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :start, style: "display: block" %>
-    <%= form.datetime_field :start %>
-  </div>
-
-  <div>
-    <%= form.label :end, style: "display: block" %>
-    <%= form.datetime_field :end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

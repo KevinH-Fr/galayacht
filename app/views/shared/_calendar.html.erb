@@ -1,23 +1,24 @@
 
-<div class="card">
+<div class="card main-card">
 
   <h3 class="m-2"> Calendrier </h3>
 
   <div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
     <div id="schedules" class="container-fluid">
-      <div class="row justify-content-center">
-        <% @schedules.each do |schedule| %>
-          <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center mb-3">
+      <% @schedules.each do |schedule| %>
+        <div class="row justify-content-center">
+          <div class="col-12 d-flex align-items-center justify-content-center mb-1">
             <%= render schedule %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
+
     
     <div role="button" data-action="click->newrecord#openDropdown" 
       data-newrecord-target="openButton" 
       class="fa-solid fa-add btn btn-warning btn-action">
-      Bloquer une periode
+      <span class="fs-6"> Bloquer periode</span>
     </div>
     <div role="button" data-action="click->newrecord#closeDropdown" 
       data-newrecord-target="closeButton" 
@@ -49,6 +50,30 @@
   </script>
 
   <div data-controller="calendar">
+
+    <div id="calendar-nav">
+      <div id='month' class="btn btn-primary view-link">
+        month
+      </div>
+      <div id='week' class="btn btn-primary view-link">
+        week
+      </div>
+      <div id='day' class="btn btn-primary view-link">
+        day
+      </div>
+    </div>
+
+    <hr>
+
+    <div id='previous-link' class="btn btn-success view-link">
+      Previous 
+    </div>
+    <div id='next-link' class="btn btn-success view-link">
+      Next 
+    </div>
+
+
+
     <%= tag.div nil, data: {schedules: @schedules .to_json}, 
         id: "calendar", 
         class: "container-calendar text-center" %>

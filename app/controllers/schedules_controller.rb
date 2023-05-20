@@ -31,11 +31,23 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to schedule_url(@schedule), notice: "Schedule was successfully created." }
-        format.json { render :show, status: :created, location: @schedule }
+        format.turbo_stream do
+          flash.now[:notice] = "le schedule #{@schedule.title} a bien été ajouté"
+          render turbo_stream: [
+            turbo_stream.update('new_schedule', partial: "schedules/form", locals: {schedule: Schedule.new}),
+            turbo_stream.append("schedules", partial: "schedules/schedule",
+              locals: {schedule: @schedule }), 
+              turbo_stream.update("flash", partial: "layouts/flash"),     
+            ]
+        end
+
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
+        flash.now[:notice] = "erreur - le schedule n'a pas été ajouté"
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update("flash", partial: "layouts/flashError"),
+          ]
+        end
       end
     end
   end
@@ -66,7 +78,8 @@ class SchedulesController < ApplicationController
     @schedule.destroy
 
     respond_to do |format|
-      format.html { redirect_to schedules_url, notice: "Schedule was successfully destroyed." }
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@schedule) }
+   #  format.html { redirect_to pilotes_url, notice: "schedule was successfully destroyed." }
       format.json { head :no_content }
     end
   end
