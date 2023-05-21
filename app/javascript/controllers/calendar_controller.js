@@ -1,26 +1,41 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  calendar = new Calendar(document.getElementById("calendar"), {
-    // Calendar options...
-    defaultView: "month",
-    calendars: [
-      {
-        id: "cal1",
-        name: "Personal",
+  calendar = null;
+
+  connect() {
+    console.log("hello from controller js");
+    this.initCalendar();
+    this.getCalendardata();
+
+    const refreshButton = document.getElementById("refresh-link");
+    refreshButton.addEventListener("click", () => {
+      this.updateCalendardata();
+    });
+  }
+
+  initCalendar() {
+    this.calendar = new Calendar(document.getElementById("calendar"), {
+      // Calendar options...
+      defaultView: "month",
+      calendars: [
+        {
+          id: "cal1",
+          name: "Personal",
+        },
+      ],
+      taskView: true,
+      milestone: true, // Can be also ['milestone', 'task']
+      scheduleView: true, // Can be also ['allday', 'time']
+      useFormPopup: false,
+      useDetailPopup: true,
+      template: {
+        monthDayname: function (dayname) {
+          return '<span class="calendar-week-dayname-name">' + dayname.label + "</span>";
+        },
       },
-    ],
-    taskView: true,
-    milestone: true, // Can be also ['milestone', 'task']
-    scheduleView: true, // Can be also ['allday', 'time']
-    useFormPopup: false,
-    useDetailPopup: true,
-    template: {
-      monthDayname: function (dayname) {
-        return '<span class="calendar-week-dayname-name">' + dayname.label + "</span>";
-      },
-    },
-  });
+    });
+  }
 
   getCalendardata() {
     const schedules = JSON.parse(document.querySelector("#calendar").dataset.schedules);
@@ -29,71 +44,46 @@ export default class extends Controller {
       this.calendar.createEvents([
         {
           id: schedule.id,
-          color: "#f5fafa",
-          backgroundColor: "#0c1591",
           calendarId: "1",
           title: schedule.title,
-          category: "time",
-          // dueDateClass: schedule.dueDateClass,
-          isReadOnly: true,
           start: schedule.start,
           end: schedule.end,
+          isReadOnly: true,
+          color: "#f5fafa",
+          backgroundColor: "#0c1591",
         },
       ]);
     });
   }
 
-  createCalendarSchedule() {
-    const calendar = this.calendar;
-    calendar.on("beforeCreateEvent", function (event) {
-      const triggerEventName = event.triggerEventName;
-      const schedule = {
-        id: 1,
-        calendarId: "1",
-        title: event.title,
-        category: "time",
-        location: event.location,
-        start: event.start,
-        end: event.end,
-      };
+  async updateCalendardata() {
+    this.calendar.clear();
+    console.log("Update calendrier");
 
-      calendar.createSchedules([schedule]);
-      const formData = new FormData();
-      formData.append("title", schedule.title);
-      formData.append("start", schedule.start._date);
-      formData.append("end", schedule.end._date);
+    try {
+      const response = await fetch('/schedules'); // Replace with your server-side endpoint to fetch schedules
+      const updatedSchedules = await response.json();
 
-      Rails.ajax({
-        type: "POST",
-        url: "/schedules",
-        data: formData,
+      window.schedules = updatedSchedules;
+
+      updatedSchedules.forEach((schedule) => {
+        this.calendar.createEvents([
+          {
+            id: schedule.id,
+            calendarId: "1",
+            title: schedule.title,
+            start: schedule.start,
+            end: schedule.end,
+            isReadOnly: true,
+            color: "#f5fafa",
+            backgroundColor: "#0c1591",
+          },
+        ]);
       });
-    });
-  }
 
-  handleViewChange(link) {
-    console.log("Clicked button ID:", link.id);
-
-    if (link.id === "previous-link") {
-      this.calendar.prev();
-    } else if (link.id === "next-link") {
-      this.calendar.next();
-    } else {
-      this.calendar.changeView(link.id);
+      console.log("Calendar updated successfully");
+    } catch (error) {
+      console.error("Error updating calendar:", error);
     }
-  }
-
-  connect() {
-    console.log("hello from controller js");
-
-    const viewLinks = Array.from(this.element.querySelectorAll(".view-link"));
-    viewLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        this.handleViewChange(link);
-      });
-    });
-
-    this.getCalendardata();
-    this.createCalendarSchedule();
   }
 }

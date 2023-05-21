@@ -3,7 +3,14 @@ class SchedulesController < ApplicationController
 
   # GET /schedules or /schedules.json
   def index
+
+
     @schedules = Schedule.all
+
+    respond_to do |format|
+      format.json { render json: @schedules } # renvoyé pour le fectch de update schedules
+    end
+
   end
 
   # GET /schedules/1 or /schedules/1.json
@@ -37,8 +44,8 @@ class SchedulesController < ApplicationController
             turbo_stream.update('new_schedule', partial: "schedules/form", locals: {schedule: Schedule.new}),
             turbo_stream.append("schedules", partial: "schedules/schedule",
               locals: {schedule: @schedule }), 
-              turbo_stream.update("flash", partial: "layouts/flash"),     
-            ]
+            turbo_stream.update("flash", partial: "layouts/flash"),     
+          ]
         end
 
       else
@@ -53,15 +60,17 @@ class SchedulesController < ApplicationController
   end
 
   def update
+
+    @updated_schedule = @schedule
+
+
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.turbo_stream do  
-          flash.now[:notice] = "le schedule #{@schedule.title} a bien été modifié"
-          render turbo_stream: [
+        #  flash.now[:notice] = "le schedule #{@schedule.title} a bien été modifié"
+          render turbo_stream: 
             turbo_stream.update(@schedule, partial: "schedules/schedule", 
-              locals: {schedule: @schedule}),
-              turbo_stream.update("flash", partial: "layouts/flash")
-           ]
+              locals: {schedule: @schedule})
         end
         format.html  { redirect_to schedule_url(@schedule), notice: "schedule was successfully updated." }
         format.json { render :show, status: :ok, location: @schedule }
