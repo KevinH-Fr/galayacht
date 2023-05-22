@@ -49,32 +49,10 @@
     const Calendar = tui.Calendar;
   </script>
 
-  <section>
-    <div id="calendar-nav">
-      <div id='month' class="btn btn-primary view-link">
-        month
-      </div>
-      <div id='week' class="btn btn-primary view-link">
-        week
-      </div>
-      <div id='day' class="btn btn-primary view-link">
-        day
-      </div>
-    </div>
-      <hr>
-      <div id='previous-link' class="btn btn-success view-link">
-        Previous 
-      </div>
-      <div id='next-link' class="btn btn-success view-link">
-        Next 
-      </div>
-      <div id='refresh-link' class="btn btn-warning view-link">
-        refresh 
-      </div>
-  </section>
 
-
-<%= render "shared/tui_calendar" %>
+  <div id="tui_calendar">
+      <%= render "shared/tui_calendar" %>
+  </div>
 
 </div>
 

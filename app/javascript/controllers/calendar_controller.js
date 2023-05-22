@@ -4,7 +4,8 @@ export default class extends Controller {
   calendar = null;
 
   connect() {
-    console.log("hello from controller js");
+    console.log("connect calendar controller js");
+
     this.initCalendar();
     this.getCalendardata();
 
@@ -12,9 +13,19 @@ export default class extends Controller {
     refreshButton.addEventListener("click", () => {
       this.updateCalendardata();
     });
+
+    const viewLinks = Array.from(this.element.querySelectorAll(".view-link"));
+    viewLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+
+        this.handleViewChange(link);
+      });
+    });
   }
 
   initCalendar() {
+    console.log("init cal controller js");
+
     this.calendar = new Calendar(document.getElementById("calendar"), {
       // Calendar options...
       defaultView: "month",
@@ -38,6 +49,8 @@ export default class extends Controller {
   }
 
   getCalendardata() {
+    console.log("get data calendar controller js");
+
     const schedules = JSON.parse(document.querySelector("#calendar").dataset.schedules);
     window.schedules = schedules;
     schedules.forEach((schedule) => {
@@ -56,34 +69,17 @@ export default class extends Controller {
     });
   }
 
-  async updateCalendardata() {
-    this.calendar.clear();
-    console.log("Update calendrier");
 
-    try {
-      const response = await fetch('/schedules'); // Replace with your server-side endpoint to fetch schedules
-      const updatedSchedules = await response.json();
 
-      window.schedules = updatedSchedules;
+  handleViewChange(link) {
+    console.log("Clicked button ID:", link.id);
 
-      updatedSchedules.forEach((schedule) => {
-        this.calendar.createEvents([
-          {
-            id: schedule.id,
-            calendarId: "1",
-            title: schedule.title,
-            start: schedule.start,
-            end: schedule.end,
-            isReadOnly: true,
-            color: "#f5fafa",
-            backgroundColor: "#0c1591",
-          },
-        ]);
-      });
-
-      console.log("Calendar updated successfully");
-    } catch (error) {
-      console.error("Error updating calendar:", error);
+    if (link.id === "previous-link") {
+      this.calendar.prev();
+    } else if (link.id === "next-link") {
+      this.calendar.next();
+    } else {
+      this.calendar.changeView(link.id);
     }
   }
 }

@@ -1,6 +1,31 @@
+<div data-controller="calendar">
 
-  <div data-controller="calendar">
+
+      <div id="calendar-nav">
+
+        <div id='month' class="btn btn-primary view-link">
+          month
+        </div>
+        <div id='week' class="btn btn-primary view-link">
+          week
+        </div>
+        <div id='day' class="btn btn-primary view-link">
+          day
+        </div>
+     
+        <div id='previous-link' class="btn btn-success view-link">
+          Previous 
+        </div>
+        <div id='next-link' class="btn btn-success view-link">
+          Next 
+        </div>
+        <div id='refresh-link' class="btn btn-warning view-link">
+          refresh 
+        </div>
+      </div>
+
+
     <%= tag.div nil, data: {schedules: @schedules.to_json}, 
         id: "calendar", 
         class: "container-calendar text-center" %>
-  </div>
+</div>
