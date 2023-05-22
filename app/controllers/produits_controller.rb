@@ -20,6 +20,8 @@ class ProduitsController < ApplicationController
   end
   
   def show
+
+    
     @schedules = @produit.schedules
 
 

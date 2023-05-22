@@ -1,11 +1,11 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
 
-  # GET /schedules or /schedules.json
   def index
 
-
-    @schedules = Schedule.all
+    # json pour refresh calendar
+    @produit =  Produit.find(session[:produit])
+    @schedules =  @produit.schedules
 
     respond_to do |format|
       format.json { render json: @schedules } # renvoyé pour le fectch de update schedules
@@ -13,11 +13,9 @@ class SchedulesController < ApplicationController
 
   end
 
-  # GET /schedules/1 or /schedules/1.json
   def show
   end
 
-  # GET /schedules/new
   def new
     @schedule = Schedule.new schedule_params
   end
@@ -61,28 +59,38 @@ class SchedulesController < ApplicationController
 
   def update
 
-    @updated_schedule = @schedule
-
+    @produit =  Produit.find(session[:produit])
+    @schedules =  @produit.schedules
 
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.turbo_stream do  
-        #  flash.now[:notice] = "le schedule #{@schedule.title} a bien été modifié"
-          render turbo_stream: 
-            turbo_stream.update(@schedule, partial: "schedules/schedule", 
-              locals: {schedule: @schedule})
+          render turbo_stream: [
+            turbo_stream.update(@schedule, 
+              partial: "schedules/schedule", 
+              locals: { schedule: @schedule }
+            ),
+            turbo_stream.replace("calendar", 
+              partial: "shared/tui_calendar", 
+              locals: { schedules: @schedules }
+            )
+          ]
         end
-        format.html  { redirect_to schedule_url(@schedule), notice: "schedule was successfully updated." }
+  
+        format.html do
+          redirect_to schedule_url(@schedule), notice: "Schedule was successfully updated."
+        end
+  
         format.json { render :show, status: :ok, location: @schedule }
-
+  
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
     end
   end
+  
 
-  # DELETE /schedules/1 or /schedules/1.json
   def destroy
     @schedule.destroy
 
@@ -94,12 +102,10 @@ class SchedulesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_schedule
       @schedule = Schedule.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def schedule_params
       params.fetch(:schedule, {}).permit(:title, :start, :end, :produit_id)
     end
