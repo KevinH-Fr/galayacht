@@ -9,11 +9,6 @@ export default class extends Controller {
     this.initCalendar();
     this.getCalendardata();
 
-    const refreshButton = document.getElementById("refresh-link");
-    refreshButton.addEventListener("click", () => {
-      this.updateCalendardata();
-    });
-
     const viewLinks = Array.from(this.element.querySelectorAll(".view-link"));
     viewLinks.forEach((link) => {
       link.addEventListener("click", () => {
@@ -69,17 +64,32 @@ export default class extends Controller {
     });
   }
 
-
-
   handleViewChange(link) {
     console.log("Clicked button ID:", link.id);
-
+  
     if (link.id === "previous-link") {
       this.calendar.prev();
+      this.updateMonthText();
     } else if (link.id === "next-link") {
       this.calendar.next();
+      this.updateMonthText();
     } else {
       this.calendar.changeView(link.id);
     }
   }
+  
+  updateMonthText() {
+
+    const currentMonthSpan = document.getElementById("current-month");
+    const prevMonthSpan = document.getElementById("prev-month");
+    const nextMonthSpan = document.getElementById("next-month");
+    const currentMonth = this.calendar.getDate().getMonth();
+
+    console.log("current month: " + currentMonth);
+
+    currentMonthSpan.textContent  = currentMonth;
+    prevMonthSpan.textContent  = currentMonth - 1 ;
+    nextMonthSpan.textContent  = currentMonth + 1 ;
+  }
+
 }

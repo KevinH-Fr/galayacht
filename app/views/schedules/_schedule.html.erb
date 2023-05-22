@@ -1,14 +1,13 @@
 <div id="<%= dom_id schedule %>">
-  <div class="card produit-card" >
+  <div class="card p-2" >
     <div class="row">
-      <div class="col-8">
-        <span class="card-title">  <%= schedule.title %>  
-        </span>
-          <span class="card-body">
-            <%= format_date_french(schedule.start) %> - <%= format_date_french(schedule.end) %>
-          </span>
+      <div class="col-9 p-2">
+        <span class="fw-bold">  <%= schedule.title %>  </span> 
+        
+          <%= format_date_french(schedule.start) %> - <%= format_date_french(schedule.end) %>
+       
       </div>
-      <div class="col-4">
+      <div class="col-3 p-2">
         <div class="button-container">
           <%= button_to "", schedule_path(schedule), method: :delete, class: "btn btn-actions btn-danger fa-solid fa-trash" %>
           <%= button_to "", edit_schedule_path(schedule), class: "btn btn-actions btn-secondary fa-solid fa-pen-to-square" %>

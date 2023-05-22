@@ -1,13 +1,13 @@
 
 <div class="card main-card">
 
-  <h3 class="m-2"> Calendrier </h3>
+  <h3 class="m-2 p-2"> Calendrier </h3>
 
   <div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
     <div id="schedules" class="container-fluid">
       <% @schedules.each do |schedule| %>
-        <div class="row justify-content-center">
-          <div class="col-12 d-flex align-items-center justify-content-center mb-1">
+        <div class="row">
+          <div class="col-12 mb-1 px-4">
             <%= render schedule %>
           </div>
         </div>
@@ -16,9 +16,9 @@
 
     
     <div role="button" data-action="click->newrecord#openDropdown" 
-      data-newrecord-target="openButton" 
-      class="fa-solid fa-add btn btn-warning btn-action">
-      <span class="fs-6"> Bloquer periode</span>
+      data-newrecord-target="openButton"class="btn btn-warning btn-action">
+        <i class="fas fa-solid fa-add me-2"></i>
+        <span class="text-md">Nouvelles dates</span>
     </div>
     <div role="button" data-action="click->newrecord#closeDropdown" 
       data-newrecord-target="closeButton" 
