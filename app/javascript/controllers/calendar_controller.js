@@ -8,6 +8,7 @@ export default class extends Controller {
 
     this.initCalendar();
     this.getCalendardata();
+    this.updateMonthText();
 
     const viewLinks = Array.from(this.element.querySelectorAll(".view-link"));
     viewLinks.forEach((link) => {
@@ -73,23 +74,42 @@ export default class extends Controller {
     } else if (link.id === "next-link") {
       this.calendar.next();
       this.updateMonthText();
-    } else {
+    } else if (link.id === "current-link") {
+      this.calendar.getDate();
+      this.updateMonthText();
+
+    } else if (link.id === "current-month-link") {
+      const today = new Date(); // Get the current date
+      this.calendar.setDate(today);
+      this.updateMonthText();
+      this.calendar.changeView("month");
+    }
+    
+    else {
       this.calendar.changeView(link.id);
     }
   }
+  
   
   updateMonthText() {
 
     const currentMonthSpan = document.getElementById("current-month");
     const prevMonthSpan = document.getElementById("prev-month");
     const nextMonthSpan = document.getElementById("next-month");
-    const currentMonth = this.calendar.getDate().getMonth();
 
-    console.log("current month: " + currentMonth);
+    const currentMonth = new Date(this.calendar.getDate()); 
+    const currentMonthVal = currentMonth.toLocaleString('default', { month: 'long' });
+    
+    const prevMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1);
+    const prevMonthVal = prevMonth.toLocaleString('default', { month: 'long' });
 
-    currentMonthSpan.textContent  = currentMonth;
-    prevMonthSpan.textContent  = currentMonth - 1 ;
-    nextMonthSpan.textContent  = currentMonth + 1 ;
+    const nextMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1);
+    const nextMonthVal = nextMonth.toLocaleString('default', { month: 'long' });
+
+    currentMonthSpan.textContent  = currentMonthVal ;
+    prevMonthSpan.textContent  = prevMonthVal ;
+    nextMonthSpan.textContent  = nextMonthVal ;
+
   }
 
 }

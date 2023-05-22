@@ -1,7 +1,7 @@
 
 <div class="card main-card">
 
-  <h3 class="m-2 p-2"> Calendrier </h3>
+  <h3 class="p-2 px-4"> Calendrier </h3>
 
   <div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
     <div id="schedules" class="container-fluid">
@@ -14,20 +14,23 @@
       <% end %>
     </div>
 
-    
-    <div role="button" data-action="click->newrecord#openDropdown" 
-      data-newrecord-target="openButton"class="btn btn-warning btn-action">
-        <i class="fas fa-solid fa-add me-2"></i>
-        <span class="text-md">Nouvelles dates</span>
-    </div>
-    <div role="button" data-action="click->newrecord#closeDropdown" 
-      data-newrecord-target="closeButton" 
-      class="fa-solid fa-close btn btn-danger btn-action">
-    </div>
+    <div class="p-2 px-4"> 
+      <div role="button" data-action="click->newrecord#openDropdown" 
+        data-newrecord-target="openButton"class="btn btn-warning btn-action">
+          <i class="fas fa-solid fa-add me-2"></i>
+          <span class="text-md">Nouvelles dates</span>
+      </div>
+      <div role="button" data-action="click->newrecord#closeDropdown" 
+        data-newrecord-target="closeButton" 
+        class="btn btn-danger btn-action">
+          <i class="fa-solid fa-close me-2"></i>
+          <span class="text-md">Fermer</span>
+      </div>
 
-    <div data-newrecord-target="newrecordContent">
-      <div id="new_schedule">
-        <%= render partial: "schedules/form", locals: {schedule: Schedule.new} %>
+      <div data-newrecord-target="newrecordContent">
+        <div id="new_schedule">
+          <%= render partial: "schedules/form", locals: {schedule: Schedule.new} %>
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +53,7 @@
   </script>
 
 
-  <div id="tui_calendar">
+  <div id="tui_calendar p-2">
       <%= render "shared/tui_calendar" %>
   </div>
 
