@@ -3,11 +3,16 @@ class SchedulesController < ApplicationController
 
   def index
 
-    # json pour refresh calendar
-    @produit =  Produit.find(session[:produit])
-    @schedules =  @produit.schedules
+    if params[:id].present? #si page produits avec id produit
+      # json pour refresh calendar
+      @produit =  Produit.find(session[:produit])
+      @schedules =  @produit.schedules
+    else
+      @schedules =  Schedule.all
+    end
 
     respond_to do |format|
+      format.html
       format.json { render json: @schedules } # renvoyé pour le fectch de update schedules
     end
 
@@ -34,6 +39,10 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
   #  @produit = Produit.find(session[:produit])
 
+  @produit =  Produit.find(session[:produit])
+  @schedules =  @produit.schedules
+
+
     respond_to do |format|
       if @schedule.save
         format.turbo_stream do
@@ -43,6 +52,10 @@ class SchedulesController < ApplicationController
             turbo_stream.append("schedules", partial: "schedules/schedule",
               locals: {schedule: @schedule }), 
             turbo_stream.update("flash", partial: "layouts/flash"),     
+            turbo_stream.replace("divtoupdate",
+              partial: "shared/tui_calendar", 
+              locals: { schedules: @schedules }
+            )
           ]
         end
 
@@ -94,8 +107,20 @@ class SchedulesController < ApplicationController
   def destroy
     @schedule.destroy
 
+    @produit =  Produit.find(session[:produit])
+    @schedules =  @produit.schedules
+
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(@schedule) }
+      format.turbo_stream do 
+        render turbo_stream: [
+          turbo_stream.remove(@schedule),
+          turbo_stream.replace("divtoupdate",
+            partial: "shared/tui_calendar", 
+            locals: { schedules: @schedules }
+          )
+        ]
+      end
+      
    #  format.html { redirect_to pilotes_url, notice: "schedule was successfully destroyed." }
       format.json { head :no_content }
     end
