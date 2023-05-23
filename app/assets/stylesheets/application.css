@@ -204,7 +204,7 @@
  }
 
  .img-main{
-   max-width: 600px;
+   max-width: 800px;
   /* height: 20em;*/
 
   /* max-width: 800px;*/
@@ -215,6 +215,7 @@
  }
 
  .main-card{
+  width: 90%;
   max-width: 600px;
  }
 
