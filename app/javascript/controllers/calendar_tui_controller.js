@@ -3,7 +3,9 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   calendar = null;
 
+  
   connect() {
+    
     console.log("connect calendar controller js");
 
     this.initCalendar();

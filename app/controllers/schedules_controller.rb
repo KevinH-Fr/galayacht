@@ -70,7 +70,7 @@ class SchedulesController < ApplicationController
               partial: "schedules/schedule", 
               locals: { schedule: @schedule }
             ),
-            turbo_stream.replace("tui_calendar", 
+            turbo_stream.replace("divtoupdate",
               partial: "shared/tui_calendar", 
               locals: { schedules: @schedules }
             )

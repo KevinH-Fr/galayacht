@@ -9,8 +9,8 @@
       </div>
       <div class="col-3 p-2">
         <div class="button-container">
-          <%= button_to "", schedule_path(schedule), method: :delete, class: "btn btn-actions btn-danger fa-solid fa-trash" %>
           <%= button_to "", edit_schedule_path(schedule), class: "btn btn-actions btn-secondary fa-solid fa-pen-to-square" %>
+          <%= button_to "", schedule_path(schedule), method: :delete, class: "btn btn-actions btn-danger fa-solid fa-trash" %>
         </div>
       </div>
     </div>
