@@ -13,6 +13,11 @@ class DemandesController < ApplicationController
   # GET /demandes/new
   def new
     @demande = Demande.new
+
+    @produit = Produit.find(params[:produitId]) if params[:produitId]
+    @demande_proprietaire = params[:demandeId] 
+    
+
   end
 
   # GET /demandes/1/edit

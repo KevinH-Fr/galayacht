@@ -307,7 +307,7 @@
 
 
 .label-with-format{
-  width: 100px;
+ /* width: 100px;*/
 }
 
 .field-with-format{
@@ -351,4 +351,10 @@
   margin: 5px;
   padding: 5px;
   size: medium;
+}
+
+.map{
+  width: 87vw;
+  max-width: 600px;
+  height: 300px;
 }

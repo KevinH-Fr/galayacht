@@ -1,10 +1,14 @@
-<div class="card text-center my-2">
-    <% provide :head_tags do %>
-    <% end %>
 
-    <iframe style="border: 0; width: 100%;" src="https://www.google.com/maps/embed/v1/search?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>
-    &q=<%= localisation_port(@produit.destination_id) %>
-    &zoom=14&maptype=satellite" frameborder="0" allowfullscreen="allowfullscreen">
-    </iframe>
 
-</div>
+    <h4>Carte</h4>
+
+    <div class="text-center my-2">
+        <% provide :head_tags do %>
+        <% end %>
+
+        <iframe class="map" src="https://www.google.com/maps/embed/v1/search?key=<%= ENV["GOOGLE_MAPS_API_KEY"] %>
+        &q=<%= localisation_port(@produit.destination_id) %>
+        &zoom=14&maptype=satellite" frameborder="0" allowfullscreen="allowfullscreen">
+        </iframe>
+
+    </div>

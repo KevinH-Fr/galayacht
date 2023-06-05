@@ -1,15 +1,22 @@
 <%# landing page avant log ou choix preneur bailleur %>
 
 
-<% if current_user.present? %>
+<%
+=begin%>
+ <% if current_user.present? %>
   <div class="button-container mb-3">
     <%= link_to "espace admin", espace_admin_index_path, class: "btn btn-dark m-1" if current_user.admin? %>
     <%#= link_to "espace propriétaire", espace_bailleur_index_path, class: "btn btn-primary m-1" if user_preneur.present? %>
     <%#= link_to "espace locataire", espace_preneur_index_path, class: "btn btn-warning m-1" if user_bailleur.present? %>
   </div>
-<% end %>
+<% end %> 
+<%
+=end%>
 
+
+<div data-aos="zoom-in-up" class="my-4">
     <%= render "produits/form_recherche_bateau" %>
+</div>
  
     <%= link_to espace_preneur_index_path, class: "no-underline" do %>
         <div data-aos="zoom-in-up" class="image-container">
@@ -55,4 +62,4 @@
 
     <%# formulaire de demande - contact %>
 
-    <%= link_to "Formulaire contact", new_demande_path %>
+    <%#= link_to "Formulaire contact", new_demande_path %>

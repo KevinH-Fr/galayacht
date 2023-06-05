@@ -26,12 +26,17 @@
 
       </p>
       <div class="button-container">
-        <%= button_to "", @produit, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
-        <%= button_to "", edit_produit_path(produit), 
-              class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square", 
-              method: :post %>
-        <%= link_to "", produit_path(produit), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
-        <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-sm btn-success fa-solid fa-cart-shopping" %>
+
+        <% if current_user && user_admin %>
+          <%= button_to "", @produit, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
+          <%= button_to "", edit_produit_path(produit), 
+                class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square", 
+                method: :post %>
+          <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-sm btn-success fa-solid fa-cart-shopping" %>
+        <% end %>
+        <%#= link_to "", produit_path(produit), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
+        <%= link_to "Plus d'informations sur ce bateau", new_demande_path(produitId: produit), class: "btn btn-outline-primary" %>
+
       </div>
     </div>
   </div> 

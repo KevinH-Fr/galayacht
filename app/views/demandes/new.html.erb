@@ -1,9 +1,15 @@
-<h1>New demande</h1>
 
-<%= render "form", demande: @demande %>
 
-<br>
+<div class="card my-4 p-4">  
+  <h4 class="text-center">Contact</h4>
 
-<div>
-  <%= link_to "Back to demandes", demandes_path %>
+  <%= render "form", demande: @demande %>
+
+  <br>
+
 </div>
+
+
+  <div>
+    <%#= link_to "Accueil", root_path %>
+  </div>

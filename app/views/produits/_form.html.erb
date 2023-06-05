@@ -92,7 +92,7 @@
       </div>
 
 
-    <% if user_admin %>
+    <% if current_user && user_admin %>
       <div class="input-group">
         <%= form.label :bailleur_id, class: "input-group-text label-with-format" %>
         <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
@@ -101,7 +101,7 @@
     <% else %>
 
     <div>
-      <%= form.hidden_field :bailleur_id, value: user_bailleur.id %>
+      <%#= form.hidden_field :bailleur_id, value: user_bailleur.id %>
     </div>
 
     <% end %>

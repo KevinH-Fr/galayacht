@@ -1,5 +1,5 @@
 
-<%= render "produits/form_recherche_bateau" %>
+  <%= render "produits/form_recherche_bateau" %>
 
 <%
 =begin%>
@@ -17,29 +17,33 @@
 =end%>
 
 
-<div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
-  <div id="produits" class="container-fluid">
-    <div class="row justify-content-center">
-      <% @produits.each do |produit| %>
-        <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center mb-3">
-          <%= render produit %>
-        </div>
-      <% end %>
+  <div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
+    <div id="produits" class="container-fluid">
+      <div class="row justify-content-center">
+        <% @produits.each do |produit| %>
+          <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center mb-3">
+            <%= render produit %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-  
-  <div role="button" data-action="click->newrecord#openDropdown" 
-    data-newrecord-target="openButton" 
-    class="fa-solid fa-add btn btn-warning btn-action">
-  </div>
-  <div role="button" data-action="click->newrecord#closeDropdown" 
-    data-newrecord-target="closeButton" 
-    class="fa-solid fa-close btn btn-danger btn-action">
-  </div>
 
-  <div data-newrecord-target="newrecordContent">
-    <div id="new_produit">
-      <%= render partial: "produits/form", locals: {produit: Produit.new} %>
-    </div>
+    <% if current_user && user_admin %>
+      
+      <div role="button" data-action="click->newrecord#openDropdown" 
+        data-newrecord-target="openButton" 
+        class="fa-solid fa-add btn btn-warning btn-action">
+        Nouveau bateau
+      </div>
+      <div role="button" data-action="click->newrecord#closeDropdown" 
+        data-newrecord-target="closeButton" 
+        class="fa-solid fa-close btn btn-danger btn-action">
+      </div>
+
+      <div data-newrecord-target="newrecordContent">
+        <div id="new_produit">
+          <%= render partial: "produits/form", locals: {produit: Produit.new} %>
+        </div>
+      </div>
+    <% end %>
   </div>
-</div>

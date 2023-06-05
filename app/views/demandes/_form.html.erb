@@ -28,17 +28,23 @@
   </div>
 
   <div class="input-group">
-    <%= form.label :type_demande, class: "input-group-text label-with-format" %>
-    <%= form.text_field :type_demande, class: "form-control field-with-format" %>
+    <%= form.label :type, class: "input-group-text label-with-format" %>
+    <% if @produit %>
+      <%= form.text_field :type_demande, value: "Demande sur : #{produit_full_name(@produit.id)}", class: "form-control field-with-format" %>
+    <% elsif @demande_proprietaire %>
+      <%= form.text_field :type_demande, value: "Demande propriétaire de bateau", class: "form-control field-with-format" %>
+    <% else %>
+      <%= form.text_field :type_demande, class: "form-control field-with-format" %>
+    <% end %>
   </div>
 
   <div class="input-group">
     <%= form.label :commentaires, class: "input-group-text label-with-format" %>
-    <%= form.text_field :commentaires, class: "form-control field-with-format" %>
+    <%= form.text_area :commentaires, class: "form-control field-with-format" %>
   </div>
 
 
-  <div class="container-fluid text-end">
+  <div class="container-fluid text-end m-0 mt-4 p-0">
     <%= render "shared/form_submit" %>
   </div>
 <% end %>

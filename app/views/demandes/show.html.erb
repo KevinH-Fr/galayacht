@@ -2,9 +2,13 @@
 
 <%= render @demande %>
 
-<div>
-  <%= link_to "Edit this demande", edit_demande_path(@demande) %> |
-  <%= link_to "Back to demandes", demandes_path %>
+<% if current_user && user_admin %>
+    
+  <div>
+    <%= link_to "Edit this demande", edit_demande_path(@demande) %> |
+    <%= link_to "Back to demandes", demandes_path %>
 
-  <%= button_to "Destroy this demande", @demande, method: :delete %>
-</div>
+    <%= button_to "Destroy this demande", @demande, method: :delete %>
+  </div>
+
+<% end %>

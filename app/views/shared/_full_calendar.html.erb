@@ -3,38 +3,43 @@
 
     <h3 class="p-2 px-4"> Calendrier </h3>
 
-    <div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
-        <div id="schedules" class="container-fluid">
-            <% @schedules.each do |schedule| %>
-                <div class="row">
-                    <div class="col-12 mb-1 px-4">
-                        <%= render schedule %>
+    <% if current_user && user_admin %>
+
+        <div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
+            <div id="schedules" class="container-fluid">
+                <% @schedules.each do |schedule| %>
+                    <div class="row">
+                        <div class="col-12 mb-1 px-4">
+                            <%= render schedule %>
+                        </div>
                     </div>
+                <% end %>
+            </div>
+
+            <div class="p-2 px-4"> 
+                <div role="button" data-action="click->newrecord#openDropdown" 
+                    data-newrecord-target="openButton"class="btn btn-warning btn-action">
+                    <i class="fas fa-solid fa-add me-2"></i>
+                    <span class="text-md">Nouvelles dates</span>
                 </div>
-            <% end %>
-        </div>
+                <div role="button" data-action="click->newrecord#closeDropdown" 
+                    data-newrecord-target="closeButton" 
+                    class="btn btn-danger btn-action">
+                    <i class="fa-solid fa-close me-2"></i>
+                    <span class="text-md">Fermer</span>
+                </div>
 
-        <div class="p-2 px-4"> 
-            <div role="button" data-action="click->newrecord#openDropdown" 
-                data-newrecord-target="openButton"class="btn btn-warning btn-action">
-                <i class="fas fa-solid fa-add me-2"></i>
-                <span class="text-md">Nouvelles dates</span>
-            </div>
-            <div role="button" data-action="click->newrecord#closeDropdown" 
-                data-newrecord-target="closeButton" 
-                class="btn btn-danger btn-action">
-                <i class="fa-solid fa-close me-2"></i>
-                <span class="text-md">Fermer</span>
-            </div>
-
-            <div data-newrecord-target="newrecordContent">
-                <div id="new_schedule">
-                <%= render partial: "schedules/form", locals: {schedule: Schedule.new} %>
+                <div data-newrecord-target="newrecordContent">
+                    <div id="new_schedule">
+                    <%= render partial: "schedules/form", locals: {schedule: Schedule.new} %>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    <% end %>
+
 
 <hr>  
 
 <%= render "shared/tui_calendar" %>
+
+</div>

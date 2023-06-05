@@ -3,7 +3,7 @@
 
     <%= link_to root_path, class: "no-underline middled" do %>
         <i class="fa fa-anchor text-light fa-lg"></i>
-        <span class="navbar-brand brand mx-4"> Rent-a-Boat </span>
+        <span class="navbar-brand brand mx-4"> Galayachts </span>
     <% end %>
    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,11 +27,15 @@
           <%= link_to "Destinations", destinations_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Contact", root_path, class: "nav-link" %>
+          <%= link_to "Contact", new_demande_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Admin", espace_admin_index_path, class: "nav-link" %>
-        </li>
+
+        <% if current_user && user_admin %>
+          <li class="nav-item">
+            <%= link_to "Admin", espace_admin_index_path, class: "nav-link text-warning" %>
+          </li>
+        <% end %>
+
       </ul>
     </div>
   </div>

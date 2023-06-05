@@ -11,7 +11,8 @@
 
 <div data-aos="zoom-in-up" class="container-parent">
     <% @produits.each do |produit| %>
-        <%= link_to new_reservation_path(produitId: produit) do %>
+        <%#= link_to new_reservation_path(produitId: produit) do %>
+        <%= link_to produit_path(produit) do %>
             <div class="bloc-enfant">
                 <div class="card second-card">
                     <%= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
