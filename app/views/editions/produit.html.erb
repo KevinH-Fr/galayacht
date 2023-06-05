@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+
+<html>
+
+    <h1 class="centered">Produit #<%= produit_full_name(@produit.id) %> </h1>
+
+    <hr>
+
+    <div class="bloc-doc bloc-produit">
+        <%= image_tag(produit_img(@produit.id), class: "img-produit") %> <hr>
+        <%= produit_full_name(@produit.id) %> <br>
+        Prix/jour: <br>
+        basse saison:  <%= @produit.prixjour %> <br>
+        haute saison:  <%= @produit.prixjour_hautesaison %> <br>    
+        Port: <%= produit_destination(@produit.id) %>
+
+    </div> 
+    
+</html>

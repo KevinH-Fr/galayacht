@@ -14,7 +14,7 @@
   <div data-controller="reservation">
     <div class="input-group">
       <%#= form.label :produit_id, class: "input-group-text label-with-format" %>
-        <%= form.text_field :produit_id, value: produit_courant.id %>
+        <%= form.hidden_field :produit_id, value: produit_courant.id %>
     </div>
 
     <div>

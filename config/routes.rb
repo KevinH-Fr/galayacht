@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   resources :demandes
 
+  
+
   get 'home/index'
+  get 'home/mentions_legales'
+  get 'home/nous_connaitre'
+  get 'home/politique_confidentialite'
+
   get 'home/testimage'
   root "home#index"
   get 'espace_permis/index'
@@ -9,6 +15,8 @@ Rails.application.routes.draw do
   get 'espace_bailleur/index'
   get 'espace_preneur/index'
   get 'espace_admin/index'
+
+
  
   devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'users/show'
@@ -22,6 +30,7 @@ Rails.application.routes.draw do
   resources :produits do
     member do
       post :edit
+      get :edition
     end
   end
 

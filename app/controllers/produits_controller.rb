@@ -50,6 +50,37 @@ class ProduitsController < ApplicationController
 
   end
 
+  def edition 
+    @produit = Produit.find(params[:id])
+    
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string(
+        template: "editions/produit", 
+        formats: [:html],
+        disposition: :inline,              
+        layout: 'pdf'
+      ),
+       header: {
+         content: render_to_string(
+           'editions/doc_entete',
+           layout: 'pdf'
+         )
+       },
+       footer: {
+         content: render_to_string(
+           'editions/doc_footer',
+           layout: 'pdf'
+         )
+       }
+      )
+
+    send_data pdf,
+    filename: "produit.pdf",
+    type: 'application/pdf',
+    disposition: 'inline'
+  
+  end
+
   def create
     @produit = Produit.new(produit_params)
     @destinations = Destination.all

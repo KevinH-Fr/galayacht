@@ -9,4 +9,14 @@ class HomeController < ApplicationController
   def testimage
     
   end
+
+  def mentions_legales
+  end
+
+  def nous_connaitre
+  end
+
+  def politique_confidentialite
+  end
+
 end

@@ -32,10 +32,11 @@
           <%= button_to "", edit_produit_path(produit), 
                 class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square", 
                 method: :post %>
-          <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-sm btn-success fa-solid fa-cart-shopping" %>
+          <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-sm btn-success fa-solid fa-cart-shopping p-2" %>
         <% end %>
         <%#= link_to "", produit_path(produit), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
         <%= link_to "Plus d'informations sur ce bateau", new_demande_path(produitId: produit), class: "btn btn-outline-primary" %>
+        <%= link_to "", edition_produit_path, class: "btn btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
 
       </div>
     </div>
