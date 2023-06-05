@@ -32,8 +32,8 @@ class ReservationsController < ApplicationController
         start: @reservation.debutlocation,
         end: @reservation.finlocation)
 
-        send_reservation_email_preneur(@reservation.id)
-        send_reservation_email_bailleur(@reservation.id)
+      #  send_reservation_email_preneur(@reservation.id)
+      #  send_reservation_email_bailleur(@reservation.id)
 
         format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
         format.json { render :show, status: :created, location: @reservation }

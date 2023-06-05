@@ -71,7 +71,7 @@ class ProduitsController < ApplicationController
         flash.now[:notice] = "erreur - le produit n'a pas été ajouté"
         format.turbo_stream do
           render turbo_stream: [
-             turbo_stream.update("flash", partial: "layouts/flashError"),
+             turbo_stream.update("flash", partial: "layouts/flash"),
            ]
          end
       end

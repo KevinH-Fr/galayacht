@@ -1,0 +1,27 @@
+
+    <h4 class="container-fluid text-start"> Demandes</h4>
+    <table class="table table-striped full-width-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Client</th>
+                <th>Mail</th>
+                <th>Téléphone</th>
+                <th>Type</th>
+                <th>commentaires</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @demandes.each do |demande| %>
+            <tr>
+                <td><%= demande.id %></td>
+                <td><%= demande.nom %></td>
+                <td><%= demande.mail %></td>
+                <td><%= demande.telephone %></td>
+                <td><%= demande.type_demande %></td>
+                <td><%= demande.commentaires %></td>
+            </tr>
+            <% end %>
+        </tbody>
+     </table>
+

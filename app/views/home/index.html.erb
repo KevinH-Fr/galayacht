@@ -4,8 +4,8 @@
 <% if current_user.present? %>
   <div class="button-container mb-3">
     <%= link_to "espace admin", espace_admin_index_path, class: "btn btn-dark m-1" if current_user.admin? %>
-    <%= link_to "espace propriétaire", espace_bailleur_index_path, class: "btn btn-primary m-1" if user_preneur.present? %>
-    <%= link_to "espace locataire", espace_preneur_index_path, class: "btn btn-warning m-1" if user_bailleur.present? %>
+    <%#= link_to "espace propriétaire", espace_bailleur_index_path, class: "btn btn-primary m-1" if user_preneur.present? %>
+    <%#= link_to "espace locataire", espace_preneur_index_path, class: "btn btn-warning m-1" if user_bailleur.present? %>
   </div>
 <% end %>
 
@@ -51,3 +51,8 @@
         </div>
     <% end %>  
 
+
+
+    <%# formulaire de demande - contact %>
+
+    <%= link_to "Formulaire contact", new_demande_path %>

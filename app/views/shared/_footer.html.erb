@@ -3,16 +3,18 @@
 <div class="footer text-light">   
     <% if current_user.present? %>
         <%= link_to '', user_path(current_user.id), class: "fa-regular fa-user btn btn-light" %>
-        <% if user_preneur.present? %>
+
+        <% if user_admin.present? %>
+            Admin
+
+        <% elsif user_preneur.present? %>
             <%= link_to user_path(current_user.id), class: "no-underline fs-6" do %>
                 Locataire
             <% end %>
         <%# elsif user_bailleur.nil? %>
             <%#= link_to "Créer profile locataire", new_preneur_path, class: "text-center no-underline text-warning" %>
         <%# end %>
-        <% end %>
-
-        <% if user_bailleur.present? %>
+        <% elsif user_bailleur.present? %>
             <%= link_to user_path(current_user.id), class: "no-underline" do %>
                 Bailleur
             <% end %>

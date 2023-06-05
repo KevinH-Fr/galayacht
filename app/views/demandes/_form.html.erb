@@ -1,0 +1,44 @@
+<%= form_with(model: demande) do |form| %>
+  <% if demande.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(demande.errors.count, "error") %> prohibited this demande from being saved:</h2>
+
+      <ul>
+        <% demande.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="input-group">
+    <%= form.label :nom, class: "input-group-text label-with-format" %>
+    <%= form.text_field :nom, class: "form-control field-with-format" %>
+  </div>
+
+   <div class="input-group">
+    <%= form.label :mail, class: "input-group-text label-with-format" %>
+    <%= form.text_field :mail, class: "form-control field-with-format" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :telephone, class: "input-group-text label-with-format" %>
+    <%= form.text_field :telephone, class: "form-control field-with-format" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :type_demande, class: "input-group-text label-with-format" %>
+    <%= form.text_field :type_demande, class: "form-control field-with-format" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :commentaires, class: "input-group-text label-with-format" %>
+    <%= form.text_field :commentaires, class: "form-control field-with-format" %>
+  </div>
+
+
+  <div class="container-fluid text-end">
+    <%= render "shared/form_submit" %>
+  </div>
+<% end %>

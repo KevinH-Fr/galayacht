@@ -14,18 +14,28 @@
   <div data-controller="reservation">
     <div class="input-group">
       <%#= form.label :produit_id, class: "input-group-text label-with-format" %>
-        <%= form.hidden_field :produit_id, value: produit_courant.id %>
+        <%= form.text_field :produit_id, value: produit_courant.id %>
     </div>
 
     <div>
       <%= render partial: 'produit', locals: { produit: produit_courant } %>
     </div>
 
+    <% if user_admin %>
+      <div class="input-group">
+        <%= form.label :locataire, class: "input-group-text label-with-format" %>
+        <%= form.select :preneur_id, options_for_select(Preneur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
+      </div>
 
-    <div class="input-group">
-      <%#= form.label :preneur_id, class: "input-group-text label-with-format" %>
-      <%= form.hidden_field :preneur_id, value: user_preneur.id, class: "form-control field-with-format" %>
-    </div>
+    <% else %>
+
+      <div class="input-group">
+        <%#= form.label :preneur_id, class: "input-group-text label-with-format" %>
+        <%= form.hidden_field :preneur_id, value: user_preneur.id, class: "form-control field-with-format" %>
+      </div>
+    
+    <% end %>
+
 
     <div class="input-group">
       <%= form.label :debut, class: "input-group-text label-with-format" %>

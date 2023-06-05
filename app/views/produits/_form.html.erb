@@ -91,55 +91,21 @@
             {include_blank: :true}, class: "form-select text-center" %>
       </div>
 
-<%
-=begin%>
- 
-      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseCalendrier" role="button">
-        Calendrier
-      </a>
 
+    <% if user_admin %>
+      <div class="input-group">
+        <%= form.label :bailleur_id, class: "input-group-text label-with-format" %>
+        <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
+      </div>
 
-      <div class="collapse" id="collapseCalendrier">
-        <div class="card card-body mt-2">
-          
-            <%= render @occupations %>
- 
-
-        </div>
-
-
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseNewCalendrier" role="button">
-          Bloquer une période
-        </a>
-
-        <div class="collapse" id="collapseNewCalendrier">
-          <div class="card card-body mt-2">
-
-            <!-- occupation_produit fields -->
-            <%= form.fields_for :occupations, @produit.occupations.build do |occupation_fields| %>
-              <%= occupation_fields.label :debut %>
-              <%= occupation_fields.date_field :debut %>
-
-              <%= occupation_fields.label :fin %>
-              <%= occupation_fields.date_field :fin %>
-
-               <%= render "shared/form_submit" %> 
-               
-            <% end %>
-          </div>
-        </div>
-
-      </div> 
-<%
-=end%>
-
-      
-
+    <% else %>
 
     <div>
-      <%#= form.label :bailleur_id, class: "input-group-text label-with-format" %>
       <%= form.hidden_field :bailleur_id, value: user_bailleur.id %>
     </div>
+
+    <% end %>
+
     <hr>
 
     <div class="row"> 

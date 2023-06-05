@@ -1,6 +1,10 @@
 <h3>Espace Admin</h3>
 
-<%= link_to "Paramètres", admin_parameters_path, class: "btn btn-dark" %>
+<div class="container m-2">
+    <%= link_to "Paramètres", admin_parameters_path, class: "btn btn-dark m-2" %>
+    <%= link_to "Nouveau locataire", new_preneur_path, class: "btn btn-primary m-2" %>
+    <%= link_to "Nouveau propriétaire", new_bailleur_path, class: "btn btn-success m-2" %>
+</div>
 
 <div class="container">
 
@@ -14,4 +18,7 @@
 
     <%= render "liste_preneurs" %>
 
+    <hr>
+
+    <%= render "liste_demandes" %>
 </div>
