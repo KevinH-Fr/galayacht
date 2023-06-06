@@ -23,28 +23,31 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
- 
+    @produit = Produit.find(@reservation.produit_id)
+  
     respond_to do |format|
-      if @reservation.save
-
-      Schedule.create(
-        produit_id: @reservation.produit_id,
-        title: "Autogénéré - réservation via appli",
-        start: @reservation.debutlocation,
-        end: @reservation.finlocation)
-
-      #  send_reservation_email_preneur(@reservation.id)
-      #  send_reservation_email_bailleur(@reservation.id)
-
-        format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully created." }
+      if overlapping_reservations?(@reservation)
+        flash[:notice] = 'There is already a reservation for the same dates.'
+        format.html { redirect_to @produit }
+        format.json { render json: { error: 'There is already a reservation for the same dates.' }, status: :unprocessable_entity }
+      elsif @reservation.save
+        Schedule.create(
+          produit_id: @reservation.produit_id,
+          title: "Autogénéré - réservation via appli",
+          start: @reservation.debutlocation,
+          end: @reservation.finlocation
+        )
+        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
-
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
       end
+  
+      format.any { head :unprocessable_entity } # Fallback response for unknown formats
     end
   end
+  
 
   def update
     respond_to do |format|
@@ -144,6 +147,21 @@ class ReservationsController < ApplicationController
     def reservation_params
       params.require(:reservation).permit(:produit_id, :preneur_id, :debutlocation, :finlocation, :prix, :remuneration, :statut)
     end
+
+    def overlapping_reservations?(new_reservation)
+      existing_reservations = @produit.reservations
+    
+      existing_reservations.any? do |reservation|
+        if reservation.debutlocation && reservation.finlocation
+          new_reservation.debutlocation.between?(reservation.debutlocation, reservation.finlocation) ||
+            new_reservation.finlocation.between?(reservation.debutlocation, reservation.finlocation) ||
+            (new_reservation.debutlocation <= reservation.debutlocation && new_reservation.finlocation >= reservation.finlocation)
+        else
+          false
+        end
+      end
+    end
+    
 
     def authorize_admin
       unless current_user && user_admin

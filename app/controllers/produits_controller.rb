@@ -101,8 +101,10 @@ class ProduitsController < ApplicationController
         #      turbo_stream.update("flash", partial: "layouts/flash"),     
         #    ]
         #end
-        format.html { redirect_to produits_url, notice: "Produit was successfully created." }
-
+       
+  
+        format.html { redirect_to produit_url(@produit), notice: "produit was successfully created." }
+     
 
       else
         flash.now[:notice] = "erreur - le produit n'a pas été ajouté"
@@ -159,6 +161,8 @@ class ProduitsController < ApplicationController
                                       :image1, :image2, :image3,
                                        occupations_attributes: [:debut, :fin])
     end
+
+
 
     def authorize_admin
       unless current_user && user_admin

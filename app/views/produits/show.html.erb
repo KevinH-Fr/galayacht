@@ -2,6 +2,14 @@
 
 <%= render @produit %>
 
+
+<% if current_user && user_admin %>
+  <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger fa-solid fa-trash",
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+      <span> Supprimer ce produit </span>
+  <% end %>
+<% end %>
+
 <hr>
 
 

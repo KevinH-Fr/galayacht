@@ -1,8 +1,8 @@
 <div id="<%= dom_id reservation %>">
 
-<h1> Réservation #<%= num_resa(reservation)  %> </h1>
+<h1 class="text-center"> Réservation #<%= num_resa(reservation)  %> </h1>
 
-  <div class="card main-card">
+  <div class="card produit-card">
     <%= image_tag(produit_img(reservation.id), class:"img-fluid rounded") if produit_img(reservation.id).present? %> 
     <div class="card-body">
       <h5 class="card-title"> <%= produit_full_name(reservation.produit_id) %></h5>
@@ -34,7 +34,7 @@
       <div class="card-body">
         <%= link_to "", edit_reservation_path(reservation), class: "btn btn-primary fa-solid fa-pen-to-square" %>
         <%= link_to "", reservations_path, class: "btn btn-secondary fa-solid fa-rotate-left" %>
-        <%= link_to "", edition_reservation_path, class: "btn btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
+        <%= link_to "", edition_reservation_path(reservation), class: "btn btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
         <%#= link_to "test html", edition_test_reservation_path, class: "btn btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
         <%= button_to "", @reservation, method: :delete, class: "btn btn-danger fa-solid fa-trash-can" %> 
       </div>
