@@ -344,13 +344,14 @@
 .button-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 10px;
+  justify-content: space-around;
+  vertical-align: middle;
+  /*gap: 5px;*/
 }
 
 .btn-action{
   margin: 5px;
-  padding: 5px;
+  padding: 10px;
   size: medium;
 }
 

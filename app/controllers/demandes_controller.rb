@@ -1,16 +1,16 @@
 class DemandesController < ApplicationController
+  include UserHelper
   before_action :set_demande, only: %i[ show edit update destroy ]
 
-  # GET /demandes or /demandes.json
+  before_action :authorize_admin, except: [:new]
+
   def index
     @demandes = Demande.all
   end
 
-  # GET /demandes/1 or /demandes/1.json
   def show
   end
 
-  # GET /demandes/new
   def new
     @demande = Demande.new
 
@@ -20,11 +20,9 @@ class DemandesController < ApplicationController
 
   end
 
-  # GET /demandes/1/edit
   def edit
   end
 
-  # POST /demandes or /demandes.json
   def create
     @demande = Demande.new(demande_params)
 
@@ -39,7 +37,6 @@ class DemandesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /demandes/1 or /demandes/1.json
   def update
     respond_to do |format|
       if @demande.update(demande_params)
@@ -52,7 +49,6 @@ class DemandesController < ApplicationController
     end
   end
 
-  # DELETE /demandes/1 or /demandes/1.json
   def destroy
     @demande.destroy
 
@@ -63,13 +59,17 @@ class DemandesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_demande
       @demande = Demande.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def demande_params
       params.require(:demande).permit(:nom, :mail, :telephone, :type_demande, :commentaires)
+    end
+
+    def authorize_admin
+      unless current_user && user_admin
+        redirect_to root_path, alert: "You are not authorized to access this page."
+      end
     end
 end

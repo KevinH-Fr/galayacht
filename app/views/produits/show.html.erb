@@ -5,7 +5,7 @@
 <hr>
 
 
-<div class="produit-card p-0 mb-4">
+<div class="card p-0 mb-4">
   <%= render "map" %>
 </div>
 
@@ -14,9 +14,6 @@
   <%= render 'shared/full_calendar' %> 
 
 
-<div class="my-4">
+<div class="my-4 text-center">
   <%= link_to "Plus d'informations sur ce bateau", new_demande_path(produitId: @produit.id), class: "btn btn-outline-primary" %>
 </div>
-
-<hr>
-

@@ -81,8 +81,18 @@
       </div>
 
       <div class="input-group mb-1">
-        <%= form.label :image, class:"input-group-text label-with-format" %>
-        <%= form.file_field :image1, class:"form-control field-with-format" %>
+        <%= form.label :image1, class:"input-group-text label-with-format" %>
+        <%= form.file_field :image1, class:"form-control" %>
+      </div>
+
+      <div class="input-group mb-1">
+        <%= form.label :image2, class:"input-group-text label-with-format" %>
+        <%= form.file_field :image2, class:"form-control" %>
+      </div>
+
+      <div class="input-group mb-1">
+        <%= form.label :image3, class:"input-group-text label-with-format" %>
+        <%= form.file_field :image3, class:"form-control" %>
       </div>
 
       <div class="input-group mb-1">
@@ -95,7 +105,11 @@
     <% if current_user && user_admin %>
       <div class="input-group">
         <%= form.label :bailleur_id, class: "input-group-text label-with-format" %>
-        <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
+        <% if produit.persisted? %>
+          <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { value: produit.bailleur_id}, class: "form-control field-with-format" %>
+        <% else %>
+          <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
+        <% end %>
       </div>
 
     <% else %>

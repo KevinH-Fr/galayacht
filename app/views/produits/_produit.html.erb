@@ -3,7 +3,10 @@
 
   <div class="card produit-card" >
 
-    <%= link_to image_tag(produit.image1, class:"img-produit rounded"), produit_path(produit) if produit.image1.present? %> 
+    <%#= link_to image_tag(produit.image1, class:"img-produit rounded"), produit_path(produit) if produit.image1.present? %> 
+
+    <%= render partial: "diaporama", locals: {produit: produit} %>
+
     <div class="card-body">
       <h5 class="card-title"> <%= produit.nom %></h5>
       <p class="card-text">
@@ -27,16 +30,16 @@
       </p>
       <div class="button-container">
 
+        <%= link_to "Demander plus d'informations", new_demande_path(produitId: produit), class: "btn btn-action btn-outline-primary" %>
+        <%= link_to "", produit_path(produit), class: "btn btn-action btn-primary fa-solid fa-eye" %>
+        <%= link_to "", edition_produit_path(produit), class: "btn btn-action btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
+
         <% if current_user && user_admin %>
-          <%= button_to "", @produit, method: :delete, class: "btn btn-sm btn-danger fa-solid fa-trash" %>
-          <%= button_to "", edit_produit_path(produit), 
-                class: "btn btn-sm btn-secondary fa-solid fa-pen-to-square", 
-                method: :post %>
-          <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-sm btn-success fa-solid fa-cart-shopping p-2" %>
+          <%= button_to "", @produit, method: :delete, class: "btn btn-action btn-danger fa-solid fa-trash" %>
+          <%= link_to "", edit_produit_path(produit), 
+                class: "btn btn-action btn-secondary fa-solid fa-pen-to-square" %>
+          <%= link_to "", new_reservation_path(produitId: produit), class: "btn btn-action btn-success fa-solid fa-cart-shopping" %>
         <% end %>
-        <%#= link_to "", produit_path(produit), class: "btn btn-sm btn-primary fa-solid fa-eye" %>
-        <%= link_to "Plus d'informations sur ce bateau", new_demande_path(produitId: produit), class: "btn btn-outline-primary" %>
-        <%= link_to "", edition_produit_path, class: "btn btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
 
       </div>
     </div>

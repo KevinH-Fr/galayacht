@@ -1,6 +1,8 @@
-class DestinationsController < ApplicationController
+class DestinationsController < ApplicationController.
+  include UserHelper
   before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
   before_action :set_destination, only: %i[ show edit update destroy ]
+  before_action :authorize_admin
 
   def index
     @destinations = Destination.all
@@ -53,11 +55,13 @@ class DestinationsController < ApplicationController
 
   private
 
-    def authenticate_admin!
-      unless current_user && current_user.admin?
-        redirect_to root_path, alert: "Vous n'avez pas accès à cette page."
-      end
+
+  def authorize_admin
+    unless current_user && user_admin
+      redirect_to root_path, alert: "You are not authorized to access this page."
     end
+  end
+
 
     def set_destination
       @destination = Destination.find(params[:id])

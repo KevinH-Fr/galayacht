@@ -1,25 +1,22 @@
 class AdminParametersController < ApplicationController
+  include UserHelper
   before_action :set_admin_parameter, only: %i[ show edit update destroy ]
+  before_action :authorize_admin
 
-  # GET /admin_parameters or /admin_parameters.json
   def index
     @admin_parameters = AdminParameter.all
   end
 
-  # GET /admin_parameters/1 or /admin_parameters/1.json
   def show
   end
 
-  # GET /admin_parameters/new
   def new
     @admin_parameter = AdminParameter.new
   end
 
-  # GET /admin_parameters/1/edit
   def edit
   end
 
-  # POST /admin_parameters or /admin_parameters.json
   def create
     @admin_parameter = AdminParameter.new(admin_parameter_params)
 
@@ -34,7 +31,6 @@ class AdminParametersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /admin_parameters/1 or /admin_parameters/1.json
   def update
     respond_to do |format|
       if @admin_parameter.update(admin_parameter_params)
@@ -47,7 +43,6 @@ class AdminParametersController < ApplicationController
     end
   end
 
-  # DELETE /admin_parameters/1 or /admin_parameters/1.json
   def destroy
     @admin_parameter.destroy
 
@@ -58,13 +53,17 @@ class AdminParametersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_admin_parameter
       @admin_parameter = AdminParameter.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def admin_parameter_params
       params.require(:admin_parameter).permit(:remuneration, :hautesaison)
+    end
+
+    def authorize_admin
+      unless current_user && user_admin
+        redirect_to root_path, alert: "You are not authorized to access this page."
+      end
     end
 end

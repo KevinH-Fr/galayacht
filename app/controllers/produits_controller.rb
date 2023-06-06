@@ -1,5 +1,9 @@
 class ProduitsController < ApplicationController
+
+  include UserHelper
+  
   before_action :set_produit, only: %i[ show edit update destroy ]
+  before_action :authorize_admin
 
   def index
     @destinations = Destination.all
@@ -88,23 +92,28 @@ class ProduitsController < ApplicationController
 
     respond_to do |format|
       if @produit.save
-        format.turbo_stream do
-          flash.now[:notice] = "le produit #{@produit.nom} a bien été ajouté"
-          render turbo_stream: [
-            turbo_stream.update('new_produit', partial: "produits/form", locals: {produit: Produit.new}),
-            turbo_stream.prepend("produits", partial: "produits/produit",
-              locals: {produit: @produit }), 
-              turbo_stream.update("flash", partial: "layouts/flash"),     
-            ]
-        end
+        #format.turbo_stream do
+        #  flash.now[:notice] = "le produit #{@produit.nom} a bien été ajouté"
+        #  render turbo_stream: [
+        #    turbo_stream.update('new_produit', partial: "produits/form", locals: {produit: Produit.new}),
+        #    turbo_stream.prepend("produits", partial: "produits/produit",
+        #      locals: {produit: @produit }), 
+        #      turbo_stream.update("flash", partial: "layouts/flash"),     
+        #    ]
+        #end
+        format.html { redirect_to produits_url, notice: "Produit was successfully created." }
+
 
       else
         flash.now[:notice] = "erreur - le produit n'a pas été ajouté"
-        format.turbo_stream do
-          render turbo_stream: [
-             turbo_stream.update("flash", partial: "layouts/flash"),
-           ]
-         end
+       # format.turbo_stream do
+       #   render turbo_stream: [
+       #      turbo_stream.update("flash", partial: "layouts/flash"),
+       #    ]
+       #  end
+         format.html { render :edit, status: :unprocessable_entity }
+         format.json { render json: @produit.errors, status: :unprocessable_entity }
+ 
       end
     end
   end
@@ -125,12 +134,18 @@ class ProduitsController < ApplicationController
 
   def destroy
     @produit.destroy
-
+  
     respond_to do |format|
-      format.html { redirect_to produits_url, notice: "Produit was successfully destroyed." }
+      format.html { redirect_to espace_admin_index_url, notice: "Le produit a bien été supprimé." }
       format.json { head :no_content }
+     # format.turbo_stream do
+     #   render turbo_stream: [
+     #     turbo_stream.update("flash", partial: "layouts/flash")
+     #   ]
+     # end
     end
   end
+  
 
 
   private
@@ -139,8 +154,16 @@ class ProduitsController < ApplicationController
     end
 
     def produit_params
-      params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :image1, :bailleur_id,
+      params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :bailleur_id,
                                       :country, :state, :city, :capacite, :capitaine, :destination_id,
+                                      :image1, :image2, :image3,
                                        occupations_attributes: [:debut, :fin])
     end
+
+    def authorize_admin
+      unless current_user && user_admin
+        redirect_to root_path, alert: "You are not authorized to access this page."
+      end
+    end
+
 end

@@ -1,5 +1,7 @@
 class SchedulesController < ApplicationController
+  include UserHelper
   before_action :set_schedule, only: %i[ show edit update destroy ]
+  before_action :authorize_admin
 
   def index
 
@@ -133,5 +135,11 @@ class SchedulesController < ApplicationController
 
     def schedule_params
       params.fetch(:schedule, {}).permit(:title, :start, :end, :produit_id)
+    end
+    
+    def authorize_admin
+      unless current_user && user_admin
+        redirect_to root_path, alert: "You are not authorized to access this page."
+      end
     end
 end

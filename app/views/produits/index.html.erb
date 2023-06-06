@@ -1,8 +1,6 @@
 
   <%= render "produits/form_recherche_bateau" %>
 
-<%
-=begin%>
  <div id="produits" class="container-fluid">
   <div class="row justify-content-center">
     <% @produits.each do |produit| %>
@@ -13,11 +11,15 @@
     <% end %>
   </div>
 </div> 
+
+ <% if current_user && user_admin %>
+    <%= link_to "nouveau bateau", new_produit_path, class: 'btn btn-warning' %>
+ <% end %>
+
+
 <%
-=end%>
-
-
-  <div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
+=begin%>
+    <div data-controller="newrecord" data-action="turbo:submit-end->newrecord#submitEnd">
     <div id="produits" class="container-fluid">
       <div class="row justify-content-center">
         <% @produits.each do |produit| %>
@@ -33,7 +35,7 @@
       <div role="button" data-action="click->newrecord#openDropdown" 
         data-newrecord-target="openButton" 
         class="fa-solid fa-add btn btn-warning btn-action">
-        Nouveau bateau
+        <span>  Nouveau bateau </span>
       </div>
       <div role="button" data-action="click->newrecord#closeDropdown" 
         data-newrecord-target="closeButton" 
@@ -46,4 +48,6 @@
         </div>
       </div>
     <% end %>
-  </div>
+  </div> 
+<%
+=end%>

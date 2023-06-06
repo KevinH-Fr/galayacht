@@ -2,7 +2,6 @@ module UserHelper
     def user_admin
         if current_user 
             User.where(id: current_user.id, role: 1).first
-    
         end
     end 
     def user_preneur

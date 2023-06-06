@@ -1,5 +1,7 @@
 class BailleursController < ApplicationController
+  include UserHelper
   before_action :set_bailleur, only: %i[ show edit update destroy ]
+  before_action :authorize_admin
 
   def index
     @bailleurs = Bailleur.all
@@ -57,5 +59,11 @@ class BailleursController < ApplicationController
 
     def bailleur_params
       params.require(:bailleur).permit(:prenom, :nom, :telephone, :mail, :user_id, :profilepic)
+    end
+
+    def authorize_admin
+      unless current_user && user_admin
+        redirect_to root_path, alert: "You are not authorized to access this page."
+      end
     end
 end

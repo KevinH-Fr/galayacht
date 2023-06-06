@@ -1,35 +1,34 @@
 Rails.application.routes.draw do
-  resources :demandes
-
   
-
+  
   get 'home/index'
   get 'home/mentions_legales'
   get 'home/nous_connaitre'
   get 'home/politique_confidentialite'
-
+  
   get 'home/testimage'
   root "home#index"
   get 'espace_permis/index'
-
+  
   get 'espace_bailleur/index'
   get 'espace_preneur/index'
   get 'espace_admin/index'
-
-
- 
+  
+  
+  
   devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'users/show'
   get 'users/:id' => 'users#show', as: 'user'
-
+  
   resources :destinations
   resources :bailleurs
   resources :preneurs
   resources :admin_parameters
-
+  resources :demandes
+  
   resources :produits do
     member do
-      post :edit
+     # post :edit
       get :edition
     end
   end
