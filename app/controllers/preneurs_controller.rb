@@ -22,9 +22,11 @@ class PreneursController < ApplicationController
 
     respond_to do |format|
       if @preneur.save
-        format.html { redirect_to preneur_url(@preneur), notice: "Preneur was successfully created." }
+        flash[:success] = "locataire was successfully created."
+        format.html { redirect_to preneur_url(@preneur) }
         format.json { render :show, status: :created, location: @preneur }
       else
+        flash[:error] = "locataire could not be created."
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @preneur.errors, status: :unprocessable_entity }
       end
@@ -34,9 +36,11 @@ class PreneursController < ApplicationController
   def update
     respond_to do |format|
       if @preneur.update(preneur_params)
-        format.html { redirect_to preneur_url(@preneur), notice: "Preneur was successfully updated." }
+        flash[:success] = "locataire was successfully updated."
+        format.html { redirect_to preneur_url(@preneur) }
         format.json { render :show, status: :ok, location: @preneur }
       else
+        flash[:error] = "locataire could not be updated."
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @preneur.errors, status: :unprocessable_entity }
       end
@@ -47,7 +51,8 @@ class PreneursController < ApplicationController
     @preneur.destroy
 
     respond_to do |format|
-      format.html { redirect_to preneurs_url, notice: "Preneur was successfully destroyed." }
+      flash[:success] = "locataire was successfully destroyed."
+      format.html { redirect_to preneurs_url}
       format.json { head :no_content }
     end
   end

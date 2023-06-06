@@ -27,17 +27,18 @@ class ReservationsController < ApplicationController
   
     respond_to do |format|
       if overlapping_reservations?(@reservation)
-        flash[:notice] = 'There is already a reservation for the same dates.'
+        flash[:error] = 'There is already a reservation for the same dates.'
         format.html { redirect_to @produit }
         format.json { render json: { error: 'There is already a reservation for the same dates.' }, status: :unprocessable_entity }
       elsif @reservation.save
+        flash[:success] = "reservation was successfully created."
         Schedule.create(
           produit_id: @reservation.produit_id,
           title: "Autogénéré - réservation via appli",
           start: @reservation.debutlocation,
           end: @reservation.finlocation
         )
-        format.html { redirect_to reservation_url(@reservation), notice: 'Reservation was successfully created.' }
+        format.html { redirect_to reservation_url(@reservation) }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -92,6 +92,8 @@ class ProduitsController < ApplicationController
 
     respond_to do |format|
       if @produit.save
+        flash.now[:success] = "produit was successfully created"
+
         #format.turbo_stream do
         #  flash.now[:notice] = "le produit #{@produit.nom} a bien été ajouté"
         #  render turbo_stream: [
@@ -103,11 +105,11 @@ class ProduitsController < ApplicationController
         #end
        
   
-        format.html { redirect_to produit_url(@produit), notice: "produit was successfully created." }
+        format.html { redirect_to produit_url(@produit) }
      
 
       else
-        flash.now[:notice] = "erreur - le produit n'a pas été ajouté"
+        flash.now[:error] = "erreur - le produit n'a pas été ajouté"
        # format.turbo_stream do
        #   render turbo_stream: [
        #      turbo_stream.update("flash", partial: "layouts/flash"),
@@ -125,9 +127,11 @@ class ProduitsController < ApplicationController
 
     respond_to do |format|
       if @produit.update(produit_params)
-        format.html { redirect_to produit_url(@produit), notice: "Produit was successfully updated." }
+        flash.now[:success] = "produit was successfully updated"
+        format.html { redirect_to produit_url(@produit), alert: "Produit was successfully updated." }
         format.json { render :show, status: :ok, location: @produit }
       else
+        flash.now[:error] = "erreur - le produit n'a pas été modifié"
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @produit.errors, status: :unprocessable_entity }
       end

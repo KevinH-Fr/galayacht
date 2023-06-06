@@ -3,4 +3,7 @@ class Preneur < ApplicationRecord
 
     belongs_to :user
 
+    validates :nom, presence: true
+
+
 end

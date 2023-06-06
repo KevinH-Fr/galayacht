@@ -37,6 +37,7 @@ class BailleursController < ApplicationController
         format.html { redirect_to bailleur_url(@bailleur), notice: "Bailleur was successfully updated." }
         format.json { render :show, status: :ok, location: @bailleur }
       else
+        flash[:error] = "propriétaire could not be updated."
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @bailleur.errors, status: :unprocessable_entity }
       end

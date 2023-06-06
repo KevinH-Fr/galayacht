@@ -28,9 +28,11 @@ class DemandesController < ApplicationController
 
     respond_to do |format|
       if @demande.save
-        format.html { redirect_to demande_url(@demande), notice: "Demande was successfully created." }
+        flash[:success] = "demande was created."
+        format.html { redirect_to demande_url(@demande) }
         format.json { render :show, status: :created, location: @demande }
       else
+        flash[:error] = "demande could not be created."
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @demande.errors, status: :unprocessable_entity }
       end
@@ -40,6 +42,7 @@ class DemandesController < ApplicationController
   def update
     respond_to do |format|
       if @demande.update(demande_params)
+        flash[:success] = "demande was updated."
         format.html { redirect_to demande_url(@demande), notice: "Demande was successfully updated." }
         format.json { render :show, status: :ok, location: @demande }
       else
@@ -53,6 +56,7 @@ class DemandesController < ApplicationController
     @demande.destroy
 
     respond_to do |format|
+      flash[:success] = "demande was deleted."
       format.html { redirect_to demandes_url, notice: "Demande was successfully destroyed." }
       format.json { head :no_content }
     end

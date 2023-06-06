@@ -23,7 +23,8 @@ class DestinationsController < ApplicationController.
 
     respond_to do |format|
       if @destination.save
-        format.html { redirect_to destination_url(@destination), notice: "Destination was successfully created." }
+        flash[:success] = "destination was created."
+        format.html { redirect_to destination_url(@destination) }
         format.json { render :show, status: :created, location: @destination }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -35,7 +36,8 @@ class DestinationsController < ApplicationController.
   def update
     respond_to do |format|
       if @destination.update(destination_params)
-        format.html { redirect_to destination_url(@destination), notice: "Destination was successfully updated." }
+        flash[:success] = "destination was updated."
+        format.html { redirect_to destination_url(@destination) }
         format.json { render :show, status: :ok, location: @destination }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -48,6 +50,7 @@ class DestinationsController < ApplicationController.
     @destination.destroy
 
     respond_to do |format|
+      flash[:success] = "destination was delted."
       format.html { redirect_to destinations_url, notice: "Destination was successfully destroyed." }
       format.json { head :no_content }
     end
