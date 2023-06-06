@@ -1,12 +1,9 @@
 
   <div id="<%= dom_id bailleur %>">
 
-    <div class="card mb-3" class="main-card">
+    <div class="card main-card mb-3">
       <div class="row g-0">
-        <div class="col-md-4">
-          <%= image_tag(bailleur.profilepic, class:"rounded") if bailleur.profilepic.present? %> 
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="card-body">
             <h5 class="card-title"> <%= bailleur.prenom %>  <%= bailleur.nom %> </h5>
             <p class="card-text">

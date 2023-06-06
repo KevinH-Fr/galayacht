@@ -224,7 +224,8 @@
  }
 
  .main-card{
-  width: 90%;
+ /* width: 90%;*/
+  min-width: 300px;
   max-width: 600px;
  }
 
@@ -354,6 +355,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   vertical-align: middle;
+  align-items: center;
   /*gap: 5px;*/
 }
 
@@ -367,4 +369,9 @@
   width: 87vw;
   max-width: 600px;
   height: 300px;
+}
+
+.contact-card{
+  background-image: url('theoule');
+  background-position: center;
 }

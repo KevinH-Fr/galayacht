@@ -1,11 +1,16 @@
-<p style="color: green"><%= notice %></p>
 
 <h1>Bailleurs</h1>
 
-<div id="bailleurs">
-  <% @bailleurs.each do |bailleur| %>
-    <%= render bailleur %>
-  <% end %>
-</div>
+ <div id="bailleurs" class="container-fluid">
+  <div class="row justify-content-center">
+    <% @bailleurs.each do |bailleur| %>
+      <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center mb-3">
+         <%= render bailleur %> 
+      </div>
+    <% end %>
+  </div>
+</div> 
 
-<%= link_to "New bailleur", new_bailleur_path %>
+<% if current_user && user_admin %>
+  <%= link_to "New bailleur", new_bailleur_path %>
+<% end %>

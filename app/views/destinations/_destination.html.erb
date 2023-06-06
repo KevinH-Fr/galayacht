@@ -2,7 +2,7 @@
 
   <div class="card produit-card" >
 
-    <%= link_to image_tag(destination.image1, class:"img-produit rounded"), destination_path(destination) if destination.image1.present? %> 
+    <%= link_to image_tag(destination.image1, class:"img-produit rounded"), produits_path(city: destination) if destination.image1.present? %> 
     <div class="card-body">
       <h5 class="card-title"> <%= destination.nom %></h5>
       <p class="card-text">
@@ -13,10 +13,11 @@
         <div class="button-container">
           <% if current_user.present? && current_user.admin? %>
             <%= link_to "", edit_destination_path(destination), class: "btn btn-action btn-secondary fa-solid fa-pen-to-square" %>
+
             <%= button_to "", @produit, method: :delete, class: "btn btn-action btn-danger fa-solid fa-trash" %>
           <% end %>
 
-          <%= link_to produits_path(city: destination), class: "btn btn-sm btn-success" do %>
+          <%= link_to produits_path(city: destination), class: "btn btn-action btn-success" do %>
             <span class="fw-bold mx-1"> Voir les bateaux </span>
           <% end %>
         </div>

@@ -3,9 +3,10 @@
 
 
 <% if current_user && user_admin %>
-  <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger fa-solid fa-trash",
+  <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger",
       data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-      <span> Supprimer ce produit </span>
+      <i class="fa-solid fa-trash me-2"></i>
+      <span class="fw-bold"> Supprimer ce produit </span>
   <% end %>
 <% end %>
 
