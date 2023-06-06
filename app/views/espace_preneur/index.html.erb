@@ -30,7 +30,9 @@
                         </p>
                         <p class="card-text fs-5 m-1"> 
                             <i class="fa fa-user-shield"></i> 
-                            <%= produit.capitaine %> 
+                            <% if produit.capitaine == true %>
+                                Capitaine
+                            <% end %> 
                         </p>
                         <p class="card-text fs-5 m-1"> 
                             <i class="fa fa-location-dot"></i> 

@@ -131,7 +131,8 @@
   overflow: auto;
   white-space: nowrap; 
   display: flex;
-  max-width: 70vw;
+  width: 90vw;
+  max-width: 1200px;
    /*justify-content: center;*/
    /*flex-direction: row;
   /*  width: 100vw;*/
@@ -143,13 +144,13 @@
    text-align: center;
    padding: 6px;
    text-decoration: none;
-   width: 280px;
+   width: 240px;
   /* height: 320px;*/
    color: #05124d;
    font-size: 2rem;
    font-weight: bold;
    text-align: center;
-   margin: 10px;
+   margin: 5px;
 
 }
 
