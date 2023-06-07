@@ -224,10 +224,11 @@
  }
 
  .main-card{
- /* width: 90%;*/
-  min-width: 300px;
+  width: 90%;
+ /* min-width: 300px;*/
   max-width: 600px;
- }
+  padding: 10px;
+}
 
  .produit-card{
   /*max-width: 80vw;*/

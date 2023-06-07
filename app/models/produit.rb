@@ -6,6 +6,8 @@ class Produit < ApplicationRecord
   has_one_attached :image2
   has_one_attached :image3
 
+  validates :nom, presence: true
+
   validate :validate_image_format
   validate :validate_image_size
 

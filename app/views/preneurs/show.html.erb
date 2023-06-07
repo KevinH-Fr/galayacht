@@ -1,3 +1,10 @@
 
 <%= render @preneur %>
 
+<% if current_user && user_admin %>
+  <%= button_to @preneur, method: :delete, class: "btn btn-action btn-outline-danger",
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+      <i class="fa-solid fa-trash me-2"></i>
+      <span class="fw-bold"> Supprimer ce preneur </span>
+  <% end %>
+<% end %>

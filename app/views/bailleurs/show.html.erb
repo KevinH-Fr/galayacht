@@ -2,6 +2,13 @@
 
 <%= render @bailleur %>
 
+<% if current_user && user_admin %>
+  <%= button_to @bailleur, method: :delete, class: "btn btn-action btn-outline-danger",
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+      <i class="fa-solid fa-trash me-2"></i>
+      <span class="fw-bold"> Supprimer ce bailleur </span>
+  <% end %>
+<% end %>
 
-<%= link_to "Ajouter un bateau", new_produit_path, class: "btn btn-primary" %>
+<%#= link_to "Ajouter un bateau", new_produit_path, class: "btn btn-warning" %>
 

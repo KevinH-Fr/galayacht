@@ -25,9 +25,9 @@
       <div class="input-group">
         <%= form.label :locataire, class: "input-group-text label-with-format" %>
         <% if reservation.persisted? %>
-          <%= form.select :preneur_id, options_for_select(Preneur.distinct.pluck(:nom, :id), reservation.preneur_id), { include_blank: true }, class: "form-control field-with-format" %>
+          <%= form.select :preneur_id, @preneurs.map { |p| [p.full_name, p.id] }, { selected: reservation.preneur_id }, class: "form-control" %>
         <% else %>
-          <%= form.select :preneur_id, options_for_select(Preneur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
+          <%= form.select :preneur_id, @preneurs.map { |p| [p.full_name, p.id]},  {include_blank: true }, class: "form-control" %>
         <% end %>
       </div>
 

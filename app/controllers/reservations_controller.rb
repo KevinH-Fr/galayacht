@@ -16,9 +16,12 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @preneurs = Preneur.all
   end
 
   def edit
+    @preneurs = Preneur.all
+
   end
 
   def create
@@ -51,6 +54,8 @@ class ReservationsController < ApplicationController
   
 
   def update
+    @preneurs = Preneur.all
+
     respond_to do |format|
       if @reservation.update(reservation_params)
         format.html { redirect_to reservation_url(@reservation), notice: "Reservation was successfully updated." }
