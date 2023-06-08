@@ -57,7 +57,6 @@ class DestinationsController < ApplicationController.
 
   private
 
-
   def authorize_admin
     unless current_user && user_admin
       redirect_to root_path, alert: "You are not authorized to access this page."

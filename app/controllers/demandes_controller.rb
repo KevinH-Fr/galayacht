@@ -17,7 +17,6 @@ class DemandesController < ApplicationController
     @produit = Produit.find(params[:produitId]) if params[:produitId]
     @demande_proprietaire = params[:demandeId] 
     
-
   end
 
   def edit
