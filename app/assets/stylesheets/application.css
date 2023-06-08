@@ -59,7 +59,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1500px;
+  max-width: 1200px;
   padding: 20px;
 }
 
@@ -168,13 +168,13 @@
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  margin: 30px;
+  /*margin: 30px;*/
+  margin-bottom: 50px;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 60px;
   box-shadow:  10px 10px 30px #bebebe,
               -10px -10px 30px #b1abc5;
-
 }
   
  .text-bg-effect{
@@ -370,4 +370,6 @@
 .contact-card{
   background-image: url('theoule');
   background-position: center;
+  width: 90vw;
+  max-width: 600px; 
 }
