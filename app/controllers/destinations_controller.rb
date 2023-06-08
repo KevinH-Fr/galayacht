@@ -1,8 +1,7 @@
 class DestinationsController < ApplicationController.
   include UserHelper
-  before_action :authenticate_admin!, only: %i[ new create edit update destroy ]
   before_action :set_destination, only: %i[ show edit update destroy ]
-  before_action :authorize_admin
+  before_action :authorize_admin, except: [:index, :show]
 
   def index
     @destinations = Destination.all

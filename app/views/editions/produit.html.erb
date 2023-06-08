@@ -3,17 +3,44 @@
 
 <html>
 
-    <h1 class="centered">Produit #<%= produit_full_name(@produit.id) %> </h1>
+    <div class="centered">
+        <%= image_tag(produit_img(@produit.id), class: "img-produit") %>     
+    </div>
 
-    <hr>
+    <h1 class="centered">Ref. Bateau:<%= produit_full_name(@produit.id) %> </h1>
 
     <div class="bloc-doc bloc-produit">
-        <%= image_tag(produit_img(@produit.id), class: "img-produit") %> <hr>
-        <%= produit_full_name(@produit.id) %> <br>
-        Prix/jour: <br>
-        basse saison:  <%= @produit.prixjour %> <br>
-        haute saison:  <%= @produit.prixjour_hautesaison %> <br>    
-        Port: <%= produit_destination(@produit.id) %>
+
+        <h2>Informations</h2>
+
+        <div class="container infos"> 
+
+            <table>
+                <tr>
+                    <td class="td-width">
+                        Constructeur:  <%= @produit.marque %> <br>
+                        Modèle: <%= @produit.model %> <br>
+                        Type: <%= @produit.type_produit %> <br>
+                        Nb. personnes recommandé: : <%= @produit.capacite %> <br>
+                        Cabine simple: <%=  %> <br>
+                        Tirant d’eau: <%=  %> <br>
+                        Permis requis: <%=  %> <br>
+                        Longueur: <%= @produit.longueur %> <br>
+                        Moteur: <%= @produit.type_produit %> <br>
+                        Puissance: <%= @produit.type_produit %> <br>
+                        Largeur: <%= @produit.largeur %> <br>
+                        Année de construction: <%=  %> <br>
+                        Port: <%= produit_destination(@produit.id) %>
+                    </td>
+                    <td class="td-width">
+                        Prix/jour: <br>
+                        basse saison:  <%= @produit.prixjour %> <br>
+                        haute saison:  <%= @produit.prixjour_hautesaison %> <br>    
+                    </td>
+                </tr>
+            </table>
+
+        </div>
 
     </div> 
     

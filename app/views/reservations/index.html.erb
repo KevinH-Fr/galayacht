@@ -5,10 +5,9 @@
 <div id="reservations">
   <% @reservations.each do |reservation| %>
     <%= render reservation %>
-    <p>
-      <%= link_to "Show this reservation", reservation %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New reservation", new_reservation_path %>
+<hr>
+
+<%= link_to "New reservation", new_reservation_path, class: "btn btn-warning" %>

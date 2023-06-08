@@ -2,11 +2,3 @@
 
 <%= render @destination %>
 
-<% if current_user && user_admin %>
-  <div>
-    <%= link_to "Edit this destination", edit_destination_path(@destination) %> |
-    <%= link_to "Back to destinations", destinations_path %>
-
-    <%= button_to "Destroy this destination", @destination, method: :delete %>
-  </div>
-<% end %>

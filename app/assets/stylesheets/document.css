@@ -1,6 +1,7 @@
 
 h1{
   color:rgb(8, 11, 89);
+  text-align: center;
 }
 
 .middled{
@@ -41,19 +42,14 @@ h1{
     color: rgb(0, 0, 0);
     border-style:  groove;
     border-color: rgb(12, 12, 98);
-    padding: 10px;
-    margin: 20px;
     border-radius: 20px;
+    text-align: center;
   }
 
   .bloc-produit{
     margin-top: 20px;
     text-align: center;
-    display: block;
-    position: absolute; 
-    top: 300px;
-    left: 50px;
-    width: 800px;
+    width: 1000px;
 
   }
 
@@ -72,7 +68,16 @@ h1{
   }
 
   .img-produit{
-    width: 400px;
-    text-align: left;
+    width: 1000px;
+    text-align: center;
+    border-radius: 20px;
   }
 
+.infos{
+  text-align: left;
+  padding: 20px;
+}
+
+.td-width{
+  width: 600px;
+}

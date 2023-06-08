@@ -2,8 +2,8 @@
   <div class="container-fluid">
 
     <%= link_to root_path, class: "no-underline middled" do %>
-        <i class="fa fa-anchor text-light fa-lg"></i>
-        <span class="navbar-brand brand mx-4"> Galayachts </span>
+      <%= image_tag("galayachts-logo.jpg", alt: "Logo", width: 40, height: 40, class: "rounded d-inline-block align-text-top") %>
+      <span class="navbar-brand brand mx-4"> Galayachts </span>
     <% end %>
    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,9 +20,13 @@
         <li class="nav-item">
           <%= link_to "Proposer mon bateau", espace_bailleur_index_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
+<%
+=begin%>
+         <li class="nav-item">
           <%= link_to "Passer le permis bateau", espace_permis_index_path, class: "nav-link" %>
-        </li>
+        </li> 
+<%
+=end%>
         <li class="nav-item">
           <%= link_to "Destinations", destinations_path, class: "nav-link" %>
         </li>
