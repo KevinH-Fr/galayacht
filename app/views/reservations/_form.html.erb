@@ -1,4 +1,4 @@
-<%= form_with(model: reservation) do |form| %>
+<%= form_with(model: reservation, class:"card produit-card p-2") do |form| %>
   <% if reservation.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
@@ -21,130 +21,132 @@
       <%= render partial: 'produit', locals: { produit: produit_courant } %>
     </div>
 
-    <% if user_admin %>
+      <% if user_admin %>
+        <div class="input-group">
+          <%= form.label :locataire, class: "input-group-text label-with-format" %>
+          <% if reservation.persisted? %>
+            <%= form.select :preneur_id, @preneurs.map { |p| [p.full_name, p.id] }, { selected: reservation.preneur_id }, class: "form-control" %>
+          <% else %>
+            <%= form.select :preneur_id, @preneurs.map { |p| [p.full_name, p.id]},  {include_blank: true }, class: "form-control" %>
+          <% end %>
+        </div>
+
+      <% else %>
+
+        <div class="input-group">
+          <%#= form.label :preneur_id, class: "input-group-text label-with-format" %>
+        </div>
+      
+      <% end %>
+
+
       <div class="input-group">
-        <%= form.label :locataire, class: "input-group-text label-with-format" %>
-        <% if reservation.persisted? %>
-          <%= form.select :preneur_id, @preneurs.map { |p| [p.full_name, p.id] }, { selected: reservation.preneur_id }, class: "form-control" %>
-        <% else %>
-          <%= form.select :preneur_id, @preneurs.map { |p| [p.full_name, p.id]},  {include_blank: true }, class: "form-control" %>
-        <% end %>
+        <%= form.label :debut, class: "input-group-text label-with-format" %>
+        <%= form.date_field :debutlocation, data: {
+              action: "change->reservation#calculatePrix", 
+              target: "reservation.debut", 
+              reservation_target: "debut" }, 
+              class:"form-control field-with-format" %>  
       </div>
 
-    <% else %>
-
       <div class="input-group">
-        <%#= form.label :preneur_id, class: "input-group-text label-with-format" %>
-      </div>
-    
-    <% end %>
-
-
-    <div class="input-group">
-      <%= form.label :debut, class: "input-group-text label-with-format" %>
-      <%= form.date_field :debutlocation, data: {
-            action: "change->reservation#calculatePrix", 
-            target: "reservation.debut", 
-            reservation_target: "debut" }, 
+        <%= form.label :fin, class: "input-group-text label-with-format" %>
+        <%= form.date_field :finlocation, 
+            data: {
+              action: "change->reservation#calculatePrix", 
+              target: "reservation.fin", 
+              reservation_target: "fin" }, 
             class:"form-control field-with-format" %>  
-    </div>
-
-    <div class="input-group">
-      <%= form.label :fin, class: "input-group-text label-with-format" %>
-      <%= form.date_field :finlocation, 
-          data: {
-            action: "change->reservation#calculatePrix", 
-            target: "reservation.fin", 
-            reservation_target: "fin" }, 
-          class:"form-control field-with-format" %>  
-    </div>
-
-    <div class="">  
-      <span>  saison :  </span>
-      <span id="saison">
-        
-      </span>
-    </div>
-
-    <div class="">  
-      <span>  nombre de jours :  </span>
-      <span id="nbJours">
-        0
-      </span>
-    </div>
-
-
-
-      <%= form.hidden_field :prixjour, 
-            value: produit_courant.prixjour, 
-            data: { 
-              reservation_target: "prixjourInitial" } %>
-
-      <%= form.hidden_field :prixsemaine, 
-            value: produit_courant.prixsemaine, 
-            data: { 
-              reservation_target: "prixsemaineInitial" } %>
-
-      <%= form.hidden_field :prixjour_hautesaison, 
-            value: produit_courant.prixjour_hautesaison, 
-            data: { 
-              reservation_target: "prixjourHautesaisonInitial" } %>
-
-      <%= form.hidden_field :prixsemaine_hautesaison, 
-            value: produit_courant.prixsemaine_hautesaison, 
-            data: { 
-              reservation_target: "prixsemaineHautesaisonInitial" } %>
-
-
-      <%= form.hidden_field :date_hautesaison, 
-            value: AdminParameter.first.hautesaison, 
-            data: { 
-              reservation_target: "hautesaisonInitial" } %>
-
-
-
-      <%= form.hidden_field :remuneration_initial, 
-            value: AdminParameter.first.remuneration, 
-            data: { 
-              reservation_target: "remunerationInitial" } %>
-
-      <%= form.hidden_field :prix, 
-        data: { 
-          reservation_target: "prix" } %>
-
-      <%= form.hidden_field :remuneration, 
-        data: { 
-          reservation_target: "remuneration" } %>
-  
-    <div class="">  
-      <span>  prix net:  </span>
-      <span id="prixTotal">
-        0
-      </span> <br>
-
-      <span>  prix brut:  </span>
-      <span id="prixTotalBrut">
-        0
-      </span>
-
-    </div>
-
-
-    <div class="input-group">
-      <%#= form.label :statut, class: "input-group-text label-with-format" %>
-      <%#= form.text_field :statut, class: "form-control field-with-format" %>
-    </div>
-    
-    <hr>
-
-    <div class="row"> 
-      <div class="col text-start"> 
-        <%= link_to "", espace_preneur_index_path, class: "btn btn-secondary fa-solid fa-arrow-rotate-left" %>
       </div>
-      <div class="col text-end">
-        <%= render "shared/form_submit" %> 
+
+      <div class="">  
+        <span>  saison :  </span>
+        <span id="saison">
+          
+        </span>
       </div>
-    </div>
+
+      <div class="">  
+        <span>  nombre de jours :  </span>
+        <span id="nbJours">
+          0
+        </span>
+      </div>
+
+
+
+        <%= form.hidden_field :prixjour, 
+              value: produit_courant.prixjour, 
+              data: { 
+                reservation_target: "prixjourInitial" } %>
+
+        <%= form.hidden_field :prixsemaine, 
+              value: produit_courant.prixsemaine, 
+              data: { 
+                reservation_target: "prixsemaineInitial" } %>
+
+        <%= form.hidden_field :prixjour_hautesaison, 
+              value: produit_courant.prixjour_hautesaison, 
+              data: { 
+                reservation_target: "prixjourHautesaisonInitial" } %>
+
+        <%= form.hidden_field :prixsemaine_hautesaison, 
+              value: produit_courant.prixsemaine_hautesaison, 
+              data: { 
+                reservation_target: "prixsemaineHautesaisonInitial" } %>
+
+
+        <%= form.hidden_field :date_hautesaison, 
+              value: AdminParameter.first.hautesaison, 
+              data: { 
+                reservation_target: "hautesaisonInitial" } %>
+
+
+
+        <%= form.hidden_field :remuneration_initial, 
+              value: AdminParameter.first.remuneration, 
+              data: { 
+                reservation_target: "remunerationInitial" } %>
+
+        <%= form.hidden_field :prix, 
+          data: { 
+            reservation_target: "prix" } %>
+
+        <%= form.hidden_field :remuneration, 
+          data: { 
+            reservation_target: "remuneration" } %>
     
-  </div>
+      <div class="">  
+        <span>  prix net:  </span>
+        <span id="prixTotal">
+          0
+        </span> <br>
+
+        <span>  prix brut:  </span>
+        <span id="prixTotalBrut">
+          0
+        </span>
+
+      </div>
+
+
+      <div class="input-group">
+        <%#= form.label :statut, class: "input-group-text label-with-format" %>
+        <%#= form.text_field :statut, class: "form-control field-with-format" %>
+      </div>
+      
+      <hr>
+
+      <div class="row"> 
+        <div class="col text-start"> 
+          <%= link_to "", espace_preneur_index_path, class: "btn btn-secondary fa-solid fa-arrow-rotate-left" %>
+        </div>
+        <div class="col text-end">
+          <%= render "shared/form_submit" %> 
+        </div>
+      </div>
+      
+    </div>
+
 <% end %>
+

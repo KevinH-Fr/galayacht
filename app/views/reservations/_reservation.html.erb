@@ -1,14 +1,21 @@
 <div id="<%= dom_id reservation %>">
 
-<h1 class="text-center"> Réservation #<%= num_resa(reservation)  %> </h1>
-
   <div class="card produit-card">
-    <%= image_tag(produit_img(reservation.id), class:"img-fluid rounded") if produit_img(reservation.id).present? %> 
+    <%= image_tag(produit_img(reservation.id), class:"img-produit rounded-top") if produit_img(reservation.id).present? %> 
     <div class="card-body">
-      <h5 class="card-title"> <%= produit_full_name(reservation.produit_id) %></h5>
+      <h5 class="card-title"> 
+        Réservation #<%= num_resa(reservation)  %> <hr>
+        <%= produit_full_name(reservation.produit_id) %> 
+      </h5>
       <p class="card-text">
+
         <p>
-          <strong>Preneur:</strong>
+          <strong>Propriétaire:</strong>
+          <%= bailleur_full_name(bailleur_produit_courant(reservation.produit_id)) %>
+        </p>
+
+        <p>
+          <strong>Locataire:</strong>
           <%= preneur_full_name(reservation.preneur_id) %>
         </p>
 

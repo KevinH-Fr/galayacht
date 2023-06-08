@@ -8,17 +8,18 @@
 
 :root {
   --primary-color: #100775;
-  --max-width: 600px;
+  --max-width: 800px;
 }
  
  h1{
   text-align: center;
-  width: 100%;
+  width: 90vw;
+  max-width: var(--max-width); 
   background-color: var(--primary-color); 
   color: white;
   border-radius: 20px;
-  margin: 20px;
   padding: 5px;
+  margin-bottom: 50px;
  }
 
  .navbar{
@@ -40,8 +41,6 @@
   align-items: center;
 }
 
- 
-
 .brand{
   font-size: x-large;
 }
@@ -54,7 +53,6 @@
   text-decoration: none;
   color: rgb(255, 255, 255);
 }
-
 
 .container-main{
   display: flex;
@@ -140,10 +138,7 @@
   white-space: nowrap; 
   display: flex;
   width: 90vw;
-  max-width: 1200px;
-   /*justify-content: center;*/
-   /*flex-direction: row;
-  /*  width: 100vw;*/
+  max-width: var(--max-width); 
 }
 
 .bloc-enfant{
@@ -209,14 +204,13 @@
    border-radius: 50px;
    background-color: transparent; 
    width: 90vw;
-   max-width: 600px;
+   max-width: var(--max-width); 
  }
 
  .img-main{
-   max-width: 800px;
-  /* height: 20em;*/
+    /*   max-width: var(--max-width); */
+    width: 100%;
 
-  /* max-width: 800px;*/
  }
 
  .img-produit{
@@ -241,14 +235,15 @@
  }
 
  .search-card{
-    max-width: var(--max-width);
+    width: 90vw;
+    max-width: var(--max-width); 
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 40px;
  }
 
  .second-card{
- /* width: 35vw;*/
+    overflow: hidden;
  }
  
  .text-overlay {
@@ -367,8 +362,8 @@
 }
 
 .map{
-  width: 87vw;
-  max-width: 600px;
+  width: 90vw;
+  max-width: 600px; 
   height: 300px;
 }
 

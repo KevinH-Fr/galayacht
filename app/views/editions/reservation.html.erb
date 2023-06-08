@@ -10,17 +10,18 @@
     <div class="bloc-doc bloc-bailleur">
        <strong> Bailleur: </strong> <hr>
         <%= bailleur_full_name(bailleur_produit_courant(@reservation.produit_id)) %>  <br>
-        coordoonées
     </div>
 
     <div class="bloc-doc bloc-preneur">
        <strong> Locataire: </strong> <hr>
         <%= preneur_full_name(@reservation.preneur_id) %> <br>
-        coordoonées
     </div>
 
+    <br><br><br><br> <br> <br> <br> <br>
+
+    <%= image_tag(produit_img(@reservation.produit_id), class: "img-produit") %> <br> <br>
+
     <div class="bloc-doc bloc-produit">
-        <%= image_tag(produit_img(@reservation.produit_id), class: "img-produit") %> <hr>
         <%= produit_full_name(@reservation.produit_id) %> <br>
         Synthèse de la location: <br>
         Période:  Du <%= @reservation.debutlocation %> au  <%= @reservation.finlocation %> <br>

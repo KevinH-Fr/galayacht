@@ -2,7 +2,7 @@ class DemandesController < ApplicationController
   include UserHelper
   before_action :set_demande, only: %i[ show edit update destroy ]
 
-  before_action :authorize_admin, except: [:new]
+  before_action :authorize_admin, except: [:new, :create]
 
   def index
     @demandes = Demande.all
@@ -29,7 +29,7 @@ class DemandesController < ApplicationController
     respond_to do |format|
       if @demande.save
         flash[:success] = "demande was created."
-        format.html { redirect_to demande_url(@demande) }
+        format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @demande }
       else
         flash[:error] = "demande could not be created."
