@@ -1,55 +1,60 @@
+<div data-aos="zoom-in-up mb-4">
+    <h2 class="text-center fw-bold mb-4">
+        La location de bateau en toute simplicité 
+    </h2>
+</div>
+
+<br>
 
 <div data-aos="zoom-in-up">
     <div class="card search-card my-4">  
-        <h2>
-        	La location de bateau en toute simplicité 
-        </h2>
-        <div>
+
+        <h3 class="text-center text-light fw-bold">
            Trouvez votre bateau idéal, où que vous soyez, quel que soit votre budget
-        </div>
+        </h3>
 
         <%= search_form_for @q, url: produits_path, method: :get do |f| %>
 
-            <div class="form-group my-4">
-            <%= f.label :city_cont, "Ville de départ", class: "fw-bold" %>
-                <div class="input-group">
-                    <span class="input-group-text">
-                    <i class="fa fa-search"></i>
-                    </span>
-                    <%#= f.search_field :city_cont, class: "form-control", placeholder: "Cannes, Antibes, Théoule, ..." %>
-                    <%#= f.select :destination_id_cont, options_for_select(Produit.distinct.pluck(:destination_id)), {}, class: "form-select",
-                        placeholder: "" %>
+            <div class="p-4">
+
+                <div class="form-group my-3">
+                <%#= f.label :city_cont, "Ville de départ", class: "text-light fw-bold ms-2" %>
 
                     <%= f.select :destination_id_eq, @destinations.collect { |c| [c.full_name, c.id] }, 
-                            {include_blank: :true}, class: "form-select", placeholder: "Cannes, Théoule, Monaco, ..." %>
+                        {:include_blank => '- Ville de départ - '},
+                        class: "form-select text-center fw-bold" %>
 
                 </div>
-            </div>
 
 
-            <div class="form-group my-4">
-                <%= f.label :type_produit_eq, "Type de bateau", class: "fw-bold" %>
-                <%= f.select :type_produit_eq, options_for_select(Produit.distinct.pluck(:type_produit)), {}, class: "form-select",
-                    placeholder: "Moteur, voilier, catamaran, ..." %>
-            </div>
-
-             <div class="form-group my-4">
-
-             <div class="row">  
-                <div class="col">
-                    <%= f.label :prixjour_gteq, "Prix minimum", class: "fw-bold" %>
-                    <%= f.number_field :prixjour_gteq, class: "form-control", placeholder: "Prix minimum" %>
+                <div class="form-group my-3">
+                    <%#= f.label :type_produit_eq, "Type de bateau", class: "text-light fw-bold ms-2" %>
+                    <%= f.select :type_produit_eq, options_for_select(Produit.distinct.pluck(:type_produit)), 
+                         {:include_blank => '- Type de bateau - '},
+                            class: "form-select text-center fw-bold" %>
                 </div>
-                <div class="col">
-                    <%= f.label :prixjour_lteq, "Prix maximum", class: "fw-bold" %>
-                    <%= f.number_field :prixjour_lteq, class: "form-control", placeholder: "Prix maximum" %>
-                </div>
-             </div>
-             
-            </div> 
 
-            <div class="text-end">
-                <%= f.submit "Chercher", class: "btn btn-primary my-2" %>
+                <div class="form-group my-4">
+
+                <div class="row">  
+                    <div class="col">
+                        <%#= f.label :prixjour_gteq, "Prix minimum", class: "fw-bold" %>
+                        <%= f.number_field :prixjour_gteq, class: "form-control text-center", 
+                            placeholder: "Prix minimum" %>
+                    </div>
+                    <div class="col">
+                        <%#= f.label :prixjour_lteq, "Prix maximum", class: "fw-bold" %>
+                        <%= f.number_field :prixjour_lteq, class: "form-control text-center", 
+                        placeholder: "Prix maximum" %>
+                    </div>
+                </div>
+                
+                </div> 
+
+                <div class="text-end">
+                    <%= f.submit "Chercher", class: "btn btn-success my-2 fw-bold" %>
+                </div>
+
             </div>
 
         <% end %>

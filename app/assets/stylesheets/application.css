@@ -240,6 +240,8 @@
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 40px;
+    background-image: url("theoule");
+    background-size: cover;
  }
 
  .second-card{
