@@ -34,6 +34,10 @@
     background-color: var(--primary-color);   
  }
 
+ .nav-link{
+  font-weight: bold;
+  font-size: large;
+ }
 .footer {
     display: flex;
    justify-content: space-between;
@@ -379,7 +383,43 @@
 
 .contact-card{
   background-image: url('theoule');
-  background-position: center;
+  background-position: cover;
   width: 90vw;
   max-width: 600px; 
 }
+
+
+
+
+/* For Webkit based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+  border-radius: 5px; /* Add rounded corners to the thumb */
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+body::-moz-scrollbar {
+  width: 10px;
+}
+
+body::-moz-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+body::-moz-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+

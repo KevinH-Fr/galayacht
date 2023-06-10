@@ -24,8 +24,8 @@
       </div>
 
       <div class="input-group">
-        <%= form.label :type, class: "input-group-text label-with-format" %>
-        <%= form.text_field :type_produit, class: "form-control field-with-format" %>
+        <%= form.label :type, class:"input-group-text label-with-format" %>
+        <%= form.select :type_produit, Produit.bateau_types.keys, {include_blank: :true}, class: "form-select text-center" %>
       </div>
 
       <div class="input-group">

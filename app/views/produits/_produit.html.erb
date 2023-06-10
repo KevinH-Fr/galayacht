@@ -14,7 +14,14 @@
          <%= produit.type_produit %>
          <%= produit.marque %>
          <%= produit.model %>
-         <%= produit.capitaine %>  <hr>
+         <hr>
+            <i class="fa fa-user-shield"></i> 
+            <% if produit.capitaine == true %>
+                Capitaine requis
+            <% else %>
+                Capitaine non-requis
+            <% end %> 
+            <hr>
 
          <i class="fa fa-ruler"></i>
          <%= produit.longueur %>
