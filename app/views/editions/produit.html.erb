@@ -4,7 +4,7 @@
 <html>
 
     <div class="centered">
-        <%= image_tag(produit_img(@produit.id), class: "img-produit") %>     
+        <%= image_tag(@produit.image1, class: "img-produit") if @produit.image1 %>     
     </div>
 
     <h1 class="centered">Ref. Bateau:<%= produit_full_name(@produit.id) %> </h1>

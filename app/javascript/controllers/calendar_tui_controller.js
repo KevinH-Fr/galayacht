@@ -33,11 +33,14 @@ export default class extends Controller {
           name: "Personal",
         },
       ],
-      taskView: true,
-      milestone: true, // Can be also ['milestone', 'task']
-      scheduleView: true, // Can be also ['allday', 'time']
+      selectable: false,
+      clickable: false,
+      taskView: false,
+      milestone: false,
+      scheduleView: false, 
       useFormPopup: false,
-      useDetailPopup: true,
+      useDetailPopup: false,
+      gridSelection: false,
       template: {
         monthDayname: function (dayname) {
           return '<span class="calendar-week-dayname-name">' + dayname.label + "</span>";
@@ -96,21 +99,21 @@ export default class extends Controller {
   updateMonthText() {
 
     const currentMonthSpan = document.getElementById("current-month");
-    const prevMonthSpan = document.getElementById("prev-month");
-    const nextMonthSpan = document.getElementById("next-month");
+    //const prevMonthSpan = document.getElementById("prev-month");
+    //const nextMonthSpan = document.getElementById("next-month");
 
     const currentMonth = new Date(this.calendar.getDate()); 
     const currentMonthVal = currentMonth.toLocaleString('default', { month: 'long' });
     
-    const prevMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1);
-    const prevMonthVal = prevMonth.toLocaleString('default', { month: 'long' });
+    //const prevMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1);
+    //const prevMonthVal = prevMonth.toLocaleString('default', { month: 'long' });
 
-    const nextMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1);
-    const nextMonthVal = nextMonth.toLocaleString('default', { month: 'long' });
+    //const nextMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1);
+   // const nextMonthVal = nextMonth.toLocaleString('default', { month: 'long' });
 
     currentMonthSpan.textContent  = currentMonthVal ;
-    prevMonthSpan.textContent  = prevMonthVal ;
-    nextMonthSpan.textContent  = nextMonthVal ;
+    //prevMonthSpan.textContent  = prevMonthVal ;
+    //nextMonthSpan.textContent  = nextMonthVal ;
 
   }
 

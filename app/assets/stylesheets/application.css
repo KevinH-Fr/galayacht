@@ -6,6 +6,14 @@
  */
  
 
+ 
+
+* {
+
+  font-family: Helvetica;
+ }
+ 
+
 :root {
   --primary-color: #100775;
   --max-width: 800px;

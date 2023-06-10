@@ -24,6 +24,6 @@
   <%= render 'shared/full_calendar' %> 
 
 
-<div class="my-4 text-center">
-  <%= link_to "Plus d'informations sur ce bateau", new_demande_path(produitId: @produit.id), class: "btn btn-outline-primary" %>
+<div class="my-4 text-center fa-fade">
+  <%= link_to "Demander plus d'informations", new_demande_path(produitId: @produit.id), class: "btn btn-action btn-primary w-100 fa-fade my-3 fw-bold" %>
 </div>
