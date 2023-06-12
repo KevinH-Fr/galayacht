@@ -86,6 +86,9 @@ export default class extends Controller {
     const prixTotalDiv = document.getElementById("prixTotal");
     prixTotalDiv.textContent = prixFinal;
 
+    const prixRemunerationlDiv = document.getElementById("prixRemuneration");
+    prixRemunerationlDiv.textContent = remunerationVal;
+
     const prixTotalBrutDiv = document.getElementById("prixTotalBrut");
     prixTotalBrutDiv.textContent = prixFinal + remunerationVal;
 

@@ -12,4 +12,8 @@ module ReservationsHelper
         destination = Produit.find(produit).destination_id
         Destination.find(destination).full_name
     end
+
+    def total_remuneration
+        Reservation.all.sum(:remuneration)
+    end
 end
