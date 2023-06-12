@@ -31,8 +31,8 @@
          <%= produit.capacite %> <hr>
        
         <i class="fa fa-money-bill"></i>
-        Jour: <%= produit.prixjour %>
-        Semaine: <%= produit.prixsemaine %> <hr>
+        Jour à partir de: <%= prix_fai_jour_basse_saison(produit) %> - 
+        Semaine à partir de: <%= prix_fai_semaine_basse_saison(produit) %> <br> <hr>
 
         <i class="fa fa-location-dot"></i>
         Localisation: <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
