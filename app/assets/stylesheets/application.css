@@ -254,6 +254,7 @@
     border-radius: 40px;
     background-image: url("theoule");
     background-size: cover;
+    margin: 20px;
  }
 
  .second-card{
