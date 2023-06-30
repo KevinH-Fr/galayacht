@@ -16,8 +16,12 @@
 
 :root {
   --primary-color: #100775;
-  --max-width: 800px;
+  --max-width: 1000px;
 }
+
+body {
+  /*background-image: url('svg/waves.svg'); */
+ }
  
  h1{
   text-align: center;
