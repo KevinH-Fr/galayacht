@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_094421) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_152508) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -84,16 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_094421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["produit_id"], name: "index_occupation_produits_on_produit_id"
-  end
-
-  create_table "occupations", force: :cascade do |t|
-    t.datetime "debut", precision: nil
-    t.datetime "fin", precision: nil
-    t.integer "produit_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "nom"
-    t.index ["produit_id"], name: "index_occupations_on_produit_id"
   end
 
   create_table "preneurs", force: :cascade do |t|
@@ -178,8 +168,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_094421) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bailleurs", "users"
-  #add_foreign_key "occupation_produits", "produits"
-  #add_foreign_key "occupations", "produits"
+  add_foreign_key "occupation_produits", "produits"
   add_foreign_key "preneurs", "users"
   add_foreign_key "produits", "bailleurs"
   add_foreign_key "produits", "destinations"
