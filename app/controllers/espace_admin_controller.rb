@@ -5,10 +5,12 @@ class EspaceAdminController < ApplicationController
   def index
     @admins = User.where(role: 1)
     @users = User.all
-    @bailleurs = Bailleur.all
-    @preneurs = Preneur.all
+    @bailleurs = Bailleur.limit(5)
+    @preneurs = Preneur.limit(5)
+    @produits = Produit.limit(5)
     @reservations = Reservation.all
     @demandes = Demande.all
+
 
   end
 

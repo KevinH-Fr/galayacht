@@ -1,61 +1,117 @@
 <h3>Espace Admin</h3>
 
-<hr>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card mb-3">
+                <div class="card-header bg-secondary text-center text-light fw-bold">   
+                   Propriétaires
+                </div>
+                <div class="card-body">
+                    <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
+                        <tbody class="table-light table-dashboard">
+                            <% @bailleurs.order(updated_at: :desc).each do | bailleur | %>
+                                <tr> 
+                                    <td> 
+                                        <%= link_to bailleur_full_name(bailleur.id), bailleur_path(bailleur),
+                                                class: "no-underline" %> 
+                                    </td>
+                                </tr> 
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="button-container">
+                    <%= link_to "Propriétaires", bailleurs_path, class: "btn btn-primary m-2" %>
+                    <%= link_to "Nouveau", new_bailleur_path, class: "btn btn-primary m-2" %>
+                </div>
+            </div>
+        </div>
 
-<div class="card">
-    <div class="card-header text-center">   
-        Clients
-    </div>
-    <div class="button-container">
-        <%= link_to "Accéder aux Propriétaires", bailleurs_path, class: "btn btn-primary m-2" %>
-        <%= link_to "Nouveau propriétaire", new_bailleur_path, class: "btn btn-primary m-2" %>
-    </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card mb-3">
+                <div class="card-header bg-secondary text-center text-light fw-bold">   
+                   Locataires
+                </div>
+                <div class="card-body">
+                    <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
+                        <tbody class="table-light table-dashboard">
+                            <% @preneurs.order(updated_at: :desc).each do | preneur | %>
+                                <tr> 
+                                    <td> 
+                                        <%= link_to preneur_full_name(preneur.id), preneur_path(preneur),
+                                                class: "no-underline" %> 
+                                    </td>
+                                </tr> 
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="button-container">
+                    <%= link_to "Locataires", preneurs_path, class: "btn btn-success m-2" %>
+                    <%= link_to "Nouveau", new_preneur_path, class: "btn btn-success m-2" %>
+                </div>
+            </div>
+        </div>
 
-    <div class="button-container">
-        <%= link_to "Accéder aux Locataires", preneurs_path, class: "btn btn-success m-2" %>
-        <%= link_to "Nouveau locataire", new_preneur_path, class: "btn btn-success m-2" %>
-    </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card mb-3">
+                <div class="card-header bg-secondary text-center text-light fw-bold">   
+                   Produits
+                </div>
+                <div class="card-body">
+                    <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
+                        <tbody class="table-light table-dashboard">
+                            <% @produits.order(updated_at: :desc).each do | produit | %>
+                                <tr> 
+                                    <td> 
+                                        <%= link_to produit_full_name(produit.id), produit_path(produit),
+                                                class: "no-underline" %> 
+                                    </td>
+                                </tr> 
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="button-container">
+                    <%= link_to "Bateaux", produits_path, class: "btn btn-warning m-2" %>
+                    <%= link_to "Nouveau", new_produit_path, class: "btn btn-warning m-2" %>
+                </div>
+            </div>
+        </div>
 
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card mb-3">
+                <div class="card-header bg-secondary text-center text-light fw-bold">   
+                   Gestion
+                </div>
+                <div class="card-body">
+
+                    <%= link_to "Destinations", destinations_path, class: "btn btn-secondary m-2" %>
+                    <%= link_to "Nouvelle destination", new_destination_path, class: "btn btn-secondary" %> <hr>
+                    <%= link_to "Réservations", reservations_path, class: "btn btn-warning" %> 
+                    <span class="fw-bold text-primary">   <%= number_to_currency(total_remuneration) %>  </span> <hr>
+                    <%= link_to "Demandes", demandes_path, class: "btn btn-primary " %>
+                    <%= link_to "Paramètres", admin_parameters_path, class: "btn btn-dark" %> <hr>
+
+                    <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
+                        <tbody class="table-light table-dashboard">
+                            <% @admins.order(updated_at: :desc).each do | admin | %>
+                                <tr> 
+                                    <td> 
+                                        <%= link_to admin.email, user_path(admin),
+                                                class: "no-underline" %> 
+                                    </td>
+                                </tr> 
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </div>
 
 <hr>
-
-<div class="card">
-
-    <div class="card-header text-center">   
-        Produits
-    </div>
-
-    <div class="button-container">
-        <%= link_to "Accéder aux Bateaux", produits_path, class: "btn btn-warning m-2" %>
-        <%= link_to "Nouveau bateau", new_produit_path, class: "btn btn-warning m-2" %>
-    </div>
-
-</div>
-
-<hr>
-
-<div class="card">
-    <div class="card-header text-center">   
-        Gestion
-    </div>
-    <div class="button-container">
-        <%= link_to "Accéder aux Destinations", destinations_path, class: "btn btn-secondary m-2" %>
-        <%= link_to "Nouvelle destination", new_destination_path, class: "btn btn-secondary m-2" %>
-    </div>
-    <div class="button-container">
-        <%= link_to "Accéder aux Réservations", reservations_path, class: "btn btn-warning m-2" %>
-        total rémunération: <%= total_remuneration %>
-    </div>
-    <div class="button-container">
-        <%= link_to "Accéder aux Demandes", demandes_path, class: "btn btn-primary m-2" %>
-    </div>
-</div>
-
-<div class="container m-2">
-    <%= link_to "Paramètres Admin", admin_parameters_path, class: "btn btn-dark m-2" %>
-</div>
-
-<div class="card container">
-    <%= render "liste_admins" %>
-</div>
