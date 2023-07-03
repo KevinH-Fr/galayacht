@@ -233,6 +233,13 @@ body {
   height: 40vh;
   position: relative;
   overflow: hidden;
+}
+
+
+.img-wrapper-destination {
+  height: 35vh;
+  position: relative;
+  overflow: hidden;
 
 }
 
