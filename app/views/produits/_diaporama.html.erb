@@ -1,26 +1,25 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner" style="height: 100%;">
-    <% if produit.image1.present? %>
+    <% if produit.image1.attached? %>
       <div class="carousel-item active">
         <div class="d-flex align-items-center justify-content-center h-100">
           <%= link_to image_tag(produit.image1, class: "img-produit rounded"), produit_path(produit) %>
         </div>
       </div>
     <% end %>
-    <% if produit.image2.present? %>
+
+    <% produit.medias.each do |media| %>
       <div class="carousel-item">
         <div class="d-flex align-items-center justify-content-center h-100">
-          <%= link_to image_tag(produit.image2, class: "img-produit rounded"), produit_path(produit) %>
+          <% if media.image? %>
+            <%= link_to image_tag(media, class: "img-produit rounded"), produit_path(produit) %>
+          <% elsif media.video? %> 
+            <%= video_tag(url_for(media), class: "w-100", controls: "") %>
+          <% end %>
         </div>
       </div>
     <% end %>
-    <% if produit.image3.present? %>
-      <div class="carousel-item">
-        <div class="d-flex align-items-center justify-content-center h-100">
-          <%= link_to image_tag(produit.image3, class: "img-produit rounded"), produit_path(produit) %>
-        </div>
-      </div>
-    <% end %>
+
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -18,6 +18,8 @@
       <h5 class="card-title"> <%= produit.nom %></h5>
       <p class="card-text">
 
+      <h4 class="text-center my-2">Informations générales</h4>
+
       <div class="input-group">
         <%= form.label :nom, class: "input-group-text label-with-format" %>
         <%= form.text_field :nom, class: "form-control field-with-format" %>
@@ -29,14 +31,6 @@
       </div>
 
       <div class="input-group">
-        <%= form.label :longueur, class: "input-group-text label-with-format" %>
-        <%= form.text_field :longueur, class: "form-control field-with-format" %>
-      </div>
-
-        <%#= form.label :largeur, class: "input-group-text label-with-format" %>
-        <%#= form.text_field :largeur, class: "form-control field-with-format" %>
-
-      <div class="input-group">
         <%= form.label :marque, class: "input-group-text label-with-format" %>
         <%= form.text_field :marque, class: "form-control field-with-format" %>
       </div>
@@ -45,6 +39,87 @@
         <%= form.label :model, class: "input-group-text label-with-format" %>
         <%= form.text_field :model, class: "form-control field-with-format" %>
       </div>
+
+      <% if current_user && user_admin %>
+        <div class="input-group">
+          <%= form.label :propriétaire, class: "input-group-text label-with-format" %>
+          <% if produit.persisted? %>
+            <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { value: produit.bailleur_id}, class: "form-control field-with-format" %>
+          <% else %>
+            <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="input-group mb-1">
+        <%= form.label :localisation, class:"input-group-text label-with-format" %>
+        <%= form.select :destination_id, @destinations.collect { |c| [c.full_name, c.id] }, 
+            {include_blank: :true}, class: "form-select text-center" %>
+      </div>
+
+      <h4 class="text-center my-2">Caractéristiques</h4>
+      
+      <div class="input-group">
+        <%= form.label :longueur, class: "input-group-text label-with-format" %>
+        <%= form.text_field :longueur, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :largeur, class: "input-group-text label-with-format" %>
+        <%= form.text_field :largeur, class: "form-control field-with-format" %>
+      </div>
+      
+      <div class="input-group">
+        <%= form.label :capacite, class: "input-group-text label-with-format" %>
+        <%= form.number_field :capacite, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :tirant, class: "input-group-text label-with-format" %>
+        <%= form.text_field :tirant, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :annee, class: "input-group-text label-with-format" %>
+        <%= form.number_field :annee, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :pavillon, class: "input-group-text label-with-format" %>
+        <%= form.text_field :pavillon, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :members, class: "input-group-text label-with-format" %>
+        <%= form.number_field :members, class: "form-control field-with-format" %>
+      </div>
+      
+
+      <div class="form-check form-switch">
+        <div class="custom-control custom-switch">    
+            <%= form.check_box :capitaine, class: "form-check-input " %>
+            <label class="text-dark" for="capitaine">capitaine</label>
+        </div>
+      </div>
+
+      <h4 class="text-center my-2">Puissance</h4>
+
+      <div class="input-group">
+        <%= form.label :moteur, class: "input-group-text label-with-format" %>
+        <%= form.text_field :moteur, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :vitesse, class: "input-group-text label-with-format" %>
+        <%= form.text_field :vitesse, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
+        <%= form.label :consommation, class: "input-group-text label-with-format" %>
+        <%= form.text_field :consommation, class: "form-control field-with-format" %>
+      </div>
+
+      <h4 class="text-center my-2">Tarifs</h4>
 
       <div class="input-group">
         <%= form.label :prixjour, class: "input-group-text label-with-format" %>
@@ -56,7 +131,6 @@
         <%= form.number_field :prixsemaine, class: "form-control field-with-format" %>
       </div>
 
-
       <div class="input-group">
         <%= form.label :prixjour_hautesaison, class: "input-group-text label-with-format" %>
         <%= form.number_field :prixjour_hautesaison, class: "form-control field-with-format" %>
@@ -67,18 +141,7 @@
         <%= form.number_field :prixsemaine_hautesaison, class: "form-control field-with-format" %>
       </div>
 
-
-      <div class="input-group">
-        <%= form.label :capacite, class: "input-group-text label-with-format" %>
-        <%= form.number_field :capacite, class: "form-control field-with-format" %>
-      </div>
-
-      <div class="form-check form-switch">
-        <div class="custom-control custom-switch">    
-            <%= form.check_box :capitaine, class: "form-check-input " %>
-            <label class="text-dark" for="capitaine">capitaine</label>
-        </div>
-      </div>
+      <h4 class="text-center my-2">Medias</h4>
 
       <div class="input-group mb-1">
         <%= form.label :image1, class:"input-group-text label-with-format" %>
@@ -86,39 +149,9 @@
       </div>
 
       <div class="input-group mb-1">
-        <%= form.label :image2, class:"input-group-text label-with-format" %>
-        <%= form.file_field :image2, accept: "image/jpeg, image/png", class:"form-control" %>
+        <%= form.label :medias, class:"input-group-text label-with-format" %>
+        <%= form.file_field :medias, accept: 'image/jpeg,image/png,image/gif,video/mp4,video/quicktime', multiple: true, class: "form-control m-1 p-1" %>
       </div>
-
-      <div class="input-group mb-1">
-        <%= form.label :image3, class:"input-group-text label-with-format" %>
-        <%= form.file_field :image3, accept: "image/jpeg, image/png", class:"form-control" %>
-      </div>
-
-      <div class="input-group mb-1">
-        <%= form.label :localisation, class:"input-group-text label-with-format" %>
-        <%= form.select :destination_id, @destinations.collect { |c| [c.full_name, c.id] }, 
-            {include_blank: :true}, class: "form-select text-center" %>
-      </div>
-
-
-    <% if current_user && user_admin %>
-      <div class="input-group">
-        <%= form.label :bailleur_id, class: "input-group-text label-with-format" %>
-        <% if produit.persisted? %>
-          <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { value: produit.bailleur_id}, class: "form-control field-with-format" %>
-        <% else %>
-          <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
-        <% end %>
-      </div>
-
-    <% else %>
-
-    <div>
-      <%#= form.hidden_field :bailleur_id, value: user_bailleur.id %>
-    </div>
-
-    <% end %>
 
     <hr>
 

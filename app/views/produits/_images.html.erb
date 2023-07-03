@@ -1,0 +1,16 @@
+ <div class="d-flex centered bg-light rounded shadowed">
+
+    <% if @produit.medias.attached? %>
+        <% @produit.medias.each do |attachment| %>
+            <% if attachment.image? %>
+                <%= image_tag attachment, width: "200px", class:"rounded shadowed m-2" %>
+            <% elsif attachment.video? %>
+
+                <video controls width="480">
+                    <source src="<%= rails_blob_url(attachment) %>" type="<%= attachment.content_type %>"/>
+                </video>
+
+            <% end %>
+        <% end %>
+    <% end %>
+</div>

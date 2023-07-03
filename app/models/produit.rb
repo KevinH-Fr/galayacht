@@ -3,13 +3,13 @@ class Produit < ApplicationRecord
   belongs_to :destination
   
   has_one_attached :image1
-  has_one_attached :image2
-  has_one_attached :image3
+#  has_one_attached :image2
+#  has_one_attached :image3
+
+  has_many_attached :medias, dependent: :destroy
 
   validates :nom, presence: true
-
-  validate :validate_image_format
-  validate :validate_image_size
+  validate :medias_format_and_size
 
   #has_many :occupations
 
@@ -17,8 +17,6 @@ class Produit < ApplicationRecord
   has_many :reservations
 
   enum bateau_type: [:moteur, :voilier]
-
-
 
   def self.ransackable_attributes(auth_object = nil)
     ["bailleur_id", "city", "country", "created_at", "id", "largeur", "longueur", "marque", "model", 
@@ -31,28 +29,30 @@ class Produit < ApplicationRecord
 
   private
 
-  def validate_image_format
-    supported_formats = ['image/jpeg', 'image/png']
-    images = [image1, image2, image3]
-
-    images.each_with_index do |image, index|
-      if image.attached? && !image.content_type.in?(supported_formats)
-        errors.add(:"image#{index + 1}", "must be a JPG or PNG file.")
+  def medias_format_and_size
+    # Check "image1" attachment
+    if image1.attached?
+      unless image1.blob.content_type.in?(%w(image/jpeg image/png image/gif))
+        errors.add(:image1, 'must be a JPEG, PNG, or GIF image')
+      end
+  
+      unless image1.blob.byte_size <= 5.megabytes
+        errors.add(:image1, 'size should be less than 5MB')
+      end
+    end
+  
+    # Check "medias" attachments
+    medias.each do |media|
+      if media.present?
+        unless media.content_type.in?(%w(image/jpeg image/png image/gif video/mp4 video/quicktime))
+          errors.add(:medias, 'must be an image (JPEG, PNG, GIF) or video (MP4, QuickTime)')
+        end
+  
+        unless media.byte_size <= 50.megabytes
+          errors.add(:medias, 'size should be less than 50MB')
+        end
       end
     end
   end
-
-
-  def validate_image_size
-    max_size_in_bytes = 5.megabytes
-    images = [image1, image2, image3]
   
-    images.each_with_index do |image, index|
-      if image.attached? && image.blob.byte_size > max_size_in_bytes
-        errors.add(:"image#{index + 1}", "is too big. Please upload an image smaller than 5MB.")
-      end
-    end
-  end
-  
-
 end 
