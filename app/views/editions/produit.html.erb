@@ -23,13 +23,24 @@
                         Type: <%= @produit.type_produit %> <br>
                         Nb. personnes recommandé: : <%= @produit.capacite %> <br>
                         Cabine simple: <%=  %> <br>
-                        Tirant d’eau: <%=  %> <br>
-                        Permis requis: <%=  %> <br>
-                        Longueur: <%= @produit.longueur %> <br>
+
+                        <%= "longeur: #{@produit.longueur}" if @produit.longueur %>
+                        <%= "largeur: #{@produit.largeur}" if @produit.largeur %>
+                        <%= "tirant: #{@produit.tirant}" if @produit.tirant %>
+                        
+                        
+                        Permis requis:            
+                        <% if @produit.capitaine == true %>
+                            Capitaine requis
+                        <% else %>
+                            Capitaine non-requis
+                        <% end %> 
+                        <br>
+
                         Moteur: <%= @produit.type_produit %> <br>
-                        Puissance: <%= @produit.type_produit %> <br>
-                        Largeur: <%= @produit.largeur %> <br>
-                        Année de construction: <%=  %> <br>
+                        Puissance: <%= @produit.moteur %> <br>
+                        Consommation: <%= produit.consommation %> <br>
+                        Année de construction: <%= @produit.annee %> <br>
                         Port: <%= produit_destination(@produit.id) %>
                     </td>
                     <td class="td-width">

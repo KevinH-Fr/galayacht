@@ -9,6 +9,13 @@ class Produit < ApplicationRecord
   has_many_attached :medias, dependent: :destroy
 
   validates :nom, presence: true
+
+  validates :prixjour, presence: true
+  validates :prixsemaine, presence: true
+  validates :prixjour_hautesaison, presence: true
+  validates :prixsemaine_hautesaison, presence: true
+
+
   validate :medias_format_and_size
 
   #has_many :occupations

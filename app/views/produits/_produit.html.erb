@@ -12,8 +12,16 @@
       <p class="card-text">
          <i class="fa fa-circle-info"></i>
          <%= produit.type_produit %>
+         <% if produit.type_produit == "moteur" %>
+            puissance: <%= produit.moteur %>
+            <%= produit.consommation %>
+         <% end %>
          <%= produit.marque %>
          <%= produit.model %>
+         <% if produit.annee %>
+            année: <%= produit.annee %>
+         <% end %>
+
          <hr>
             <i class="fa fa-user-shield"></i> 
             <% if produit.capitaine == true %>
@@ -24,7 +32,16 @@
             <hr>
 
          <i class="fa fa-ruler"></i>
-         <%= produit.longueur %>
+            <% if produit.longueur %>
+              <%= "longeur: #{produit.longueur}" %>
+            <% end %>
+            <% if produit.largeur %>
+              <%= "largeur: #{produit.largeur}" %>
+            <% end %>
+            <% if produit.tirant %>
+              <%= "tirant: #{produit.tirant}" %>
+            <% end %>
+
          <hr>
 
          <i class="fa fa-people-group"></i> 
