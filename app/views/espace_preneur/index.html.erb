@@ -38,11 +38,14 @@
             <div class="bloc-enfant">
                 <div class="card">
                   <div class="img-wrapper-destination">
-                    <%= image_tag(destination.image1, class:"img-produit top-rounded") if destination.image1.present? %>
-                  </div> 
+                    <% if destination.image1.present? %>
+                      <%= image_tag(destination.image1, class: "img-produit top-rounded") %>
+                    <% end %>
+                  </div>
+
                   <div class="card-body">
-                    <p class="card-text fs-1 m-1"> <%= destination.nom %></p>
-                    <p class="card-text fs-4 m-1"> Port: <%= destination.port %></p>
+                    <p class="card-text fs-1 m-1 text-truncate"> <%= destination.nom %></p>
+                    <p class="card-text fs-4 m-1 text-truncate"> Port: <%= destination.port %></p>
                   </div>
                 </div>
             </div>

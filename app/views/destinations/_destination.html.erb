@@ -1,8 +1,9 @@
 <div id="<%= dom_id destination %>">
 
   <div class="card produit-card" >
-
-    <%= link_to image_tag(destination.image1, class:"img-produit rounded"), produits_path(city: destination) if destination.image1.present? %> 
+    <div class="img-wrapper-destination">
+      <%= link_to image_tag(destination.image1, class:"img-produit rounded"), produits_path(city: destination) if destination.image1.present? %> 
+   </div>
     <div class="card-body">
       <h5 class="card-title"> <%= destination.nom %></h5>
       <p class="card-text">
