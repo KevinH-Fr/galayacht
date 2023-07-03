@@ -2,8 +2,10 @@
   <div class="carousel-inner" style="height: 100%;">
     <% if produit.image1.attached? %>
       <div class="carousel-item active">
-        <div class="d-flex align-items-center justify-content-center h-100">
-          <%= link_to image_tag(produit.image1, class: "img-produit rounded"), produit_path(produit) %>
+        <div class="">
+          <div class="img-wrapper">
+            <%= link_to image_tag(produit.image1, class: "img-produit top-rounded"), produit_path(produit) %>
+          </div>
         </div>
       </div>
     <% end %>
@@ -12,9 +14,13 @@
       <div class="carousel-item">
         <div class="d-flex align-items-center justify-content-center h-100">
           <% if media.image? %>
-            <%= link_to image_tag(media, class: "img-produit rounded"), produit_path(produit) %>
+             <div class="img-wrapper">
+                <%= link_to image_tag(media, class: "img-produit top-rounded"), produit_path(produit) %>
+              </div>
           <% elsif media.video? %> 
-            <%= video_tag(url_for(media), class: "w-100", controls: "") %>
+            <div class="img-wrapper">
+              <%= video_tag(url_for(media), class: "img-produit", controls: "") %>
+            </div>
           <% end %>
         </div>
       </div>

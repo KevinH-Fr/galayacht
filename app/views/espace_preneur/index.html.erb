@@ -3,41 +3,16 @@
     <h1>  BATEAUX </h1>
 <% end %>
 
-<div data-aos="zoom-in-up" class="container-parent">
-    <% @produits.each do |produit| %>
-        <%#= link_to new_reservation_path(produitId: produit) do %>
-        <%= link_to produit_path(produit) do %>
-            <div class="bloc-enfant">
-                <div class="card second-card">
-                    <%= image_tag(produit.image1, class:"card-img-top") if produit.image1.present? %> 
-                    <div class="card-body text-start">
-                        <p class="card-text fs-2 m-1 text-center"> <%= produit.nom %></p>
-                        <hr>
-                       
-                        <p class="card-text fs-5 m-1"> 
-                            <i class="fa fa-money-bill"></i> 
-                            à partir de <%= produit.prixjour %>
-                        </p>
-                        <p class="card-text fs-5 m-1"> 
-                            <i class="fa fa-people-group"></i> 
-                            <%= produit.capacite %> pers.
-                        </p>
-                        <p class="card-text fs-5 m-1"> 
-                            <i class="fa fa-user-shield"></i> 
-                            <% if produit.capitaine == true %>
-                                Capitaine
-                            <% end %> 
-                        </p>
-                        <p class="card-text fs-5 m-1"> 
-                            <i class="fa fa-location-dot"></i> 
-                            <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-        <% end %>
-    <% end %>
+<div data-aos="zoom-in-up">
+  <div id="produits" class="container-main">
+    <div class="row justify-content-center">
+      <% @produits.each do |produit| %>
+        <div class="col-sm-6 col-md-4 col-lg-4 d-flex  mb-3">
+          <%= render produit %> 
+        </div>
+      <% end %>
+    </div>
+  </div> 
 </div>
 
 <div class="container-parent m-2">
@@ -47,7 +22,11 @@
         Recherche avancée 
     </span>
     <% end %>
+
+    <%= link_to "Voir tous les bateaux", produits_path, class: "btn btn-warning ms-2" %>
+
 </div>
+
 
 <hr>
 

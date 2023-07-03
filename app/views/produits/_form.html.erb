@@ -75,6 +75,11 @@
       </div>
 
       <div class="input-group">
+        <%= form.label :nb_cabines, class: "input-group-text label-with-format" %>
+        <%= form.number_field :nb_cabines, class: "form-control field-with-format" %>
+      </div>
+
+      <div class="input-group">
         <%= form.label :tirant, class: "input-group-text label-with-format" %>
         <%= form.text_field :tirant, class: "form-control field-with-format" %>
       </div>

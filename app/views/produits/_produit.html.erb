@@ -3,9 +3,7 @@
 
   <div class="card produit-card" >
 
-    <%#= link_to image_tag(produit.image1, class:"img-produit rounded"), produit_path(produit) if produit.image1.present? %> 
-
-    <%= render partial: "diaporama", locals: {produit: produit} %>
+    <%= render partial: "produits/diaporama", locals: {produit: produit} %>
 
     <div class="card-body">
       <h5 class="card-title"> <%= produit.nom %></h5>
@@ -45,8 +43,10 @@
          <hr>
 
          <i class="fa fa-people-group"></i> 
-         <%= produit.capacite %> <hr>
+         Nb. pers.: <%= produit.capacite %> 
+         Nb. cabines: <%= produit.nb_cabines %>  <hr>
        
+      
         <i class="fa fa-money-bill"></i>
         Jour à partir de: <%= prix_fai_jour_basse_saison(produit) %> - 
         Semaine à partir de: <%= prix_fai_semaine_basse_saison(produit) %> <br> <hr>

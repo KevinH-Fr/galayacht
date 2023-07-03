@@ -160,10 +160,11 @@ class ProduitsController < ApplicationController
     end
 
     def produit_params
-      params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :bailleur_id,
-                                      :country, :state, :city, :capacite, :capitaine, :destination_id,
-                                      :tirant, :members, :annee, :pavillon, :moteur, :vitesse, :consommation, 
-                                      :image1, medias: [])
+      params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :nb_cabines,
+          :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :bailleur_id,
+          :country, :state, :city, :capacite, :capitaine, :destination_id,
+          :tirant, :members, :annee, :pavillon, :moteur, :vitesse, :consommation, 
+          :image1, medias: [])
     end
 
 
