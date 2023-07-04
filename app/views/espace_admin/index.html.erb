@@ -94,6 +94,8 @@
                     <%= link_to "Demandes", demandes_path, class: "btn btn-primary " %>
                     <%= link_to "Paramètres", admin_parameters_path, class: "btn btn-dark" %> <hr>
 
+                    <%= link_to "Bateaux archivés", archive_produits_path  %>
+
                     <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
                         <tbody class="table-light table-dashboard">
                             <% @admins.order(updated_at: :desc).each do | admin | %>

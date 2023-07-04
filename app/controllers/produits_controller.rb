@@ -8,19 +8,38 @@ class ProduitsController < ApplicationController
   def index
     @destinations = Destination.all
 
-    @q = Produit.ransack(params[:q])
+    @q = Produit.actif.ransack(params[:q])
 
     if params[:city].present?
       destination = params[:city].titleize
-      @produits = Produit.where(destination_id: destination)
+      @produits = Produit.actif.where(destination_id: destination)
     else
     #  search_params = params.permit(:format, :page, :commit, q:[:nom_or_marque_or_city_cont])
     #  @produits = @q.result(distinct: true).order(created_at: :desc)
     
-    @q = Produit.ransack(params[:q])
+    @q = Produit.actif.ransack(params[:q])
     @produits = @q.result(distinct: true).order(created_at: :desc)
  
     end
+  end
+
+  def archive
+    @produits = Produit.archive
+
+  end
+
+  def activate
+    @produit = Produit.find(params[:id])
+    @produit.update(archive: false)
+
+    redirect_to @produit, notice: 'Produit has been activated.'
+  end
+
+  def archivate
+    @produit = Produit.find(params[:id])
+    @produit.update(archive: true)
+
+    redirect_to @produit, notice: 'Produit has been archived.'
   end
   
   def show
@@ -163,7 +182,7 @@ class ProduitsController < ApplicationController
       params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :nb_cabines,
           :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :bailleur_id,
           :country, :state, :city, :capacite, :capitaine, :destination_id,
-          :tirant, :members, :annee, :pavillon, :moteur, :vitesse, :consommation, 
+          :tirant, :members, :annee, :pavillon, :moteur, :vitesse, :consommation, :archive,
           :image1, medias: [])
     end
 

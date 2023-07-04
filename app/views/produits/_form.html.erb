@@ -158,6 +158,15 @@
         <%= form.file_field :medias, accept: 'image/jpeg,image/png,image/gif,video/mp4,video/quicktime', multiple: true, class: "form-control" %>
       </div>
 
+
+      <div class="form-check form-switch">
+        <div class="custom-control custom-switch">    
+            <%= form.check_box :archive, class: "form-check-input " %>
+            <label class="text-dark" for="archive">archivé</label>
+        </div>
+      </div>
+
+
     <hr>
 
     <div class="row"> 

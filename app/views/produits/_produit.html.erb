@@ -45,7 +45,6 @@
          <i class="fa fa-people-group"></i> 
          Nb. pers.: <%= produit.capacite %> 
          Nb. cabines: <%= produit.nb_cabines %>  <hr>
-       
       
         <i class="fa fa-money-bill"></i>
         Jour à partir de: <%= prix_fai_jour_basse_saison(produit) %> - 
@@ -53,6 +52,15 @@
 
         <i class="fa fa-location-dot"></i>
         Localisation: <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
+        <hr>
+
+        <% if current_user && user_admin %>
+          <% if produit.archive == true %>
+            Archivé
+          <% else %>
+            Actif
+          <% end %> 
+        <% end %>
 
       </p>
       <div class="button-container">

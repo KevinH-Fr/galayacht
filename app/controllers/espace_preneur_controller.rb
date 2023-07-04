@@ -1,6 +1,6 @@
 class EspacePreneurController < ApplicationController
   def index
-    @produits = Produit.limit(6)
+    @produits = Produit.actif.limit(6)
     @destinations = Destination.all
   end
 end

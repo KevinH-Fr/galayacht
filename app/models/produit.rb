@@ -25,6 +25,9 @@ class Produit < ApplicationRecord
 
   enum bateau_type: [:moteur, :voilier]
 
+  scope :actif, -> { where(archive: [false, nil]) }
+  scope :archive, -> { where(archive: true) }
+
   def self.ransackable_attributes(auth_object = nil)
     ["bailleur_id", "city", "country", "created_at", "id", "largeur", "longueur", "marque", "model", 
       "nom", "prixjour", "prixsemaine", "state", "type_produit", "updated_at", "destination_id"]

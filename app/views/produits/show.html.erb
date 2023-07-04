@@ -6,11 +6,30 @@
 </div>
 
 <% if current_user && user_admin %>
-  <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger",
-      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-      <i class="fa-solid fa-trash me-2"></i>
-      <span class="fw-bold"> Supprimer ce produit </span>
+
+ <%# avec helper tester si resa existent, si oui btns archivés, sinon btn supprimer  %>
+  <% if @produit.archive %>
+    <%= button_to activate_produit_path(@produit), method: :post, class: "btn btn-action btn-outline-success" do %>
+      <i class="fa-solid fa-box-archive me-2"></i>
+      <span class="fw-bold"> Activer ce produit </span>
+    <% end %>
+  <% else %>
+    <% if reservations_existantes(@produit.id) %>
+    <%= button_to archivate_produit_path(@produit), method: :post, class: "btn btn-action btn-outline-dark" do %>
+      <i class="fa-solid fa-box-archive me-2"></i>
+      <span class="fw-bold"> Archiver ce produit </span>
+    <% end %>
+    <% else %>
+      <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger",
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <i class="fa-solid fa-trash me-2"></i>
+          <span class="fw-bold"> Supprimer ce produit </span>
+      <% end %>
+    <% end %>
   <% end %>
+
+
+
 <% end %>
 
 <hr>

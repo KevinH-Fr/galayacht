@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   get 'espace_bailleur/index'
   get 'espace_preneur/index'
   get 'espace_admin/index'
-  
-  
+
+  get 'produits/archive', to: 'produits#archive', as: 'archive_produits'
+  post 'produits/:id/activate', to: 'produits#activate', as: 'activate_produit'
+  post 'produits/:id/archivate', to: 'produits#archivate', as: 'archivate_produit'
+
   
   devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'users/show'

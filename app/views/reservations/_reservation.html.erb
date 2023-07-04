@@ -1,7 +1,7 @@
 <div id="<%= dom_id reservation %>">
 
   <div class="card produit-card">
-    <%= image_tag(produit_img(reservation.id), class:"img-produit rounded-top") if produit_img(reservation.id).present? %> 
+    <%= image_tag(produit_img(reservation.id), class:"img-produit top-rounded") if produit_img(reservation.id).present? %> 
     <div class="card-body">
       <h5 class="card-title"> 
         Réservation #<%= num_resa(reservation)  %> <hr>

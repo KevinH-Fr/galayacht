@@ -30,4 +30,9 @@ module ProduitsHelper
             calculated_price =  number_to_currency(produit.prixsemaine * (1 + remuneration.to_f / 100), locale: :fr)
         end
     end
+
+    def reservations_existantes(produit) 
+        # verifier si resa existent, 
+        reservations = Reservation.where(produit_id: produit).present?
+    end
 end
