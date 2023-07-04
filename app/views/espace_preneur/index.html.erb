@@ -1,7 +1,11 @@
-
+<%
+=begin%>
+ 
 <%= link_to produits_path, class:"no-underline" do %>
     <h1>  BATEAUX </h1>
-<% end %>
+<% end %> 
+<%
+=end%>
 
 <div data-aos="zoom-in-up">
   <div id="produits" class="container-main">
@@ -30,8 +34,12 @@
 
 <hr>
 
-<h1> DESTINATIONS </h1>
-
+<%
+=begin%>
+ <h1> DESTINATIONS </h1>
+ 
+<%
+=end%>
 <div data-aos="zoom-in-up" class="container-parent">
     <% @destinations.each do |destination| %>
         <%= link_to produits_path(city: destination ) do %>
