@@ -12,7 +12,6 @@
 
     <% produit.medias.each do |media| %>
       <div class="carousel-item">
-        <div class="d-flex align-items-center justify-content-center h-100">
           <% if media.image? %>
              <div class="img-wrapper">
                 <%= link_to image_tag(media, class: "img-produit top-rounded"), produit_path(produit) %>
@@ -22,7 +21,6 @@
               <%= video_tag(url_for(media), class: "img-produit", controls: "") %>
             </div>
           <% end %>
-        </div>
       </div>
     <% end %>
 

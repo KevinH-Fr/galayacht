@@ -252,7 +252,7 @@ body {
 }
 
  .main-card{
-  width: 100%;
+  width: 90%;
  /* min-width: 300px;*/
  max-width: var(--max-width); 
 }
@@ -400,7 +400,7 @@ body {
 }
 
 .map {
-  width: 100%;
+  width: 90%;
   height: 400px;
 }
 
