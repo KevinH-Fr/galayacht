@@ -3,10 +3,7 @@ class Produit < ApplicationRecord
   belongs_to :destination
   
   has_one_attached :image1
-#  has_one_attached :image2
-#  has_one_attached :image3
-
-  has_many_attached :medias, dependent: :destroy
+  has_many_attached :medias
 
   validates :nom, presence: true
 

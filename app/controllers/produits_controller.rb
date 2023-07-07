@@ -140,6 +140,11 @@ class ProduitsController < ApplicationController
   def update
     @destinations = Destination.all
 
+    # Retain existing medias if the field is left empty
+    if params[:produit][:medias].blank?
+      @produit.medias.attach(@produit.medias)
+    end
+    
     respond_to do |format|
       if @produit.update(produit_params)
         flash.now[:success] = "produit was successfully updated"
@@ -175,7 +180,7 @@ class ProduitsController < ApplicationController
     end
 
     def produit_params
-      params.fetch(:produit, {}).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :nb_cabines,
+      params.require(:produit).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :nb_cabines,
           :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :bailleur_id,
           :country, :state, :city, :capacite, :capitaine, :destination_id,
           :tirant, :members, :annee, :pavillon, :moteur, :vitesse, :consommation, :archive,
