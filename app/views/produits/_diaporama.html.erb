@@ -3,7 +3,11 @@
     <% if produit.image1.attached? %>
       <div class="carousel-item active">
           <div class="img-wrapper">
-            <%= link_to image_tag(produit.image1, class: "img-produit top-rounded"), produit_path(produit) %>
+            <% if controller_name == 'produits' && action_name == 'show' %>
+              <%= link_to(image_tag(produit.image1, class: "img-produit top-rounded"), produit_fullscreen_path(produit)) %>
+            <% else %>
+              <%= link_to(image_tag(produit.image1, class: "img-produit top-rounded"), produit_path(produit)) %>
+            <% end %>
           </div>
       </div>
     <% end %>

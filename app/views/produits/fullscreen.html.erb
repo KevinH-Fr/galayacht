@@ -1,0 +1,17 @@
+  <div id="fullscreen-image">
+
+    <h2 class="text-center"> <%= produit_full_name(@produit.id) %></h2>
+
+    <% if @produit.image1.attached? %>
+        <%= image_tag(@produit.image1, class: "img-produit rounded m-1") %>
+    <% end %>
+
+    <% @produit.medias.each do |media| %>
+          <% if media.image? %>
+                <%= image_tag(media, class: "img-produit rounded m-1") %>
+          <% elsif media.video? %> 
+              <%= video_tag(url_for(media), class: "img-produit", controls: "") %>
+          <% end %>
+    <% end %>
+
+</div>

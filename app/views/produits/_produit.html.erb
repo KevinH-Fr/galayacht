@@ -11,7 +11,7 @@
          <i class="fa fa-circle-info"></i>
 
         
-         <% if produit.type_produit %>
+         <% if produit.type_produit.present? %>
           type: <%= produit.type_produit %> |
          <% end %>
 
@@ -20,7 +20,7 @@
             <%= produit.consommation %> |
          <% end %>
 
-         <% if produit.annee %>
+         <% if produit.annee.present? %>
             année: <%= produit.annee %>
          <% end %>
 
@@ -34,13 +34,13 @@
             <hr>
 
          <i class="fa fa-ruler"></i>
-            <% if produit.longueur %>
+            <% if produit.longueur.present? %>
               <%= "longeur: #{produit.longueur}" %>
             <% end %>
-            <% if produit.largeur %>
+            <% if produit.largeur.present? %>
               <%= "largeur: #{produit.largeur}" %>
             <% end %>
-            <% if produit.tirant %>
+            <% if produit.tirant.present? %>
               <%= "tirant: #{produit.tirant}" %>
             <% end %>
 

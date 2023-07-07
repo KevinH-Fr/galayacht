@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'produits/archive', to: 'produits#archive', as: 'archive_produits'
   post 'produits/:id/activate', to: 'produits#activate', as: 'activate_produit'
   post 'produits/:id/archivate', to: 'produits#archivate', as: 'archivate_produit'
-
+  get '/produits/:id/fullscreen', to: 'produits#fullscreen', as: 'produit_fullscreen'
   
   devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'users/show'
