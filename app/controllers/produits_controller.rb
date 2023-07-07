@@ -3,7 +3,7 @@ class ProduitsController < ApplicationController
   include UserHelper
   
   before_action :set_produit, only: %i[ show edit update destroy ]
-  before_action :authorize_admin, except: [:index, :show, :edition]
+  before_action :authorize_admin, except: [:index, :show, :edition, :fullscreen]
 
   def index
     @destinations = Destination.all
