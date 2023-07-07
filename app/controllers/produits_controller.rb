@@ -189,7 +189,7 @@ class ProduitsController < ApplicationController
     def produit_params
       params.require(:produit).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :nb_cabines,
           :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :bailleur_id,
-          :country, :state, :city, :capacite, :capitaine, :destination_id,
+          :country, :state, :city, :capacite, :capitaine, :destination_id, :toys,
           :tirant, :members, :annee, :pavillon, :moteur, :vitesse, :consommation, :archive,
           :image1, medias: [])
     end

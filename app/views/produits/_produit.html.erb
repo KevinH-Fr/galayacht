@@ -58,6 +58,12 @@
         Localisation: <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
         <hr>
 
+        <% if produit.toys.present? %>
+          <strong>  Toys: </strong> <%= produit.toys %>
+          <hr>
+        <% end %>
+
+
         <% if current_user && user_admin %>
           <% if produit.archive == true %>
             Archivé

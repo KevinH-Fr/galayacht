@@ -26,9 +26,11 @@
 
                         <%= "longeur: #{@produit.longueur}" if @produit.longueur %>
                         <%= "largeur: #{@produit.largeur}" if @produit.largeur %>
-                        <%= "tirant: #{@produit.tirant}" if @produit.tirant %>
+                        <%= "tirant: #{@produit.tirant}" if @produit.tirant %> <br>
                         
-                        
+                        <%= "toys: #{@produit.toys}" if @produit.toys %>
+
+                        <br>
                         Permis requis:            
                         <% if @produit.capitaine == true %>
                             Capitaine requis
@@ -39,9 +41,10 @@
 
                         Moteur: <%= @produit.type_produit %> <br>
                         Puissance: <%= @produit.moteur %> <br>
-                        Consommation: <%= produit.consommation %> <br>
+                        Consommation: <%= @produit.consommation %> <br>
                         Année de construction: <%= @produit.annee %> <br>
                         Port: <%= produit_destination(@produit.id) %>
+
                     </td>
                     <td class="td-width">
                         Prix/jour: <br>
