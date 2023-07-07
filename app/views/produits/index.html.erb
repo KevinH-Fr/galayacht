@@ -1,10 +1,12 @@
 
+<div class="main-card">
   <%= render "produits/form_recherche_bateau" %>
+</div>
 
- <div id="produits" class="container-main">
+ <div id="produits" class="main-card ">
   <div class="row justify-content-center">
     <% @produits.each do |produit| %>
-      <div class="col-sm-6 col-md-4 col-lg-4 d-flex  mb-3">
+      <div class="col-sm-6 col-md-4 col-lg-4 d-flex mb-3">
          <%= render produit %> 
       </div>
     <% end %>

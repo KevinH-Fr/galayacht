@@ -6,16 +6,20 @@
     <%= render partial: "produits/diaporama", locals: {produit: produit} %>
 
     <div class="card-body">
-      <h5 class="card-title"> <%= produit.nom %></h5>
+      <h5 class="card-title"> <%= produit_full_name(produit.id) %></h5>
       <p class="card-text">
          <i class="fa fa-circle-info"></i>
-         <%= produit.type_produit %>
+
+        
+         <% if produit.type_produit %>
+          type: <%= produit.type_produit %> |
+         <% end %>
+
          <% if produit.type_produit == "moteur" %>
             puissance: <%= produit.moteur %>
-            <%= produit.consommation %>
+            <%= produit.consommation %> |
          <% end %>
-         <%= produit.marque %>
-         <%= produit.model %>
+
          <% if produit.annee %>
             année: <%= produit.annee %>
          <% end %>

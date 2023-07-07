@@ -24,12 +24,12 @@
 =end%>
 
 
-<div data-aos="zoom-in-up" class="my-4">
+<div data-aos="zoom-in-up" class="main-card my-4">
     <%= render "produits/form_recherche_bateau" %>
 </div>
 
     <%= link_to espace_preneur_index_path, class: "no-underline" do %>
-        <div data-aos="zoom-in-up" class="image-container">
+        <div data-aos="zoom-in-up" class="image-container my-4">
             <%= image_tag "motor boat.jpg", class: "img-main" %> 
             <div class="text-overlay">
                 <h2>Louer un bateau</h2>
@@ -40,7 +40,6 @@
         </div>
     <% end %>
 
-    <hr class="my-4">
     
     <%= link_to espace_bailleur_index_path, class: "no-underline" do %>
         <div data-aos="zoom-in-up" class="image-container">

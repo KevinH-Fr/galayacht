@@ -43,11 +43,7 @@ class ProduitsController < ApplicationController
   end
   
   def show
-
-    
     @schedules = @produit.schedules
-
-
     session[:produit] = @produit.id
   end
 

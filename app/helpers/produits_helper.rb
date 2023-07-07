@@ -14,7 +14,7 @@ module ProduitsHelper
     end
 
     def produit_full_name(produit)
-        "#{Produit.find(produit).nom} #{Produit.find(produit).type_produit}"
+        "#{Produit.find(produit).nom} #{Produit.find(produit).marque} #{Produit.find(produit).model}"
     end
 
     def prix_fai_jour_basse_saison(produit)

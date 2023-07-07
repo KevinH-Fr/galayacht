@@ -16,7 +16,7 @@
 
 :root {
   --primary-color: #100775;
-  --max-width: 1000px;
+  --max-width: 1200px;
 }
 
 body {
@@ -219,7 +219,7 @@ body {
    overflow: hidden;
    border-radius: 50px;
    background-color: transparent; 
-   width: 90vw;
+   width: 80vw;
    max-width: var(--max-width); 
  }
 
@@ -252,7 +252,8 @@ body {
 }
 
  .main-card{
-  width: 90%;
+  width: 80vw;
+  margin: 20px;
  /* min-width: 300px;*/
  max-width: var(--max-width); 
 }
@@ -268,16 +269,15 @@ body {
  }
 
  .search-card{
-    width: 90vw;
-    max-width: var(--max-width); 
-    margin-bottom: 20px;
-    padding: 20px;
+  /*  width: 90vw; 
+    /*  max-width: var(--max-width); */
+  /*  margin-bottom: 20px;*/
+    padding: 40px; 
     border-radius: 40px;
     background-image: url("img-form-sized");
     background-size: cover;
     object-position: center; 
 
-    margin: 20px;
  }
 
  .second-card{
