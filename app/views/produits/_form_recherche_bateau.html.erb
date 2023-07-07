@@ -9,44 +9,36 @@
 <div data-aos="zoom-in-up">
     <div class="search-card">  
 
-        <h3 class="text-center text-light fw-bold">
+        <h3 class="text-center text-light fw-bold mt-4">
            Trouvez votre bateau idéal
         </h3>
 
         <%= search_form_for @q, url: produits_path, method: :get do |f| %>
 
-            <div class="p-4">
+            <div class="">
 
-                <div class="form-group my-3">
-                <%#= f.label :city_cont, "Ville de départ", class: "text-light fw-bold ms-2" %>
-
-                    <%= f.select :destination_id_eq, @destinations.collect { |c| [c.full_name, c.id] }, 
-                        {:include_blank => '- Ville de départ - '},
-                        class: "form-select text-center fw-bold" %>
-
-                </div>
-
-                <div class="form-group my-3">
-                    <%#= f.label :type_produit_eq, "Type de bateau", class: "text-light fw-bold ms-2" %>
-                    <%= f.select :type_produit_eq, options_for_select(Produit.bateau_types.keys), 
-                         {:include_blank => '- Type de bateau - '},
-                            class: "form-select text-center fw-bold" %>
-                </div>
-
-                <div class="form-group my-4">
-
-                <div class="row">  
-                    <div class="col">
-                        <%#= f.label :prixjour_gteq, "Prix minimum", class: "fw-bold" %>
-                        <%= f.number_field :prixjour_gteq, class: "form-control text-center", 
-                            placeholder: "Prix minimum" %>
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="m-2">
+                        <%= f.select :destination_id_eq, @destinations.collect { |c| [c.full_name, c.id] }, 
+                        { include_blank: '- Ville de départ -' },
+                        class: "form-select text-center fw-bold sized-field"  %>
                     </div>
-                    <div class="col">
-                        <%#= f.label :prixjour_lteq, "Prix maximum", class: "fw-bold" %>
-                        <%= f.number_field :prixjour_lteq, class: "form-control text-center", 
-                        placeholder: "Prix maximum" %>
+                    <div class="m-2">
+                        <%= f.select :type_produit_eq, options_for_select(Produit.bateau_types.keys),
+                            { include_blank: '- Type de bateau -' },
+                            class: "form-select text-center fw-bold sized-field" %>                    
                     </div>
                 </div>
+
+                 <div class="d-flex flex-wrap justify-content-center">
+                    <div class="m-2">
+                        <%= f.number_field :prixjour_gteq, class: "form-control text-center sized-field", 
+                            placeholder: "Prix min" %>
+                    </div>
+                    <div class="m-2">
+                        <%= f.number_field :prixjour_lteq, class: "form-control text-center sized-field", 
+                        placeholder: "Prix max" %>
+                    </div>
                 
                 </div> 
 

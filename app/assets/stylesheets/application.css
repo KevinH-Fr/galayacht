@@ -264,6 +264,17 @@ body {
  /* overflow: hidden;*/
  }
 
+
+ .flex-element{
+  display: flex;
+  align-items: center; 
+  justify-content:space-between;
+}
+
+.sized-field{
+  width: 200px;
+}
+
  .width-limited{
   max-width: 70vw;
  }
@@ -272,7 +283,7 @@ body {
   /*  width: 90vw; 
     /*  max-width: var(--max-width); */
   /*  margin-bottom: 20px;*/
-    padding: 40px; 
+    padding: 2vw; 
     border-radius: 40px;
     background-image: url("img-form-sized");
     background-size: cover;
