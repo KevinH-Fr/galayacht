@@ -5,7 +5,9 @@
  
 <%
 =end%>
-<% if user_bailleur.present? %>
+<%
+=begin%>
+ <% if user_bailleur.present? %>
 
     <h2 class="title m-1"> MES BATEAUX</h2>
 
@@ -39,8 +41,10 @@
     <h2 class="title m-1"> MES STATISTIQUES </h2>
     <%= render "statistiques" %>
     <hr>
-
-<% else %>
+ 
+<%
+=end%>
+<%# else %>
 
     <%= render "etapes" %>
 
@@ -58,4 +62,4 @@
 =end%>       
     <hr>
 
-<% end %>
+<%# end %>
