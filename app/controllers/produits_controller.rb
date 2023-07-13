@@ -50,7 +50,6 @@ class ProduitsController < ApplicationController
   def fullscreen
     @produit = Produit.find(params[:id])
     # Render a separate view that displays the image in full screen
-    # You can use a different layout or customize the view as per your requirements
     render 'fullscreen'
   end
 
