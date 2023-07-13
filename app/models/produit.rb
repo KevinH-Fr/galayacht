@@ -6,6 +6,8 @@ class Produit < ApplicationRecord
   has_many_attached :medias
 
   validates :nom, presence: true
+  validates :model, presence: true
+
 
   validates :prixjour, presence: true
   validates :prixsemaine, presence: true
