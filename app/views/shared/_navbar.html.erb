@@ -15,7 +15,9 @@
           <%= link_to "Home", root_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Louer un bateau", espace_preneur_index_path, class: "nav-link" %>
+          <div data-turbo= "false">
+            <%= link_to "Louer un bateau", espace_preneur_index_path, class: "nav-link" %>
+          </div>
         </li>
         <li class="nav-item">
           <%= link_to "Proposer mon bateau", espace_bailleur_index_path, class: "nav-link" %>

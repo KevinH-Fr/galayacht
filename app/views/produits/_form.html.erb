@@ -159,12 +159,12 @@
       </div>
 
       <h4> Image actuelle:</h4>
-  <% if produit.image1.attached? %>
-    <div>
-      <%= image_tag produit.image1, width: 100 %>
-      <%= link_to 'Remove', delete_image1_attachment_produit_path(produit), class: 'btn btn-danger' %>
-    </div>
-  <% end %>
+      <% if produit.image1.attached? %>
+        <div>
+          <%= image_tag produit.image1, width: 100 %>
+          <%= link_to 'Remove', delete_image1_attachment_produit_path(produit), class: 'btn btn-danger' %>
+        </div>
+      <% end %>
 
 
       <div class="input-group mb-1">

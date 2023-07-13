@@ -76,7 +76,11 @@
       <div class="button-container">
 
         <%= link_to "Demander plus d'informations", new_demande_path(produitId: produit), class: "btn btn-action btn-primary w-100 fa-fade my-3 fw-bold" %>
-        <%= link_to "", produit_path(produit), class: "btn btn-action btn-primary fa-solid fa-eye" %>
+
+        <div data-turbo= "false">
+          <%= link_to "", produit_path(produit), class: "btn btn-action btn-primary fa-solid fa-eye" %>
+        </div>
+        
         <%= link_to "", edition_produit_path(produit), class: "btn btn-action btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
 
         <% if current_user && user_admin %>
