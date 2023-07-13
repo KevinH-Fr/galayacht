@@ -110,7 +110,9 @@
     <div class="centered">
         <% @produit.medias.each do |media| %>
             <% if media.image? %>
+            <div class="img-wrapper">
                 <%= image_tag(media, class: "img-produit-smaller") %>
+            </div>
             <% end %>
         <% end %>
     </div>
