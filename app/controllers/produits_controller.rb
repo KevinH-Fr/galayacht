@@ -101,7 +101,8 @@ class ProduitsController < ApplicationController
       )
 
     send_data pdf,
-    filename: "produit.pdf",
+
+    filename: "galayacht_fiche_#{@produit.nom}.pdf",
     type: 'application/pdf',
     disposition: 'inline'
   

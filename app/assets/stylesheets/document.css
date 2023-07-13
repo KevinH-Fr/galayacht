@@ -75,6 +75,13 @@ h1{
     border-radius: 20px;
   }
 
+  .img-produit-smaller{
+    width: 800px;
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 40px;
+  }
+
 .infos{
   text-align: left;
   padding: 20px;
