@@ -158,9 +158,33 @@
         <%= form.file_field :image1, accept: "image/jpeg, image/png", class:"form-control" %>
       </div>
 
+      <h4> Image actuelle:</h4>
+  <% if produit.image1.attached? %>
+    <div>
+      <%= image_tag produit.image1, width: 100 %>
+      <%= link_to 'Remove', delete_image1_attachment_produit_path(produit), class: 'btn btn-danger' %>
+    </div>
+  <% end %>
+
+
       <div class="input-group mb-1">
         <%= form.label :medias, class:"input-group-text label-with-format" %>
         <%= form.file_field :medias, accept: 'image/jpeg,image/png,image/gif,video/mp4,video/quicktime', multiple: true, class: "form-control" %>
+      </div>
+
+      <h4> Medias actuels:</h4>
+      <div>
+        <% produit.medias.each do |media| %>
+          <% if media.image? %>
+            <%= image_tag media, width: 100 %>
+          <% elsif media.video? %>
+            <video width="100" controls>
+              <%= video_tag(url_for(media), class: "img-produit", controls: "") %>
+            </video>
+          <% end %>
+        <%= link_to 'Remove', delete_media_attachment_produit_path(produit, media), method: :delete, data: { confirm: 'Are you sure you want to delete this media?' }, class: 'btn btn-danger' %>
+ 
+        <% end %>
       </div>
 
 

@@ -180,6 +180,22 @@ class ProduitsController < ApplicationController
   end
   
 
+  def delete_image1_attachment
+    @produit = Produit.find(params[:id])
+    @produit.image1.purge 
+
+    redirect_to @produit, notice: 'Image1 has been deleted successfully.'
+  end
+
+  def delete_media_attachment
+    @produit = Produit.find(params[:id])
+    @media = @produit.medias.find(params[:media_id])
+    @media.purge
+  
+    redirect_to @produit, notice: 'Media has been deleted successfully.'
+  end
+  
+
 
   private
     def set_produit

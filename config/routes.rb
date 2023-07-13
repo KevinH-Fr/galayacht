@@ -29,10 +29,15 @@ Rails.application.routes.draw do
   resources :admin_parameters
   resources :demandes
   
+
+
   resources :produits do
     member do
      # post :edit
       get :edition
+      get :delete_image1_attachment
+      get 'delete_media_attachment/:media_id', action: :delete_media_attachment, as: :delete_media_attachment
+
     end
   end
 
