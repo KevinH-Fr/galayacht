@@ -272,7 +272,7 @@ body {
 }
 
 .sized-field{
-  width: 200px;
+  min-width: 300px;
 }
 
  .width-limited{

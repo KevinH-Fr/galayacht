@@ -18,25 +18,25 @@
             <div class="">
 
                 <div class="d-flex flex-wrap justify-content-center">
-                    <div class="m-2">
+                    <div class="m-2 sized-field">
                         <%= f.select :destination_id_eq, @destinations.collect { |c| [c.full_name, c.id] }, 
                         { include_blank: '- Ville de départ -' },
-                        class: "form-select text-center fw-bold sized-field"  %>
+                        class: "form-select text-center fw-bold"  %>
                     </div>
-                    <div class="m-2">
+                    <div class="m-2 sized-field">
                         <%= f.select :type_produit_eq, options_for_select(Produit.bateau_types.keys),
                             { include_blank: '- Type de bateau -' },
-                            class: "form-select text-center fw-bold sized-field" %>                    
+                            class: "form-select text-center fw-bold" %>                    
                     </div>
                 </div>
 
                  <div class="d-flex flex-wrap justify-content-center">
-                    <div class="m-2">
-                        <%= f.number_field :prixjour_gteq, class: "form-control text-center sized-field", 
+                    <div class="m-2  sized-field">
+                        <%= f.number_field :prixjour_gteq, class: "form-control text-center", 
                             placeholder: "Prix min" %>
                     </div>
-                    <div class="m-2">
-                        <%= f.number_field :prixjour_lteq, class: "form-control text-center sized-field", 
+                    <div class="m-2  sized-field">
+                        <%= f.number_field :prixjour_lteq, class: "form-control text-center", 
                         placeholder: "Prix max" %>
                     </div>
                 
