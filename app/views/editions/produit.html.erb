@@ -7,28 +7,50 @@
         <%= image_tag(@produit.image1, class: "img-produit") if @produit.image1.present? %>     
     </div>
 
+    <br>
+    
     <h1 class="centered">Ref. Bateau:<%= produit_full_name(@produit.id) %> </h1>
 
-    <div class="bloc-doc bloc-produit">
+    <br>
 
-        <h2>Informations</h2>
+    <div class="bloc-doc bloc-produit">
 
         <div class="container infos"> 
 
             <table>
                 <tr>
                     <td class="td-width">
-                        Constructeur:  <%= @produit.marque %> <br>
-                        Modèle: <%= @produit.model %> <br>
-                        Type: <%= @produit.type_produit %> <br>
-                        Nb. personnes recommandé: : <%= @produit.capacite %> <br>
-                        Cabine simple: <%=  %> <br>
+                        <% if @produit.marque.present? %>
+                            Constructeur: <%= @produit.marque %> <br>
+                        <% end %>
+                        <% if @produit.model.present? %>
+                            Modèle: <%= @produit.model %> <br>
+                        <% end %>
+                        <% if @produit.type_produit.present? %>
+                            Type: <%= @produit.type_produit %> <br>
+                        <% end %>
+                        <% if @produit.capacite.present? %>
+                            Nb. personnes recommandé: <%= @produit.capacite %> <br>
+                        <% end %>
 
-                        <%= "longeur: #{@produit.longueur}" if @produit.longueur %>
-                        <%= "largeur: #{@produit.largeur}" if @produit.largeur %>
-                        <%= "tirant: #{@produit.tirant}" if @produit.tirant %> <br>
-                        
-                        <%= "toys: #{@produit.toys}" if @produit.toys %>
+                        <% if @produit.nb_cabines.present? %>
+                            Cabine simple: <%= @produit.nb_cabines %> <br>
+                        <% end %>
+
+
+                        <% if @produit.longueur.present? %>
+                            Longueur: <%= @produit.longueur %>
+                        <% end %>
+                        <% if @produit.largeur.present? %>
+                            Largeur: <%= @produit.largeur %>
+                        <% end %>
+                        <% if @produit.tirant.present? %>
+                            Tirant: <%= @produit.tirant %> <br>
+                        <% end %>
+
+                        <% if @produit.toys.present? %>
+                            Toys: <%= @produit.toys %>
+                        <% end %>
 
                         <br>
                         Permis requis:            
@@ -39,17 +61,42 @@
                         <% end %> 
                         <br>
 
-                        Moteur: <%= @produit.type_produit %> |
-                        Puissance: <%= @produit.moteur %> |
-                        Consommation: <%= @produit.consommation %> <br>
-                        Année de construction: <%= @produit.annee %> <br>
-                        Port: <%= produit_destination(@produit.id) %>
-
-                    </td>
+                        <% if @produit.type_produit.present? %>
+                            Moteur: <%= @produit.type_produit %> |
+                        <% end %>
+                        
+                        <% if @produit.moteur.present? %>
+                            Puissance: <%= @produit.moteur %> |
+                        <% end %>
+                        
+                        <% if @produit.consommation.present? %>
+                            Consommation: <%= @produit.consommation %> |
+                        <% end %>
+                        
+                        <% if @produit.annee.present? %>
+                            Année de construction: <%= @produit.annee %> |
+                        <% end %>
+                        
+                        <% if produit_destination(@produit.id).present? %>
+                            Port: <%= produit_destination(@produit.id) %>
+                        <% end %>
+              
                     <td class="td-width">
-                        Prix/jour: <br>
-                        basse saison:  <%= @produit.prixjour %> <br>
-                        haute saison:  <%= @produit.prixjour_hautesaison %> <br>    
+                        
+                        <% if @produit.prixjour.present? %>
+                           Prix/jour: <%= @produit.prixjour %> <br>
+                        <% end %>
+                        <% if @produit.prixsemaine.present? %>
+                           Prix/semaine: <%= @produit.prixsemaine %> <br>
+                        <% end %>
+                        
+                        <% if @produit.prixjour_hautesaison.present? %>
+                           Prix/jour haute saison: <%= @produit.prixjour_hautesaison %> <br>
+                        <% end %>
+                        <% if @produit.prixsemaine_hautesaison.present? %>
+                           Prix/semaine haute saison: <%= @produit.prixsemaine_hautesaison %> <br>
+                        <% end %>
+                    
                     </td>
                 </tr>
             </table>
@@ -57,5 +104,18 @@
         </div>
 
     </div> 
+
+    <%# change page %>
+
+    <div class="centered">
+        <% @produit.medias.each do |media| %>
+            <% if media.image? %>
+                <div class="img-wrapper">
+                    <%= image_tag(media, class: "img-produit") %>
+                </div>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
     
 </html>
