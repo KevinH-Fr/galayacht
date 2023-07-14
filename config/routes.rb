@@ -36,8 +36,9 @@ Rails.application.routes.draw do
      # post :edit
       get :edition
       get :delete_image1_attachment
-      get 'delete_media_attachment/:media_id', action: :delete_media_attachment, as: :delete_media_attachment
-
+    #  get 'delete_media_attachment/:media_id', action: :delete_media_attachment, as: :delete_media_attachment
+      get 'delete_media_attachment', to: 'produits#delete_media_attachment', as: :delete_media_attachment
+ 
     end
   end
 

@@ -175,20 +175,23 @@
       </div>
 
       <h4> Medias actuels:</h4>
-      <div>
-        <% produit.medias.each do |media| %>
-          <% if media.image? %>
-            <%= image_tag media, width: 100 %>
-          <% elsif media.video? %>
-            <video width="100" controls>
-              <%= video_tag(url_for(media), class: "img-produit", controls: "") %>
-            </video>
-          <% end %>
-            <%= link_to '', delete_media_attachment_produit_path(produit, media),
-                  class: 'btn btn-outline-danger fa-solid fa-trash' %>
+<div>
+  <% produit.medias.each do |media| %>
+    <% if media.present? %>
+      <% if media.image? %>
+        <%= image_tag media, width: 100 %>
+      <% elsif media.video? %>
+        <video width="100" controls>
+          <%= video_tag(url_for(media), class: "img-produit", controls: "") %>
+        </video>
+      <% end %>
+    <%= link_to '', delete_media_attachment_produit_url(produit, media_id: media.id),
+          class: 'btn btn-outline-danger fa-solid fa-trash', method: :delete %>
+    <% end %>
+  <% end %>
+</div>
 
-        <% end %>
-      </div>
+
 
 
       <div class="form-check form-switch">
