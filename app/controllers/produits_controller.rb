@@ -56,6 +56,7 @@ class ProduitsController < ApplicationController
   def new
     @produit = Produit.new  
     @destinations = Destination.all
+    @bailleurs = Bailleur.all
 
    # @occupation = @produit.occupations.build 
 
