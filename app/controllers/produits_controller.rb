@@ -63,6 +63,7 @@ class ProduitsController < ApplicationController
 
   def edit
     @destinations = Destination.all
+    @bailleurs = Bailleur.all
   #  @occupations = @produit.occupations
 
     respond_to do |format|
@@ -146,6 +147,7 @@ class ProduitsController < ApplicationController
 
   def update
     @destinations = Destination.all
+    @bailleurs = Bailleur.all
 
     # Retain existing medias if the field is left empty
     if params[:produit][:medias].blank?

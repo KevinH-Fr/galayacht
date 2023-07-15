@@ -43,11 +43,8 @@
       <% if current_user && user_admin %>
         <div class="input-group">
           <%= form.label :propriétaire, class: "input-group-text label-with-format" %>
-          <% if produit.persisted? %>
-            <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { value: produit.bailleur_id}, class: "form-control field-with-format" %>
-          <% else %>
-            <%= form.select :bailleur_id, options_for_select(Bailleur.distinct.pluck(:nom, :id)), { include_blank: true }, class: "form-control field-with-format" %>
-          <% end %>
+          <%= form.select :bailleur_id, @bailleurs.collect { |c| ["#{c.prenom} #{c.nom}", c.id] }, 
+            {include_blank: true}, class: "form-select text-center" %>
         </div>
       <% end %>
 

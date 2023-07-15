@@ -75,13 +75,13 @@
       </p>
       <div class="button-container">
 
-        <%= link_to "Demander plus d'informations", new_demande_path(produitId: produit), class: "btn btn-action btn-primary w-100 my-3 fw-bold" %>
+        <%= link_to "Demander plus d'informations", new_demande_path(produitId: produit), class: "btn btn-action primary-colored w-100 my-3 fw-bold" %>
 
         <div data-turbo= "false">
-          <%= link_to "", produit_path(produit), class: "btn btn-action btn-primary fa-solid fa-eye" %>
+          <%= link_to "", produit_path(produit), class: "btn btn-action primary-colored fa-solid fa-eye" %>
         </div>
         
-        <%= link_to "", edition_produit_path(produit), class: "btn btn-action btn-outline-danger fa-regular fa-file-pdf", target: '_blank' %>
+        <%= link_to "", edition_produit_path(produit), class: "btn btn-action primary-colored fa-regular fa-file-pdf", target: '_blank' %>
 
         <% if current_user && user_admin %>
           <%= link_to "", edit_produit_path(produit), 
