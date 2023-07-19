@@ -51,8 +51,8 @@
          Nb. cabines: <%= produit.nb_cabines %>  <hr>
       
         <i class="fa fa-money-bill"></i>
-        Jour à partir de: <%= prix_fai_jour_basse_saison(produit) %> - 
-        Semaine à partir de: <%= prix_fai_semaine_basse_saison(produit) %> <br> <hr>
+        Jour à partir de: <%= number_to_currency(produit.prixjour, locale: :fr)  %> - 
+        Semaine à partir de: <%= number_to_currency(produit.prixsemaine, locale: :fr) %> <br> <hr>
 
         <i class="fa fa-location-dot"></i>
         Localisation: <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>

@@ -103,7 +103,7 @@
 
 
 
-        <%= form.hidden_field :remuneration_initial, 
+        <%#= form.hidden_field :remuneration_initial, 
               value: AdminParameter.first.remuneration, 
               data: { 
                 reservation_target: "remunerationInitial" } %>
@@ -112,13 +112,15 @@
           data: { 
             reservation_target: "prix" } %>
 
-        <%= form.hidden_field :remuneration, 
+        <%#= form.hidden_field :remuneration, 
           data: { 
             reservation_target: "remuneration" } %>
     
       <hr>
       <div class="">  
-        <span>  prix net:  </span>
+<%
+=begin%>
+         <span>  prix net:  </span>
         <span id="prixTotal">
           0
         </span> <br>
@@ -126,7 +128,9 @@
         <span>  rémunération:  </span>
         <span id="prixRemuneration">
           0
-        </span> <br>
+        </span> <br> 
+<%
+=end%>
 
         <span>  prix total:  </span>
         <span id="prixTotalBrut">

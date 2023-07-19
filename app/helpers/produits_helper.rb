@@ -17,19 +17,19 @@ module ProduitsHelper
         "#{Produit.find(produit).nom} #{Produit.find(produit).marque} #{Produit.find(produit).model}"
     end
 
-    def prix_fai_jour_basse_saison(produit)
-        if produit.prixjour 
-            remuneration = AdminParameter.first&.remuneration || 0
-            calculated_price =  number_to_currency(produit.prixjour * (1 + remuneration.to_f / 100), locale: :fr)  
-        end
-    end
+  #  def prix_fai_jour_basse_saison(produit)
+  #      if produit.prixjour 
+  #          remuneration = AdminParameter.first&.remuneration || 0
+  #          calculated_price =  number_to_currency(produit.prixjour * (1 + remuneration.to_f / 100), locale: :fr)  
+  #      end
+  #  end
 
-    def prix_fai_semaine_basse_saison(produit)
-        if produit.prixsemaine
-            remuneration = AdminParameter.first&.remuneration || 0
-            calculated_price =  number_to_currency(produit.prixsemaine * (1 + remuneration.to_f / 100), locale: :fr)
-        end
-    end
+  #  def prix_fai_semaine_basse_saison(produit)
+  #      if produit.prixsemaine
+  #          remuneration = AdminParameter.first&.remuneration || 0
+  #          calculated_price =  number_to_currency(produit.prixsemaine * (1 + remuneration.to_f / 100), locale: :fr)
+  #      end
+  #  end
 
     def reservations_existantes(produit) 
         # verifier si resa existent, 

@@ -7,9 +7,10 @@ export default class extends Controller {
     "debut", "fin",
     "prixjourInitial", "prixsemaineInitial",
     "prixjourHautesaisonInitial", "prixsemaineHautesaisonInitial",
-    "remunerationInitial",
+    //"remunerationInitial",
     "hautesaisonInitial",
-    "prix", "remuneration"
+    "prix"
+    //, "remuneration"
   ];
 
   connect() {
@@ -26,7 +27,7 @@ export default class extends Controller {
     const prixJourHautesaisonInitial = this.prixjourHautesaisonInitialTarget.value;
     const prixSemaineHauteaisonInitial = this.prixsemaineHautesaisonInitialTarget.value;
 
-    const remunerationInitial = this.remunerationInitialTarget.value;
+   // const remunerationInitial = this.remunerationInitialTarget.value;
 
     // saison haute 01 juin
     const debutHauteSaison = new Date(this.hautesaisonInitialTarget.value);
@@ -62,7 +63,7 @@ export default class extends Controller {
 
     // prix jour ou semaine 
     let prixFinal;
-    let remunerationVal;
+  //  let remunerationVal;
     let nbSemaines;
     let joursRestants;
 
@@ -76,21 +77,21 @@ export default class extends Controller {
     }
 
     // determination du prix avec honoraires
-    remunerationVal = prixFinal * ( remunerationInitial / 100 );
+   //  remunerationVal = prixFinal * ( remunerationInitial / 100 );
 
    // maj field prix avec valeur calculée
-    this.prixTarget.value = prixFinal + remunerationVal ;
-    this.remunerationTarget.value =  remunerationVal ;
+    this.prixTarget.value = prixFinal ; // + remunerationVal ;
+   // this.remunerationTarget.value =  remunerationVal ;
 
     // maj de la div prixtotal pour info
-    const prixTotalDiv = document.getElementById("prixTotal");
-    prixTotalDiv.textContent = prixFinal;
+    //const prixTotalDiv = document.getElementById("prixTotal");
+    //prixTotalDiv.textContent = prixFinal;
 
-    const prixRemunerationlDiv = document.getElementById("prixRemuneration");
-    prixRemunerationlDiv.textContent = remunerationVal;
+  //  const prixRemunerationlDiv = document.getElementById("prixRemuneration");
+  //  prixRemunerationlDiv.textContent = remunerationVal;
 
     const prixTotalBrutDiv = document.getElementById("prixTotalBrut");
-    prixTotalBrutDiv.textContent = prixFinal + remunerationVal;
+    prixTotalBrutDiv.textContent = prixFinal; // + remunerationVal;
 
   }
   
