@@ -284,7 +284,7 @@ body {
 }
 
 .sized-field{
-  min-width: 260px;
+  min-width: 240px;
 }
 
  .width-limited{
@@ -292,6 +292,7 @@ body {
  }
 
  .search-card{
+    min-height: 400px;
     height: 60vh;
 
     display: flex;
