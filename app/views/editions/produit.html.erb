@@ -9,7 +9,7 @@
 
     <br>
     
-    <h1 class="centered">Ref. Bateau:<%= produit_full_name(@produit.id) %> </h1>
+    <h1 class="centered"><%= produit_full_name(@produit.id) %> </h1>
 
     <br>
 
@@ -84,17 +84,17 @@
                     <td class="td-width">
                         
                         <% if @produit.prixjour.present? %>
-                           Prix/jour: <%= @produit.prixjour %> <br>
+                           Prix/jour: <%= number_to_currency(@produit.prixjour, locale: :fr) %> <br>
                         <% end %>
                         <% if @produit.prixsemaine.present? %>
-                           Prix/semaine: <%= @produit.prixsemaine %> <br>
+                           Prix/semaine: <%= number_to_currency(@produit.prixsemaine, locale: :fr) %> <br>
                         <% end %>
                         
                         <% if @produit.prixjour_hautesaison.present? %>
-                           Prix/jour haute saison: <%= @produit.prixjour_hautesaison %> <br>
+                           Prix/jour haute saison: <%= number_to_currency(@produit.prixjour_hautesaison, locale: :fr) %> <br>
                         <% end %>
                         <% if @produit.prixsemaine_hautesaison.present? %>
-                           Prix/semaine haute saison: <%= @produit.prixsemaine_hautesaison %> <br>
+                           Prix/semaine haute saison: <%= number_to_currency(@produit.prixsemaine_hautesaison, locale: :fr) %> <br>
                         <% end %>
                     
                     </td>

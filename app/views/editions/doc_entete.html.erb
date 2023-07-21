@@ -5,12 +5,10 @@
     <%= wicked_pdf_stylesheet_link_tag "document" %>
 
     <div style="position: relative; top: 0px; left: 30px;"> 
-      <%#= wicked_pdf_image_tag 'logo1.png' %>
-      <%#= wicked_pdf_image_tag asset_path('/galayachts-logo.png'), style: "width: 60px;" %> 
-      <%= wicked_pdf_image_tag asset_url('/galayachts-logo.png'), style: "width: 60px;" %> 
+      <%= wicked_pdf_image_tag asset_url('/galayacht-logo.png'), style: "width: 60px;" %> 
     </div>
     <h1 style="position: relative; top: -70px;"> 
-      GALAYACHT
+      <%= link_to "GALAYACHT", root_path, class: "no-underline brand-colored" %>  
     </h1>
    
 </html>
