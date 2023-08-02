@@ -37,13 +37,18 @@
                 </div> 
 
                  <div class="d-flex flex-wrap justify-content-center">
-                    <%= f.submit "Chercher", class: "btn primary-colored w-50 my-3 fw-bold" %>
+                    <%= f.submit "Chercher", class: "btn primary-colored w-50 my-2 fw-bold" %>
                 </div>
 
 
             </div>
 
         <% end %>
+
+
+        <div data-turbo= "false"> <%# fait fonctionner le carroussel %>
+            <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored mt-2" %>
+        </div>
 
     </div>
 

@@ -292,7 +292,7 @@ body {
  }
 
  .search-card{
-    min-height: 400px;
+    min-height: 460px;
     height: 60vh;
 
     display: flex;
