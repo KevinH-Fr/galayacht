@@ -204,7 +204,7 @@ body {
 }
   
  .text-bg-effect{
-   background-image: url(theoule.jpg);
+   background-image: url(/images/theoule.webp);
    background-repeat: repeat;
    background-clip: content-box;
    -webkit-background-clip: text;
@@ -219,7 +219,7 @@ body {
    font-weight: 900;
    -webkit-font-smoothing: antialiased;
    border-top: 20px solid transparent; /* Set the border style for the top only, and make it transparent */
-   border-image: url(theoule.jpg) 20 repeat; /* Set the border image, its width and its repeat mode */
+   border-image: url(/images/theoule.webp) 20 repeat; /* Set the border image, its width and its repeat mode */
 
 }
 
@@ -305,7 +305,7 @@ body {
   /*  margin-bottom: 20px;*/
     padding: 4vw; 
     border-radius: 40px;
-    background-image: url("img-form-sized");
+    background-image: url("/images/img-form-sized.webp");
     background-size: cover;
     object-position: center; 
 
@@ -439,7 +439,7 @@ body {
 
 
 .contact-card{
-  background-image: url('theoule');
+  background-image: url(/images/theoule.webp);
   background-position: cover;
   width: 90vw;
   max-width: 600px; 
