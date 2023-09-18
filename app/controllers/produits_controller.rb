@@ -19,6 +19,8 @@ class ProduitsController < ApplicationController
     
     @q = Produit.actif.ransack(params[:q])
     @produits = @q.result(distinct: true).order(created_at: :desc)
+
+    @pagy, @produits = pagy(@produits, items: 5)
  
     end
   end

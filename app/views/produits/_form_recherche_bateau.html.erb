@@ -3,6 +3,10 @@
 <div data-aos="zoom-in-up">
     <div class="search-card">  
 
+        <div data-turbo= "false"> <%# fait fonctionner le carroussel %>
+            <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold mt-2" %>
+        </div>
+
         <h3 class="text-center text-light fw-bold my-4 fs-1">
            Trouvez votre bateau idéal
         </h3>
@@ -46,9 +50,7 @@
         <% end %>
 
 
-        <div data-turbo= "false"> <%# fait fonctionner le carroussel %>
-            <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored mt-2" %>
-        </div>
+
 
     </div>
 
