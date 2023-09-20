@@ -534,3 +534,8 @@ body::-moz-scrollbar-thumb {
   transform: translate(-50%, -50%);
 
 }
+
+
+.btn-text-styled{
+  text-transform: uppercase; 
+}
