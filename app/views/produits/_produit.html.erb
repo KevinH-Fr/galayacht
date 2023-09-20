@@ -1,6 +1,5 @@
 
 <div class="" id="<%= dom_id produit %>">
-
   <div class="card produit-card" >
 
     <%= render partial: "produits/diaporama", locals: {produit: produit} %>
@@ -8,43 +7,42 @@
     <div class="card-body">
       <h5 class="card-title"> <%= produit_full_name(produit.id) %></h5>
       <p class="card-text">
-         <i class="fa fa-circle-info"></i>
+        <i class="fa fa-circle-info"></i>
 
-        
-         <% if produit.type_produit.present? %>
-          type: <%= produit.type_produit %> |
-         <% end %>
+        <% if produit.type_produit.present? %>
+        type: <%= produit.type_produit %> |
+        <% end %>
 
-         <% if produit.type_produit == "moteur" %>
-            puissance: <%= produit.moteur %>
-            <%= produit.consommation %> |
-         <% end %>
+        <% if produit.type_produit == "moteur" %>
+          puissance: <%= produit.moteur %>
+          <%= produit.consommation %> |
+        <% end %>
 
-         <% if produit.annee.present? %>
-            année: <%= produit.annee %>
-         <% end %>
+        <% if produit.annee.present? %>
+          année: <%= produit.annee %>
+        <% end %>
+        <hr>
 
-         <hr>
-            <i class="fa fa-user-shield"></i> 
-            <% if produit.capitaine == true %>
-                Capitaine requis
-            <% else %>
-                Capitaine non-requis
-            <% end %> 
-            <hr>
+        <i class="fa fa-user-shield"></i> 
+        <% if produit.capitaine == true %>
+            Capitaine requis
+        <% else %>
+            Capitaine non-requis
+        <% end %> 
+        <hr>
 
-         <i class="fa fa-ruler"></i>
-            <% if produit.longueur.present? %>
-              <%= "longeur: #{produit.longueur}" %>
-            <% end %>
-            <% if produit.largeur.present? %>
-              <%= "largeur: #{produit.largeur}" %>
-            <% end %>
-            <% if produit.tirant.present? %>
-              <%= "tirant: #{produit.tirant}" %>
-            <% end %>
+        <i class="fa fa-ruler"></i>
+        <% if produit.longueur.present? %>
+          <%= "longeur: #{produit.longueur}" %>
+        <% end %>
+        <% if produit.largeur.present? %>
+          <%= "largeur: #{produit.largeur}" %>
+        <% end %>
+        <% if produit.tirant.present? %>
+          <%= "tirant: #{produit.tirant}" %>
+        <% end %>
 
-         <hr>
+        <hr>
 
          <i class="fa fa-people-group"></i> 
          Nb. pers.: <%= produit.capacite %> 
@@ -73,6 +71,9 @@
         <% end %>
 
       </p>
+      
+
+      
       <div class="button-container">
 
         <%= link_to "Demander plus d'informations", new_demande_path(produitId: produit), class: "btn btn-action primary-colored w-100 my-3 fw-bold" %>
@@ -82,8 +83,6 @@
         </div>
 
         <%= link_to "", produit_fullscreen_path(produit), class: "btn btn-action primary-colored fa-solid fa-image" %>
-
-        
         <%= link_to "", edition_produit_path(produit), class: "btn btn-action primary-colored fa-regular fa-file-pdf", target: '_blank' %>
 
         <% if current_user && user_admin %>
@@ -94,7 +93,9 @@
         <% end %>
 
       </div>
-    </div>
-  </div> 
 
+
+    </div>
+
+  </div> 
 </div>

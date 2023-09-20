@@ -1,0 +1,58 @@
+<%# landing page avant log ou choix preneur bailleur %>
+
+<% content_for :meta_tags do %>
+  <%= display_meta_tags(
+    title: 'Galayacht | Home',
+    description: 'Welcome to Galayacht. Easy solution to rent a boat and more on French Riviera!',
+    keywords: 'galayacht, boat, rent, french riviera, location bateau cotes azur, cannes, antibes'
+  ) %>
+<% end %>
+
+
+
+
+<%
+=begin%>
+ <% if current_user.present? %>
+  <div class="button-container mb-3">
+    <%= link_to "espace admin", espace_admin_index_path, class: "btn btn-dark m-1" if current_user.admin? %>
+    <%#= link_to "espace propriétaire", espace_bailleur_index_path, class: "btn btn-primary m-1" if user_preneur.present? %>
+    <%#= link_to "espace locataire", espace_preneur_index_path, class: "btn btn-warning m-1" if user_bailleur.present? %>
+  </div>
+<% end %> 
+<%
+=end%>
+
+
+    <div data-aos="zoom-in-up" class="main-card my-4">
+        <%= render "produits/form_recherche_bateau" %>
+    </div>
+
+    <div data-turbo= "false"> <%# fait fonctionner le carroussel %>
+
+        <%= link_to espace_preneur_index_path, class: "no-underline" do %>
+            <div data-aos="zoom-in-up" class="image-container my-4">
+                <%= image_tag "/images/motor-boat.webp", class: "img-main", alt: "Aller vers louer un bateau" %> 
+                <div class="text-overlay">
+                    <h2>Louer un bateau</h2>
+                    <p class="mt-2">  
+                        Découvrez notre sélection de bateaux et de destinations
+                    </p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    
+    <%= link_to espace_bailleur_index_path, class: "no-underline" do %>
+        <div data-aos="zoom-in-up" class="image-container">
+            <%= image_tag "/images/sail-boat.webp", class: "img-main", alt: "Aller vers proposer un bateau"  %> 
+            <div class="text-overlay">
+                <h2>Proposer un bateau</h2>
+                <p class="mt-2">  
+                    Retrouvez nos outils pour proposer votre bateau à la location
+                </p>
+            </div>
+        </div>
+    <% end %>  
+

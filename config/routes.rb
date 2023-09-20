@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   
   get 'home/index'
+
   get 'home/mentions_legales'
   get 'home/nous_connaitre'
   get 'home/politique_confidentialite'

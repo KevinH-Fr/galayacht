@@ -1,5 +1,9 @@
 
-<div class="main-card">
+<div class="card main-card">
+
+  <h3 class="text-center fw-bold my-2 title-styled" style="color: var(--primary-color);">
+    Trouvez votre bateau idéal
+  </h3>
   <%= render "produits/form_recherche_bateau" %>
 </div>
 
@@ -13,7 +17,7 @@
   </div>
 </div> 
 
-<%== pagy_bootstrap_nav(@pagy) %>
+  <%== pagy_bootstrap_nav(@pagy) %>
 
  <% if current_user && user_admin %>
     <%= link_to "nouveau bateau", new_produit_path, class: 'btn btn-warning' %>

@@ -1,11 +1,7 @@
-<div data-controller="autohide" style="position: fixed; z-index: 2;">
-  <% flash.each do |key, value| %>
-    <% if key == "error" %>
-      <div class="alert alert-danger">
-        <%= value %>
-      </div>
-    <% else%>
-      <div class="alert alert-success">
+<div data-controller="autohide" style="position: fixed; z-index: 2; ">
+  <% if flash.any? %>
+    <% flash.each do |key, value| %>
+      <div class="alert <%= key == "error" ? "alert-danger" : "alert-success" %>">
         <%= value %>
       </div>
     <% end %>

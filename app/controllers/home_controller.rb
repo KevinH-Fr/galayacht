@@ -6,10 +6,6 @@ class HomeController < ApplicationController
     @destinations = Destination.all
   end
 
-  def testimage
-    
-  end
-
   def mentions_legales
   end
 

@@ -1,58 +1,57 @@
-<%# landing page avant log ou choix preneur bailleur %>
+<div class="video-container">
+    <video autoplay loop muted playsinline id="video-background">
+        <source src="/videos/sea-waves.mp4" type="video/mp4">
+    </video>
+    <span class="d-flex flex-wrap justify-content-center">
+    
+        <div class="form-container d-block">
+            <h3 class="text-center fw-bold my-2 title-styled">
+            Trouvez votre bateau idéal
 
-<% content_for :meta_tags do %>
-  <%= display_meta_tags(
-    title: 'Galayacht | Home',
-    description: 'Welcome to Galayacht. Easy solution to rent a boat and more on French Riviera!',
-    keywords: 'galayacht, boat, rent, french riviera, location bateau cotes azur, cannes, antibes'
-  ) %>
-<% end %>
-
-
-
-
-<%
-=begin%>
- <% if current_user.present? %>
-  <div class="button-container mb-3">
-    <%= link_to "espace admin", espace_admin_index_path, class: "btn btn-dark m-1" if current_user.admin? %>
-    <%#= link_to "espace propriétaire", espace_bailleur_index_path, class: "btn btn-primary m-1" if user_preneur.present? %>
-    <%#= link_to "espace locataire", espace_preneur_index_path, class: "btn btn-warning m-1" if user_bailleur.present? %>
-  </div>
-<% end %> 
-<%
-=end%>
-
-
-    <div data-aos="zoom-in-up" class="main-card my-4">
-        <%= render "produits/form_recherche_bateau" %>
-    </div>
-
-    <div data-turbo= "false"> <%# fait fonctionner le carroussel %>
-
-        <%= link_to espace_preneur_index_path, class: "no-underline" do %>
-            <div data-aos="zoom-in-up" class="image-container my-4">
-                <%= image_tag "/images/motor-boat.webp", class: "img-main", alt: "Aller vers louer un bateau" %> 
-                <div class="text-overlay">
-                    <h2>Louer un bateau</h2>
-                    <p class="mt-2">  
+                <div data-turbo="false"> <%# fait fonctionner le carroussel %>
+                    <%= link_to "Voir tous les bateaux", produits_path, class: "w-100 btn primary-colored fw-bold my-4" %>
+                </div>
+            </h3>
+            <%= render "produits/form_recherche_bateau" %>
+        </div>
+    </span>
+</div>
+<div class="video-container">
+    <video autoplay loop muted playsinline id="video-background">
+        <source src="/videos/motor-boat.mp4" type="video/mp4">
+    </video>
+    <span class="d-flex flex-wrap justify-content-center">
+        <div class="form-container primary-colored">   
+            <div data-turbo= "false"> <%# fait fonctionner le carroussel %>
+         
+                <%= link_to espace_preneur_index_path, class: "no-underline" do %>
+                    <h2 class="title-styled mb-4">Louer un bateau</h2>
+                    <p class="mt-2 fs-4 fw-bold text-dark text-center">  
                         Découvrez notre sélection de bateaux et de destinations
                     </p>
-                </div>
-            </div>
-        <% end %>
-    </div>
-
-    
-    <%= link_to espace_bailleur_index_path, class: "no-underline" do %>
-        <div data-aos="zoom-in-up" class="image-container">
-            <%= image_tag "/images/sail-boat.webp", class: "img-main", alt: "Aller vers proposer un bateau"  %> 
-            <div class="text-overlay">
-                <h2>Proposer un bateau</h2>
-                <p class="mt-2">  
-                    Retrouvez nos outils pour proposer votre bateau à la location
-                </p>
+                    <p class="my-3 btn primary-colored fw-bold w-100">
+                        Voir les bateaux
+                    </p>
+                <% end %>
             </div>
         </div>
-    <% end %>  
-
+    </span>
+</div>
+<div class="video-container">
+    <video autoplay loop muted playsinline id="video-background">
+        <source src="/videos/sailing-boat-mini.mp4" type="video/mp4">
+    </video>
+    <span class="d-flex flex-wrap justify-content-center">
+        <div class="form-container primary-colored">            
+            <%= link_to espace_bailleur_index_path, class: "no-underline " do %>
+                <h2 class="title-styled mb-4">Proposer un bateau</h2>
+                <p class="mt-2 fs-4 fw-bold text-dark text-center">  
+                    Retrouvez nos outils pour proposer votre bateau à la location
+                </p>
+                <p class="my-3 btn primary-colored fw-bold w-100">
+                    En savoir plus
+                </p>
+            <% end %>
+        </div>
+    </span>
+</div>

@@ -13,15 +13,13 @@ class ProduitsController < ApplicationController
     if params[:city].present?
       destination = params[:city].titleize
       @produits = Produit.actif.where(destination_id: destination)
-    else
-    #  search_params = params.permit(:format, :page, :commit, q:[:nom_or_marque_or_city_cont])
-    #  @produits = @q.result(distinct: true).order(created_at: :desc)
-    
-    @q = Produit.actif.ransack(params[:q])
-    @produits = @q.result(distinct: true).order(created_at: :desc)
+      @pagy, @produits = pagy(@produits, items: 5)
 
-    @pagy, @produits = pagy(@produits, items: 5)
- 
+    else
+      
+      @q = Produit.actif.ransack(params[:q])
+      @produits = @q.result(distinct: true).order(created_at: :desc)
+      @pagy, @produits = pagy(@produits, items: 5)
     end
   end
 

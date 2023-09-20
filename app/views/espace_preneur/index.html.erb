@@ -11,7 +11,7 @@
   <div id="produits" class="container-main">
     <div class="row justify-content-center">
       <% @produits.each do |produit| %>
-        <div class="col-sm-6 col-md-4 col-lg-4 d-flex  mb-3">
+        <div class="col-sm-6 col-md-4 col-lg-4 d-flex mb-3">
           <%= render produit %> 
         </div>
       <% end %>
@@ -20,12 +20,10 @@
 </div>
 
 <div class="container-parent m-2">
-    <%= link_to(produits_path, class:"btn primary-colored fw-bold fs-4") do %>
+  <%= link_to(produits_path, class:"btn primary-colored fw-bold fs-4") do %>
     <i class="fa-solid fa-magnifying-glass"></i>
-    <span class=""> 
-        Recherche avancée 
-    </span>
-    <% end %>
+    <span class=""> Recherche avancée </span>
+  <% end %>
 
   <div data-turbo= "false"> <%# fait fonctionner le carroussel %>
     <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored ms-2 fw-bold fs-4" %>
@@ -33,36 +31,27 @@
   
 </div>
 
-
 <hr>
 
-<%
-=begin%>
- <h1> DESTINATIONS </h1>
- 
-<%
-=end%>
 <div data-aos="zoom-in-up" class="container-parent">
-    <% @destinations.each do |destination| %>
-        <%= link_to produits_path(city: destination ) do %>
-            <div class="bloc-enfant">
-                <div class="card">
-                  <div class="img-wrapper-destination">
-                    <% if destination.image1.present? %>
-                      <%= image_tag(destination.image1, class: "img-produit top-rounded") %>
-                    <% end %>
-                  </div>
-
-                  <div class="card-body">
-                    <p class="card-text fs-1 m-1 text-truncate"> <%= destination.nom %></p>
-                    <p class="card-text fs-4 m-1 text-truncate"> Port: <%= destination.port %></p>
-                  </div>
-                </div>
-            </div>
-        <% end %>
+  <% @destinations.each do |destination| %>
+    <%= link_to produits_path(city: destination ) do %>
+      <div class="bloc-enfant">
+        <div class="card">
+          <div class="img-wrapper-destination">
+            <% if destination.image1.present? %>
+              <%= image_tag(destination.image1, class: "img-produit top-rounded") %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <p class="card-text fs-1 m-1 text-truncate"> <%= destination.nom %></p>
+            <p class="card-text fs-4 m-1 text-truncate"> Port: <%= destination.port %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
+  <% end %>
 </div>
 
+
 <hr>
-
-
