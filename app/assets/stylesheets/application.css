@@ -83,8 +83,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1200px;
-  padding: 20px;
+ /* max-width: 1200px;
+  padding: 20px;*/
 }
 
 .container-second{
@@ -493,7 +493,6 @@ body::-moz-scrollbar-thumb {
 
 }
 
-
 .form-container{
 
     background: rgba(255, 255, 255, 0.4); 
@@ -534,7 +533,6 @@ body::-moz-scrollbar-thumb {
   transform: translate(-50%, -50%);
 
 }
-
 
 .btn-text-styled{
   text-transform: uppercase; 

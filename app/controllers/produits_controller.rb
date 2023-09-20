@@ -197,7 +197,6 @@ class ProduitsController < ApplicationController
   
     redirect_to @produit, notice: 'Media has been deleted successfully.'
   end
-  
 
 
   private
