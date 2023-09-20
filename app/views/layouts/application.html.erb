@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Galayacht</title>
+
+    <%= display_meta_tags site: "Galayacht | location de bateaux" %>
+
+    <% title "Location de yacht à Cannes. Louer un yacht. GALAYACHT" %>
+    <% description "Bienvenue chez Galayacht. Solution facile pour louer un bateau ou un yacht et plus à Cannes, Mandelieu, Antibes." %>
+    <% keywords "Antibes, location de bateau, louer yacht, louer bateau, location bateau cote azur, louer bateau mandelieu" %>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -35,7 +41,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <%= yield :meta_tags %>
+    <%#= yield :meta_tags %>
 
   </head>
 
