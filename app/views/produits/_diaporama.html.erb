@@ -17,7 +17,7 @@
       <div class="carousel-item" data-bs-interval="2000">
           <% if media.image? %>
              <div class="img-wrapper">
-                <%= link_to image_tag(media, class: "img-produit top-rounded"), produit_path(produit) %>
+                <%= link_to image_tag(media, class: "img-produit top-rounded"), produit_fullscreen_path(produit) %>
               </div>
           <% elsif media.video? %> 
             <div class="img-wrapper">

@@ -1,6 +1,6 @@
-  <div id="fullscreen-image">
+  <div id="fullscreen-image" class="main-card">
 
-    <h2 class="text-center"> <%= produit_full_name(@produit.id) %></h2>
+    <h2 class="text-center my-2"> <%= produit_full_name(@produit.id) %></h2>
 
     <% if @produit.image1.attached? %>
         <%= image_tag(@produit.image1, class: "img-produit rounded m-1") %>

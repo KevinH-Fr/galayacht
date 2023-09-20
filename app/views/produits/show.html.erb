@@ -1,49 +1,52 @@
 
  <%#= produit_full_name(@produit.id) %> 
+<div class="container" style="max-width: 800px;">
 
-<div class="container-fluid my-2">  
-  <%= render @produit %>
-</div>
+  <div class="container my-4">  
+    <%= render @produit %>
+  </div>
 
-<% if current_user && user_admin %>
+  <% if current_user && user_admin %>
 
- <%# avec helper tester si resa existent, si oui btns archivés, sinon btn supprimer  %>
-  <% if @produit.archive %>
-    <%= button_to activate_produit_path(@produit), method: :post, class: "btn btn-action btn-outline-success" do %>
-      <i class="fa-solid fa-box-archive me-2"></i>
-      <span class="fw-bold"> Activer ce produit </span>
-    <% end %>
-  <% else %>
-    <% if reservations_existantes(@produit.id) %>
-    <%= button_to archivate_produit_path(@produit), method: :post, class: "btn btn-action btn-outline-dark" do %>
-      <i class="fa-solid fa-box-archive me-2"></i>
-      <span class="fw-bold"> Archiver ce produit </span>
-    <% end %>
+  <%# avec helper tester si resa existent, si oui btns archivés, sinon btn supprimer  %>
+    <% if @produit.archive %>
+      <%= button_to activate_produit_path(@produit), method: :post, class: "btn btn-action btn-outline-success" do %>
+        <i class="fa-solid fa-box-archive me-2"></i>
+        <span class="fw-bold"> Activer ce produit </span>
+      <% end %>
     <% else %>
-      <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger",
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-          <i class="fa-solid fa-trash me-2"></i>
-          <span class="fw-bold"> Supprimer ce produit </span>
+      <% if reservations_existantes(@produit.id) %>
+      <%= button_to archivate_produit_path(@produit), method: :post, class: "btn btn-action btn-outline-dark" do %>
+        <i class="fa-solid fa-box-archive me-2"></i>
+        <span class="fw-bold"> Archiver ce produit </span>
+      <% end %>
+      <% else %>
+        <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger",
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash me-2"></i>
+            <span class="fw-bold"> Supprimer ce produit </span>
+        <% end %>
       <% end %>
     <% end %>
+
+
+
   <% end %>
 
 
+  <div class="container mb-4">
+    <%= render "map" %>
+  </div>
 
-<% end %>
-
-<hr>
-
-
-<div class="container mb-4">
-  <%= render "map" %>
-</div>
-
-  <%#= render "shared/calendar", schedules: @schedules %>
-
-  <%= render 'shared/full_calendar' %> 
+  <div class="container mb-4">
+    <%= render 'shared/full_calendar' %> 
+  </div>
+    <%#= render "shared/calendar", schedules: @schedules %>
 
 
-<div class="my-4 text-center fa-fade">
-  <%= link_to "Demander plus d'informations", new_demande_path(produitId: @produit.id), class: "btn btn-action primary-colored fs-4 w-100 fa-fade my-3 fw-bold" %>
+  <div class="my-4 text-center fa-fade">
+    <%= link_to "Demander plus d'informations", new_demande_path(produitId: @produit.id), class: "btn btn-action primary-colored fs-4 w-100 fa-fade my-3 fw-bold" %>
+  </div>
+
+
 </div>
