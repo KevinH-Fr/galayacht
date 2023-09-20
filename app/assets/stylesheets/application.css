@@ -531,7 +531,6 @@ body::-moz-scrollbar-thumb {
   top: 50%; 
   left: 50%; 
   transform: translate(-50%, -50%);
-
 }
 
 .btn-text-styled{
