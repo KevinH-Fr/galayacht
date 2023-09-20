@@ -47,22 +47,17 @@
       </div>
       <%= yield %>
     </main>
-    <!--hr-->
 
     <section class="bg-secondary p-4">
        <%= render "shared/mentions_footer" %>
     </section>
     
-    <!--footer class="bg-dark fixed-bottom">  
-      <%= render "shared/footer" %>
-    </footer-->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
-      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-      <script>
-        AOS.init();
-      </script>
+    <script src="https://kit.fontawesome.com/ab64641e90.js" crossorigin="anonymous"></script>
 
-      <script src="https://kit.fontawesome.com/ab64641e90.js" crossorigin="anonymous"></script>
-  
   </body>
 </html>

@@ -1,3 +1,11 @@
+<% content_for :meta_tags do %>
+  <%= display_meta_tags(
+    title: 'Galayacht | Home',
+    description: 'Welcome to Galayacht. Easy solution to rent a boat and more on French Riviera!',
+    keywords: 'galayacht, boat, rent, french riviera, location bateau, cote azur, cannes, antibes, mandelieu'
+  ) %>
+<% end %>
+
 <div class="video-container">
     <video autoplay loop muted playsinline id="video-background">
         <source src="/videos/sea-waves.mp4" type="video/mp4">
