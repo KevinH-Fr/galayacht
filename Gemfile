@@ -40,6 +40,7 @@ group :development do
 end
 
 group :production do
+  gem 'heroku-deflater'
   gem 'pg', '~> 1.4', '>= 1.4.1'
 end
 
