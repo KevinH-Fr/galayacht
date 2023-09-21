@@ -22,14 +22,17 @@ SitemapGenerator::Sitemap.create do
   # Add all articles:
   #
 
-    add '/home', :changefreq => 'daily', :priority => 0.9
-    add '/produits', :changefreq => 'daily', :priority => 0.9
+    add '/home', :changefreq => 'weekly', :priority => 0.9
+    add '/produits', :changefreq => 'weekly', :priority => 0.9
 
     # Add sign-in and sign-up URLs to the sitemap
-    add '/demandes/new', :changefreq => 'daily', :priority => 0.8, :lastmod => Time.now
-    add '/espace_bailleur/index', :changefreq => 'daily', :priority => 0.8, :lastmod => Time.now
+    add '/demandes/new', :changefreq => 'weekly', :priority => 0.8, :lastmod => Time.now
+    add '/espace_bailleur/index', :changefreq => 'weekly', :priority => 0.8, :lastmod => Time.now
 
     Produit.find_each do |produit|
-      add produit_path(produit), :lastmod => produit.updated_at
+      add produit_path(produit), 
+        :lastmod => produit.updated_at,
+        :changefreq => 'weekly',
+        :priority => 0.7
     end
 end

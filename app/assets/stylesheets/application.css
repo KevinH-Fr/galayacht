@@ -7,6 +7,8 @@
 * {
 
   font-family: 'Capriola', sans-serif;
+  font-display: swap;
+
  }
  
 
@@ -399,7 +401,7 @@ body {
 
 .btn-reseaux {
   text-decoration: none;
-  color: rgb(57, 57, 60);
+ /* color: rgb(57, 57, 60);
 /*  background-color: rgb(204, 46, 102);*/
   padding: .4em;
   border-radius: .4em;
@@ -535,4 +537,15 @@ body::-moz-scrollbar-thumb {
 
 .btn-text-styled{
   text-transform: uppercase; 
+}
+
+.titre-footer{
+  color: white;
+  text-transform: uppercase;
+  text-decoration: underline 2px;
+
+}
+
+.footer-colored{
+  background-color: #383737;
 }

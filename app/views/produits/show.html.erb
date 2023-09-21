@@ -16,16 +16,18 @@
       <% end %>
     <% else %>
       <% if reservations_existantes(@produit.id) %>
-      <%= button_to archivate_produit_path(@produit), method: :post, class: "btn btn-action btn-outline-dark" do %>
-        <i class="fa-solid fa-box-archive me-2"></i>
-        <span class="fw-bold"> Archiver ce produit </span>
-      <% end %>
-      <% else %>
-        <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger",
-            data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-            <i class="fa-solid fa-trash me-2"></i>
-            <span class="fw-bold"> Supprimer ce produit </span>
+        <%= button_to archivate_produit_path(@produit), method: :post, class: "btn btn-action btn-outline-dark" do %>
+          <i class="fa-solid fa-box-archive me-2"></i>
+          <span class="fw-bold"> Archiver ce produit </span>
         <% end %>
+      <% else %>
+        <div class="container text-center">
+          <%= button_to @produit, method: :delete, class: "btn btn-action btn-outline-danger",
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-trash me-2"></i>
+              <span class="fw-bold"> Supprimer ce produit </span>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
 
