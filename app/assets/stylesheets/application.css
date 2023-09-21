@@ -31,7 +31,7 @@ body {
   /*background-image: url('svg/waves.svg'); */
  }
  
- h1{
+ .h1-styled{
   text-align: center;
   width: 90vw;
   max-width: var(--max-width); 

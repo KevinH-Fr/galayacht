@@ -1,4 +1,10 @@
 
+<h1 style="position: absolute; left: -9999px;"> 
+  Fiche bateau <%= produit_full_name(@produit.id) %>
+  <%= @produit.type_produit if @produit.type_produit %>
+  <%= localisation_port(@produit.destination_id) if @produit.destination_id %>
+</h1>
+
  <%#= produit_full_name(@produit.id) %> 
 <div class="container" style="max-width: 800px;">
 
