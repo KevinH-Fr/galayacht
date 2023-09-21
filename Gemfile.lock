@@ -110,8 +110,6 @@ GEM
     ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    heroku-deflater (0.6.3)
-      rack (>= 1.4.5)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -288,7 +286,6 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  heroku-deflater
   importmap-rails
   jbuilder
   letter_opener
