@@ -20,8 +20,8 @@
 }
 
 .primary-colored:hover {
-  background-color: rgba(255, 255, 255, 0.6);
-  color: var(--primary-color);
+  background-color: rgb(102, 160, 248);
+  color: black;
 }
 
 body {
@@ -281,7 +281,9 @@ body {
 }
 
 .sized-field{
-  min-width: 240px;
+  /*min-width: 270px;*/
+  width: 90%;
+  max-width: 260px;
 }
 
  .width-limited{
@@ -480,29 +482,38 @@ body::-moz-scrollbar-thumb {
   border-radius: 5px;
 }
 
-
 .title-styled{
   color: white; /* var(--primary-color);*/
   font-family: 'Capriola', sans-serif;
   font-weight: bold;
   font-variant: small-caps;
   text-align: center;
-  font-size: 40px;
+  font-size: 35px;
   text-shadow: rgb(0, 0, 0) 4px 4px 14px;
-
 }
 
 .form-container{
+  background: rgba(255, 255, 255, 0.4); 
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px; 
+  
+  height: 50%;
+  min-height: 500px;
 
-    background: rgba(255, 255, 255, 0.4); 
-    border-radius: 20px;
-    margin: 20px;
-    padding: 40px; 
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 70%;
+  min-width: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.form-container:hover {
+  background-color: rgba(252, 252, 252, 0.5);
+  color: black;
+}
+
 
 .video-container {
   position: relative;
@@ -510,7 +521,6 @@ body::-moz-scrollbar-thumb {
   height: 100vh; /* Set the height to full viewport height */
   overflow: hidden;
   border-bottom: solid black 15px;
-
 }
 
 .video-container video {
@@ -545,4 +555,15 @@ body::-moz-scrollbar-thumb {
 
 .footer-colored{
   background-color: #383737;
+}
+
+.form-recherche-input{
+  text-align: center;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.large-btn-sized{
+  width: 90%;
+  max-width: 500px;
 }

@@ -8,16 +8,16 @@
 
 <div class="video-container">
     <video autoplay loop muted playsinline id="video-background">
-        <source src="/videos/sea-waves-mini.mp4" type="video/mp4">
+        <source src="/videos/sea-1-mini.mp4" type="video/mp4">
     </video>
     <span class="d-flex flex-wrap justify-content-center">
     
         <div class="form-container d-block">
-            <h3 class="text-center fw-bold my-2 title-styled">
+            <h3 class="text-center fw-bold mt-4 title-styled">
             Trouvez votre bateau idéal
 
-                <div data-turbo="false"> <%# fait fonctionner le carroussel %>
-                    <%= link_to "Voir tous les bateaux", produits_path, class: "w-100 btn primary-colored fw-bold my-4" %>
+                <div class="" data-turbo="false"> <%# fait fonctionner le carroussel %>
+                    <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-4 large-btn-sized" %>
                 </div>
             </h3>
             <%= render "produits/form_recherche_bateau" %>
@@ -26,20 +26,22 @@
 </div>
 <div class="video-container">
     <video autoplay loop muted playsinline id="video-background">
-        <source src="/videos/motor-boat-mini.mp4" type="video/mp4">
+        <source src="/videos/sea-2-mini.mp4" type="video/mp4">
     </video>
     <span class="d-flex flex-wrap justify-content-center">
         <div class="form-container primary-colored">   
-            <div data-turbo= "false"> <%# fait fonctionner le carroussel %>
+            <div data-turbo="false"> <%# fait fonctionner le carroussel %>
          
                 <%= link_to produits_path, class: "no-underline" do %>
                     <h2 class="title-styled mb-4">Louer un bateau</h2>
                     <p class="mt-2 fs-4 fw-bold text-dark text-center">  
                         Découvrez la sélection Galayacht de bateaux et de destinations
                     </p>
-                    <p class="my-3 btn primary-colored fw-bold w-100 btn-text-styled">
-                        Voir les bateaux
-                    </p>
+
+                <p class="my-3 btn primary-colored fw-bold w-100 btn-text-styled">
+                   Voir les bateaux
+                </p>
+                    
                 <% end %>
             </div>
         </div>
@@ -47,7 +49,7 @@
 </div>
 <div class="video-container">
     <video autoplay loop muted playsinline id="video-background">
-        <source src="/videos/sailing-boat-mini.mp4" type="video/mp4">
+        <source src="/videos/sea-3-mini.mp4" type="video/mp4">
     </video>
     <span class="d-flex flex-wrap justify-content-center">
         <div class="form-container primary-colored">            

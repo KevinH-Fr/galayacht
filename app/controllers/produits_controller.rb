@@ -13,13 +13,13 @@ class ProduitsController < ApplicationController
     if params[:city].present?
       destination = params[:city].titleize
       @produits = Produit.actif.where(destination_id: destination)
-      @pagy, @produits = pagy(@produits, items: 5)
+      @pagy, @produits = pagy(@produits, items: 6)
 
     else
       
       @q = Produit.actif.ransack(params[:q])
       @produits = @q.result(distinct: true).order(created_at: :desc)
-      @pagy, @produits = pagy(@produits, items: 5)
+      @pagy, @produits = pagy(@produits, items: 6)
     end
   end
 

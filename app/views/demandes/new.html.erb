@@ -2,16 +2,25 @@
 <% keywords "Nous contacter, Service client, Réservation de bateau, Demande d'information, Support client, Assistance clientèle, Coordonnées, Questions, Comment nous joindre" %>
 
 
-<h1 class="h1-styled my-2"> Formulaire contact </h1>
 
-<div class="card my-4 p-4 contact-card">  
-
-  <%= render "form", demande: @demande %>
-
+<div class="video-container">
+  <video autoplay loop muted playsinline id="video-background">
+      <source src="/videos/sea-card-mini.mp4" type="video/mp4">
+  </video>
+  <span class="d-flex flex-wrap justify-content-center">
+    <div class="form-container d-inline">
+      <h1 class="my-4"> Formulaire contact </h1>
+      <div class="container text-center" style="max-width: 600px;"> 
+        <%= render "form", demande: @demande %>
+      </div>
+    </div>
+  </span>
 </div>
 
-  <%= render "shared/contacts" %>
 
+<div class="container-fluid p-4 bg-dark">
+  <%= render "shared/contacts" %>
+</div>
 
   <div>
     <%#= link_to "Accueil", root_path %>

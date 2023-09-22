@@ -1,27 +1,32 @@
 
+* {
+  font-family: 'Capriola', sans-serif;
+  font-display: swap;
+ }
+
 h1{
   color:rgb(8, 11, 89);
   text-align: center;
 }
 
 .middled{
-    vertical-align: middle;
-  }
+  vertical-align: middle;
+}
 
-  .centered{
-    text-align: center;
-  }
+.centered{
+  text-align: center;
+}
   
-  .shadowed{
-    border-radius: .2em;
-    box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
-  }
+.shadowed{
+  border-radius: .2em;
+  box-shadow: 2px 3px 4px rgba(165, 163, 163, 0.8);
+}
   
-  .page-break {
-    display: block;
-    clear: both;
-    page-break-after: always;
-  }
+.page-break {
+  display: block;
+  clear: both;
+  page-break-after: always;
+}
   
   .bolded{
     font-weight: bold;
@@ -92,7 +97,6 @@ h1{
     margin-bottom: 40px;
     text-align: center;
     border-radius: 20px;
-
   }
 
 .infos{
