@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
-  
   get 'home/index'
+
+  get "blog/index"
 
   get 'home/mentions_legales'
   get 'home/nous_connaitre'
@@ -69,5 +70,7 @@ Rails.application.routes.draw do
           as: :send_reservation_email_bailleur
     end
   end
+
+
 
 end

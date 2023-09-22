@@ -6,6 +6,10 @@ class HomeController < ApplicationController
     @destinations = Destination.all
   end
 
+  def indextest
+    
+  end
+
   def mentions_legales
   end
 
