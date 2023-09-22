@@ -8,7 +8,7 @@
       <h5 class="card-title"> <%= destination.nom %></h5>
       <p class="card-text">
         <i class="fa fa-location-dot"></i>
-        <%= destination.pays %> | <%= destination.ville %> | <%= destination.port %>
+        <%#= destination.pays %> <%= destination.ville %>  <%#= destination.port %>
       </p>
       <div class="container-fluid text-end">
         <div class="button-container">
@@ -17,10 +17,11 @@
 
             <%= button_to "", @produit, method: :delete, class: "btn btn-action btn-danger fa-solid fa-trash" %>
           <% end %>
-
-          <%= link_to produits_path(city: destination), class: "btn btn-action btn-success" do %>
-            <span class="fw-bold mx-1"> Voir les bateaux </span>
-          <% end %>
+          <div data-turbo="false">
+            <%= link_to produits_path(city: destination), class: "btn btn-action btn-success" do %>
+              <span class="fw-bold mx-1"> Voir les bateaux </span>
+            <% end %>
+          </div>
         </div>
 
       </div>
