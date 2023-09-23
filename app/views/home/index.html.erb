@@ -5,11 +5,13 @@
   Accueil Galayacht - Location bateau Mandelieu - Antibes - Cannes 
 </h1>
 
-
 <div class="video-container">
-    <video autoplay loop muted playsinline id="video-background">
-        <source src="/videos/sea-1-mini.mp4" type="video/mp4">
-    </video>
+    <div data-controller="video">
+        <video loop muted playsinline id="video-background" data-video-target="video">
+            <source src="/videos/sea-1-mini.mp4" type="video/mp4">
+        </video>
+    </div>
+
     <span class="d-flex flex-wrap justify-content-center">
     
         <div class="form-container d-block">
@@ -25,9 +27,11 @@
     </span>
 </div>
 <div class="video-container">
-    <video autoplay loop muted playsinline id="video-background">
-        <source src="/videos/sea-2-mini.mp4" type="video/mp4">
-    </video>
+    <div data-controller="video">
+        <video autoplay loop muted playsinline id="video-background" data-video-target="video">
+            <source src="/videos/sea-2-mini.mp4" type="video/mp4">
+        </video>
+   </div>
     <span class="d-flex flex-wrap justify-content-center">
         <div class="form-container primary-colored">   
             <div data-turbo="false"> <%# fait fonctionner le carroussel %>
@@ -48,9 +52,11 @@
     </span>
 </div>
 <div class="video-container">
-    <video autoplay loop muted playsinline id="video-background">
-        <source src="/videos/sea-3-mini.mp4" type="video/mp4">
-    </video>
+    <div data-controller="video">
+        <video autoplay loop muted playsinline id="video-background" data-video-target="video">
+            <source src="/videos/sea-3-mini.mp4" type="video/mp4">
+        </video>
+    </div>
     <span class="d-flex flex-wrap justify-content-center">
         <div class="form-container primary-colored">            
             <%= link_to espace_bailleur_index_path, class: "no-underline " do %>
@@ -65,5 +71,6 @@
         </div>
     </span>
 </div>
+
 
 
