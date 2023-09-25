@@ -19,6 +19,13 @@
             <%= link_to "Louer un bateau", produits_path, class: "nav-link" %>
           </div>
         </li>
+
+        <li class="nav-item">
+          <div data-turbo= "false">
+            <%= link_to "Acheter un bateau", produits_path(type: "vente"), class: "nav-link" %>
+          </div>
+        </li>
+
         <li class="nav-item">
           <%= link_to "Proposer mon bateau", espace_bailleur_index_path, class: "nav-link" %>
         </li>

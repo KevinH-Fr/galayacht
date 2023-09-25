@@ -8,16 +8,27 @@ class ProduitsController < ApplicationController
   def index
     @destinations = Destination.all
 
-    @q = Produit.actif.ransack(params[:q])
+    @type_filter = params[:type]
+
+    if @type_filter == "location"
+      @q = Produit.actif.location.ransack(params[:q])
+
+    elsif @type_filter == "vente"
+      @q = Produit.actif.vente.ransack(params[:q])
+
+    else
+      @q = Produit.actif.ransack(params[:q])
+
+    end
+
 
     if params[:city].present?
       destination = params[:city].titleize
-      @produits = Produit.actif.where(destination_id: destination)
+      @produits = @q.where(destination_id: destination)
       @pagy, @produits = pagy(@produits, items: 6)
 
     else
-      
-      @q = Produit.actif.ransack(params[:q])
+     # @q = Produit.actif.ransack(params[:q])
       @produits = @q.result(distinct: true).order(created_at: :desc)
       @pagy, @produits = pagy(@produits, items: 6)
     end
@@ -206,6 +217,7 @@ class ProduitsController < ApplicationController
 
     def produit_params
       params.require(:produit).permit(:nom, :type_produit, :longueur, :largeur, :marque, :model, :nb_cabines,
+          :location, :vente, :prixventenv, :prixventefai,
           :prixjour, :prixsemaine, :prixjour_hautesaison, :prixsemaine_hautesaison, :bailleur_id,
           :country, :state, :city, :capacite, :capitaine, :destination_id, :toys,
           :tirant, :members, :annee, :pavillon, :moteur, :vitesse, :consommation, :archive,

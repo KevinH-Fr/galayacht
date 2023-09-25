@@ -55,7 +55,12 @@
       
         <i class="fa fa-money-bill me-2"></i>
         Jour à partir de: <%= number_to_currency(produit.prixjour, precision: 0, locale: :fr)  %> - 
-        Semaine à partir de: <%= number_to_currency(produit.prixsemaine, precision: 0, locale: :fr) %> <br> <hr>
+        Semaine à partir de: <%= number_to_currency(produit.prixsemaine, precision: 0, locale: :fr) %> -
+
+        <% if produit.vente %>
+          Vente: <%= number_to_currency(produit.prixventefai, precision: 0, locale: :fr) %> 
+        <% end %>
+        <br> <hr>
 
         <i class="fa fa-location-dot me-2"></i>
         <%= localisation_port(produit.destination_id) if produit.destination_id.present? %>
