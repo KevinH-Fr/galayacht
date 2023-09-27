@@ -8,35 +8,28 @@ class ProduitsController < ApplicationController
   def index
     @destinations = Destination.all
 
-    @type_filter = params[:type]
-
-    if @type_filter == "location"
-      @q = Produit.actif.location.ransack(params[:q])
-
-    elsif @type_filter == "vente"
-      @q = Produit.actif.vente.ransack(params[:q])
-
+    if current_user && user_admin 
+      @q = Produit.ransack(params[:q])
     else
       @q = Produit.actif.ransack(params[:q])
-
     end
 
+    @produits = @q.result(distinct: true)
+    @pagy, @produits = pagy(@produits, items: 6)
 
-    if params[:city].present?
-      destination = params[:city].titleize
-      @produits = @q.where(destination_id: destination)
-      @pagy, @produits = pagy(@produits, items: 6)
+ #   if params[:city].present?
+ #     destination = params[:city].titleize
+ #     @produits = @q.where(destination_id: destination)
+ #     @pagy, @produits = pagy(@produits, items: 6)
 
-    else
-     # @q = Produit.actif.ransack(params[:q])
-      @produits = @q.result(distinct: true).order(created_at: :desc)
-      @pagy, @produits = pagy(@produits, items: 6)
-    end
+ #   else
+ #     @produits = @q.result(distinct: true).order(created_at: :desc)
+ #     @pagy, @produits = pagy(@produits, items: 6)
+ #   end
   end
 
   def archive
     @produits = Produit.archive
-
   end
 
   def activate
@@ -68,9 +61,7 @@ class ProduitsController < ApplicationController
     @produit = Produit.new  
     @destinations = Destination.all
     @bailleurs = Bailleur.all
-
    # @occupation = @produit.occupations.build 
-
   end
 
   def edit
@@ -124,7 +115,6 @@ class ProduitsController < ApplicationController
     @produit = Produit.new(produit_params)
     @destinations = Destination.all
 
-
     respond_to do |format|
       if @produit.save
         flash.now[:success] = "produit was successfully created"
@@ -137,12 +127,9 @@ class ProduitsController < ApplicationController
         #      locals: {produit: @produit }), 
         #      turbo_stream.update("flash", partial: "layouts/flash"),     
         #    ]
-        #end
-       
-  
+        #end  
         format.html { redirect_to produit_url(@produit) }
-     
-
+    
       else
         flash.now[:error] = "erreur - le produit n'a pas été ajouté"
        # format.turbo_stream do

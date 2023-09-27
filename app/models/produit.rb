@@ -23,16 +23,17 @@ class Produit < ApplicationRecord
   has_many :reservations
 
   enum bateau_type: [:moteur, :voilier]
+  enum type_offre: [:location, :vente]
 
   scope :actif, -> { where(archive: [false, nil]) }
   scope :archive, -> { where(archive: true) }
 
-  scope :vente, -> {where(vente: true)}
-  scope :location, -> {where(location: true)}
+  scope :vente, -> { where(vente: true) }
+  scope :location, -> { where(location: true) }
 
   def self.ransackable_attributes(auth_object = nil)
     ["bailleur_id", "city", "country", "created_at", "id", "largeur", "longueur", "marque", "model", 
-      "nom", "prixjour", "prixsemaine", "state", "type_produit", "updated_at", "destination_id"]
+      "nom", "prixjour", "prixsemaine", "state", "type_produit", "updated_at", "destination_id", "location", "vente"]
   end
 
   def self.ransackable_associations(*)
