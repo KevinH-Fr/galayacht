@@ -1,0 +1,143 @@
+<div class="video-container position-relative">
+    <div data-controller="video">
+        <video autoplay loop muted playsinline
+           src="https://res.cloudinary.com/dukne3lhz/video/upload/v1695915771/pexels-abe-bagyan-9454551_Original_cemcma.mov" 
+           type="video/mp4" id="video-background" data-video-target="video">
+        </video>
+    </div>
+
+    <div class="text-container position-absolute bottom-0 w-100 px-4">
+        <h2 class="title-styled mb-4 text-start">
+            Retrouvez les bateaux et services proposés par GALAYACHT
+        <div>
+            <%= link_to "Voir tous les bateaux", produits_path, class: "btn btn-light fw-bold my-2 px-5" %>
+        </div>
+        </h2>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-md-2">
+
+    <div class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to produits_path(q: { location_eq: true }) do %>
+            <%= image_tag("/images/cannes.webp", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> LOUER UN BATEAU</div>
+                <div class="sous-titre-topic"> Note sélection de bateaux disponibles à la location</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized"> Voir les locations</div>
+            </div>
+        <% end %>
+    </div>
+    <div class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to produits_path(q: { vente_eq: true }) do %>
+            <%= image_tag("/images/corse.webp", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> ACHETER UN BATEAU</div>
+                <div class="sous-titre-topic"> Note sélection de bateaux disponibles à la vente</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized"> Voir les ventes</div>
+            </div>
+        <% end %>
+    </div>
+    <div class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to evenement_index_path do %>
+            <%= image_tag("/images/corse.webp", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> EVENEMENTS NAUTIQUES</div>
+                <div class="sous-titre-topic"> Toutes les informations sur l'organisation de journée/séjour personnels ou professionnels</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized"> En savoir plus</div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to destinations_path do %>
+            <%= image_tag("/images/motor-boat.webp", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> DESTINATIONS</div>
+                <div class="sous-titre-topic"> Notre sélection de destinations et villes de départ</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized"> Découvrir les destinations</div>
+            </div>
+        <% end %>
+    </div>
+
+  </div>
+</div>
+
+
+
+<style>
+  .border-black {
+    border: 5px solid black;
+  }
+  .sous-titre-topic{
+    font-size: x-small;
+  }
+  .text-medium-sized{
+    font-size: x-small;
+  }
+
+
+.bloc-topic{
+     overflow: hidden; /* Prevent child elements from going outside the div */
+
+}
+
+
+.bloc-topic img {
+  transition: filter 0.3s ease; /* Apply filter transition for the image */
+}
+
+/* Apply grayscale filter on image when hovering */
+.bloc-topic:hover img {
+  filter: brightness(40%); /* Adjust the percentage to control darkness (e.g., 70% makes it darker) */
+  transform: scale(1.1); /* Adjust the scale factor for zooming in (1.1 for 10% zoom) */
+  transition: 0.6s ease; /* Add a transition for a smooth effect */
+
+}
+
+/* Change the vertical position of text on hover */
+.bloc-topic .position-absolute {
+  transform: translateY(0%); /* Adjust the percentage to control the vertical position */
+  transition: 0.6s ease-in-out; /* Add a transition for a smooth effect */
+}
+
+/* Reset the vertical position on hover */
+.bloc-topic:hover .position-absolute {
+  transform: translateY(-20%); /* Adjust if needed */
+
+}
+
+/* Increase text size on hover */
+.bloc-topic:hover .text-medium-sized {
+  transition: 0.5s ease-in-out; /* Add a transition for a smooth effect */
+  font-size: 20px; /* Set the larger font size for hover state */
+}
+
+
+
+</style>
+
+
+
+<%# construire un tableau avec 6 blocs: 
+    - louer un bateau 
+    - acheter un bateau 
+    - evenements nautiques
+    - proposer un bateau 
+    - destinations 
+    - contact 
+
+
+    blocs designs et format responsives : 
+        col 2 sur large et 1 sur small 
+        leger trait noir pour séparation
+        image de fond et text en blanc en bottom 
+
+        reprendre ici et voir comment gérer une animation au survol :
+        survol souris animation, affichage text en plus et btn, voir sur mobile 
+
+
+%>

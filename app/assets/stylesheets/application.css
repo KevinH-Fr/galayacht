@@ -41,6 +41,7 @@ body {
 
  .navbar{
     background-color: var(--primary-color);   
+    
     box-shadow:  5px 5px 10px #383737,
       -5px -10px 0px #ffffff;
  }

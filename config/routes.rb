@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'evenement/index'
   
   get 'home/index'
+  get 'home/indexdesign2'
+
 
   get "blog/index"
 

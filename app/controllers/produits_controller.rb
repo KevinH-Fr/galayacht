@@ -14,18 +14,26 @@ class ProduitsController < ApplicationController
       @q = Produit.actif.ransack(params[:q])
     end
 
+    # get filters for locaiton or vente
+
+    if params[:q]
+      location_value = params[:q][:location_eq]     
+      @checked_location = location_value == "1" || location_value == "true"
+      
+      vente_value = params[:q][:vente_eq]     
+      @checked_vente = vente_value == "1" || vente_value == "true"
+    end
+    
+
     @produits = @q.result(distinct: true)
     @pagy, @produits = pagy(@produits, items: 6)
 
- #   if params[:city].present?
- #     destination = params[:city].titleize
- #     @produits = @q.where(destination_id: destination)
- #     @pagy, @produits = pagy(@produits, items: 6)
+    if params[:city].present?
+      destination = params[:city].titleize
+      @produits = Produit.actif.where(destination_id: destination)
+      @pagy, @produits = pagy(@produits, items: 6)
 
- #   else
- #     @produits = @q.result(distinct: true).order(created_at: :desc)
- #     @pagy, @produits = pagy(@produits, items: 6)
- #   end
+    end
   end
 
   def archive

@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @destinations = Destination.all
   end
 
-  def indextest
+  def indexdesign2
     
   end
 
