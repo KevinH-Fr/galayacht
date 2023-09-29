@@ -9,7 +9,7 @@
     <div class="text-container position-absolute bottom-0 w-100 px-4">
         <h2 class="title-styled mb-4 text-start">
             Retrouvez les bateaux et services proposés par GALAYACHT
-        <div>
+        <div data-turbo="false"> <%# fait fonctionner le carroussel %>
             <%= link_to "Voir tous les bateaux", produits_path, class: "btn btn-light fw-bold my-2 px-5" %>
         </div>
         </h2>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="container-fluid bg-black overflow-hidden">
-  <div class="row row-cols-1 row-cols-md-2">
+  <div data-turbo="false" class="row row-cols-1 row-cols-md-2">
 
     <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to produits_path(q: { location_eq: true }) do %>
