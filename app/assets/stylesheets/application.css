@@ -519,9 +519,9 @@ body::-moz-scrollbar-thumb {
 .video-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* Set the height to full viewport height */
+  height: 95vh; /* Set the height to full viewport height */
   overflow: hidden;
-  border-bottom: solid black 15px;
+  border-bottom: solid black 5px;
 }
 
 .video-container video {
@@ -567,4 +567,81 @@ body::-moz-scrollbar-thumb {
 .large-btn-sized{
   width: 90%;
   max-width: 500px;
+}
+
+
+
+.border-black {
+  border: 5px solid black;
+}
+.sous-titre-topic{
+  font-size: x-small;
+}
+.text-medium-sized{
+  font-size: x-small;
+}
+
+.bloc-topic{
+  overflow: hidden; /* Prevent child elements from going outside the div */
+}
+
+.bloc-topic img {
+  transition: filter 0.3s ease; /* Apply filter transition for the image */
+}
+
+/* Apply grayscale filter on image when hovering */
+.bloc-topic:hover img {
+  filter: brightness(40%); /* Adjust the percentage to control darkness (e.g., 70% makes it darker) */
+  transform: scale(1.1); /* Adjust the scale factor for zooming in (1.1 for 10% zoom) */
+  transition: 0.6s ease; /* Add a transition for a smooth effect */
+
+}
+
+/* Change the vertical position of text on hover */
+.bloc-topic .position-absolute {
+transform: translateY(0%); /* Adjust the percentage to control the vertical position */
+transition: 0.6s ease-in-out; /* Add a transition for a smooth effect */
+}
+
+/* Reset the vertical position on hover */
+.bloc-topic:hover .position-absolute {
+transform: translateY(-20%); /* Adjust if needed */
+
+}
+
+/* Increase text size on hover */
+.bloc-topic:hover .text-medium-sized {
+transition: 0.5s ease-in-out; /* Add a transition for a smooth effect */
+font-size: 20px; /* Set the larger font size for hover state */
+}
+
+/* Apply the grayscale filter and zoom effect on tap for mobile devices */
+.bloc-topic img:active {
+  filter: brightness(40%); /* Adjust the percentage to control darkness */
+  transform: scale(1.1); /* Adjust the scale factor for zooming in */
+  transition: 0.6s ease;
+}
+
+/* Change the vertical position of text on tap for mobile devices */
+.bloc-topic img:active + .position-absolute {
+  transform: translateY(-20%); /* Adjust if needed */
+  transition: 0.6s ease-in-out;
+}
+
+/* Increase text size on tap for mobile devices */
+.bloc-topic img:active + .position-absolute + .text-medium-sized {
+  transition: 0.5s ease-in-out;
+  font-size: 20px; /* Set the larger font size for active state */
+}
+
+/* Use a media query to apply desktop styles only on screens wider than a certain width (e.g., 768px) */
+@media (min-width: 769px) {
+  /* Reset mobile-specific styles for desktop */
+  .bloc-topic img:active,
+  .bloc-topic img:active + .position-absolute,
+  .bloc-topic img:active + .position-absolute + .text-medium-sized {
+    filter: none;
+    transform: none;
+    transition: none;
+  }
 }

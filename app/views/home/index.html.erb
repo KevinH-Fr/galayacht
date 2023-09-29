@@ -1,90 +1,97 @@
-<% description "Bienvenue chez Galayacht. Solution facile pour louer un bateau ou un yacht et plus à Cannes, Mandelieu, Antibes." %>
-<% keywords "Antibes, location de bateau, louer yacht, louer bateau, location bateau cote azur, louer bateau mandelieu" %>
-
-<h1 style="position: absolute; left: -9999px;"> 
-  Accueil Galayacht - Location bateau Mandelieu - Antibes - Cannes 
-</h1>
-
-<div class="video-container">
+<div class="video-container position-relative">
     <div data-controller="video">
-        <!--video loop muted playsinline id="video-background" data-video-target="video">
-            <source src="/videos/sea-1-mini.mp4" type="video/mp4">
-        </video-->
-    
         <video autoplay loop muted playsinline
-           src="https://res.cloudinary.com/dukne3lhz/video/upload/v1695539896/sea-1-mini-muted_j4q1xp.mp4" 
-           type="video/mp4" id="video-background" data-video-target="video" > 
+           src="https://res.cloudinary.com/dukne3lhz/video/upload/v1695915771/pexels-abe-bagyan-9454551_Original_cemcma.mov" 
+           type="video/mp4" id="video-background" data-video-target="video">
         </video>
     </div>
 
-    <span class="d-flex flex-wrap justify-content-center">
-    
-        <div class="form-container d-block">
-            <h3 class="text-center fw-bold mt-4 title-styled">
-            Trouvez votre bateau idéal
-
-                <div class="" data-turbo="false"> <%# fait fonctionner le carroussel %>
-                    <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-4 large-btn-sized" %>
-                </div>
-            </h3>
-            <%= render "produits/form_recherche_bateau" %>
+    <div class="text-container position-absolute bottom-0 w-100 px-4">
+        <h2 class="title-styled mb-4 text-start">
+            Retrouvez les bateaux et services proposés par GALAYACHT
+        <div>
+            <%= link_to "Voir tous les bateaux", produits_path, class: "btn btn-light fw-bold my-2 px-5" %>
         </div>
-    </span>
+        </h2>
+    </div>
 </div>
-<div class="video-container">
-    <div data-controller="video">
-        <!--video autoplay loop muted playsinline id="video-background" data-video-target="video">
-            <source src="/videos/sea-2-mini.mp4" type="video/mp4">
-        </video-->
-        <video autoplay loop muted playsinline
-           src="https://res.cloudinary.com/dukne3lhz/video/upload/v1695539897/sea-2-mini-muted_ebt3lv.mp4" 
-           type="video/mp4" id="video-background" data-video-target="video" > 
-        </video>
-   </div>
-    <span class="d-flex flex-wrap justify-content-center">
-        <div class="form-container primary-colored">   
-            <div data-turbo="false"> <%# fait fonctionner le carroussel %>
-         
-                <%= link_to produits_path, class: "no-underline" do %>
-                    <h2 class="title-styled mb-4">Louer un bateau</h2>
-                    <p class="mt-2 fs-4 fw-bold text-dark text-center">  
-                        Découvrez la sélection Galayacht de bateaux et de destinations
-                    </p>
 
-                <p class="my-3 btn primary-colored fw-bold w-100 btn-text-styled">
-                   Voir les bateaux
-                </p>
-                    
-                <% end %>
+
+
+<div class="container-fluid bg-black overflow-hidden">
+  <div class="row row-cols-1 row-cols-md-2">
+
+    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to produits_path(q: { location_eq: true }) do %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695991099/boat2_gc8s9y.jpg", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> LOUER UN BATEAU</div>
+                <div class="sous-titre-topic"> Note sélection de bateaux disponibles à la location</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized"> Voir les locations</div>
             </div>
-        </div>
-    </span>
-</div>
-<div class="video-container">
-    <div data-controller="video">
-        <!--video autoplay loop muted playsinline id="video-background" data-video-target="video">
-            <source src="/videos/sea-3-mini.mp4" type="video/mp4">
-        </video-->
-
-        <video autoplay loop muted playsinline
-           src="https://res.cloudinary.com/dukne3lhz/video/upload/v1695539897/sea-3-mini-muted_gbyxjl.mp4" 
-           type="video/mp4" id="video-background" data-video-target="video" > 
-        </video>
+        <% end %>
     </div>
-    <span class="d-flex flex-wrap justify-content-center">
-        <div class="form-container primary-colored">            
-            <%= link_to espace_bailleur_index_path, class: "no-underline " do %>
-                <h2 class="title-styled mb-4">Proposer un bateau</h2>
-                <p class="mt-2 fs-4 fw-bold text-dark text-center">  
-                    Retrouvez nos outils pour proposer votre bateau à la location
-                </p>
-                <p class="my-3 btn primary-colored fw-bold w-100 btn-text-styled">
-                    En savoir plus
-                </p>
-            <% end %>
-        </div>
-    </span>
+    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to produits_path(q: { vente_eq: true }) do %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695990704/boat3_brpy8n.jpg", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> ACHETER UN BATEAU</div>
+                <div class="sous-titre-topic"> Note sélection de bateaux disponibles à la vente</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized"> Voir les ventes</div>
+            </div>
+        <% end %>
+    </div>
+    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to evenement_index_path do %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695991484/boat7_fntxhy.jpg", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> EVENEMENTS NAUTIQUES</div>
+                <div class="sous-titre-topic"> Toutes les informations sur l'organisation de journées et séjours personnels ou professionnels</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized"> En savoir plus</div>
+            </div>
+        <% end %>
+    </div>
+
+    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to destinations_path do %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695991483/boat-port_ken1ma.jpg", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> DESTINATIONS</div>
+                <div class="sous-titre-topic"> Notre sélection de destinations et villes de départ</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized"> Découvrir les destinations</div>
+            </div>
+        <% end %>
+    </div>
+
+    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+        <%= link_to espace_bailleur_index_path do %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695991482/boat8_qlab3g.jpg", class: "img-fluid w-100 h-100") %>
+            <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+                <div class="fs-5 fw-bold"> PROPOSER UN BATEAU</div>
+                <div class="sous-titre-topic"> Retrouvez nos outils pour proposer votre bateau à la location ou à la vente</div>
+                <div class="btn btn-sm btn-light my-2 text-medium-sized">  En savoir plus</div>
+            </div>
+        <% end %>
+    </div>
+
+    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+      <%= link_to new_demande_path do %>
+          <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695992293/boat-contact_yb726d.jpg", class: "img-fluid w-100 h-100") %>
+          <div class="position-absolute bottom-0 start-0 end-0 text-center text-white py-2">
+              <div class="fs-5 fw-bold"> CONTACT</div>
+              <div class="sous-titre-topic"> Contactez nous directement ou laisser nous un message</div>
+              <div class="btn btn-sm btn-light my-2 text-medium-sized"> Contact </div>
+          </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>
 
+
+
+<style>
+
+</style>
 
 

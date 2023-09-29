@@ -1,13 +1,12 @@
 class HomeController < ApplicationController
   
-  def index
-    @q = Produit.ransack(params[:q])
-    @produits = @q.result(distinct: true)
-    @destinations = Destination.all
-  end
+ # def index
+ #   @q = Produit.ransack(params[:q])
+ #   @produits = @q.result(distinct: true)
+ #   @destinations = Destination.all
+ # end
 
-  def indexdesign2
-    
+  def index  
   end
 
   def mentions_legales

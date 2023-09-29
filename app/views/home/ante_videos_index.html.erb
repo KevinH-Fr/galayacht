@@ -1,0 +1,90 @@
+<% description "Bienvenue chez Galayacht. Solution facile pour louer un bateau ou un yacht et plus à Cannes, Mandelieu, Antibes." %>
+<% keywords "Antibes, location de bateau, louer yacht, louer bateau, location bateau cote azur, louer bateau mandelieu" %>
+
+<h1 style="position: absolute; left: -9999px;"> 
+  Accueil Galayacht - Location bateau Mandelieu - Antibes - Cannes 
+</h1>
+
+<div class="video-container">
+    <div data-controller="video">
+        <!--video loop muted playsinline id="video-background" data-video-target="video">
+            <source src="/videos/sea-1-mini.mp4" type="video/mp4">
+        </video-->
+    
+        <video autoplay loop muted playsinline
+           src="https://res.cloudinary.com/dukne3lhz/video/upload/v1695539896/sea-1-mini-muted_j4q1xp.mp4" 
+           type="video/mp4" id="video-background" data-video-target="video" > 
+        </video>
+    </div>
+
+    <span class="d-flex flex-wrap justify-content-center">
+    
+        <div class="form-container d-block">
+            <h3 class="text-center fw-bold mt-4 title-styled">
+            Trouvez votre bateau idéal
+
+                <div class="" data-turbo="false"> <%# fait fonctionner le carroussel %>
+                    <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-4 large-btn-sized" %>
+                </div>
+            </h3>
+            <%= render "produits/form_recherche_bateau" %>
+        </div>
+    </span>
+</div>
+<div class="video-container">
+    <div data-controller="video">
+        <!--video autoplay loop muted playsinline id="video-background" data-video-target="video">
+            <source src="/videos/sea-2-mini.mp4" type="video/mp4">
+        </video-->
+        <video autoplay loop muted playsinline
+           src="https://res.cloudinary.com/dukne3lhz/video/upload/v1695539897/sea-2-mini-muted_ebt3lv.mp4" 
+           type="video/mp4" id="video-background" data-video-target="video" > 
+        </video>
+   </div>
+    <span class="d-flex flex-wrap justify-content-center">
+        <div class="form-container primary-colored">   
+            <div data-turbo="false"> <%# fait fonctionner le carroussel %>
+         
+                <%= link_to produits_path, class: "no-underline" do %>
+                    <h2 class="title-styled mb-4">Louer un bateau</h2>
+                    <p class="mt-2 fs-4 fw-bold text-dark text-center">  
+                        Découvrez la sélection Galayacht de bateaux et de destinations
+                    </p>
+
+                <p class="my-3 btn primary-colored fw-bold w-100 btn-text-styled">
+                   Voir les bateaux
+                </p>
+                    
+                <% end %>
+            </div>
+        </div>
+    </span>
+</div>
+<div class="video-container">
+    <div data-controller="video">
+        <!--video autoplay loop muted playsinline id="video-background" data-video-target="video">
+            <source src="/videos/sea-3-mini.mp4" type="video/mp4">
+        </video-->
+
+        <video autoplay loop muted playsinline
+           src="https://res.cloudinary.com/dukne3lhz/video/upload/v1695539897/sea-3-mini-muted_gbyxjl.mp4" 
+           type="video/mp4" id="video-background" data-video-target="video" > 
+        </video>
+    </div>
+    <span class="d-flex flex-wrap justify-content-center">
+        <div class="form-container primary-colored">            
+            <%= link_to espace_bailleur_index_path, class: "no-underline " do %>
+                <h2 class="title-styled mb-4">Proposer un bateau</h2>
+                <p class="mt-2 fs-4 fw-bold text-dark text-center">  
+                    Retrouvez nos outils pour proposer votre bateau à la location
+                </p>
+                <p class="my-3 btn primary-colored fw-bold w-100 btn-text-styled">
+                    En savoir plus
+                </p>
+            <% end %>
+        </div>
+    </span>
+</div>
+
+
+
