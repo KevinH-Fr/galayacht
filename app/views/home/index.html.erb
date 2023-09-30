@@ -19,7 +19,7 @@
 <div class="container-fluid bg-black overflow-hidden">
   <div data-turbo="false" class="row row-cols-1 row-cols-md-2">
 
-    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+    <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to produits_path(q: { location_eq: true }) do %>
             <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993409/boat2_og5ivm.webp", class: "img-fluid w-100 h-100") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
@@ -29,7 +29,7 @@
             </div>
         <% end %>
     </div>
-    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+    <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to produits_path(q: { vente_eq: true }) do %>
             <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993411/boat8_oztelv.webp", class: "img-fluid w-100 h-100") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
@@ -40,7 +40,7 @@
         <% end %>
     </div>
     
-    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+    <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to evenement_index_path do %>
             <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993414/boat7_f61sxa.webp", class: "img-fluid w-100 h-100") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
@@ -51,7 +51,7 @@
         <% end %>
     </div>
 
-    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+    <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to destinations_path do %>
             <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993412/boat-port_bbsvxg.webp", class: "img-fluid w-100 h-100") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
@@ -62,7 +62,7 @@
         <% end %>
     </div>
 
-    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+    <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to espace_bailleur_index_path do %>
             <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993785/boat9_t0prtt.webp", class: "img-fluid w-100 h-100") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
@@ -73,7 +73,7 @@
         <% end %>
     </div>
 
-    <div data-aos="zoom-in-up" class="col border-black p-0 position-relative bloc-topic">
+    <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
       <%= link_to new_demande_path do %>
           <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993413/boat-contact_itqpgo.webp", class: "img-fluid w-100 h-100") %>
           <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
@@ -86,11 +86,3 @@
 
   </div>
 </div>
-
-
-
-<style>
-
-</style>
-
-
