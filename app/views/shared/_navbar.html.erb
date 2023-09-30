@@ -2,8 +2,8 @@
   <div class="container-fluid">
 
     <%= link_to root_path, class: "no-underline middled" do %>
-      <%= image_tag("galayacht-logo.webp", alt: "Logo", width: 30, height: 30, class: "rounded d-inline-block align-text-top") %>
-      <span class="navbar-brand brand mx-4 fw-bold"> GALAYACHT </span>
+      <%= image_tag("galayacht-logo.webp", alt: "Logo", width: 25, height: 25, class: "rounded d-inline-block align-text-top") %>
+      <span class="navbar-brand mx-2 fw-bold"> GALAYACHT </span>
     <% end %>
    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +29,11 @@
         <li class="nav-item">
           <%= link_to "Proposer mon bateau", espace_bailleur_index_path, class: "nav-link" %>
         </li>
+
+        <li class="nav-item">
+            <%= link_to "Evénements nautiques", evenement_index_path, class: "nav-link" %>
+        </li>
+
 <%
 =begin%>
          <li class="nav-item">
