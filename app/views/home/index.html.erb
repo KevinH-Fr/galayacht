@@ -7,12 +7,12 @@
     </div>
 
     <div class="text-container position-absolute bottom-0 w-100 px-4">
-        <h2 class="title-styled mb-4 text-start">
+        <h1 class="title-styled mb-4 text-start">
             Retrouvez les bateaux et services proposés par GALAYACHT
-        <div data-turbo="false"> <%# fait fonctionner le carroussel %>
-            <%= link_to "Voir tous les bateaux", produits_path, class: "btn btn-light fw-bold my-2 px-5" %>
-        </div>
-        </h2>
+            <div data-turbo="false"> <%# fait fonctionner le carroussel %>
+                <%= link_to "Voir tous les bateaux", produits_path, class: "btn btn-light fw-bold my-2 px-5" %>
+            </div>
+        </h1>
     </div>
 </div>
 
@@ -21,7 +21,9 @@
 
     <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to produits_path(q: { location_eq: true }) do %>
-            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993409/boat2_og5ivm.webp", class: "img-fluid w-100 h-100") %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993409/boat2_og5ivm.webp", 
+                class: "img-fluid w-100 h-100",
+                alt: "Voilier sur une mer calme") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
                 <div class="fs-5 fw-bold"> LOUER UN BATEAU</div>
                 <div class="sous-titre-topic"> Note sélection de bateaux disponibles à la location</div>
@@ -31,7 +33,9 @@
     </div>
     <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to produits_path(q: { vente_eq: true }) do %>
-            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993411/boat8_oztelv.webp", class: "img-fluid w-100 h-100") %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993411/boat8_oztelv.webp", 
+                class: "img-fluid w-100 h-100",
+                alt: "bateau à moteur proche de la côte") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
                 <div class="fs-5 fw-bold"> ACHETER UN BATEAU</div>
                 <div class="sous-titre-topic"> Note sélection de bateaux disponibles à la vente</div>
@@ -42,7 +46,9 @@
     
     <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to evenement_index_path do %>
-            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993414/boat7_f61sxa.webp", class: "img-fluid w-100 h-100") %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993414/boat7_f61sxa.webp", 
+                class: "img-fluid w-100 h-100",
+                alt: "groupe de personnes qui passe un moment agréable sur un bateau") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
                 <div class="fs-5 fw-bold"> EVENEMENTS NAUTIQUES</div>
                 <div class="sous-titre-topic"> Toutes les informations sur l'organisation de journées et séjours personnels ou professionnels</div>
@@ -53,7 +59,9 @@
 
     <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to destinations_path do %>
-            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993412/boat-port_bbsvxg.webp", class: "img-fluid w-100 h-100") %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993412/boat-port_bbsvxg.webp", 
+                class: "img-fluid w-100 h-100",
+                alt: "bateaux vus depuis un port") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
                 <div class="fs-5 fw-bold"> DESTINATIONS</div>
                 <div class="sous-titre-topic"> Notre sélection de destinations et villes de départ</div>
@@ -64,7 +72,9 @@
 
     <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
         <%= link_to espace_bailleur_index_path do %>
-            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993785/boat9_t0prtt.webp", class: "img-fluid w-100 h-100") %>
+            <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993785/boat9_t0prtt.webp", 
+                class: "img-fluid w-100 h-100",
+                alt: "bateau à moteur dans une crique") %>
             <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
                 <div class="fs-5 fw-bold"> PROPOSER UN BATEAU</div>
                 <div class="sous-titre-topic"> Retrouvez nos outils pour proposer votre bateau à la location ou à la vente</div>
@@ -75,7 +85,9 @@
 
     <div data-aos="zoom-in" class="col border-black p-0 position-relative bloc-topic">
       <%= link_to new_demande_path do %>
-          <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993413/boat-contact_itqpgo.webp", class: "img-fluid w-100 h-100") %>
+          <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1695993413/boat-contact_itqpgo.webp", 
+              class: "img-fluid w-100 h-100",
+              alt: "bateau origami") %>
           <div class="position-absolute bottom-0 start-0 end-0 text-start text-white p-2">
               <div class="fs-5 fw-bold"> CONTACT</div>
               <div class="sous-titre-topic"> Contactez nous directement ou laisser nous un message</div>
