@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
 
 
-  #hypens pour seo
-  # attention verifier si bonne pratique deux liens vers meme action, url canonical etc ?
+  #hypens pour seo - link canonical dans layout 
   get 'location-bateau-cannes', to: 'article#location_bateau_cannes'
   get 'louer-bateau-cannes', to: 'article#location_bateau_cannes'
-
   #get 'article/location_bateau_cannes'
 
+  get 'location-bateau-mandelieu', to: 'article#location_bateau_mandelieu'
+  get 'louer-bateau-mandelieu', to: 'article#location_bateau_mandelieu'
+
+  get 'location-bateau-antibes', to: 'article#location_bateau_antibes'
+  get 'louer-bateau-antibes', to: 'article#location_bateau_antibes'
+  
+  get 'evenement-nautique-cote-d-azur-cannes-antibes-mandelieu', to: 'article#organisation_evenements'
+  get 'sejour-en-mer-cote-d-azur-cannes-antibes-mandelieu-', to: 'article#organisation_evenements'
+  get 'journee-en-bateau-cote-d-azur-cannes-antibes-mandelieu-', to: 'article#organisation_evenements'
+
+  
   get 'evenement/index'
   
   get 'home/index'

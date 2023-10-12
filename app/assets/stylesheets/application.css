@@ -478,7 +478,7 @@ body {
 
 /* For Webkit based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 10px; /* Set the width of the scrollbar */
+  width: 7px; /* Set the width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -486,7 +486,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888; /* Set the color of the scrollbar thumb */
+  background-color: #010c48; /* Set the color of the scrollbar thumb */
   border-radius: 5px; /* Add rounded corners to the thumb */
 }
 

@@ -1,0 +1,76 @@
+
+<br><br>
+<h2 class="text-center fw-bold mt-5">LOCATION DE BATEAUX A ANTIBES</h2>
+
+<div class="d-flex p-4 my-2">
+
+    <div class="card p-2 mb-3 max-widthed">
+        <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1697129299/pexels-yaroslav-shuraev-8918072_nv00hn.webp", 
+                class: "img-fluid w-100 h-100 card-img-top",
+                alt:"bateau loué à Antibes") %>
+        <div class="card-body">
+        <h2 class="card-title">Découvrez la Location de Bateaux et Yachts à Antibes avec Galayacht</h2>
+                                
+        <p class="card-text">
+            <p> 
+                <strong> Naviguez à Antibes avec Galayacht - Location de Bateaux et Yachts </strong> <br>
+                La Côte d'Azur, un rêve méditerranéen, est l'endroit idéal pour vivre une expérience maritime extraordinaire. Galayacht, un acteur majeur de la location de bateaux et de yachts à Antibes et sur la Côte d'Azur, concrétise vos rêves en mer.
+            </p>
+            <p>
+                <strong> Explorez les Trésors de la Côte d'Azur </strong> <br>
+                La Côte d'Azur, située au sud de la France, est une destination de premier choix. Ses eaux d'un bleu turquoise, ses villes emblématiques telles qu'Antibes, Cannes, Nice et Monaco, ainsi que ses îles paradisiaques, en font l'une des régions les plus prisées au monde. Galayacht est votre partenaire pour satisfaire toutes vos envies, que ce soit pour la location d'un bateau, d'un yacht à moteur, d'un voilier, ou l'organisation d'un événement spécial sur l'eau ou à quai.
+            </p>
+            <p> 
+                <strong> Galayacht : Votre Compagnon d'Aventures en Mer </strong> <br>
+                Cette entreprise dispose d'une équipe de conseillers passionnés et expérimentés dédiés à vous offrir des expériences uniques en France. Galayacht transcende la simple location de bateaux pour devenir votre complice d'instants inoubliables en Méditerranée. Nous offrons une gamme variée de services pour répondre à toutes vos envies, que ce soit la plongée, la pêche, les sports nautiques, le paddle ou la simple détente à bord d'un yacht; tout est envisageable.
+            </p>
+            <p> 
+                <strong> Personnalisation de Votre Aventure en Mer </strong> <br>
+                L'un des atouts majeurs de Galayacht réside dans sa capacité à personnaliser chaque voyage en mer. Plongez dans les eaux cristallines de la Méditerranée, partez à la pêche, essayez le ski nautique, le wakeboard, le jet ski ou la plongée avec tuba - tout est envisageable. L'entreprise organise également des événements nautiques pour les particuliers et les groupes. Que ce soit des réunions d'entreprise, des célébrations spéciales, ou des escapades entre amis, Galayacht est là pour vous aider à créer des souvenirs uniques.
+            </p>
+            <p> 
+                <strong> Réservez dès Aujourd'hui pour une Aventure Mémorable à Antibes </strong> <br>
+                Galayacht est le choix idéal pour une aventure sur la Côte d'Azur. Notre expérience garantit que votre séjour en France sera marqué par des souvenirs inoubliables, sans tracas. Réservez dès aujourd'hui avec Galayacht. Antibes vous attend pour créer des souvenirs mémorables en mer.
+            </p>
+        </p>
+
+            <p class="card-text"><small class="text-muted">Last updated 5 days ago</small></p>
+        </div>
+        <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-2 px-5 fa-fade" %>
+        <%= link_to "Nous contacter", new_demande_path, class: "btn btn-warning fw-bold my-2 px-5" %>
+
+        <div class="d-flex justify-content-center">
+            <%= render "shared/reseaux" %>
+        </div>
+        <div class="">
+            <%= render "shared/contacts" %>
+        </div>
+
+    </div>
+
+
+</div>
+
+    <%# ajouter un render de quelques bateaux %>
+
+<div class="container text-center">
+
+    <div class="card main-card">
+        <h3 class="text-center fw-bold my-2 " style="color: var(--primary-color);">
+            Trouvez votre bateau idéal
+        </h3>
+    </div>
+
+    <div id="produits" class="container-main text-center px-4">
+        <div class="row justify-content-center">
+            <% @produits.each do |produit| %>
+            <div class="col-sm-6 col-md-4 col-lg-4 d-flex mb-3">
+                <%= render produit %> 
+            </div>
+            <% end %>
+        </div>
+    </div> 
+    
+    <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-4 px-5 w-100 fa-fade" %>
+
+</div>

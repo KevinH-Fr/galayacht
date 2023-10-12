@@ -1,49 +1,80 @@
 
-<div class="container-fluid p-4 my-5">
+<br><br>
+<h2 class="text-center fw-bold mt-5">LOCATION DE BATEAUX A CANNES</h2>
 
-    <h2 class="text-center fw-bold">LOCATION DE BATEAUX A CANNES</h2>
+<div class="d-flex p-4 my-2">
 
-
-    <div class="card p-2 mb-3">
+    <div class="card p-2 mb-3 max-widthed">
         <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1697129299/pexels-slimmars-13110491_pip9nd.webp", 
                 class: "img-fluid w-100 h-100 card-img-top",
                 alt:"bateau location cannes") %>
-    <div class="card-body">
-        <h2 class="card-title">Retrouvez tous les détails pour louer un bateau ou un yacht à Cannes et sur la Côte d'Azur</h2>
-        
-        <p class="card-text">
-            <p> 
-                <strong>   La Location de Bateaux et Yachts à Cannes avec Galayacht </strong> <br>
-                La Côte d'Azur, destination de rêve sur la Méditerranée, est le lieu idéal pour une expérience maritime exceptionnelle. 
-                Galayacht, acteur de la location de bateaux à Cannes et sur la Côte d'Azur, réalise vos rêves en mer.
-            </p>        
-            <p>
-                <strong>  Découvrez la Côte d'Azur </strong> <br>
-                La Côte d'Azur, située dans le sud de la France, est une destination de choix. Ses eaux turquoises, ses villes emblématiques telles que St. Tropez, Cannes, Nice et Monaco, ainsi que ses îles paradisiaques, en font une des régions les plus prisées au monde.
-                Galayacht est là pour répondre à toutes vos envies, que vous souhaitiez une location de bateau, un yacht à moteur ou à voile, ou même planifier un événement spécial sur l'eau ou à quai.
+        <div class="card-body">
+            <h2 class="card-title">Tous les détails pour louer un bateau ou un yacht à Cannes et sur la Côte d'Azur</h2>
+            
+            <p class="card-text">
+                <p> 
+                    <strong>   La Location de Bateaux et Yachts à Cannes avec Galayacht </strong> <br>
+                    La Côte d'Azur, destination de rêve sur la Méditerranée, est le lieu idéal pour une expérience maritime exceptionnelle. 
+                    Galayacht, acteur de la location de bateaux à Cannes et sur la Côte d'Azur, réalise vos rêves en mer.
+                </p>        
+                <p>
+                    <strong>  Découvrez la Côte d'Azur </strong> <br>
+                    La Côte d'Azur, située dans le sud de la France, est une destination de choix. Ses eaux turquoises, ses villes emblématiques telles que St. Tropez, Cannes, Nice et Monaco, ainsi que ses îles paradisiaques, en font une des régions les plus prisées au monde.
+                    Galayacht est là pour répondre à toutes vos envies, que vous souhaitiez une location de bateau, un yacht à moteur ou à voile, ou même planifier un événement spécial sur l'eau ou à quai.
+                </p>
+                <p> 
+                    <strong>  Galayacht : Votre Partenaire en Mer </strong> <br>
+                    Galayacht est bien plus qu'une entreprise de location de bateaux, c'est votre partenaire pour des moments inoubliables sur la Méditerranée. Basée à Cannes, cette entreprise dispose d'une équipe de conseillers passionnés et expérimentés dédiés à vous offrir des expériences uniques en France.
+                    Galayacht propose une gamme de services pour répondre à toutes vos envies. Plongée, pêche, sports nautiques, paddle, ou tout simplement la détente à bord d'un yacht, tout est possible.
+                </p>
+                <p> 
+                    <strong>   Expériences Personnalisées </strong> <br>
+                    L'un des atouts majeurs de Galayacht réside dans sa capacité à personnaliser chaque voyage en mer. Vous pouvez plonger dans les eaux cristallines de la Méditerranée, partir à la pêche, faire du ski nautique, du wakeboard, du jet ski, ou de la plongée avec tuba - tout est possible.
+                    L'entreprise organise également des événements nautiques pour les particuliers et les groupes. Réunions d'entreprise, célébrations spéciales, ou escapades entre amis, Galayacht peut vous aider à créer des souvenirs uniques.
+                </p>
+                <p> 
+                    <strong>  Réservez dès Aujourd'hui </strong> <br>
+                    Galayacht est le choix idéal pour une aventure sur la Côte d'Azur. Leur expérience garantit que votre séjour en France sera mémorable et sans souci. Pour une aventure maritime exceptionnelle, réservez dès aujourd'hui avec Galayacht. La Côte d'Azur vous attend pour des souvenirs inoubliables en mer.
+                </p>
             </p>
+            
+            <p class="card-text"><small class="text-muted">Last updated 2 days ago</small></p>
+        </div>
+        <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-2 px-5 fa-fade" %>
+        <%= link_to "Nous contacter", new_demande_path, class: "btn btn-warning fw-bold my-2 px-5" %>
 
-             <strong>  Galayacht : Votre Partenaire en Mer </strong> <br>
-            Galayacht est bien plus qu'une entreprise de location de bateaux, c'est votre partenaire pour des moments inoubliables sur la Méditerranée. Basée à Cannes, cette entreprise dispose d'une équipe de conseillers passionnés et expérimentés dédiés à vous offrir des expériences uniques en France.
-
-            Galayacht propose une gamme de services pour répondre à toutes vos envies. Plongée, pêche, sports nautiques, paddle, ou tout simplement la détente à bord d'un yacht, tout est possible.
-
-            <strong>   Expériences Personnalisées </strong> <br>
-            L'un des atouts majeurs de Galayacht réside dans sa capacité à personnaliser chaque voyage en mer. Vous pouvez plonger dans les eaux cristallines de la Méditerranée, partir à la pêche, faire du ski nautique, du wakeboard, du jet ski, ou de la plongée avec tuba - tout est possible.
-
-            L'entreprise organise également des événements nautiques pour les particuliers et les groupes. Réunions d'entreprise, célébrations spéciales, ou escapades entre amis, Galayacht peut vous aider à créer des souvenirs uniques.
-
-             <strong>  Réservez dès Aujourd'hui </strong> <br>
-            Galayacht est le choix idéal pour une aventure sur la Côte d'Azur. Leur expérience garantit que votre séjour en France sera mémorable et sans souci. Pour une aventure maritime exceptionnelle, réservez dès aujourd'hui avec Galayacht. La Côte d'Azur vous attend pour des souvenirs inoubliables en mer.
-        </p>
-        
-        <p class="card-text"><small class="text-muted">Last updated 2 days ago</small></p>
-    </div>
-    <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-2 px-5" %>
+        <div class="d-flex justify-content-center">
+            <%= render "shared/reseaux" %>
+        </div>
+        <div class="">
+            <%= render "shared/contacts" %>
+        </div>
 
     </div>
+
 
 </div>
 
+    <%# ajouter un render de quelques bateaux %>
 
-<%# ajouter un render de quelques bateaux %>
+<div class="container text-center">
+
+    <div class="card main-card">
+        <h3 class="text-center fw-bold my-2 " style="color: var(--primary-color);">
+            Trouvez votre bateau idéal
+        </h3>
+    </div>
+
+    <div id="produits" class="container-main text-center px-4">
+        <div class="row justify-content-center">
+            <% @produits.each do |produit| %>
+            <div class="col-sm-6 col-md-4 col-lg-4 d-flex mb-3">
+                <%= render produit %> 
+            </div>
+            <% end %>
+        </div>
+    </div> 
+    
+    <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-4 px-5 w-100" %>
+
+</div>

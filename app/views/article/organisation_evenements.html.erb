@@ -1,0 +1,78 @@
+
+<br><br>
+<h2 class="text-center fw-bold mt-5">ORGANISATION EVENEMENTS NAUTIQUES COTE D'AZUR</h2>
+
+<div class="d-flex p-4 my-2">
+
+    <div class="card p-2 mb-3 max-widthed">
+        <%= image_tag("https://res.cloudinary.com/dukne3lhz/image/upload/v1697149864/pexels-pixabay-271681_c3yf8w.webp", 
+                class: "img-fluid w-100 h-100 card-img-top",
+                alt:"evenemnt en mer journée en bateau") %>
+        <div class="card-body">
+
+            <h2 class="card-title">Événements Nautiques et Séjours en Bateaux sur la Côte d'Azur avec Galayacht</h2>
+                                    
+            <p class="card-text">
+                <p> 
+                    <strong> L'Expérience Nautique sur la Côte d'Azur avec Galayacht </strong> <br>
+                    La Côte d'Azur, une destination maritime de rêve, est l'endroit idéal pour vivre des moments nautiques d'exception. Galayacht, leader dans l'organisation d'événements nautiques et les séjours en bateaux sur la Côte d'Azur, concrétise vos rêves en mer.
+                </p>
+                <p>
+                    <strong> Découvrez les Trésors de la Côte d'Azur </strong> <br>
+                    La Côte d'Azur, nichée au sud de la France, est une destination prisée. Ses eaux cristallines, ses villes emblématiques comme Cannes, Mandelieu, et Antibes, ainsi que ses îles paradisiaques, en font l'une des régions les plus spectaculaires au monde. Galayacht est votre partenaire pour des événements nautiques sur mesure et des séjours en bateaux mémorables.
+                </p>
+                <p> 
+                    <strong> Galayacht : Votre Compagnon d'Aventures en Mer </strong> <br>
+                    Notre entreprise réunit une équipe de passionnés expérimentés, dévoués à vous offrir des expériences uniques en France. Galayacht transcende l'organisation d'événements nautiques pour devenir votre complice d'instants inoubliables en Méditerranée. Nous proposons une gamme variée de services pour répondre à toutes vos envies, qu'il s'agisse de sports nautiques, de sorties en mer, ou de séjours en bateaux relaxants.
+                </p>
+                <p> 
+                    <strong> Personnalisez Votre Aventure en Mer </strong> <br>
+                    L'un des atouts majeurs de Galayacht est sa capacité à personnaliser chaque voyage en mer. Organisez des événements nautiques uniques, explorez les eaux cristallines de la Méditerranée, ou profitez de séjours en bateaux sur mesure. Notre entreprise crée des souvenirs inoubliables lors d'événements nautiques exclusifs et de séjours en bateaux adaptés à vos souhaits. Que ce soit pour des sorties entre amis, des réunions d'entreprise spéciales, ou des moments de détente en mer, Galayacht est là pour vous aider à créer des souvenirs uniques.
+                </p>
+                <p> 
+                    <strong> Réservez dès Aujourd'hui pour des Expériences Nautiques Inoubliables sur la Côte d'Azur </strong> <br>
+                    Galayacht est le choix idéal pour vivre des événements nautiques exceptionnels et des séjours en bateaux mémorables sur la Côte d'Azur. Notre expérience garantit que vos événements nautiques et vos séjours en bateaux en France seront marqués par des souvenirs inoubliables, sans tracas. Réservez dès aujourd'hui avec Galayacht. La Côte d'Azur vous attend pour créer des souvenirs mémorables en mer.
+                </p>
+            </p>
+
+
+            <p class="card-text"><small class="text-muted">Last updated 4 days ago</small></p>
+        </div>
+        <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-2 px-5 fa-fade" %>
+        <%= link_to "Nous contacter", new_demande_path, class: "btn btn-warning fw-bold my-2 px-5" %>
+
+        <div class="d-flex justify-content-center">
+            <%= render "shared/reseaux" %>
+        </div>
+        <div class="">
+            <%= render "shared/contacts" %>
+        </div>
+
+    </div>
+
+
+</div>
+
+    <%# ajouter un render de quelques bateaux %>
+
+<div class="container text-center">
+
+    <div class="card main-card">
+        <h3 class="text-center fw-bold my-2 " style="color: var(--primary-color);">
+            Trouvez votre bateau idéal
+        </h3>
+    </div>
+
+    <div id="produits" class="container-main text-center px-4">
+        <div class="row justify-content-center">
+            <% @produits.each do |produit| %>
+            <div class="col-sm-6 col-md-4 col-lg-4 d-flex mb-3">
+                <%= render produit %> 
+            </div>
+            <% end %>
+        </div>
+    </div> 
+    
+    <%= link_to "Voir tous les bateaux", produits_path, class: "btn primary-colored fw-bold my-4 px-5 w-100 fa-fade" %>
+
+</div>

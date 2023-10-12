@@ -25,9 +25,20 @@ SitemapGenerator::Sitemap.create do
     add '/home', :changefreq => 'weekly', :priority => 0.9
     add '/produits', :changefreq => 'weekly', :priority => 0.9
 
+    add '/location-bateau-cannes', :changefreq => 'weekly', :priority => 0.9
+    add '/louer-bateau-cannes', :changefreq => 'weekly', :priority => 0.9
+    add '/location-bateau-mandelieu', :changefreq => 'weekly', :priority => 0.9
+    add '/louer-bateau-mandelieu', :changefreq => 'weekly', :priority => 0.9
+    add '/location-bateau-antibes', :changefreq => 'weekly', :priority => 0.9
+    add '/louer-bateau-antibes', :changefreq => 'weekly', :priority => 0.9
+    add '/evenement-nautique-cote-d-azur-cannes-antibes-mandelieu', :changefreq => 'weekly', :priority => 0.9
+    add '/sejour-en-mer-cote-d-azur-cannes-antibes-mandelieu-', :changefreq => 'weekly', :priority => 0.9
+    add '/journee-en-bateau-cote-d-azur-cannes-antibes-mandelieu-', :changefreq => 'weekly', :priority => 0.9
+
+
     # Add sign-in and sign-up URLs to the sitemap
-    add '/demandes/new', :changefreq => 'weekly', :priority => 0.8, :lastmod => Time.now
-    add '/espace_bailleur/index', :changefreq => 'weekly', :priority => 0.8, :lastmod => Time.now
+    add '/demandes/new', :changefreq => 'weekly', :priority => 0.7, :lastmod => Time.now
+    add '/espace_bailleur/index', :changefreq => 'weekly', :priority => 0.7, :lastmod => Time.now
 
     Produit.find_each do |produit|
       add produit_path(produit), 
