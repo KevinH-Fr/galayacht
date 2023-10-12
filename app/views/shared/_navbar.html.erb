@@ -1,5 +1,5 @@
 <nav class="navbar sticky-top navbar-dark navbar-expand-lg py-0">
-  <div class="container-fluid">
+  <div class="container-fluid d-flex align-items-center">
 
     <%= link_to root_path, class: "no-underline middled" do %>
       <%= image_tag("galayacht-logo.webp", alt: "Logo", width: 25, height: 25, class: "rounded d-inline-block align-text-top") %>
@@ -10,7 +10,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav d-flex align-items-center">
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link active" %>
         </li>
@@ -34,18 +34,35 @@
             <%= link_to "Evénements nautiques", evenement_index_path, class: "nav-link" %>
         </li>
 
-<%
-=begin%>
-         <li class="nav-item">
-          <%= link_to "Passer le permis bateau", espace_permis_index_path, class: "nav-link" %>
-        </li> 
-<%
-=end%>
         <li class="nav-item">
           <%= link_to "Destinations", destinations_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Contact", new_demande_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "", "https://www.pinterest.fr/", 
+            class:"fa-brands fa-pinterest btn-reseaux zoom nav-link", 
+            alt: "Pinterest Galayacht",
+            'aria-label' => "Ouvrir pinterest",
+            target:"_blank" %>  
+        </li>
+        
+        <li class="nav-item">
+          <%= link_to "", "https://www.facebook.com/people/GALA-YACHT/100092488322369/", 
+            class:"fa-brands fa-facebook btn-reseaux zoom nav-link", 
+            alt: "Facebook Galayacht",
+            'aria-label' => "Ouvrir facebook",
+            target:"_blank" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "", "https://www.instagram.com/galayacht/", 
+              class:"fa-brands fa-instagram btn-reseaux zoom nav-link", 
+              alt: "Instagram Galayacht",
+             'aria-label' => "Ouvrir instagram",
+              target:"_blank" %> 
         </li>
 
         <% if current_user && user_admin %>

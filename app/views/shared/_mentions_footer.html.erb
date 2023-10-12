@@ -34,13 +34,7 @@
         <p> <%= link_to "Mandelieu", root_path, class: "link-mention" %> </p> 
     </div>
 
-    <div class="col">
-        <strong class="titre-footer">Nous suivre</strong>
-        <%= render "shared/reseaux" %>
-    </div>
 </div>
-
-
 
 
 <div class="row my-4">  
@@ -56,8 +50,9 @@
     </div>
 </div>
 
-<div class="row my-4">  
+<div class="row my-4 text-center">  
     <div class="col"> 
+        <%= render "shared/reseaux" %>
         <%= render "shared/contacts" %>
     </div>
 </div>

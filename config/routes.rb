@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  get 'article/location_bateau_cannes'
+
+
+  #hypens pour seo
+  # attention verifier si bonne pratique deux liens vers meme action, url canonical etc ?
+  get 'location-bateau-cannes', to: 'article#location_bateau_cannes'
+  get 'louer-bateau-cannes', to: 'article#location_bateau_cannes'
+
+  #get 'article/location_bateau_cannes'
+
   get 'evenement/index'
   
   get 'home/index'
