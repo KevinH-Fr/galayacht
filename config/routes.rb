@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'article/location_bateau_cannes'
   get 'evenement/index'
   
   get 'home/index'
