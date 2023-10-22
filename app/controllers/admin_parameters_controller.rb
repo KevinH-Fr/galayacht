@@ -58,7 +58,7 @@ class AdminParametersController < ApplicationController
     end
 
     def admin_parameter_params
-      params.require(:admin_parameter).permit(:remuneration, :hautesaison)
+      params.require(:admin_parameter).permit(:remuneration, :hautesaison, :conditions_generales)
     end
 
     def authorize_admin

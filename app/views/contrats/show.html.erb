@@ -1,0 +1,23 @@
+
+<h2 class="mt-5">synthèse contrat</h2>
+<div class="p-2">
+  <%= render "synthese" %>
+</div>
+
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Détails du contrat
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <%= render @contrat %>
+  </div>
+</div>
+
+<div>
+  <%= link_to "Edit this contrat", edit_contrat_path(@contrat) %> |
+  <%= link_to "Back to contrats", contrats_path %>
+
+  <%= button_to "Destroy this contrat", @contrat, method: :delete %>
+</div>

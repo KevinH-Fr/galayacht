@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_100241) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_164335) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_100241) do
     t.date "hautesaison"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "conditions_generales"
   end
 
   create_table "bailleurs", force: :cascade do |t|
@@ -55,6 +56,51 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_100241) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_bailleurs_on_user_id"
+  end
+
+  create_table "contrats", force: :cascade do |t|
+    t.string "loc_nom"
+    t.string "loc_adresse"
+    t.string "loc_telephone"
+    t.string "loc_mail"
+    t.string "bateau_ref"
+    t.string "bateau_proprietaire_nom"
+    t.string "bateau_marque"
+    t.string "bateau_model"
+    t.string "armement"
+    t.string "moteur"
+    t.string "carbutant"
+    t.integer "nb_equipage"
+    t.datetime "debut_loc"
+    t.datetime "fin_loc"
+    t.string "lieu"
+    t.integer "prix_ht"
+    t.integer "tva"
+    t.integer "acompte"
+    t.integer "caution"
+    t.integer "franchise"
+    t.string "lieu_sign"
+    t.date "date_sign"
+    t.boolean "capitaine"
+    t.string "capitaine_nom"
+    t.string "capitaine_tel"
+    t.string "capitaine_mail"
+    t.string "type_duree"
+    t.date "capitaine_debut"
+    t.date "capitaine_fin"
+    t.boolean "capitaine_renew"
+    t.string "capitaine_fonctions"
+    t.boolean "capitaine_periode_essai"
+    t.integer "capitaine_salaire"
+    t.integer "capitaine_duree_travail"
+    t.boolean "capitaine_nourriture"
+    t.string "capitaine_indemnite_nourritaire_jour"
+    t.integer "capitaine_conges_payes"
+    t.integer "capitaine_preavis"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "reservation_id"
+    t.index ["reservation_id"], name: "index_contrats_on_reservation_id"
   end
 
   create_table "demandes", force: :cascade do |t|
@@ -94,6 +140,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_100241) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "adresse"
     t.index ["user_id"], name: "index_preneurs_on_user_id"
   end
 
@@ -175,6 +222,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_100241) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bailleurs", "users"
+  add_foreign_key "contrats", "reservations"
   add_foreign_key "occupation_produits", "produits"
   add_foreign_key "preneurs", "users"
   add_foreign_key "produits", "bailleurs"

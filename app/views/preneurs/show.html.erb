@@ -1,5 +1,6 @@
-
-<%= render @preneur %>
+<div class="mt-5">  
+  <%= render @preneur %>
+</div>
 
 <% if current_user && user_admin %>
   <%= button_to @preneur, method: :delete, class: "btn btn-action btn-outline-danger",

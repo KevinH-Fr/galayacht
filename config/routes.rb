@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contrats
 
 
   #hypens pour seo - link canonical dans layout 

@@ -16,4 +16,15 @@ module ReservationsHelper
     def total_remuneration
         Reservation.all.sum(:remuneration)
     end
+
+    def liste_resa
+        reservations = Reservation.all
+        resa_list = []
+      
+        reservations.each do |reservation|
+          resa_list << { id: reservation.id, num_resa: num_resa(reservation) }
+        end
+      
+        resa_list
+    end
 end

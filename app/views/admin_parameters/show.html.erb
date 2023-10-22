@@ -1,10 +1,13 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @admin_parameter %>
+<div class="p-2">
+  <div class="mt-5">
+    <%= render @admin_parameter %>
+  </div>
 
-<div>
-  <%= link_to "Edit this admin parameter", edit_admin_parameter_path(@admin_parameter) %> |
-  <%= link_to "Back to admin parameters", admin_parameters_path %>
+  <div>
+    <%= link_to "Edit this admin parameter", edit_admin_parameter_path(@admin_parameter) %> |
+    <%= link_to "Back to admin parameters", admin_parameters_path %>
 
-  <%= button_to "Destroy this admin parameter", @admin_parameter, method: :delete %>
+    <%= button_to "Destroy this admin parameter", @admin_parameter, method: :delete %>
+  </div>
 </div>

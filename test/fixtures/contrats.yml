@@ -1,0 +1,85 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  model_contrat: false
+  loc_nom: MyString
+  loc_adresse: MyString
+  loc_telephone: MyString
+  loc_mail: MyString
+  bateau_ref: MyString
+  bateau_proprietaire_nom: MyString
+  bateau_marque: MyString
+  bateau_model: MyString
+  franchise: 1
+  armement: MyString
+  moteur: MyString
+  carbutant: MyString
+  nb_equipage: 1
+  debut_loc: 2023-10-20 22:07:37
+  fin_loc: 2023-10-20 22:07:37
+  lieu: MyString
+  prix_ht: 1
+  tva: 1
+  acompte: 1
+  caution: 1
+  franchise: 1
+  lieu_sign: MyString
+  date_sign: 2023-10-20
+  capitaine: false
+  capitaine_nom: MyString
+  capitaine_tel: MyString
+  capitaine_mail: MyString
+  type_duree: MyString
+  capitaine_debut: 2023-10-20
+  capitaine_fin: 2023-10-20
+  capitaine_renew: false
+  capitaine_fonctions: MyString
+  capitaine_periode_essai: false
+  capitaine_salaire: 1
+  capitaine_duree_travail: 1
+  capitaine_nourriture: false
+  capitaine_indemnite_nourritaire_jour: MyString
+  capitaine_conges_payes: 1
+  capitaine_preavis: 1
+
+two:
+  model_contrat: false
+  loc_nom: MyString
+  loc_adresse: MyString
+  loc_telephone: MyString
+  loc_mail: MyString
+  bateau_ref: MyString
+  bateau_proprietaire_nom: MyString
+  bateau_marque: MyString
+  bateau_model: MyString
+  franchise: 1
+  armement: MyString
+  moteur: MyString
+  carbutant: MyString
+  nb_equipage: 1
+  debut_loc: 2023-10-20 22:07:37
+  fin_loc: 2023-10-20 22:07:37
+  lieu: MyString
+  prix_ht: 1
+  tva: 1
+  acompte: 1
+  caution: 1
+  franchise: 1
+  lieu_sign: MyString
+  date_sign: 2023-10-20
+  capitaine: false
+  capitaine_nom: MyString
+  capitaine_tel: MyString
+  capitaine_mail: MyString
+  type_duree: MyString
+  capitaine_debut: 2023-10-20
+  capitaine_fin: 2023-10-20
+  capitaine_renew: false
+  capitaine_fonctions: MyString
+  capitaine_periode_essai: false
+  capitaine_salaire: 1
+  capitaine_duree_travail: 1
+  capitaine_nourriture: false
+  capitaine_indemnite_nourritaire_jour: MyString
+  capitaine_conges_payes: 1
+  capitaine_preavis: 1
