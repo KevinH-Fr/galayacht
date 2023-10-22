@@ -29,298 +29,344 @@
 
  <%= turbo_frame_tag :reservation_field do %>
     <% if contrat.reservation_id? || params[:display] == "true" %>
-      
+          
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :loc_nom, class: "input-group-text label-with-format" %>
-              <%= form.text_field :loc_nom, value: contrat.reservation_id.present? ? contrat.reservation.preneur.full_name : '',
-                   class: "form-control field-with-format" %>
+          <p>
+            <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseLocataire" role="button" aria-expanded="false" aria-controls="collapseLocataire">
+              Locataire - indiquer remplissage
+            </a>
+          </p>
+
+          <div class="collapse" id="collapseLocataire">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :loc_nom, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :loc_nom, value: contrat.reservation_id.present? ? contrat.reservation.preneur.full_name : '', class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :loc_adresse, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :loc_adresse, value: contrat.reservation_id.present? ? contrat.reservation.preneur.adresse : '', class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :loc_telephone, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :loc_telephone, value: contrat.reservation_id.present? ? contrat.reservation.preneur.telephone : '', class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :loc_mail, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :loc_mail, value: contrat.reservation_id.present? ? contrat.reservation.preneur.mail : '', class: "form-control field-with-format" %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <p>
+            <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseBateau" role="button" aria-expanded="false" aria-controls="collapseBateau">
+              Bateau - indiquer remplissage
+            </a>
+          </p>
+
+          <div class="collapse" id="collapseBateau">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :bateau_ref, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :bateau_ref, value: contrat.reservation_id.present? ? "#{produit_full_name(contrat.reservation.produit.id)}""_""#{contrat.reservation.produit.id}" : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :bateau_proprietaire_nom, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :bateau_proprietaire_nom, value: contrat.reservation_id.present? ? contrat.reservation.produit.bailleur.nom : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class= "input-group mb-2">
+                  <%= form.label :bateau_marque, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :bateau_marque, value: contrat.reservation_id.present? ? contrat.reservation.produit.marque : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :bateau_model, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :bateau_model, value: contrat.reservation_id.present? ? contrat.reservation.produit.model : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :armement, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :armement, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :moteur, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :moteur, value: contrat.reservation_id.present? ? contrat.reservation.produit.moteur : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :carbutant, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :carbutant, class: "form-control field-with-format" %>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :loc_adresse, class: "input-group-text label-with-format" %>
-              <%= form.text_field :loc_adresse, value: contrat.reservation_id.present? ? contrat.reservation.preneur.adresse : '',
-                    class: "form-control field-with-format" %>
+          <p>
+            <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseDatePrix" role="button" aria-expanded="false" aria-controls="collapseDatePrix">
+              Date et Prix - indiquer remplissage
+            </a>
+          </p>
+
+          <div class="collapse" id="collapseDatePrix">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :nb_equipage, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :nb_equipage, value: contrat.reservation_id.present? ? contrat.reservation.produit.members : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :debut_loc, class: "input-group-text label-with-format" %>
+                  <%= form.datetime_field :debut_loc, value: contrat.reservation_id.present? ? contrat.reservation.debutlocation : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :fin_loc, class: "input-group-text label-with-format" %>
+                  <%= form.datetime_field :fin_loc, value: contrat.reservation_id.present? ? contrat.reservation.finlocation : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :lieu, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :lieu, value: contrat.reservation_id.present? ? contrat.reservation.produit.destination_id : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :prix_ht, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :prix_ht, value: contrat.reservation_id.present? ? contrat.reservation.prix : '',
+                        class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :tva, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :tva, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :acompte, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :acompte, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :caution, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :caution, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :franchise, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :franchise, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :lieu_sign, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :lieu_sign, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :date_sign, class: "input-group-text label-with-format" %>
+                  <%= form.date_field :date_sign, class: "form-control field-with-format" %>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :loc_telephone, class: "input-group-text label-with-format" %>
-              <%= form.text_field :loc_telephone, value: contrat.reservation_id.present? ? contrat.reservation.preneur.telephone : '',
-                    class: "form-control field-with-format" %>
+          <p>
+            <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseCapitaine" role="button" aria-expanded="false" aria-controls="collapseCapitaine">
+              Capitaine - indiquer remplissage
+            </a>
+          </p>
+
+          <div class="collapse" id="collapseCapitaine">
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-check form-switch">
+                  <div class="custom-control custom-switch">    
+                      <%= form.check_box :capitaine, class: "form-check-input", value: false %>
+                      <label class="text-dark" for="archive">capitaine</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_nom, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :capitaine_nom, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_tel, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :capitaine_tel, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_mail, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :capitaine_mail, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :type_duree, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :type_duree, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_debut, class: "input-group-text label-with-format" %>
+                  <%= form.date_field :capitaine_debut, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_fin, class: "input-group-text label-with-format" %>
+                  <%= form.date_field :capitaine_fin, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_renew, class: "input-group-text label-with-format" %>
+                  <%= form.check_box :capitaine_renew, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_fonctions, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :capitaine_fonctions, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_periode_essai, class: "input-group-text label-with-format" %>
+                  <%= form.check_box :capitaine_periode_essai, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_salaire, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :capitaine_salaire, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_duree_travail, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :capitaine_duree_travail, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_nourriture, class: "input-group-text label-with-format" %>
+                  <%= form.check_box :capitaine_nourriture, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_indemnite_nourritaire_jour, class: "input-group-text label-with-format" %>
+                  <%= form.text_field :capitaine_indemnite_nourritaire_jour, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_conges_payes, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :capitaine_conges_payes, class: "form-control field-with-format" %>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="input-group mb-2">
+                  <%= form.label :capitaine_preavis, class: "input-group-text label-with-format" %>
+                  <%= form.number_field :capitaine_preavis, class: "form-control field-with-format" %>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :loc_mail, class: "input-group-text label-with-format" %>
-              <%= form.text_field :loc_mail, value: contrat.reservation_id.present? ? contrat.reservation.preneur.mail : '',
-                    class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :bateau_ref, class: "input-group-text label-with-format" %>
-              <%= form.text_field :bateau_ref, value: contrat.reservation_id.present? ? "#{produit_full_name(contrat.reservation.produit.id)}""_""#{contrat.reservation.produit.id}" : '',
-                    class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-
-          <%# REPRENDRE ICI ET FAIRE CORRESPONDRE LES CHAMPS QUI PEUVENT L ETRE %>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :bateau_proprietaire_nom, class: "input-group-text label-with-format" %>
-              <%= form.text_field :bateau_proprietaire_nom, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class= "input-group mb-3">
-              <%= form.label :bateau_marque, class: "input-group-text label-with-format" %>
-              <%= form.text_field :bateau_marque, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :bateau_model, class: "input-group-text label-with-format" %>
-              <%= form.text_field :bateau_model, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :armement, class: "input-group-text label-with-format" %>
-              <%= form.text_field :armement, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :moteur, class: "input-group-text label-with-format" %>
-              <%= form.text_field :moteur, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :carbutant, class: "input-group-text label-with-format" %>
-              <%= form.text_field :carbutant, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :nb_equipage, class: "input-group-text label-with-format" %>
-              <%= form.number_field :nb_equipage, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :debut_loc, class: "input-group-text label-with-format" %>
-              <%= form.datetime_field :debut_loc, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :fin_loc, class: "input-group-text label-with-format" %>
-              <%= form.datetime_field :fin_loc, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :lieu, class: "input-group-text label-with-format" %>
-              <%= form.text_field :lieu, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :prix_ht, class: "input-group-text label-with-format" %>
-              <%= form.number_field :prix_ht, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :tva, class: "input-group-text label-with-format" %>
-              <%= form.number_field :tva, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :acompte, class: "input-group-text label-with-format" %>
-              <%= form.number_field :acompte, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :caution, class: "input-group-text label-with-format" %>
-              <%= form.number_field :caution, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :franchise, class: "input-group-text label-with-format" %>
-              <%= form.number_field :franchise, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :lieu_sign, class: "input-group-text label-with-format" %>
-              <%= form.text_field :lieu_sign, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :date_sign, class: "input-group-text label-with-format" %>
-              <%= form.date_field :date_sign, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine, class: "input-group-text label-with-format" %>
-              <%= form.check_box :capitaine, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_nom, class: "input-group-text label-with-format" %>
-              <%= form.text_field :capitaine_nom, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_tel, class: "input-group-text label-with-format" %>
-              <%= form.text_field :capitaine_tel, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_mail, class: "input-group-text label-with-format" %>
-              <%= form.text_field :capitaine_mail, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :type_duree, class: "input-group-text label-with-format" %>
-              <%= form.text_field :type_duree, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_debut, class: "input-group-text label-with-format" %>
-              <%= form.date_field :capitaine_debut, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_fin, class: "input-group-text label-with-format" %>
-              <%= form.date_field :capitaine_fin, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_renew, class: "input-group-text label-with-format" %>
-              <%= form.check_box :capitaine_renew, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_fonctions, class: "input-group-text label-with-format" %>
-              <%= form.text_field :capitaine_fonctions, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_periode_essai, class: "input-group-text label-with-format" %>
-              <%= form.check_box :capitaine_periode_essai, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_salaire, class: "input-group-text label-with-format" %>
-              <%= form.number_field :capitaine_salaire, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_duree_travail, class: "input-group-text label-with-format" %>
-              <%= form.number_field :capitaine_duree_travail, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_nourriture, class: "input-group-text label-with-format" %>
-              <%= form.check_box :capitaine_nourriture, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_indemnite_nourritaire_jour, class: "input-group-text label-with-format" %>
-              <%= form.text_field :capitaine_indemnite_nourritaire_jour, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_conges_payes, class: "input-group-text label-with-format" %>
-              <%= form.number_field :capitaine_conges_payes, class: "form-control field-with-format" %>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="input-group mb-3">
-              <%= form.label :capitaine_preavis, class: "input-group-text label-with-format" %>
-              <%= form.number_field :capitaine_preavis, class: "form-control field-with-format" %>
-            </div>
-          </div>
         </div>
       </div>
 
     <% end %>
   <% end %>
 
+  <hr>
 
-    <hr>
-
-    <div class="row"> 
-      <div class="col text-start"> 
-        <%= link_to "", espace_admin_index_path, class: "btn btn-secondary fa-solid fa-arrow-rotate-left" %>
-      </div>
-      <div class="col text-end">
-        <%= render "shared/form_submit" %> 
-      </div>
+  <div class="row"> 
+    <div class="col text-start"> 
+      <%= link_to "", espace_admin_index_path, class: "btn btn-secondary fa-solid fa-arrow-rotate-left" %>
     </div>
+    <div class="col text-end">
+      <%= render "shared/form_submit" %> 
+    </div>
+  </div>
 
 <% end %>
