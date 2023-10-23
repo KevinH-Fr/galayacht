@@ -14,7 +14,7 @@
    <div data-controller="form-element">
     <%= form.button "Validate", formaction: new_contrat_path, formmethod: :get, data: { turbo_frame: :reservation_field, form_element_target: "remoteBtn" } %>
 
-      <div class="input-group mb-1">
+      <div class="input-group mb-3">
         <%= form.label :reservation_id, class:"input-group-text label-with-format" %>
         <%= form.select :reservation_id, options_for_select(liste_resa.map { |resa| ["#{resa[:num_resa]} - #{resa[:id]}", resa[:id]] }, selected: form.object.reservation_id), 
           {include_blank: true},  data: { action: "change->form-element#autosubmit"},
@@ -23,15 +23,14 @@
 
   </div>
 
-<div class="containder-fluid m-2 my-4">
-  <%= link_to "Montrer les champs", url_for(display: true), class:"btn btn-primary w-100" %>
-</div>
+
 
  <%= turbo_frame_tag :reservation_field do %>
-    <% if contrat.reservation_id? || params[:display] == "true" %>
+    <%# if contrat.reservation_id? %>
           
       <div class="container">
         <div class="row">
+        
           <p>
             <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseLocataire" role="button" aria-expanded="false" aria-controls="collapseLocataire">
               Locataire - indiquer remplissage
@@ -355,7 +354,7 @@
         </div>
       </div>
 
-    <% end %>
+    <%# end %>
   <% end %>
 
   <hr>

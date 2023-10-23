@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<h1>
+    CONTRAT DE LOCATION <%= @contrat.id %>
+</h1>
+
+<p>
+    Il est conclu entre GALAYACHT, ci-après dénommée le « Loueur », et <%= @contrat.loc_nom %>, 
+    ci-après dénommé le « Locataire », un engagement de location de navire de plaisance aux conditions suivantes.
+    Le Loueur met à disposition du Locataire, qui accepte le bateau défini ci-après, pour une période allant du <%= @contrat.debut_loc %> au <%= @contrat.fin_loc %>.
+</p>
+
+<h2>BATEAU MIS A DISPOSITION </h2> 
+
+Références : <%= @contrat.bateau_ref %>
+Prise en charge : <%= @contrat.lieu %>
+Restitution : 
+Caution : <%= @contrat.caution %>
+Nom : 
+Propriétaire : <%= @contrat.bateau_proprietaire_nom %>
+Marque : <%= @contrat.bateau_marque %>
+Modèle : <%= @contrat.bateau_model %>
+Franchise : <%= @contrat.franchise %>
+Armement : <%= @contrat.armement %>
+Moteur : <%= @contrat.moteur %>
+Carburant : <%= @contrat.carbutant %>
+Equipage max : <%= @contrat.nb_equipage %>
+
+<h2>LOCATAIRE : </h2>
+Nom : <%= @contrat.loc_nom %>
+Adresse : <%= @contrat.loc_adresse %>
+Téléphone : <%= @contrat.loc_telephone %>
+Email : <%= @contrat.loc_mail %>
+
+    
+</html>

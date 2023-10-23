@@ -15,6 +15,12 @@
   </div>
 </div>
 
+<div class="container">
+  <%= link_to "PDF contrat location", edition_contrat_path(@contrat), class: "btn btn-dark m-1" %>
+  <%= link_to "PDF contrat capitaine", edition_capitaine_contrat_path(@contrat), class: "btn btn-dark m-1" %>
+
+</div>
+
 <div>
   <%= link_to "Edit this contrat", edit_contrat_path(@contrat) %> |
   <%= link_to "Back to contrats", contrats_path %>

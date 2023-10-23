@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :contrats
+ 
 
 
   #hypens pour seo - link canonical dans layout 
@@ -65,6 +65,14 @@ Rails.application.routes.draw do
  
     end
   end
+
+  resources :contrats do 
+    member do
+      get :edition
+      get :edition_capitaine
+    end
+  end
+
 
   resources :occupations do
     member do

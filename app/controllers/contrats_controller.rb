@@ -57,6 +57,71 @@ class ContratsController < ApplicationController
     end
   end
 
+  
+  def edition 
+    @contrat = Contrat.find(params[:id])
+    
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string(
+        template: "editions/contrat", 
+        formats: [:html],
+        disposition: :inline,              
+        layout: 'pdf'
+      ),
+       header: {
+         content: render_to_string(
+           'editions/doc_entete',
+           layout: 'pdf'
+         )
+       },
+       footer: {
+         content: render_to_string(
+           'editions/doc_footer',
+           layout: 'pdf'
+         )
+       }
+      )
+
+    send_data pdf,
+
+    filename: "contrat_#{@contrat.id}.pdf",
+    type: 'application/pdf',
+    disposition: 'inline'
+  
+  end
+
+  def edition_capitaine
+    @contrat = Contrat.find(params[:id])
+    
+    pdf = WickedPdf.new.pdf_from_string(
+      render_to_string(
+        template: "editions/contrat_capitaine", 
+        formats: [:html],
+        disposition: :inline,              
+        layout: 'pdf'
+      ),
+       header: {
+         content: render_to_string(
+           'editions/doc_entete',
+           layout: 'pdf'
+         )
+       },
+       footer: {
+         content: render_to_string(
+           'editions/doc_footer',
+           layout: 'pdf'
+         )
+       }
+      )
+
+    send_data pdf,
+
+    filename: "contrat_capitaine_#{@contrat.id}.pdf",
+    type: 'application/pdf',
+    disposition: 'inline'
+  
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contrat
