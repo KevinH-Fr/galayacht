@@ -1,11 +1,12 @@
 
 <h3 class="mt-5">Espace Admin</h3>
 
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4"   style="max-width: 1200px;">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
-            <div class="card mb-3">
-                <div class="card-header bg-secondary text-center text-light fw-bold">   
+            <div class="card mb-3 w-100">
+                <div class="card-header bg-secondary text-center text-light fw-bold">  
+                  <i class="fa-solid fa-user me-1"></i> 
                    Propriétaires
                 </div>
                 <div class="card-body">
@@ -13,25 +14,36 @@
                         <tbody class="table-light table-dashboard">
                             <% @bailleurs.order(updated_at: :desc).each do | bailleur | %>
                                 <tr> 
-                                    <td> 
-                                        <%= link_to bailleur_full_name(bailleur.id), bailleur_path(bailleur),
-                                                class: "no-underline" %> 
+                                    <td class="text-nowrap">
+                                        <%= link_to truncate(bailleur_full_name(bailleur.id), length: 18), bailleur_path(bailleur),
+                                                class: "no-underline text-dark" %> 
                                     </td>
                                 </tr> 
                             <% end %>
                         </tbody>
                     </table>
                 </div>
-                <div class="button-container">
-                    <%= link_to "Propriétaires", bailleurs_path, class: "btn btn-primary m-2" %>
-                    <%= link_to "Nouveau", new_bailleur_path, class: "btn btn-primary m-2" %>
+
+                <div class="container mb-1">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <%= link_to bailleurs_path, class: "btn btn-sm btn-secondary me-2" do %>
+                            <i class="fa fa-eye"></i>
+                            <span class="ms-1"> Tout voir </span>
+                        <% end %>
+                        <%= link_to new_bailleur_path, class: "btn btn-sm btn-secondary" do %>
+                            <i class="fa fa-circle-plus"></i>
+                            <span class="ms-1"> Nouveau </span>
+                        <% end %>
+                    </div>
                 </div>
+
             </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
-            <div class="card mb-3">
+            <div class="card mb-3 w-100">
                 <div class="card-header bg-secondary text-center text-light fw-bold">   
+                   <i class="fa-regular fa-user me-1"></i> 
                    Locataires
                 </div>
                 <div class="card-body">
@@ -39,90 +51,235 @@
                         <tbody class="table-light table-dashboard">
                             <% @preneurs.order(updated_at: :desc).each do | preneur | %>
                                 <tr> 
-                                    <td> 
-                                        <%= link_to preneur_full_name(preneur.id), preneur_path(preneur),
-                                                class: "no-underline" %> 
+                                    <td class="text-nowrap">
+                                        <%= link_to truncate(preneur_full_name(preneur.id), length: 18), preneur_path(preneur),
+                                                class: "no-underline text-dark" %> 
                                     </td>
                                 </tr> 
                             <% end %>
                         </tbody>
                     </table>
                 </div>
-                <div class="button-container">
-                    <%= link_to "Locataires", preneurs_path, class: "btn btn-success m-2" %>
-                    <%= link_to "Nouveau", new_preneur_path, class: "btn btn-success m-2" %>
+
+                <div class="container mb-1">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <%= link_to preneurs_path, class: "btn btn-sm btn-secondary me-2" do %>
+                            <i class="fa fa-eye"></i>
+                            <span class="ms-1"> Tout voir </span>
+                        <% end %>                        
+                        <%= link_to new_preneur_path, class: "btn btn-sm btn-secondary" do %>
+                            <i class="fa fa-circle-plus"></i>
+                            <span class="ms-2"> nouveau </span>
+                        <% end %>
+                    </div>
                 </div>
+
             </div>
         </div>
 
+
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
-            <div class="card mb-3">
+            <div class="card mb-3 w-100">
                 <div class="card-header bg-secondary text-center text-light fw-bold">   
-                   Produits
+                  <i class="fa-solid fa-ship me-1"></i> 
+                   Bateaux
                 </div>
                 <div class="card-body">
                     <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
                         <tbody class="table-light table-dashboard">
                             <% @produits.order(updated_at: :desc).each do | produit | %>
                                 <tr> 
-                                    <td> 
-                                        <%= link_to produit_full_name(produit.id), produit_path(produit),
-                                                class: "no-underline" %> 
+                                    <td class="text-nowrap">
+                                        <%= link_to truncate(produit_full_name(produit.id), length: 18), produit_path(produit),
+                                                class: "no-underline text-dark" %> 
                                     </td>
                                 </tr> 
                             <% end %>
                         </tbody>
                     </table>
                 </div>
-                <div class="button-container">
-                    <%= link_to "Bateaux", produits_path, class: "btn btn-warning m-2" %>
-                    <%= link_to "Nouveau", new_produit_path, class: "btn btn-warning m-2" %>
+                <div class="container mb-1">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <%= link_to produits_path, class: "btn btn-sm btn-secondary me-2" do %>
+                            <i class="fa fa-eye"></i>
+                            <span class="ms-1"> Tout voir </span>
+                        <% end %>                        
+                        <%= link_to new_produit_path, class: "btn btn-sm btn-secondary" do %>
+                            <i class="fa fa-circle-plus"></i>
+                            <span class="ms-2"> nouveau </span>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card mb-3 w-100">
+                <div class="card-header bg-secondary text-center text-light fw-bold">   
+                   <i class="fa-solid fa-receipt me-1"></i> 
+                   Réservations
+                </div>
+                <div class="card-body">
+                    <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
+                        <tbody class="table-light table-dashboard">
+                            <% @reservations.order(updated_at: :desc).each do | reservation | %>
+                                <tr> 
+                                    <td class="text-nowrap">
+                                        <%= link_to reservation.full_name, reservation_path(reservation),
+                                                class: "no-underline text-dark" %> 
+                                    </td>
+                                </tr> 
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container mb-1">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <%= link_to reservations_path, class: "btn btn-sm btn-secondary me-2" do %>
+                            <i class="fa fa-eye"></i>
+                            <span class="ms-1"> Tout voir </span>
+                        <% end %>                        
+                        <%= link_to produits_path, class: "btn btn-sm btn-secondary" do %>
+                            <i class="fa fa-circle-plus"></i>
+                            <span class="ms-2"> nouveau </span>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card mb-3 w-100">
+                <div class="card-header bg-secondary text-center text-light fw-bold">   
+                  <i class="fa-solid fa-map-location-dot me-1"></i> 
+                   Destinations
+                </div>
+                <div class="card-body">
+                    <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
+                        <tbody class="table-light table-dashboard">
+                            <% @destinations.order(updated_at: :desc).each do | destination | %>
+                                <tr> 
+                                    <td class="text-nowrap">
+                                        <%= link_to truncate(destination.full_name, lenght: 18), destination_path(destination),
+                                                class: "no-underline text-dark" %> 
+                                    </td>
+                                </tr> 
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container mb-1">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <%= link_to destinations_path, class: "btn btn-sm btn-secondary me-2" do %>
+                            <i class="fa fa-eye"></i>
+                            <span class="ms-1"> Tout voir </span>
+                        <% end %>                        
+                        <%= link_to new_destination_path, class: "btn btn-sm btn-secondary" do %>
+                            <i class="fa fa-circle-plus"></i>
+                            <span class="ms-2"> nouveau </span>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
-            <div class="card mb-3">
+            <div class="card mb-3 w-100">
                 <div class="card-header bg-secondary text-center text-light fw-bold">   
-                   Gestion
+                  <i class="fa-solid fa-message me-1"></i> 
+                   Demandes
                 </div>
                 <div class="card-body">
-
-                    <%= link_to "Destinations", destinations_path, class: "btn btn-secondary m-2" %>
-                    <%= link_to "Nouvelle destination", new_destination_path, class: "btn btn-secondary" %> <hr>
-                    <%= link_to "Réservations", reservations_path, class: "btn btn-warning" %> 
-                    <span class="fw-bold text-primary">   <%= number_to_currency(total_remuneration) %>  </span> <hr>
-                    <%= link_to "Demandes", demandes_path, class: "btn btn-primary " %>
-                    <%= link_to "Paramètres", admin_parameters_path, class: "btn btn-dark" %> <hr>
-
-                    <%= link_to "Bateaux archivés", archive_produits_path, class: "btn btn-secondary m-2"  %>
-                    <hr>
-                    <span class= "fw-bold">Admins</span>
-
                     <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
-                        
                         <tbody class="table-light table-dashboard">
-                            <% @admins.order(updated_at: :desc).each do | admin | %>
+                            <% @demandes.order(updated_at: :desc).each do | demande | %>
                                 <tr> 
-                                    <td> 
-                                        <%= link_to admin.email, user_path(admin),
-                                                class: "no-underline" %> 
+                                    <td class="text-nowrap">
+                                        <%= link_to truncate(demande.full_name, length: 20), demande_path(demande),
+                                                class: "no-underline text-dark" %> 
                                     </td>
                                 </tr> 
                             <% end %>
                         </tbody>
                     </table>
                 </div>
+                <div class="container mb-1">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <%= link_to demandes_path, class: "btn btn-sm btn-secondary me-2" do %>
+                            <i class="fa fa-eye"></i>
+                            <span class="ms-1"> Tout voir </span>
+                        <% end %>                        
+                        <%= link_to new_demande_path, class: "btn btn-sm btn-secondary" do %>
+                            <i class="fa fa-circle-plus"></i>
+                            <span class="ms-2"> nouveau </span>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <hr>
 
-        <h4>Edition contrat</h4>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
+            <div class="card mb-3 w-100">
+                <div class="card-header bg-secondary text-center text-light fw-bold">   
+                    <i class="fa-solid fa-file-contract me-1"></i> 
+                    Contrats
+                </div>
+                <div class="card-body">
+                    <table class="table bloc-table table-primary table-striped table-hover m-0 p-0">
+                        <tbody class="table-light table-dashboard">
+                            <% @contrats.order(updated_at: :desc).each do | contrat | %>
+                                <tr> 
+                                    <td> 
+                                        <%= link_to truncate(contrat.full_name, length: 20), contrat_path(contrat),
+                                                class: "no-underline text-dark" %> 
+                                    </td>
+                                </tr> 
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container mb-1">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <%= link_to contrats_path, class: "btn btn-sm btn-secondary me-2" do %>
+                            <i class="fa fa-eye"></i>
+                            <span class="ms-1"> Tout voir </span>
+                        <% end %>                        
+                        <%= link_to new_contrat_path, class: "btn btn-sm btn-secondary" do %>
+                            <i class="fa fa-circle-plus"></i>
+                            <span class="ms-2"> nouveau </span>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <%= link_to "Voir les contrats", contrats_path %>
 
 
+        <div class="col-12 d-flex align-items-center justify-content-center">
+            <div class="card mb-3 w-100">
+                <div class="card-header bg-secondary text-center text-light fw-bold">   
+                    <i class="fa-solid fa-gear me-1"></i> 
+                    Options
+                </div>
+                <div class="card-body">
+                    <%= link_to "Paramètres", admin_parameters_path, class: "btn btn-sm btn-dark" %>
+                    <%= link_to "Bateaux archivés", archive_produits_path, class: "btn btn-sm btn-secondary m-2"  %>
+
+                    <span class= "fw-bold">Admins:  </span>
+                    <% @admins.order(updated_at: :desc).each do | admin | %>
+                        <%= link_to admin.email, user_path(admin), class: "btn btn-sm btn-outline-dark" %> 
+                    <% end %>
+
+                    <span class="badge bg-success">
+                       <span class="fw-bold "> gains: <%= number_to_currency(total_remuneration) %>  </span>
+                    </span>
+                </div>
+
+            </div>
+        </div>
 
 
     </div>

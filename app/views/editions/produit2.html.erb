@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+
+<html>
+
+
+    <div class="container-img-pdf">
+        <% @produit.medias.each_with_index do |media, index| %>
+            <%= image_tag(media, class: "img-pdf #{[1, 4, 5, 8].include?(index + 1) ? 'even' : 'odd'}") %>
+        <% end %>
+    </div>
+
+<style>
+
+  .container-img-pdf{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+  }
+
+  .img-pdf {
+    height: 300px;
+    margin: 6px;
+   }
+
+  .even {
+      width: 500px;
+    object-fit: cover;
+  }
+
+  .odd {
+      width: 350px;
+    object-fit: cover;
+  }
+
+</style>
+
+</html>

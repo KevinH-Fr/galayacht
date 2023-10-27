@@ -55,7 +55,7 @@ h1{
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
-    margin-bottom: 30px;
+   /* margin-bottom: 30px;*/
   }
 
   .bloc-produit{
@@ -106,4 +106,28 @@ h1{
 
 .td-width{
   width: 600px;
+}
+
+.page-break {
+  page-break-before: always;
+  page-break-after: avoid;
+}
+
+.table-bordered {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid black;
+}
+
+
+
+
+
+
+
+.margined-image {
+  margin: 6px;
 }

@@ -8,3 +8,5 @@ import "@hotwired/turbo-rails"
 
 //= require toastui-calendar.min
 //= require bootstrap.bundle.min
+import "trix"
+import "@rails/actiontext"

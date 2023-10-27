@@ -119,6 +119,8 @@ class ProduitsController < ApplicationController
   
   end
 
+
+  
   def create
     @produit = Produit.new(produit_params)
     @destinations = Destination.all

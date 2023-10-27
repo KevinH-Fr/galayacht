@@ -107,7 +107,7 @@
 
     <%# change page %>
 
-    <div class="centered">
+    <!--div class="centered">
         <% @produit.medias.each do |media| %>
             <% if media.image? %>
             <div class="img-wrapper">
@@ -115,6 +115,20 @@
             </div>
             <% end %>
         <% end %>
-    </div>
-    
+    </div-->
+
+    <% @produit.medias.each_slice(2).with_index do |media_pair, index| %>
+        <% largeWidth = 550 %>
+        <% smallWidth = 420 %>
+        <% width1 = index.even? ? largeWidth : smallWidth %>
+        <% width2 = index.even? ? smallWidth : largeWidth %>
+        <div class="slide">
+            <% media_pair.each_with_index do |media, inner_index| %>
+            <% width = inner_index == 0 ? width1 : width2 %>
+            <%= cl_image_tag(media.key, :width => width, :height => 350, :crop => "fill", :class => "margined-image") %>
+            <% end %>
+        </div>
+    <% end %>
+
+        
 </html>

@@ -8,8 +8,11 @@ class EspaceAdminController < ApplicationController
     @bailleurs = Bailleur.limit(5)
     @preneurs = Preneur.limit(5)
     @produits = Produit.limit(5)
-    @reservations = Reservation.all
-    @demandes = Demande.all
+    @reservations = Reservation.limit(5)
+    @destinations = Destination.limit(5)
+    
+    @demandes = Demande.limit(5)
+    @contrats = Contrat.limit(5)
 
 
   end

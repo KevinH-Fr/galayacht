@@ -1,39 +1,91 @@
-
 <!DOCTYPE html>
 
 <html>
 
-<h1>
-    CONTRAT DE LOCATION <%= @contrat.id %>
-</h1>
+    <h1>
+        CONTRAT DE LOCATION <%= @contrat.id %>
+    </h1>
 
-<p>
-    Il est conclu entre GALAYACHT, ci-après dénommée le « Loueur », et <%= @contrat.loc_nom %>, 
-    ci-après dénommé le « Locataire », un engagement de location de navire de plaisance aux conditions suivantes.
-    Le Loueur met à disposition du Locataire, qui accepte le bateau défini ci-après, pour une période allant du <%= @contrat.debut_loc %> au <%= @contrat.fin_loc %>.
-</p>
+    <p>
+        Il est conclu entre GALAYACHT, ci-après dénommée le « Loueur », et <%= @contrat.loc_nom %>, 
+        ci-après dénommé le « Locataire », un engagement de location de navire de plaisance aux conditions suivantes.
+    </p>  
+    <p>
+        Le Loueur met à disposition du Locataire, qui accepte le bateau défini ci-après, pour une période allant du <%= @contrat.debut_loc %> au <%= @contrat.fin_loc %>.
+    </p>
 
-<h2>BATEAU MIS A DISPOSITION </h2> 
+    <h2>BATEAU MIS A DISPOSITION </h2> <hr>
 
-Références : <%= @contrat.bateau_ref %>
-Prise en charge : <%= @contrat.lieu %>
-Restitution : 
-Caution : <%= @contrat.caution %>
-Nom : 
-Propriétaire : <%= @contrat.bateau_proprietaire_nom %>
-Marque : <%= @contrat.bateau_marque %>
-Modèle : <%= @contrat.bateau_model %>
-Franchise : <%= @contrat.franchise %>
-Armement : <%= @contrat.armement %>
-Moteur : <%= @contrat.moteur %>
-Carburant : <%= @contrat.carbutant %>
-Equipage max : <%= @contrat.nb_equipage %>
+    <table>
+        <tr>
+            <td>
+                Références : <%= @contrat.bateau_ref %><br>
+                Prise en charge : <%= @contrat.lieu %><br>
+                Restitution : <br>
+                Caution : <%= @contrat.caution %><br>
+            </td>
+            <td>
+                Nom : <br>
+                Propriétaire : <%= @contrat.bateau_proprietaire_nom %><br>
+                Marque : <%= @contrat.bateau_marque %><br>
+                Modèle : <%= @contrat.bateau_model %><br>
+            </td>
+            <td>
+                Franchise : <%= @contrat.franchise %><br>
+                Armement : <%= @contrat.armement %><br>
+                Moteur : <%= @contrat.moteur %><br>
+                Carburant : <%= @contrat.carbutant %><br>
+                Equipage max : <%= @contrat.nb_equipage %><br>
+            </td>
+        </tr>
+    </table>
 
-<h2>LOCATAIRE : </h2>
-Nom : <%= @contrat.loc_nom %>
-Adresse : <%= @contrat.loc_adresse %>
-Téléphone : <%= @contrat.loc_telephone %>
-Email : <%= @contrat.loc_mail %>
+    <h2>LOCATAIRE : </h2> <hr>
 
+    <table>
+        <tr>
+            <td>
+                Nom : <%= @contrat.loc_nom %>
+                Adresse : <%= @contrat.loc_adresse %>
+            <td>
+                Téléphone : <%= @contrat.loc_telephone %>
+                Email : <%= @contrat.loc_mail %>
+            </td>
+        </tr>
+    </table>
+    
+    <h2>TARIFS ET PAIEMENTS : </h2> <hr>
+
+    <table class="table-bordered">
+        <tr>
+            <th> </th>
+            <th> PU TTC  </th>
+            <th> Tx TVA  </th>
+            <th> Assiette  </th>
+            <th> Quantité  </th>
+            <th> Prix HT  </th>
+            <th> TVA  </th>
+            <th> Prix TTC  </th>
+        </tr>
+        <tr>
+            <td> Embarcation </td>
+            <td> <%= @contrat.full_prix %> </td>
+            <td> </td>
+            <td> </td>
+            <td> 1 </td>
+            <td> </td>
+            <td> <%= @contrat.full_prix %> </td>
+        </tr>
+    </table>
+    
+    <h2>CAUTION / DEPOT DE GARANTIE : </h2> <hr>
+
+    <h2>SIGNATURE : </h2> <hr>
+
+
+
+    <h2 class="page-break">Conditions et clauses générales de location</h2>
+
+    <%= AdminParameter.last.rich_conditions_generales if AdminParameter.last %>
     
 </html>

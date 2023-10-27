@@ -6,5 +6,8 @@ class Reservation < ApplicationRecord
   validates :debutlocation, presence: true
   validates :finlocation, presence: true
 
+  def full_name
+    "#{self.id} #{self.produit.nom} #{self.preneur.nom}"
+  end
 
 end

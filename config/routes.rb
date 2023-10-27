@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
  
-
-
   #hypens pour seo - link canonical dans layout 
   get 'location-bateau-cannes', to: 'article#location_bateau_cannes'
   get 'louer-bateau-cannes', to: 'article#location_bateau_cannes'
@@ -53,8 +51,6 @@ Rails.application.routes.draw do
   resources :admin_parameters
   resources :demandes
   
-
-
   resources :produits do
     member do
      # post :edit
