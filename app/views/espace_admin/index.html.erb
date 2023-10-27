@@ -1,7 +1,7 @@
-
+<br><br>
 <h3 class="mt-5">Espace Admin</h3>
 
-<div class="container-fluid mt-4"   style="max-width: 1200px;">
+<div class="container-fluid mt-4" style="max-width: 1200px;">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center">
             <div class="card mb-3 w-100">
@@ -264,18 +264,22 @@
                     <i class="fa-solid fa-gear me-1"></i> 
                     Options
                 </div>
-                <div class="card-body">
+                <div class="card-body text-center">
                     <%= link_to "Paramètres", admin_parameters_path, class: "btn btn-sm btn-dark" %>
                     <%= link_to "Bateaux archivés", archive_produits_path, class: "btn btn-sm btn-secondary m-2"  %>
 
-                    <span class= "fw-bold">Admins:  </span>
+                    <span class="badge bg-success p-2">
+                        <span class="fw-bold"> gains: <%= number_to_currency(total_remuneration, precision: 0, locale: :fr)  %> </span>
+                    </span>
+              
+
                     <% @admins.order(updated_at: :desc).each do | admin | %>
-                        <%= link_to admin.email, user_path(admin), class: "btn btn-sm btn-outline-dark" %> 
+                        <%= link_to user_path(admin), class: "btn btn-sm btn-outline-warning" do %>
+                            <i class="fa-solid fa-user-shield me-1"></i> 
+                            <%=  admin.email %>
+                        <% end %>
                     <% end %>
 
-                    <span class="badge bg-success">
-                       <span class="fw-bold "> gains: <%= number_to_currency(total_remuneration) %>  </span>
-                    </span>
                 </div>
 
             </div>

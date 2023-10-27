@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
 
-<h1 class="mt-5">Contrats</h1>
+<h1 class="mt-5 h1-styled">Contrats</h1>
 
-<%= link_to "New contrat", new_contrat_path %>
+ <div id="bailleurs" class="container-fluid">
+  <div class="row justify-content-center">
+    <% @contrats.each do |contrat| %>
+      <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center mb-3">
+         <%= render contrat %> 
+      </div>
+    <% end %>
+  </div>
+</div> 
 
-<div id="contrats">
-  <% @contrats.each do |contrat| %>
-    <%= render contrat %>
-    <p>
-      <%= link_to "Show this contrat", contrat %>
-    </p>
-  <% end %>
-</div>
+<% if current_user && user_admin %>
+  <%= link_to "New contrat", new_contrat_path, class: "btn btn-warning" %>
+<% end %>

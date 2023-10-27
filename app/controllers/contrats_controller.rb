@@ -1,5 +1,8 @@
 class ContratsController < ApplicationController
+  include UserHelper
+
   before_action :set_contrat, only: %i[ show edit update destroy ]
+  before_action :authorize_admin
 
   # GET /contrats or /contrats.json
   def index
@@ -139,5 +142,12 @@ class ContratsController < ApplicationController
         :capitaine_fin, :capitaine_renew, :capitaine_fonctions, :capitaine_periode_essai, 
         :capitaine_salaire, :capitaine_duree_travail, :capitaine_nourriture, :capitaine_indemnite_nourritaire_jour, 
         :capitaine_conges_payes, :capitaine_preavis)
+    end
+
+    
+    def authorize_admin
+      unless current_user && user_admin
+        redirect_to root_path, alert: "You are not authorized to access this page."
+      end
     end
 end

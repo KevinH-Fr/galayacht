@@ -10,20 +10,26 @@
   </a>
 </p>
 <div class="collapse" id="collapseExample">
-  <div class="card card-body">
     <%= render @contrat %>
-  </div>
 </div>
 
 <div class="d-flex text-center">
+
   <%= link_to "PDF contrat location", edition_contrat_path(@contrat), class: "btn btn-dark m-1" %>
   <%= link_to "PDF contrat capitaine", edition_capitaine_contrat_path(@contrat), class: "btn btn-dark m-1" %>
 
+
+
+  <%= link_to "", edit_contrat_path(@contrat), class: "btn btn-action btn-secondary fa-solid fa-pen-to-square" %>
+
+  <%= button_to "", @contrat, method: :delete, class: "btn btn-action btn-danger fa-solid fa-trash-can",
+              data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> 
+
+
 </div>
-
-<div>
-  <%= link_to "Edit this contrat", edit_contrat_path(@contrat) %> |
-  <%= link_to "Back to contrats", contrats_path %>
-
-  <%= button_to "Destroy this contrat", @contrat, method: :delete %>
+<div class="my-2 w-100">
+  <%= link_to contrats_path, class: "btn btn-action btn-secondary" do %>
+    <i class="me-1  fa fa-arrow-left"></i>
+    <span>Retour</span>
+  <% end %>
 </div>
