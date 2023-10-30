@@ -1,16 +1,38 @@
 
+
 <h1 class="mt-5 h1-styled">Contrats</h1>
 
- <div id="bailleurs" class="container-fluid">
+ <div id="contrats" class="container-fluid" style="max-width: 1000px;">
   <div class="row justify-content-center">
     <% @contrats.each do |contrat| %>
       <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center justify-content-center mb-3">
-         <%= render contrat %> 
+        <div class="card p-2">
+          <strong class="text-center my-1">  
+            <%= contrat.bateau_ref %> | <%= contrat.bateau_marque %>
+          </strong>
+
+          <%= contrat.bateau_model %>
+          <%= contrat.bateau_proprietaire_nom %>
+
+          <%= contrat.loc_nom %>
+          <%= contrat.debut_loc %>
+          <%= contrat.fin_loc %>
+
+          <%= contrat.lieu %>
+          <%= contrat.prix_ht %>
+
+          <%= contrat.capitaine_nom %>
+
+          <div class="container my-1">
+            <%= link_to "Détails", contrat_path(contrat), class: "btn btn-primary" %>
+          </div>
+
+        </div>
       </div>
     <% end %>
   </div>
 </div> 
 
 <% if current_user && user_admin %>
-  <%= link_to "New contrat", new_contrat_path, class: "btn btn-warning" %>
+  <%= link_to "New contrat", new_contrat_path, class: "btn btn-warning my-1" %>
 <% end %>
